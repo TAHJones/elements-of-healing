@@ -1,0 +1,66 @@
+// modules/_mixins.scss
+
+@use "variables" as v;
+@use "functions" as f;
+@use "media_queries" as q;
+
+
+@mixin poster($bg-color, $header-color:false, $border-color: false) {
+    @if $header-color {
+        h2 {
+            color: v.$tertiary-header-color;
+            font-weight: 600px;
+            margin-bottom: f.rem-calc(0);
+            text-align: center;
+        }
+    }
+    text-shadow: 2px 2px #000;
+    @include q.respond-above(sm) {
+        background-color: $bg-color;
+        border-radius: f.rem-calc(6);
+        @if $border-color {
+            border: f.rem-calc(8) solid $border-color;
+            box-shadow: f.rem-calc(5 5 20 2) #000;
+        }
+    }
+}
+
+@mixin list-color($color-one, $color-two, $color-three, $color-four) {
+    > ul > li {
+        font-size: f.rem-calc(v.$list-font-size-xxsmall);
+        font-weight: 600;
+        list-style: none;
+        margin-bottom: f.rem-calc(32);
+        text-align: center;
+        @include q.respond-above(xs) {
+            font-size: f.rem-calc(v.$list-font-size-xsmall);
+        }
+        @include q.respond-above(sm) {
+            font-size: f.rem-calc(v.$list-font-size-small);
+        }
+        @include q.respond-above(md) {
+            font-size: f.rem-calc(v.$list-font-size-medium);
+        }
+        @include q.respond-above(lg) {
+            font-size: f.rem-calc(v.$list-font-size-large);
+        }
+    }
+
+    > ul > li:nth-of-type(1) {
+        color: $color-one;
+        margin-top: f.rem-calc(40)
+    }
+
+    > ul > li:nth-of-type(2) {
+        color: $color-two;
+    }
+
+    > ul > li:nth-of-type(3) {
+        color: $color-three;
+    }
+
+    > ul > li:nth-of-type(4) {
+        color: $color-four;
+        margin-bottom: 0;
+    }
+}

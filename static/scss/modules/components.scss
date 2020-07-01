@@ -1,0 +1,209 @@
+// modules/_components.scss
+
+@use "variables" as v;
+@use "functions" as f;
+// @use "mixins" as m;
+@use "media_queries" as q;
+
+
+/* NAVBAR */
+
+.navbar {
+	background-color: #2b532a !important
+}
+
+.navbar-dark .navbar-nav .nav-link {
+	color: #d9b034;
+    font-weight: 400;
+    padding: f.rem-calc(0 15 15 0);
+    @include q.respond-above(sm) {
+        padding: f.rem-calc(15);
+    }
+}
+
+.navbar-dark .navbar-nav .nav-link:focus,
+.navbar-dark .navbar-nav .nav-link:hover {
+	color: #d96a28;
+	transition: all .5s ease-in-out;
+}
+
+.nav-item:nth-of-type(1) {
+	margin-top: 1.25rem;
+}
+
+.nav-item {
+    &:nth-of-type(1) {
+        margin-top: f.rem-calc(20);
+    }
+    @include q.respond-above(sm) {
+        &:nth-of-type(1) {
+            margin-top: f.rem-calc(0);
+        }
+    }
+    > .nav-link {
+        font-size: f.rem-calc(v.$link-font-size-xsmall);
+        @include q.respond-above(md) {
+            font-size: f.rem-calc(v.$link-font-size-small);
+        }
+        @include q.respond-above(lg) {
+            font-size: f.rem-calc(v.$link-font-size-medium);
+        }
+        @include q.respond-above(xl) {
+            font-size: f.rem-calc(v.$link-font-size-large);
+        }
+    }
+}
+
+.navbar.navbar-dark > .navbar-toggler {
+	background-color: v.$hamburger-background-color;
+	border: v.$hamburger-border-color solid 2px;
+	font-size: f.rem-calc(20);
+	padding: f.rem-calc(5 12);
+	transition: all .25s ease-in-out;
+}
+
+.navbar.navbar-dark > .navbar-toggler:hover {
+	background-color: v.$hamburger-background-color;
+}
+
+/* NAVBAR-END */
+
+/* CAROUSEL */
+
+.carousel {
+    position: relative;
+}
+
+.carousel-indicators {
+    display: none;
+    @include q.respond-above(sm) {
+	    bottom: -15%;
+        display: flex;
+    }
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    display: none;
+    @include q.respond-above(xs) {
+        display: block;
+        top: 50%;
+    }
+}
+
+.carousel-control-prev {
+	left: -40px;
+}
+
+.carousel-control-next {
+	right: -50px;
+}
+
+/* CAROUSEL-END */
+
+/* CARD */
+
+.card-bg h2 {
+	color: v.$tertiary-header-color;
+	text-align: center;
+	margin-bottom: f.rem-calc(60);
+}
+
+.card {
+	background-color: v.$card-bg-color;
+	padding: f.rem-calc(5);
+}
+
+.card-img {
+    margin-bottom: f.rem-calc(20);
+}
+
+.card-body {
+    padding: f.rem-calc(20);
+    height: 470px;
+    @include q.respond-above(lg) {
+        padding: f.rem-calc(30);
+        height: 500px;
+    }
+    @include q.respond-above(xl) {
+        height: 570px;
+    }
+}
+
+.card-body > p {
+    color: v.$card-font-color;
+    font-size: f.rem-calc(14);
+    @include q.respond-above(lg) {
+        font-size: f.rem-calc(16);
+    }
+    @include q.respond-above(xl) {
+        font-size: f.rem-calc(18);
+    }
+}
+
+.card-body > p > strong{
+    color: v.$card-strong-font-color;
+}
+
+/* CARD-END */
+
+/* FLOATING-BUTTON */
+
+.btn-float {
+	position: fixed;
+}
+
+.btn-fixed {
+	position: relative;
+}
+
+.back-to-top {
+	bottom: 24px;
+	left: 24px;
+	z-index: 1;
+	cursor: pointer;
+	color: v.$floating-button-color;
+	opacity: 0;
+	background-color: transparent;
+	transition: all .25s ease-in-out;
+}
+
+#backToTop.active {
+	pointer-events: auto;
+	opacity: 0.9;
+}
+
+#backToTop.active:hover {
+	pointer-events: auto;
+	opacity: 1;
+}
+
+/* FLOATING-BUTTON-END */
+
+/* FORM */
+
+.form-control {
+	height: 50px;
+	color: #495057;
+	background-color: #f7f4cb;
+}
+
+.form-group > label {
+    color: v.$form-label-color;
+    margin-bottom: f.rem-calc(12);
+}
+
+.btn {
+    background-color: v.$form-btn-color;
+    opacity: 0.9;
+    font-weight: 600;
+}
+
+.btn:hover {
+    opacity: 1;
+    transition: all 0.25s ease-in-out;
+}
+
+
+
+/* FORM-END */

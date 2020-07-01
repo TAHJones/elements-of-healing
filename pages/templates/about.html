@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="container">
+    <div class="row justify-content-center">
+        <div class="col-10 col-md-8 col-lg-8">
+            <h2>About Thomas</h2>
+            <p>My journey to becoming a healer began in 2001 when I began to look beyond mainstream science and explore other philosophical ideas. This interest developed into a fascination with the relationship between the mind and body and the role our thoughts & emotions play in maintaining or disrupting our health and general sense of wellbeing.</p>
+        </div>
+    </div>
+</section>
+
+<section class="container dark-bg">
+    <div class="row justify-content-center">
+        <div class="col-xs-12 col-sm-10 col-md-9 col-lg-8 image">
+            <img src="{% static 'img/thomas.jpg' %}" alt="Thomas Jones">
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="row justify-content-center">
+        <div class="col-10 col-md-8 col-lg-8">
+            <h2>My Scientific Background</h2>
+            <p>Before becoming a holistic healer, I worked in the field of genetics and molecular biology. I achieved a 1st class degree in genetics in 1997 and continued my career in mainstream science for several years. I began my scientific career in academia using molecular mapping techniques to characterise individual genes. I then moved into the private sector where I was involved in several large scale genotyping projects and the development of ‘next generation’ DNA sequencing technology. I currently work as a healthcare scientist as well as running my own Homeopathic practice.</p>
+        </div>
+    </div>
+</section>
+
+<section class="container dark-bg">
+    <div class="row justify-content-center">
+        <div class="col-xs-12 col-sm-10 col-md-9 col-lg-8 image">
+            <img src="{% static 'img/homeopathy-image5.jpg' %}" alt="homeopathy certificate">
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="row justify-content-center">
+        <div class="col-10 col-md-8 col-lg-8">
+            <h2>Homeopathic Training</h2>
+            <p>I became a fully qualified homeopath in 2007, after training for four years (2003-2007) at the country’s largest homeopathic college; The Centre for Homeopathic Education. Since becoming a homeopath I continued to develop my skills as a healer. For two years (2007-2009) I attended a postgraduate course in Homeopathy. On this course I studied the Kingdom Method, an approach which identifies basic differences in people’s personalities that correspond to energetic patterns from the animal, plant and mineral kingdoms.</p>
+        </div>
+    </div>
+</section>
+
+<section class="container dark-bg">
+    <div class="row justify-content-center">
+        <div class="col-xs-12 col-sm-10 col-md-11 col-lg-11 gallery">
+            <div id="demo" class="carousel slide" data-ride="carousel">
+                <ul class="carousel-indicators .d-none .d-sm-block">
+                    <li data-target="#demo" data-slide-to="0" class="active"></li>
+                    <li data-target="#demo" data-slide-to="1"></li>
+                    <li data-target="#demo" data-slide-to="2"></li>
+                    <li data-target="#demo" data-slide-to="3"></li>
+                    <li data-target="#demo" data-slide-to="4"></li>
+                </ul>
+
+                <div class="carousel-inner gallery-inner">
+                    <div class="carousel-item active">
+                        <img src="{% static 'img/certificate-image1.jpg' %}" alt="reiki One certificate">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'img/certificate-image2.jpg' %}" alt="reiki Two certificate">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'img/certificate-image3.jpg' %}" alt="reiki mastery certificate">
+                    </div>
+                </div>
+
+                <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#demo" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="row justify-content-center">
+        <div class="col-10 col-md-8 col-lg-8">
+            <h2>Beyond Homeopathy</h2>
+            <p>Perhaps the biggest weakness of the homeopathic method is that energy is only really understood from a theoretical perspective. In order to address this limitation in my own understanding I decided to study other methods of healing. I found reiki to be particularly interesting. Working with reiki energy has allowed me to experience the reality of the universal life force (energy) in a very visceral way. Over the years I have continued to study the many aspects of reiki and energy healing. I am a qualified reiki practitioner having received my 1st and 2nd degree in 2008-2009. I became a fully qualified Reiki Master in 2009. I belong to the Golden Reiki Way Lineage and am a member of the Beyond Reiki School which belongs to the Usui tradition of natural healing. This has greatly improved my skills as a healer and has informed the way I now practice homeopathy.</p>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

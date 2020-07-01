@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="container">
+    <div class="row justify-content-center">
+        <div class="col-10 col-md-8 col-lg-8">
+            <h2>What is Homeopathy?</h2>
+            <p>Homeopathy is a natural system of medicine that was discovered two hundred years ago by the German physician Samuel Hahnemann. It is based upon healing principles that have existed for thousands of years. The word homeopathy means ‘similar suffering’ and originates from the Greek words "homos" (similar) and "pathos" (disease, suffering). Its central principle is The Law of Similars which states that the symptoms of disease can be cured by a substance that produces similar symptoms in a healthy individual. Homeopaths refer to this healing principle as ‘like cures like’.</p>
+        </div>
+    </div>
+</section>
+
+<section class="container dark-bg card-bg">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <h2 id="responsiveCardsTitle">Examples of the Law of Similars</h2>
+        </div>
+    </div>
+    <div id="responsiveCards" class="row justify-content-center">
+        <div class="col-8 col-md-4 col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <img class="card-img" src="{% static 'img/coffee.jpg' %}" alt="coffee beans">
+                    <p><strong>Coffee</strong> - If you drink too much coffee it can make you feel anxious, give you a rapid heartbeat and keep you awake. A patient suffering from stress experiencing these symptoms might need <em>Coffea</em>, the homeopathic remedy made from coffee.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-8 col-md-4 col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <img class="card-img" src="{% static 'img/onion.jpg' %}" alt="onion">
+                    <p><strong>Onion</strong> - <em>Allium cepa</em> is a homeopathic remedy made from onions. A person chopping onions can develop stinging watery eyes and a runny nose. This remedy is for hayfever with stinging watery eyes and a runny nose.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-8 col-md-4 col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <img class="card-img" src="{% static 'img/bee.jpg' %}" alt="honey bee">
+                    <p><strong>Honey Bee</strong> - <em>Apis Mellifora</em> is the homeopathic remedy made from the honey bee. It is great for insect bites and stings where the affected area is swollen, red and hot, with burning and stinging pains. Just like a bee string!</p>
+                </div>
+            </div>
+        </div>    
+    </div>
+</section>
+
+<section class="container">
+    <div class="row justify-content-center">
+        <div class="col-10 col-md-8 col-lg-8">
+            <h2>How Does Homeopathy Work?</h2>
+            <p><span id="responsiveCardsParagraph">The examples of The Law of Similars above are highly simplistic</span>. Treating chronic illness requires the similarity of the remedy to go beyond the symptoms of disease. Homeopathy does not just treat the symptoms of disease, it treats the whole person. An understanding of the relationship between a person’s symptoms and their personality is essential in order to make a successful prescription. Therefore homeopathy treats each person individually based on their particular symptom picture. This includes their reactions to illnesses, their personality, lifestyle, medical history and much more. Gradually a pattern emerges from this information which can be matched to a homeopathic remedy.</p>
+        </div>
+    </div>
+</section>
+
+<section class="container dark-bg">
+    <div class="row justify-content-center">
+        <div class="col-xs-12 col-sm-10 col-md-11 col-lg-11 gallery">
+            <div id="demo" class="carousel slide" data-ride="carousel">
+                <ul class="carousel-indicators .d-none .d-sm-block">
+                    <li data-target="#demo" data-slide-to="0" class="active"></li>
+                    <li data-target="#demo" data-slide-to="1"></li>
+                    <li data-target="#demo" data-slide-to="2"></li>
+                    <li data-target="#demo" data-slide-to="3"></li>
+                    <li data-target="#demo" data-slide-to="4"></li>
+                </ul>
+
+                <div class="carousel-inner gallery-inner">
+                    <div class="carousel-item active">
+                        <img src="{% static 'img/homeopathy-image1.jpg' %}" alt="book and bottles">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'img/homeopathy-image2.jpg' %}" alt="river">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'img/homeopathy-image3.jpg' %}" alt="bottle">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'img/homeopathy-image4.jpg' %}" alt="heron">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'img/homeopathy-image5.jpg' %}" alt="certificate">
+                    </div>
+                </div>
+
+                <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#demo" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="row justify-content-center">
+        <div class="col-10 col-md-8 col-lg-8">
+            <h2>Homeopathic Treatment</h2>
+            <p>Finding a remedy that matches the clients individual state is an in-depth process. It requires high levels of observation, a good understanding of the clients case and a broad knowledge of the animal, plant and mineral kingdoms from which the remedies are made. One has to understand that holistic healing is an unfolding process rather than a one off diagnosis and cure. The client usually requires a certain amount of time for their healing process to naturally unfold. They may also require several different remedies during this time to support them as issues arise to be healed and released.</p>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

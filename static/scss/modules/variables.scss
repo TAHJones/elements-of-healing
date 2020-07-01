@@ -1,0 +1,81 @@
+// modules/_variables.scss
+
+// font families
+$primary-font-stack: "Kameron", Georgia, "Times New Roman", Times, serif;
+$secondary-font-stack: Georgia, "Times New Roman", Times, serif;
+
+// background colors
+$primary-bg-color:rgba(237, 250, 162, 0.9);
+$secondary-bg-color:rgba(0, 0, 0, 0.4);
+$tertiary-bg-color: #fffaa2;
+$banner-bg-color: rgba(0, 0, 0, 0.5);
+$poster-bg-color: rgba(0, 0, 0, 0.6);
+
+// font colors
+$primary-font-color:#527d5b;
+$secondary-font-color:#fffaa2;
+
+// header colors
+$primary-header-color: #ffcd37;
+$secondary-header-color: #0aaa2d;
+$tertiary-header-color: #ffcd37;
+
+// link colors
+$primary-link-color: #eae58e;
+$primary-link-color-hover: #ffcd37;
+
+// border colors
+$primary-border-color: #7dab4b;
+
+// list colors
+$list-color-blue: #7fb0d7;
+$list-color-yellow: #e6ea74;
+$list-color-red: #f8585d;
+$list-color-magenta: #c559a1;
+$list-color-magenta--light:#e370bc;
+
+// carousel
+$carousel-font-color: #fffaa2;
+
+// navbar
+$hamburger-border-color: #bd9828;
+$hamburger-background-color: rgba(0, 0, 0, 0.3);
+$hamburger-background-color-hover: rgba(0, 0, 0, 0.6);
+
+// cards
+$card-bg-color: rgba(0,0,0,0.6);
+$card-font-color: #76bb85;
+$card-strong-font-color:#d0ac3d;
+
+// footer
+$floating-button-color: #e3b72f;
+
+// form
+$form-label-color: #ffcd37;
+$form-btn-color: #e3b72f;
+
+// font size
+
+$font-size-xxsmall: 14px;
+$font-size-xsmall: 16px;
+$font-size-small: 18px;
+$font-size-medium: 20px;
+$font-size-large: 22px;
+$h1-font-size-xsmall: 22px;
+$h1-font-size-small: 26px;
+$h1-font-size-medium: 34px;
+$h1-font-size-large: 40px;
+$h2-font-size-xxsmall: 17px;
+$h2-font-size-xsmall: 22px;
+$h2-font-size-small: 26px;
+$h2-font-size-medium: 32px;
+$h2-font-size-large: 36px;
+$link-font-size-xsmall: 16px;
+$link-font-size-small: 18px;
+$link-font-size-medium: 20px;
+$link-font-size-large: 20px;
+$list-font-size-xxsmall: 16px;
+$list-font-size-xsmall: 18px;
+$list-font-size-small: 20px;
+$list-font-size-medium: 24px;
+$list-font-size-large: 28px;

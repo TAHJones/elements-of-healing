@@ -1,0 +1,166 @@
+// modules/_layout.scss
+
+@use "variables" as v;
+@use "functions" as f;
+@use "mixins" as m;
+@use "media_queries" as q;
+
+/* LAYOUT */
+
+.dark-bg {
+    background-color: v.$poster-bg-color;
+    text-shadow: 2px 2px #000;
+    @include q.respond-above(sm) {
+        background-color: v.$secondary-bg-color;
+    }
+}
+
+.logo-bg {
+	background-color: v.$tertiary-bg-color;
+	margin-top: f.rem-calc(55);
+    @include q.respond-above(sm) {
+	    margin-top: f.rem-calc(120);
+    }
+}
+
+.banner-bg {
+    background-color: v.$banner-bg-color;
+    padding: f.rem-calc(60 0);
+}
+
+.banner > img, .logo > img {
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+}
+
+.banner > img {
+    width: 95%;
+    @include q.respond-above(sm) {
+    width: 98%;
+    }
+}
+
+.testimonials {
+    @include m.poster(v.$poster-bg-color, v.$tertiary-header-color);
+    padding: f.rem-calc(20 30 0);
+    @include q.respond-above(sm) {
+        padding: f.rem-calc(60 40 76);
+    }
+}
+
+.testimonials-inner > .carousel-item > p {
+    @include q.respond-below(sm) {
+        font-size: f.rem-calc(14);
+        text-align: left;
+    }
+	color: #76bb85;
+	font-style: italic;
+	font-weight: 400;
+	width: 100%;
+	display: block;
+	margin: f.rem-calc(30) auto;
+    > strong { color: #d0ac3d; }
+    @include q.respond-above(xs) {
+        width: 90%;
+    }
+    @include q.respond-above(sm) {
+	    margin: f.rem-calc(30) auto f.rem-calc(20);
+        width: 85%;
+    }
+    @include q.respond-between(sm, md) { height: 180px; }
+}
+
+.colored-list {
+    @include m.poster(v.$poster-bg-color, v.$tertiary-header-color);
+    @include m.list-color(v.$list-color-magenta--light, v.$list-color-red, v.$list-color-yellow, v.$list-color-blue);
+    padding: f.rem-calc(20 30 0);
+    @include q.respond-above(sm) {
+        padding: f.rem-calc(60 40);
+        @include m.list-color(v.$list-color-magenta, v.$list-color-red, v.$list-color-yellow, v.$list-color-blue);
+    }
+}
+
+.gallery {
+    @include m.poster(v.$poster-bg-color);
+	padding: f.rem-calc(0 32);
+    @include q.respond-above(xs) {
+	    padding: f.rem-calc(0 48);
+    }
+    @include q.respond-above(sm) {
+	    padding: f.rem-calc(40 36 56);
+    }
+    @include q.respond-above(md) {
+	    padding: f.rem-calc(44 56 60);
+    }
+    @include q.respond-above(lg) {
+	    padding: f.rem-calc(60 56 92);
+    }
+        @include q.respond-above(xl) {
+	    padding: f.rem-calc(60 56 112);
+    }
+}
+
+.image {
+    @include m.poster(v.$poster-bg-color);
+}
+
+.image > img {
+	display: block;
+	margin: 0 auto;
+    padding: f.rem-calc(60);
+	width: 100%;
+}
+
+img[src*="assets/images/thomas.jpg"] {
+    border-radius: f.rem-calc(10);
+    width: 90%;
+}
+
+.gallery-inner > .carousel-item > img {
+    display: block;
+    margin: f.rem-calc(0) auto f.rem-calc(10);
+    width: 90%;
+    @include q.respond-above(md) {
+        width: 70%;
+    }
+}
+
+.form {
+    @include m.poster(v.$poster-bg-color);
+    padding: f.rem-calc(30 50);
+}
+
+footer {
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 2rem 0 2rem;
+}
+
+.footer-copyright {
+    color: #d9b034;
+	text-align: center;
+	text-shadow: 2px 2px #000;
+}
+
+#copyRight {
+    color: #d9b034;
+    font-size: f.rem-calc(v.$font-size-xxsmall);
+	text-align: center;
+	text-shadow: 2px 2px #000;
+    @include q.respond-above(md) {
+        font-size: f.rem-calc(v.$font-size-small);
+    }
+    @include q.respond-above(lg) {
+        font-size: f.rem-calc(v.$font-size-medium);
+    }
+    @include q.respond-above(xl) {
+        font-size: f.rem-calc(v.$font-size-large);
+    }
+}
+
+.footer-nav {
+	height: 0;
+}
+
+/* LAYOUT-END */

@@ -1,0 +1,12 @@
+// styles.scss
+
+// To install sass: npm install -g sass
+//To convert sass into css: sass --watch static/scss/styles.scss static/css/styles.css
+
+@use "modules/variables";
+@use "modules/functions";
+@use "modules/mixins";
+@use "modules/media_queries";
+@use "modules/general";
+@use "modules/layout";
+@use "modules/components";
