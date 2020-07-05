@@ -4,14 +4,36 @@
 <html lang="en">
 
 <head>
+    {% block meta %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% endblock meta %}
+
+    {% block extra_meta %}
+    {% endblock extra_meta %}
+
+    {% block css %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% endblock css %}
+
+    {% block extra_css %}
+    {% endblock extra_css %}
+
+    {% block js %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>   
+    {% endblock js %}
+
+    {% block extra_js %}
+    {% endblock %}
+    
     <link rel="shortcut icon" href="{% static 'img/favicon.png' %}">
-    <title>Thomas Jones- Homeopathy in Reigate</title>
+    <title>Thomas Jones - Homeopathy in Reigate {% block extra_title %}{% endblock extra_title %}</title>
 </head>
 
 <body>
@@ -19,9 +41,24 @@
     {% include 'layout/header.html' %}
     </header>
 
+    <!-- MESSAGES -->
+    {% if messages %}
+    <section class="container banner-bg">
+        <div class="row justify-content-center">
+            <div class="col-12 banner">
+                <div class="message-container"></div>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    <!-- MESSAGES-END -->
+
     <!-- BANNER -->
     {% include 'layout/banner.html' %}
     <!-- BANNER-END -->
+
+    {% block page_header %}
+    {% endblock page_header %}
 
     <!-- MAIN CONTENT -->
     {% block content %} {% endblock content %}
@@ -32,8 +69,8 @@
     </footer>
 
     <!-- JAVASCRIPT -->
-    {% block javascript %} {% endblock javascript %}
-    {% include 'layout/javascript.html' %}
+    {% block postloadjs %}
+    {% endblock postloadjs %}
     <!-- JAVASCRIPT-END -->
 
 </body>
