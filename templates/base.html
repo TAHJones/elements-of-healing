@@ -53,7 +53,9 @@
     <!-- MESSAGES-END -->
 
     <!-- BANNER -->
-    {% include 'layout/banner.html' %}
+    {% if banner %}
+        {% include 'layout/banner.html' %}
+    {% endif %}
     <!-- BANNER-END -->
 
     {% block page_header %}
