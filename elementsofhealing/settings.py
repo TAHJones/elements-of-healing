@@ -40,11 +40,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pages',
+
+    # 3rd Party
+    'crispy_forms',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
-    'allauth.socialaccount'
+    'allauth.socialaccount',
+
+    # custom
+    'pages',
 ]
 
 MIDDLEWARE = [
@@ -147,3 +152,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+
+CRIPSY_TEMPLATE_PACK = 'bootstrap4'
