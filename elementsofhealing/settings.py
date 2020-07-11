@@ -17,6 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Templates Directory
 TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
+ALLAUTH_DIR = os.path.join(BASE_DIR, "templates", "allauth")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -61,7 +62,7 @@ ROOT_URLCONF = 'elementsofhealing.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_DIR],
+        'DIRS': [TEMPLATE_DIR, ALLAUTH_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
