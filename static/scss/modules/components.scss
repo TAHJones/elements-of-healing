@@ -254,6 +254,68 @@
 
 /* FORM-END */
 
+/* ALLAUTH-FORM */
+
+.allauth-form-bg {
+    > h1 {
+        margin-bottom: f.rem-calc(24);
+    }
+    > p {
+        text-align: justify;
+        color: lighten(#527d5b, 25%);
+        @include q.respond-above(sm) {
+            color: lighten(#527d5b, 15%);
+            text-align: center;
+        }
+    }
+}
+
+// .allauth-form-title {
+// }
+
+// .allauth-form-paragraph {
+// }
+
+.allauth-form {
+    label {
+        color: #d0ac3d;        
+    }
+    input {
+        background-color: #f7f4cb;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        color: #495057;
+        margin-bottom: f.rem-calc(15);
+        // &:last-of-type {
+        //     margin-bottom: 0;
+        // }
+        padding: f.rem-calc(10);
+        height: 50px;
+        width: 100%;
+    }
+    input[type="checkbox"] {
+        margin-right: f.rem-calc(10);
+        // padding: 0;
+        height: 0;
+        width: 0;
+    }
+    // button {
+    //     margin-left: f.rem-calc(15);
+    // }
+    .button.secondaryAction {
+        font-size: f.rem-calc(15);
+        display: block;
+        margin-bottom: f.rem-calc(15);
+    }
+}
+
+.form-control {
+}
+
+
+
+/* ALLAUTH-FORM-END */
+
 /* FONT-AWESOME */
 
 .fas {
