@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 
     # custom
     'pages',
+    'products',
 ]
 
 MIDDLEWARE = [
