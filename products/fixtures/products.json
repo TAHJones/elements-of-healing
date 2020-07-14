@@ -38,7 +38,7 @@
       "category": 2,
       "rating": 4.7,
       "image_url": "https://en.wikipedia.org/wiki/Aconitum#/media/File:Aconitum_variegatum_110807f.jpg",
-      "image": "Aconitum_variegatum_110807f.jpg"
+      "image": "../static/img/product-img/aconite.jpg"
     }
   },
   {
@@ -52,7 +52,7 @@
       "category": 2,
       "rating": 4.2,
       "image_url": "https://en.wikipedia.org/wiki/Antimony#/media/File:Antimony-4.jpg",
-      "image": "Antimony-4.jpg"
+      "image": "../static/img/product-img/ant-tart.jpg"
     }
   },
   {
@@ -66,7 +66,7 @@
       "category": 2,
       "rating": 4.7,
       "image_url": "https://en.wikipedia.org/wiki/Western_honey_bee#/media/File:Apis_mellifera_Western_honey_bee.jpg",
-      "image": "Apis_mellifera_Western_honey_bee.jpg"
+      "image": "../static/img/product-img/bee.jpg"
     }
   },
   {
@@ -80,7 +80,7 @@
       "category": 2,
       "rating": 4.9,
       "image_url": "https://it.wikipedia.org/wiki/Arnica_montana#/media/File:Arnica_montana_ENBLA07.jpg",
-      "image": "Arnica_montana_ENBLA07.jpg"
+      "image": "../static/img/product-img/arnica.jpg"
     }
   },{
     "pk": 7,
@@ -93,7 +93,7 @@
       "category": 2,
       "rating": 4.1,
       "image_url": "https://en.wikipedia.org/wiki/Arsenic#/media/File:Arsen_1a.jpg",
-      "image": "Arsen_1a.jpg"
+      "image": "../static/img/product-img/arsenicum.jpg"
     }
   },
   {
@@ -107,7 +107,7 @@
       "category": 2,
       "rating": 3.5,
       "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Silver-273428.jpg",
-      "image": "Silver-273428.jpg"
+      "image": "../static/img/product-img/arg-nit.jpg"
     }
   },
  {
@@ -121,7 +121,7 @@
       "category": 2,
       "rating": 4.9,
       "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/15/Atropa_belladonna_%28Tollkirsche%29.JPG",
-      "image": "Atropa_belladonna_(Tollkirsche).JPG"
+      "image": "../static/img/product-img/belladonna.jpg"
     }
   },
  {
@@ -135,7 +135,7 @@
       "category": 2,
       "rating": 4.6,
       "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/54/Bellis_perennis_01.jpg",
-      "image": "Bellis_perennis_01.jpg"
+      "image": "../static/img/product-img/bellis-perennis.jpg"
     }
   },
    {
@@ -149,7 +149,7 @@
       "category": 2,
       "rating": 4.2,
       "image_url": "https://en.wikipedia.org/wiki/Bryonia_alba#/media/File:Bryonia_alba1pl.jpg",
-      "image": "Bryonia_alba1pl.jpg"
+      "image": "../static/img/product-img/bryonia.jpg"
     }
   },
    {
@@ -163,7 +163,7 @@
       "category": 2,
       "rating": 4.9,
       "image_url": "https://en.wikipedia.org/wiki/Calendula#/media/File:Calendula_January_2008-1_filtered.jpg",
-      "image": "Calendula_January_2008-1_filtered.jpg"
+      "image": "../static/img/product-img/calendula.jpg"
     }
   },
    {
@@ -177,7 +177,7 @@
       "category": 2,
       "rating": 3.8,
       "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Cantharis_fusca_%282007-05-02%29.jpg",
-      "image": "Cantharis_fusca_(2007-05-02).jpg"
+      "image": "../static/img/product-img/cantharis.jpg"
     }
   },
    { 
@@ -191,7 +191,7 @@
       "category": 2,
       "rating": 4.2,
       "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Charcoal.jpg",
-      "image": "Charcoal.jpg"
+      "image": "../static/img/product-img/carbo-veg.jpg"
     }
   },
    { 
@@ -205,7 +205,7 @@
       "category": 2,
       "rating": 4.7,
       "image_url": "https://en.wikipedia.org/wiki/Chamomile#/media/File:Kamomillasaunio_(Matricaria_recutita).JPG",
-      "image": "Kamomillasaunio_(Matricaria_recutita).JPG"
+      "image": "../static/img/product-img/chamomilla.jpg"
     }
   },
    { 
@@ -219,7 +219,7 @@
       "category": 2,
       "rating": 4.4,
       "image_url": "https://en.wikipedia.org/wiki/Cinchona_officinalis#/media/File:Curtis's_botanical_magazine_(8272601122).jpg",
-      "image": "Curtis's_botanical_magazine_(8272601122).jpg"
+      "image": "../static/img/product-img/china.jpg"
     }
   },
    { 
@@ -233,7 +233,7 @@
       "category": 2,
       "rating": 3.9,
       "image_url": "https://en.wikipedia.org/wiki/Citrullus_colocynthis#/media/File:Citrullus_colocynthis_004.JPG",
-      "image": "Citrullus_colocynthis_004.JPG"
+      "image": "../static/img/product-img/colocynthis.jpg"
     }
   },
    { 
@@ -247,7 +247,7 @@
       "category": 2,
       "rating": 4.6,
       "image_url": "https://en.wikipedia.org/wiki/Droseraceae#/media/File:Drosera_rotundifolia_leaf1.jpg",
-      "image": "Drosera_rotundifolia_leaf1.jpg"
+      "image": "../static/img/product-img/drosera.jpg"
     }
   },
    { 
@@ -261,7 +261,7 @@
       "category": 2,
       "rating": 3.6,
       "image_url": "https://en.wikipedia.org/wiki/Iron#/media/File:Iron_electrolytic_and_1cm3_cube.jpg",
-      "image": "Iron_electrolytic_and_1cm3_cube.jpg"
+      "image": "../static/img/product-img/ferrum-phos.jpg"
     }
   },
    { 
@@ -275,7 +275,7 @@
       "category": 2,
       "rating": 4.5,
       "image_url": "https://en.wikipedia.org/wiki/Gelsemium#/media/File:Gelsemium_sempervirens3.jpg",
-      "image": "Gelsemium_sempervirens3.jpg"
+      "image": "../static/img/product-img/gelsemium.jpg"
     }
   },
    { 
@@ -289,7 +289,7 @@
       "category": 2,
       "rating": 4.1,
       "image_url": "https://en.wikipedia.org/wiki/Calcium_sulfide#/media/File:Calcium-sulfide-3D-balls.png",
-      "image": "Calcium-sulfide-3D-balls.png"
+      "image": "../static/img/product-img/hepar-sulph.jpg"
     }
   },
    { 
@@ -303,7 +303,7 @@
       "category": 2,
       "rating": 4.2,
       "image_url": "https://en.wikipedia.org/wiki/Hypericum#/media/File:Saint_John's_wort_flowers.jpg",
-      "image": "Saint_John's_wort_flowers.jpg"
+      "image": "../static/img/product-img/hypericum.jpg"
     }
   },
    { 
@@ -317,7 +317,7 @@
       "category": 2,
       "rating": 4.7,
       "image_url": "https://de.wikipedia.org/wiki/Ignatius-Brechnuss#/media/Datei:Strychnos_ignatii_001.JPG",
-      "image": "Strychnos_ignatii_001.JPG"
+      "image": "../static/img/product-img/ignatia.jpg"
     }
   },
    { 
@@ -331,7 +331,7 @@
       "category": 2,
       "rating": 3.2,
       "image_url": "https://en.wikipedia.org/wiki/Carapichea_ipecacuanha#/media/File:Psychotria_ipecacuanha_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-251.jpg",
-      "image": "Psychotria_ipecacuanha_-_Köhler–s_Medizinal-Pflanzen-251.jpg"
+      "image": "../static/img/product-img/ipecac.jpg"
     }
   },
    { 
@@ -345,7 +345,7 @@
       "category": 2,
       "rating": 3.4,
       "image_url": "https://simple.wikipedia.org/wiki/Potassium#/media/File:Potassium.JPG",
-      "image": "Potassium.JPG"
+      "image": "../static/img/product-img/kali-bich.jpg"
     }
   },
    { 
@@ -359,7 +359,7 @@
       "category": 2,
       "rating": 4.9,
       "image_url": "https://en.wikipedia.org/wiki/Lachesis_(genus)#/media/File:Lachesis_muta_muta.jpg",
-      "image": "Lachesis_muta_muta.jpg"
+      "image": "../static/img/product-img/lachesis.jpg"
     }
   },
    { 
@@ -373,7 +373,7 @@
       "category": 2,
       "rating": 4.4,
       "image_url": "https://en.wikipedia.org/wiki/Rhododendron_tomentosum#/media/File:Rhododendron-palustre.JPG",
-      "image": "Rhododendron-palustre.JPG"
+      "image": "../static/img/product-img/ledum.jpg"
     }
   },
    { 
@@ -387,7 +387,7 @@
       "category": 2,
       "rating": 4.1,
       "image_url": "https://en.wikipedia.org/wiki/Magnesium#/media/File:CSIRO_ScienceImage_2893_Crystalised_magnesium.jpg",
-      "image": "CSIRO_ScienceImage_2893_Crystalised_magnesium.jpg"
+      "image": "../static/img/product-img/mag-phos.jpg"
     }
   },
    { 
@@ -401,7 +401,7 @@
       "category": 2,
       "rating": 4.6,
       "image_url": "https://en.wikipedia.org/wiki/Mercury_%28element%29#/media/File:Pouring_liquid_mercury_bionerd.jpg",
-      "image": "Pouring_liquid_mercury_bionerd.jpg"
+      "image": "../static/img/product-img/mercury.jpg"
     }
   },
    { 
@@ -415,7 +415,7 @@
       "category": 2,
       "rating": 4.3,
       "image_url": "https://en.wikipedia.org/wiki/Achillea_millefolium#/media/File:Yarrow_(Achillea_millefolium).jpg",
-      "image": "Yarrow_(Achillea_millefolium).jpg"
+      "image": "../static/img/product-img/millefolium.jpg"
     }
   },
    { 
@@ -429,7 +429,7 @@
       "category": 2,
       "rating": 4.7,
       "image_url": "https://en.wikipedia.org/wiki/Salt#/media/File:Comparison_of_Table_Salt_with_Kitchen_Salt.png",
-      "image": "Comparison_of_Table_Salt_with_Kitchen_Salt.png"
+      "image": "../static/img/product-img/nat-mur.jpg"
     }
   },
    { 
@@ -443,7 +443,7 @@
       "category": 2,
       "rating": 4.5,
       "image_url": "https://en.wikipedia.org/wiki/Strychnos_nux-vomica#/media/File:Strychnos_nux-vomica_001.JPG",
-      "image": "Strychnos_nux-vomica_001.JPG"
+      "image": "../static/img/product-img/nux-vomica.jpg"
     }
   },
    { 
@@ -457,7 +457,7 @@
       "category": 2,
       "rating": 4.4,
       "image_url": "https://en.wikipedia.org/wiki/Pulsatilla#/media/File:Pulsatilla_vulgaris-700px.jpg",
-      "image": "Pulsatilla_vulgaris-700px.jpg"
+      "image": "../static/img/product-img/pulsatilla.jpg"
     }
   },
    { 
@@ -471,7 +471,7 @@
       "category": 2,
       "rating": 4.1,
       "image_url": "https://en.wikipedia.org/wiki/Toxicodendron_radicans#/media/File:Toxicodendron_radicans,_leaves.jpg",
-      "image": "Toxicodendron_radicans,_leaves.jpg"
+      "image": "../static/img/product-img/rhus-tox.jpg"
     }
   },
    { 
@@ -485,7 +485,7 @@
       "category": 2,
       "rating": 4.2,
       "image_url": "",
-      "image": ""
+      "image": "../static/img/product-img/ruta.jpg"
     }
   },
    { 
@@ -499,7 +499,7 @@
       "category": 2,
       "rating": 4.4,
       "image_url": "https://en.wikipedia.org/wiki/Silicon_dioxide#/media/File:Sample_of_silicon_dioxide.jpg",
-      "image": "Sample_of_silicon_dioxide.jpg"
+      "image": "../static/img/product-img/silica.jpg"
     }
   },
     { 
@@ -513,7 +513,7 @@
       "category": 2,
       "rating": 4.0,
       "image_url": "https://en.wikipedia.org/wiki/Spongia#/media/File:Spongia_officinalis_001.JPG",
-      "image": "Spongia_officinalis_001.JPG"
+      "image": "../static/img/product-img/spongia.jpg"
     }
   },
    { 
@@ -527,7 +527,7 @@
       "category": 2,
       "rating": 4.3,
       "image_url": "https://en.wikipedia.org/wiki/Delphinium_staphisagria#/media/File:Delphinium_staphisagria_002.JPG",
-      "image": "Delphinium_staphisagria_002.JPG"
+      "image": "../static/img/product-img/staphysagria.jpg"
     }
   }
 ]
