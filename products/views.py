@@ -8,6 +8,7 @@ def all_products(request):
     products = Product.objects.all()
 
     context = {
+        'banner': True,
         'products': products,
     }
 
