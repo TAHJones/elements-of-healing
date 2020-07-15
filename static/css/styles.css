@@ -760,5 +760,39 @@ footer {
 }
 
 /* SHOPPING-CART-END */
+/* PRODUCTS */
+.product-title {
+  margin-bottom: 3.125rem;
+  text-align: center;
+}
+
+.product .card {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 0.9375rem;
+}
+.product .card > a {
+  margin: 0;
+}
+.product .card-body > p {
+  color: #76bb85;
+  font-size: 1.5625rem;
+  padding: 0.3125rem;
+  text-align: center;
+}
+.product .card-footer {
+  background-color: #2b532a;
+  border-radius: 0.125rem;
+}
+.product .product-price {
+  color: #d0ac3d;
+  text-align: center;
+  padding: 0.625rem;
+  margin: 0;
+}
+.product .product-rating {
+  color: #aaacae;
+}
+
+/* PRODUCTS-END */
 
 /*# sourceMappingURL=styles.css.map */
