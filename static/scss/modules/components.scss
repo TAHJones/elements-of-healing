@@ -149,51 +149,53 @@
 
 /* CAROUSEL-END */
 
-/* CARD */
+/* RESPONSIVE-CARDS */
 
-.card-bg h2 {
-	color: v.$tertiary-header-color;
-	text-align: center;
-	margin-bottom: f.rem-calc(60);
+#responsiveCardsTitle {
+    color: v.$tertiary-header-color;
+    text-align: center;
+    margin-bottom: f.rem-calc(60);
 }
 
-.card {
-	background-color: v.$card-bg-color;
-	padding: f.rem-calc(5);
-}
-
-.card-img {
-    margin-bottom: f.rem-calc(20);
-}
-
-.card-body {
-    padding: f.rem-calc(20);
-    height: 470px;
-    @include q.respond-above(lg) {
-        padding: f.rem-calc(30);
-        height: 500px;
+#responsiveCards {
+    .card {
+        background-color: v.$card-bg-color;
+        padding: f.rem-calc(5);
     }
-    @include q.respond-above(xl) {
-        height: 570px;
+
+    .card-img {
+        margin-bottom: f.rem-calc(20);
+    }
+
+    .card-body {
+        padding: f.rem-calc(20);
+        height: 470px;
+        @include q.respond-above(lg) {
+            padding: f.rem-calc(30);
+            height: 500px;
+        }
+        @include q.respond-above(xl) {
+            height: 570px;
+        }
+    }
+
+    .card-body > p {
+        color: v.$card-font-color;
+        font-size: f.rem-calc(14);
+        @include q.respond-above(lg) {
+            font-size: f.rem-calc(16);
+        }
+        @include q.respond-above(xl) {
+            font-size: f.rem-calc(18);
+        }
+    }
+
+    .card-body > p > strong{
+        color: v.$card-strong-font-color;
     }
 }
 
-.card-body > p {
-    color: v.$card-font-color;
-    font-size: f.rem-calc(14);
-    @include q.respond-above(lg) {
-        font-size: f.rem-calc(16);
-    }
-    @include q.respond-above(xl) {
-        font-size: f.rem-calc(18);
-    }
-}
-
-.card-body > p > strong{
-    color: v.$card-strong-font-color;
-}
-
-/* CARD-END */
+/* RESPONSIVE-CARDS-END */
 
 /* FLOATING-BUTTON */
 
