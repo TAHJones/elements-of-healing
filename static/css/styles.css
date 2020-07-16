@@ -775,9 +775,19 @@ footer {
 }
 .product .card-body > p {
   color: #76bb85;
-  font-size: 1.5625rem;
+  font-size: 1.125rem;
   padding: 0.3125rem;
   text-align: center;
+}
+@media (min-width: 576px) {
+  .product .card-body > p {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 768px) {
+  .product .card-body > p {
+    font-size: 1.25rem;
+  }
 }
 .product .card-footer {
   background-color: #2b532a;

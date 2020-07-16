@@ -356,9 +356,15 @@
 
     .card-body > p {
         color: #76bb85;
-        font-size: f.rem-calc(25);
+        font-size: f.rem-calc(18);
         padding: f.rem-calc(5);
         text-align: center;
+        @include q.respond-above(sm) {
+            font-size: f.rem-calc(16);
+        }
+        @include q.respond-above(md) {
+            font-size: f.rem-calc(20);
+        }
     }
 
     .card-footer {
