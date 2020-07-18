@@ -323,6 +323,8 @@
 .product {
     .card {
         background-color: rgba(0, 0, 0, 0.6);
+        border: none;
+        margin-bottom: f.rem-calc(40);
         padding: f.rem-calc(15);
     }
 
