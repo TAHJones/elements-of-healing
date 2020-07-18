@@ -11,12 +11,16 @@ const backToTop = document.getElementById("backToTop");
 function responsiveTitle(pageWidth) {
     let title = document.getElementById("title");
     let bannerImg = document.getElementById("bannerImg");
-    if(pageWidth.matches) {
-        title.textContent = "Thomas Jones BSc LCHE - Classical Homeopath";
-        bannerImg.src = "/static/img/homeopathy-montage--large.png";
+    if(title != null) {
+        if(pageWidth.matches) {
+            title.textContent = "Thomas Jones BSc LCHE - Classical Homeopath";
+            bannerImg.src = "/static/img/homeopathy-montage--large.png";
+        } else {
+            title.textContent = "Thomas Jones - Homeopath";
+            bannerImg.src = "/static/img/homeopathy-montage--small.png";
+        }
     } else {
-        title.textContent = "Thomas Jones - Homeopath";
-        bannerImg.src = "/static/img/homeopathy-montage--small.png";
+        console.log("Error  element with #title id does not exist!")
     }
 }
 
