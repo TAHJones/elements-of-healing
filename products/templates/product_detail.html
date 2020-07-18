@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="container dark-bg">
+    <div class="row justify-content-center">
+        <div class="col-11">
+            <h1 class="product-title">{{product.name}}</h1>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-11 col-sm-9 col-md-8 col-lg-6 product product-detail">
+            <div class="card">
+                {% if product.image %}
+                <a href="{{ product.image.url }}">
+                    <img class="card-img img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                </a>
+                {% else %}
+                <a href="">
+                    <img class="card-img img-fluid" src="{% static 'img/noimage.png' %}" alt="{{ product.name }}">
+                </a>
+                {% endif %}
+                <div class="card-body">
+                    <p class="product-description">{{ product.name }} - {{ product.description }}</p>
+                </div>
+                <div class="card-footer">
+                    <p class="product-price">${{ product.price }}</p>
+                    {% if product.rating %}
+                        <small class="product-rating"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                    {% else %}
+                        <small class="product-rating">No Rating</small>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
