@@ -19,8 +19,6 @@ function responsiveTitle(pageWidth) {
             title.textContent = "Thomas Jones - Homeopath";
             bannerImg.src = "/static/img/homeopathy-montage--small.png";
         }
-    } else {
-        console.log("Error  element with #title id does not exist!")
     }
 }
 
