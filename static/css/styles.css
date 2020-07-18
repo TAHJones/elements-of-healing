@@ -805,6 +805,25 @@ footer {
   color: #aaacae;
 }
 
+.product-detail .card {
+  padding: 1.5rem;
+}
+.product-detail .card-body {
+  padding: 3.125rem 0 2.5rem;
+}
+.product-detail .card-body > .product-description {
+  text-align: justify;
+}
+@media (max-width: 575px) {
+  .product-detail .card-body {
+    padding: 1.875rem 0 1.25rem;
+  }
+  .product-detail .card-body > .product-description {
+    font-size: 0.875rem;
+    text-align: left;
+  }
+}
+
 /* PRODUCTS-END */
 
 /*# sourceMappingURL=styles.css.map */

@@ -326,10 +326,9 @@
         border: none;
         margin-bottom: f.rem-calc(50);
         padding: f.rem-calc(15);
-    }
-
-    .card > a {
-        margin: 0;
+        > a {
+            margin: 0;
+        }
     }
 
     .card-body > p {
@@ -359,6 +358,26 @@
 
     .product-rating {
         color: #aaacae;
+    }
+}
+
+.product-detail {
+    .card {
+        padding: f.rem-calc(24);
+    }
+
+    .card-body {
+        padding: f.rem-calc(50 0 40);
+        > .product-description {
+            text-align: justify;
+        }
+        @include q.respond-below(sm) {
+            padding: f.rem-calc(30 0 20);
+            > .product-description {
+                font-size: f.rem-calc(14);
+                text-align: left;
+            }
+        }
     }
 }
 
