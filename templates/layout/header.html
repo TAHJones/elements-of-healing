@@ -10,23 +10,21 @@
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'index' %}">Home</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'homeopathy' %}">Homeopathy</a>
+            <li class="nav-item dropdown " id="dropDown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Info</a>
+                <div class="dropdown-menu">
+                    <a class="nav-link dropdown-item" href="{% url 'homeopathy' %}">Homeopathy</a>
+                    <a class="nav-link dropdown-item" href="{% url 'about' %}">About Thomas</a>
+                    <a class="nav-link dropdown-item" href="{% url 'products' %}">Products</a>
+                </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'about' %}">About</a>
-            </li>    
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'products' %}">Products</a>
-            </li>    
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'contact' %}">Contact</a>
             </li>
         </ul>
-        <!-- <ul class="list-inline list-unstyled text-center text-md-right my-0"> -->
-        <ul class="navbar-nav">
+        <ul class="navbar-nav secondary-navbar">
             <li class="nav-item dropdown">
-                <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-sm"></i>Account</a>
+                <a href="#" class="nav-link dropdown-toggle" id="user-options" data-toggle="dropdown">Account</a>
                 <div class="dropdown-menu" aria-labelledby="user-options">
                     {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
@@ -41,7 +39,6 @@
                 </div>
             </li>
             <li class="nav-item">
-                <!-- <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href=""> -->
                 <a class="nav-link" href=""><i class="fas fa-shopping-basket fa-lg"></i>
                     <p class="shopping-cart">
                         {% if grand_total %}
@@ -52,10 +49,16 @@
                     </p>
                 </a>
             </li>
-            <li class="nav-item search">
-                <a class="nav-link" href=" url 'search' ">
-                    <i class="fas fa-search fa-sm navbar-search-icon" title="Search"></i>
-                     <!-- if page == "search" <span class="sr-only">(current)</span> endif  -->
+            <form method="GET" action="{% url 'products' %}" id="searchForm" class="search-form hide-search-form">
+                <div class="input-group">
+                    <input class="form-control" type="text" name="q" placeholder="Search our site">
+                </div>
+            </form>
+            <li class="nav-item">
+                <a id="searchFormButton" class="nav-link" type="submit">
+                    <span class="icon">
+                        <i class="fas fa-search"></i>
+                    </span>
                 </a>
             </li>
         </ul>
