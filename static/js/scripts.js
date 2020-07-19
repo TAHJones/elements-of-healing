@@ -1,6 +1,7 @@
 const sm = window.matchMedia("(min-width: 576px)");
 const md = window.matchMedia("(min-width: 768px)");
 const backToTop = document.getElementById("backToTop");
+const searchFormButton = document.getElementById("searchFormButton");
 
 
 
@@ -150,6 +151,34 @@ function responsiveCards() {
 
 
 /**
+ * function toggles search form by adding/removing show-search-form class on screens larger than 576px
+ * function is triggered when  searchFormButton is clicked
+ */
+function toggleSearchForm() {
+    if(window.innerWidth >= 576) {
+        let searchForm = document.getElementById("searchForm");
+        searchForm.classList.toggle("show-search-form");
+    }
+}
+
+
+/**
+ * function reveals search form by removing hide-search-form on screens smaller than 576px
+ * function hides search form by adding hide-search-form on screens larger than 576px
+ * function is triggered by window resize event
+ */
+function showSearchForm() {
+    let searchForm = document.getElementById("searchForm");
+    if(window.innerWidth < 576) {
+        searchForm.classList.remove("hide-search-form");
+        searchForm.classList.remove("show-search-form");
+    } else {
+        searchForm.classList.add("hide-search-form");
+    }
+}
+
+
+/**
  * function for bootstrap custom form validation taken from https://www.w3schools.com/bootstrap4/bootstrap_forms.asp
  * Disable form submissions if there are invalid fields
  *  */ 
@@ -177,9 +206,11 @@ sm.addListener(responsiveTitle);
 sm.addListener(getCurrentYear);
 window.addEventListener("scroll", scrollingButton, false);
 backToTop.addEventListener("click", topFunction, false);
+searchFormButton.addEventListener("click", toggleSearchForm, false);
 window.addEventListener("resize", function() {
     floatButton();
     responsiveCards();
+    showSearchForm();
 }, false);
 
 
@@ -188,5 +219,6 @@ document.addEventListener("DOMContentLoaded", function() {
     responsiveTitle(sm);
     floatButton();
     responsiveCards();
+    showSearchForm();
     getCurrentYear(sm);
 }, false);
