@@ -1,6 +1,28 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block page_navbar %}
+<nav class="navbar navbar-expand-sm navbar-dark justify-content-center container">
+    <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">All Products</a>
+            <div class="dropdown-menu">
+                <a class="nav-link dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">By Price</a>
+                <a class="nav-link dropdown-item" href="{% url 'products' %}?sort=rating&direction=desc">By Rating</a>
+                <a class="nav-link dropdown-item" href="{% url 'products' %}?sort=category&direction=asc">By Category</a>
+                <a class="nav-link dropdown-item" href="{% url 'products' %}">All Products</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'products' %}?category=individual_remedies">Remedies</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'products' %}?category=remedy_kits">Kits</a>
+        </li>
+    </ul>
+</nav>
+{% endblock page_navbar %}
+
 {% block content %}
 <section class="container dark-bg">
     <div class="row justify-content-center">
