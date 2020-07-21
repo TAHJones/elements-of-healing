@@ -51,13 +51,13 @@
                             <div class="card-footer">
                                 <div class="row">
                                     <div class="col">
-                                        {% if product.category %}
                                         <p class="product-price">${{ product.price }}</p>
                                         {% if product.rating %}
                                             <p class="product-rating"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</p>
                                         {% else %}
                                             <p class="product-rating">No Rating</p>
                                         {% endif %}
+                                        {% if product.category %}
                                         <p>
                                             <a class="product-category" href="{% url 'products' %}?category={{ product.category.name }}">
                                                 <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
