@@ -864,7 +864,7 @@ footer {
   padding: 0.625rem;
   margin: 0;
 }
-.product .product-rating {
+.product .product-rating, .product .product-category {
   color: #aaacae;
 }
 
