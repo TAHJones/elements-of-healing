@@ -412,8 +412,9 @@
 
     .product-price {
         color: #d0ac3d;
+        font-size: f.rem-calc(25);
         text-align: center;
-        padding: f.rem-calc(10);
+        padding: f.rem-calc(10 0 15);
         margin: 0;
     }
 

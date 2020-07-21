@@ -860,8 +860,9 @@ footer {
 }
 .product .product-price {
   color: #d0ac3d;
+  font-size: 1.5625rem;
   text-align: center;
-  padding: 0.625rem;
+  padding: 0.625rem 0 0.9375rem;
   margin: 0;
 }
 .product .product-rating, .product .product-category {
