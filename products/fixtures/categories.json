@@ -12,7 +12,7 @@
     "model": "products.category",
     "fields": {
       "name": "individual_remedies",
-      "friendly_name": "Individual Remedies"
+      "friendly_name": "Remedies"
     }
   }
 ]
