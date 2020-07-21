@@ -26,9 +26,16 @@
                 <div class="card-footer">
                     <p class="product-price">${{ product.price }}</p>
                     {% if product.rating %}
-                        <small class="product-rating"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                        <p class="product-rating"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</p>
                     {% else %}
-                        <small class="product-rating">No Rating</small>
+                        <p class="product-rating">No Rating</p>
+                    {% endif %}
+                    {% if product.category %}
+                    <p>
+                        <a class="product-category" href="{% url 'products' %}?category={{ product.category.name }}">
+                            <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                        </a>
+                    </p>
                     {% endif %}
                 </div>
             </div>
