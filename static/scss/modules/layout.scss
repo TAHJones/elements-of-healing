@@ -17,9 +17,9 @@
 
 .logo-bg {
 	background-color: v.$tertiary-bg-color;
-	margin-top: f.rem-calc(55);
+	margin-top: 0;
     @include q.respond-above(sm) {
-	    margin-top: f.rem-calc(120);
+	    margin-top: f.rem-calc(40);
     }
 }
 
