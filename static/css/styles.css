@@ -838,19 +838,19 @@ footer {
 .product .card > a {
   margin: 0;
 }
-.product .card-body > p {
+.product .card-description {
   color: #76bb85;
   font-size: 1.125rem;
   padding: 0.3125rem;
   text-align: center;
 }
 @media (min-width: 576px) {
-  .product .card-body > p {
+  .product .card-description {
     font-size: 1rem;
   }
 }
 @media (min-width: 768px) {
-  .product .card-body > p {
+  .product .card-description {
     font-size: 1.25rem;
   }
 }
@@ -873,21 +873,72 @@ footer {
   padding: 1.5rem;
 }
 .product-detail .card-body {
-  padding: 3.125rem 0 2.5rem;
+  padding: 1.875rem 1rem 0;
 }
 .product-detail .card-body > .product-description {
-  text-align: justify;
+  color: #76bb85;
+  font-size: 0.875rem;
+  text-align: left;
 }
-@media (max-width: 575px) {
-  .product-detail .card-body {
-    padding: 1.875rem 0 1.25rem;
-  }
+@media (min-width: 576px) {
   .product-detail .card-body > .product-description {
-    font-size: 0.875rem;
-    text-align: left;
+    font-size: 1rem;
+    text-align: justify;
   }
+}
+@media (min-width: 768px) {
+  .product-detail .card-body > .product-description {
+    font-size: 1.125rem;
+  }
+}
+@media (min-width: 576px) {
+  .product-detail .card-body .product-rating, .product-detail .card-body .product-category {
+    padding: 0.5rem 1rem 0;
+  }
+}
+.product-detail .card-footer {
+  background-color: transparent;
 }
 
 /* PRODUCTS-END */
+/* SHOPPING-BASKET */
+.shopping-basket {
+  background-color: transparent;
+  padding: 0;
+}
+.shopping-basket label {
+  color: #76bb85;
+}
+@media (min-width: 768px) {
+  .shopping-basket label {
+    font-size: 1.125rem;
+  }
+}
+@media (min-width: 992px) {
+  .shopping-basket label {
+    font-size: 1.25rem;
+  }
+}
+.shopping-basket .btn {
+  text-transform: uppercase;
+  text-shadow: none;
+  font-size: 0.75rem;
+  margin-bottom: 0.625rem;
+}
+@media (min-width: 576px) {
+  .shopping-basket .btn {
+    font-size: 0.875rem;
+  }
+}
+@media (min-width: 768px) {
+  .shopping-basket .btn {
+    font-size: 1rem;
+  }
+}
+.shopping-basket input[class=btn] {
+  margin-bottom: 0.625rem;
+}
+
+/* SHOPPING-BASKET-END */
 
 /*# sourceMappingURL=styles.css.map */
