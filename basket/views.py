@@ -4,6 +4,6 @@ from django.shortcuts import render
 
 
 def view_basket(request):
-    """ A view that renders the bag contents page """
+    """ A view that renders the shopping basket page """
 
     return render(request, 'basket.html')
