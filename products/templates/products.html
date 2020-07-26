@@ -27,12 +27,13 @@
 <section class="container dark-bg">
     <div class="row justify-content-center">
         <div class="col-11">
+            {% if current_categories == None %}
             <h1 class="product-title">Homeopathic Remedies & Kits</h1>
-            {% for c in current_categories %}
-                <a class="category-badge text-decoration-none" href="{% url 'products' %}?category={{ c.name }}">
-                    <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">{{ c.friendly_name }}</span>
-                </a>
-            {% endfor %}
+            {% else %}
+                {% for c in current_categories %}
+                <h1 class="product-title">Homeopathic {{ c.friendly_name }}</h1>
+                {% endfor %}
+            {% endif %}
         </div>
     </div>
     <div class="row justify-content-center">
