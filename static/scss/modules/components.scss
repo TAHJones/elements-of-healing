@@ -485,10 +485,45 @@
             font-size: f.rem-calc(16);
         }
     }
-    input[class="btn"] {
-        margin-bottom: f.rem-calc(10);
+}
+
+.delivery-bg {
+	background-color: rgba(0, 0, 0, 0.6);
+        margin-top: f.rem-calc(60);
+        padding: f.rem-calc(24);
+    @include q.respond-above(sm) {
+	    background-color: transparent;
+        margin-top: f.rem-calc(80);
+    }
+    @include q.respond-above(md) {
+        margin-top: f.rem-calc(104);
+    }
+    span {
+        color: #f9bf0c;
+        // position: absolute;
+        font-size: f.rem-calc(16);
+        font-weight: 600;
+        text-shadow: 2px 2px 2px #000;
+        // top: 100px;
+        @include q.respond-above(sm) {
+            font-size: f.rem-calc(28);
+        }
+        @include q.respond-above(md) {
+            font-size: f.rem-calc(36);
+        }
     }
 }
 
 /* SHOPPING-BASKET-END */
 
+// .delivery-bg span {
+// 	color: #ee8e12;
+// 	font-size: 2.25rem;
+// 	font-weight: 600;
+// 	text-shadow: 2px 4px 4px #000;
+// }
+
+.dark-bg {
+	background-color: rgba(0, 0, 0, 0.6);
+	text-shadow: 2px 2px #000;
+}
