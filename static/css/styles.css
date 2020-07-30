@@ -969,10 +969,44 @@ footer {
   }
 }
 
-/* SHOPPING-BASKET-END */
-.dark-bg {
+.basket {
   background-color: rgba(0, 0, 0, 0.6);
-  text-shadow: 2px 2px #000;
+  border-radius: 4px;
+  padding: 1.25rem;
 }
+.basket th {
+  color: #ffcd37;
+  font-size: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+.basket td {
+  padding: 0 2.5rem 1.875rem 0;
+}
+.basket td > p {
+  color: #76bb85;
+}
+.basket td .img-fluid {
+  max-width: 90%;
+}
+.basket td .sku {
+  color: #aaacae;
+  font-size: 0.75rem;
+}
+.basket .basket-info p {
+  color: #aaacae;
+  text-align: right;
+}
+.basket .basket-info p > span {
+  font-weight: 600;
+  color: #c4c6c7;
+}
+.basket .text-danger {
+  padding-top: 1.875rem;
+}
+.basket .btn {
+  text-shadow: none;
+}
+
+/* SHOPPING-BASKET-END */
 
 /*# sourceMappingURL=styles.css.map */

@@ -500,11 +500,9 @@
     }
     span {
         color: #f9bf0c;
-        // position: absolute;
         font-size: f.rem-calc(16);
         font-weight: 600;
         text-shadow: 2px 2px 2px #000;
-        // top: 100px;
         @include q.respond-above(sm) {
             font-size: f.rem-calc(28);
         }
@@ -514,16 +512,44 @@
     }
 }
 
-/* SHOPPING-BASKET-END */
-
-// .delivery-bg span {
-// 	color: #ee8e12;
-// 	font-size: 2.25rem;
-// 	font-weight: 600;
-// 	text-shadow: 2px 4px 4px #000;
-// }
-
-.dark-bg {
+.basket {
 	background-color: rgba(0, 0, 0, 0.6);
-	text-shadow: 2px 2px #000;
+    border-radius: 4px;
+    padding: f.rem-calc(20);
+    th {
+        color: #ffcd37;
+        font-size: f.rem-calc(20);
+        padding-bottom: f.rem-calc(20);
+    }
+    td {
+        padding: f.rem-calc(0 40 30 0);
+        > p {
+            color: #76bb85;
+        }
+        .img-fluid {
+            max-width: 90%;
+        }
+        .sku {
+            color: #aaacae;
+            font-size: f.rem-calc(12);
+        }
+    }
+    .basket-info {
+        p {
+            color: #aaacae;
+            text-align: right;
+            > span {
+                font-weight: 600;
+                color: lighten(#aaacae, 10%);
+            }
+        }
+    }
+    .text-danger {
+        padding-top: f.rem-calc(30);
+    }
+    .btn {
+        text-shadow: none;
+    }
 }
+
+/* SHOPPING-BASKET-END */
