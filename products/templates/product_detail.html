@@ -17,7 +17,7 @@
                 </a>
                 {% endif %}
                 <div class="card-body">
-                    <p class="product-price">${{ product.price }}</p>
+                    <p class="product-price">£{{ product.price }}</p>
                     <p class="product-description">{{ product.name }} - {{ product.description }}</p>
                     {% if product.rating %}
                         <p class="product-rating"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</p>
@@ -47,7 +47,7 @@
                                     <span ><i class="fas fa-chevron-left"></i></span>
                                     <span class="">Keep Shopping</span>
                                 </a>
-                                <input type="submit" class="btn" value="Add to Bag">
+                                <input type="submit" class="btn" value="Add to Basket">
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
