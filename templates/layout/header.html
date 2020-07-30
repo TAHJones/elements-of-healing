@@ -42,7 +42,7 @@
                 <a class="nav-link" href="{% url 'view_basket' %}"><i class="fas fa-shopping-basket fa-lg"></i>
                     <p class="shopping-cart">
                         {% if grand_total %}
-                            ${{ grand_total|floatformat:2 }}
+                            £{{ grand_total|floatformat:2 }}
                         {% else %}
                             £0.00
                         {% endif %}
@@ -70,7 +70,7 @@
 <div class="container delivery-bg">
     <div id="delivery" class="row text-center">
         <div class="col-12">
-            <span>Free delivery on orders over ${{ free_delivery_threshold }}!</span>                
+            <span>Free delivery on orders over £{{ free_delivery_threshold }}!</span>                
         </div>            
     </div>
 </div>
