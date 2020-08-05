@@ -29,6 +29,7 @@
                             </td>
                             <td>
                                 <p><strong>{{ item.product.name }}</strong></p>
+                                <p><strong>Potency:</strong>{% if item.product.has_potency %}{{ item.potency|upper }}{% else %}N/A{% endif %}</p>
                                 <p class="sku">SKU: {{ item.product.sku|upper }}</p>
                             </td>
                             <td>
