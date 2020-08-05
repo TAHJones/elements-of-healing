@@ -36,8 +36,8 @@
                     <form class="form shopping-basket" action="{% url 'add_to_basket' product.id %}" method="POST">
                         {% csrf_token %}
                             <div class="row">
-                            {% with product.has_potency as s %}
-                            {% if s %}
+                            {% with product.has_potency as p %}
+                            {% if p %}
                                 <div class="form-group col-12">
                                     <label>Potency:</label>
                                     <select class="form-control" name="potency" id="id_potency">
