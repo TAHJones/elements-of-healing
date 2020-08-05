@@ -35,14 +35,28 @@
                 <div class="card-footer">
                     <form class="form shopping-basket" action="{% url 'add_to_basket' product.id %}" method="POST">
                         {% csrf_token %}
-                        <div class="row">
+                            <div class="row">
+                            {% with product.has_potency as s %}
+                            {% if s %}
+                                <div class="form-group col-12">
+                                    <label>Potency:</label>
+                                    <select class="form-control" name="potency" id="id_potency">
+                                        <option value="6c">6c</option>
+                                        <option value="30c" selected>30c</option>
+                                        <option value="200c">200c</option>
+                                        <option value="1M">1M</option>
+                                        <option value="10M">10M</option>
+                                    </select>
+                                </div>
+                            {% endif %}
+                            {% endwith %}
                             <div class="form-group col-12">
                                 <label>Quantity:</label>
                                 <div class="input-group">
                                     <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
                                 </div>
                             </div>
-                            <div class="form-group col-12 col-sm-12">
+                            <div class="form-group col-12">
                                 <a href="{% url 'products' %}" class="btn">
                                     <span ><i class="fas fa-chevron-left"></i></span>
                                     <span class="">Keep Shopping</span>
