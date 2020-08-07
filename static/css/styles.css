@@ -1000,7 +1000,7 @@ footer {
   font-weight: 600;
   color: #c4c6c7;
 }
-.basket .text-danger {
+.basket .delivery-message {
   padding-top: 1.875rem;
 }
 .basket .btn {
@@ -1008,5 +1008,19 @@ footer {
 }
 
 /* SHOPPING-BASKET-END */
+/* SHOPPING-BASKET-FORM */
+.update-form {
+  background-color: none;
+  padding: 0;
+}
+.update-form .qty_input {
+  padding: 0.3125rem;
+}
+
+.basket .update-link, .basket .remove-item {
+  cursor: pointer;
+}
+
+/* SHOPPING-BASKET-FORM-END */
 
 /*# sourceMappingURL=styles.css.map */

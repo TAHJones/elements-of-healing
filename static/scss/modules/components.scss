@@ -544,7 +544,7 @@
             }
         }
     }
-    .text-danger {
+    .delivery-message {
         padding-top: f.rem-calc(30);
     }
     .btn {
@@ -553,3 +553,21 @@
 }
 
 /* SHOPPING-BASKET-END */
+
+/* SHOPPING-BASKET-FORM */
+
+.update-form {
+	background-color: none;
+    padding: 0;
+    .qty_input {
+        padding: f.rem-calc(5);
+    }
+}
+
+.basket {
+    .update-link, .remove-item {
+        cursor: pointer;
+    }
+}
+
+/* SHOPPING-BASKET-FORM-END */
