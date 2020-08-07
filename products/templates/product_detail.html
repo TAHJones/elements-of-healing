@@ -52,8 +52,18 @@
                             {% endwith %}
                             <div class="form-group col-12">
                                 <label>Quantity:</label>
-                                <div class="input-group">
-                                    <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                <div id="changeQuantity" class="input-group">
+                                    <div class="input-group-prepend">
+                                        <button id="decrement-qty_{{ product.id }}" class="decrement-qty btn" data-item_id="{{ product.id }}">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                    </div>
+                                    <input id="id_qty_{{ product.id }}" class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}">
+                                    <div class="input-group-append">
+                                        <button id="increment-qty_{{ product.id }}" class="increment-qty btn" data-item_id="{{ product.id }}">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group col-12">
@@ -72,3 +82,90 @@
     </div>
 </section>
 {% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+
+<script>
+
+const decrementQty = document.querySelector(".decrement-qty");
+const incrementQty = document.querySelector(".increment-qty");
+
+// const changeQuantity = document.getElementById("changeQuantity");
+// const decrementQty = document.getElementById(`decrement-qty_${itemId}`);
+// const incrementQty = document.getElementById(`increment-qty_${itemId}`);
+// const productQuantity = document.getElementById("productQuantity");
+
+
+// function handleEnableDisable(itemId) {
+//     let currentValue = parseInt(document.getElementById(`id_qty_${itemId}`).value);
+//     let minusDisabled = currentValue < 2;
+//     let plusDisabled = currentValue > 98;
+//     if (minusDisabled) { decrementQty.disabled = true; }
+//     if (plusDisabled) { incrementQty.disabled = true; }
+// }
+
+
+    // Check enable/disable every time the input is changed
+
+    // $('.qty_input').change(function() {
+    //     var itemId = $(this).data('item_id');
+    //     handleEnableDisable(itemId);
+    // });
+
+
+// let qtyInput = document.querySelector(".qty_input");
+
+// for(let i = 0; i < qtyInput.length; i++) {
+//     let itemId = qtyInput[i].dataset.item_id;
+//     handleEnableDisable(itemId);
+// }
+
+
+// qtyInput.addEventListener("DOMContentLoaded", function() {
+//     let itemId = this.dataset.item_id;
+//     handleEnableDisable(itemId);
+// }, false);
+
+
+// qtyInput.addEventListener("change", function() {
+//     let itemId = this.dataset.item_id;
+//     handleEnableDisable(itemId);
+// }, false);
+
+
+decrementQty.addEventListener("click", function(e){
+    e.preventDefault();
+    let itemId =  this.dataset.item_id;
+    let idQty = document.getElementById(`id_qty_${itemId}`);
+    let currentQuantity = parseInt(idQty.value);
+    updatedQuantity = currentQuantity - 1;
+    if (updatedQuantity < 1) {
+        this.disabled = true;
+        idQty.value = 1;
+        this.disabled = false;
+    } else {
+        idQty.value = updatedQuantity;
+    }
+}, false);
+
+
+incrementQty.addEventListener("click", function(e){
+    e.preventDefault();
+    let itemId =  this.dataset.item_id;
+    let idQty = document.getElementById(`id_qty_${itemId}`);
+    let currentQuantity = parseInt(idQty.value);
+    updatedQuantity = currentQuantity + 1;
+    idQty.value = updatedQuantity;
+    if (updatedQuantity > 99) {
+        this.disabled = true;
+        idQty.value = 99;
+        this.disabled = false;
+    } else {
+        idQty.value = updatedQuantity;
+    }
+}, false);
+
+</script>
+
+{% endblock postloadjs %}
