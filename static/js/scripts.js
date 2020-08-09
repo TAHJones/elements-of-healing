@@ -4,7 +4,6 @@ const backToTop = document.getElementById("backToTop");
 const searchFormButton = document.getElementById("searchFormButton");
 
 
-
 /**
  * Function that uses matchMedia method. It toggles h2 text content if the current window width matches the CSS media query string parameter or not.
  * @param {string} pageWidth - MediaQueryList object representing the results of the specified CSS media query string.
@@ -199,6 +198,65 @@ function showSearchForm() {
     });
   }, false);
 })();
+
+// jquery scripts for basket & product_detail pages
+$(document).ready(function(){
+    /**
+     *  Disable plus/minus quantity buttons outside 1-99 range
+     */
+    function handleEnableDisable(itemId) {
+        var currentValue = parseInt($(`#id_qty_${itemId}`).val());
+        var minusDisabled = currentValue < 2;
+        var plusDisabled = currentValue > 98;
+        $(`#decrement-qty_${itemId}`).prop('disabled', minusDisabled);
+        $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled);
+    }
+
+
+    /**
+     * Ensure proper enabling/disabling of all inputs on page load
+     */
+    var allQtyInputs = $('.qty_input');
+    for(var i = 0; i < allQtyInputs.length; i++){
+        var itemId = $(allQtyInputs[i]).data('item_id');
+        handleEnableDisable(itemId);
+    }
+
+
+    /**
+     * Check enable/disable every time the input is changed
+     */
+    $('.qty_input').change(function() {
+        var itemId = $(this).data('item_id');
+        handleEnableDisable(itemId);
+    });
+
+
+    /**
+    * Function that increments form input value when quantity plus button is clicked.
+    */
+    $('.increment-qty').click(function(e) {
+       e.preventDefault();
+       var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+       var currentValue = parseInt($(closestInput).val());
+       $(closestInput).val(currentValue + 1);
+       var itemId = $(this).data('item_id');
+       handleEnableDisable(itemId);
+    });
+
+
+    /**
+    * Function that decrements form input value when quantity minus button is clicked.
+    */
+    $('.decrement-qty').click(function(e) {
+       e.preventDefault();
+       var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+       var currentValue = parseInt($(closestInput).val());
+       $(closestInput).val(currentValue - 1);
+       var itemId = $(this).data('item_id');
+       handleEnableDisable(itemId);
+    });
+});
 
 
 // eventlisteners
