@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load basket_tools %}
 
 {% block content %}
 <section class="container dark-bg">
@@ -29,14 +30,14 @@
                             </td>
                             <td>
                                 <p><strong>{{ item.product.name }}</strong></p>
-                                <p><strong>Potency:</strong>{% if item.product.has_potency %}{{ item.potency|upper }}{% else %}N/A{% endif %}</p>
+                                <p><strong>Potency: </strong>{% if item.product.has_potency %}{{ item.potency|upper }}{% else %}N/A{% endif %}</p>
                                 <p class="sku">SKU: {{ item.product.sku|upper }}</p>
                             </td>
                             <td>
                                 <p>£{{ item.product.price }}</p>
                             </td>
                             <td>
-                                <form class="form update-form" method="POST" action="">
+                                <form class="form update-form" method="POST" action="{% url 'adjust_basket' item.item_id %}">
                                     {% csrf_token %}
                                     <div class="form-group">
                                         <div class="input-group">
@@ -67,10 +68,10 @@
                                     </div>
                                 </form>
                                 <a class="update-link text-info"><small>Update</small></a>
-                                <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-size="{{ item.size }}"><small>Remove</small></a>
+                                <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
                             </td>
                             <td>
-                                <p>£{{ item.product.price }}</p>
+                                <p>£{{ item.product.price | calc_subtotal:item.quantity }}</p>
                             </td>
                         </tr>
                     {% endfor %}
@@ -123,125 +124,32 @@
 
 <script>
 
-const decrementQty = document.querySelector(".decrement-qty");
-const incrementQty = document.querySelector(".increment-qty");
+$(document).ready(function(){
 
-
-/**
-* Function that decrements form input value when quantity minus button is clicked.
-* If input value is < 1 minus button is temporarily disabled & value changed to 1.
-*/
-decrementQty.addEventListener("click", function(e){
-    e.preventDefault();
-    let itemId =  this.dataset.item_id;
-    let idQty = document.getElementById(`id_qty_${itemId}`);
-    let currentQuantity = parseInt(idQty.value);
-    updatedQuantity = currentQuantity - 1;
-    if (updatedQuantity < 1) {
-        this.disabled = true;
-        idQty.value = 1;
-        this.disabled = false;
-    } else {
-        idQty.value = updatedQuantity;
-    }
-}, false);
-
-
-/**
-* Function that increments form input value when quantity plus button is clicked.
-* If input value is > 99 plus button is temporarily disabled & value changed to 99.
-*/
-incrementQty.addEventListener("click", function(e){
-    e.preventDefault();
-    let itemId =  this.dataset.item_id;
-    let idQty = document.getElementById(`id_qty_${itemId}`);
-    let currentQuantity = parseInt(idQty.value);
-    updatedQuantity = currentQuantity + 1;
-    idQty.value = updatedQuantity;
-    if (updatedQuantity > 99) {
-        this.disabled = true;
-        idQty.value = 99;
-        this.disabled = false;
-    } else {
-        idQty.value = updatedQuantity;
-    }
-}, false);
-
-
-// Polyfill for Internet Explorer 9+ and Safari
-// Source: https://github.com/jserz/js_piece/blob/master/DOM/NonDocumentTypeChildNode/previousElementSibling/previousElementSibling.md
-// (function (arr) {
-//   arr.forEach(function (item) {
-//     if (item.hasOwnProperty('previousElementSibling')) {
-//       return;
-//     }
-//     Object.defineProperty(item, 'previousElementSibling', {
-//       configurable: true,
-//       enumerable: true,
-//       get: function () {
-//         let el = this;
-//         while (el = el.previousSibling) {
-//           if (el.nodeType === 1) {
-//             return el;
-//           }
-//         }
-//         return null;
-//       },
-//       set: undefined
-//     });
-//   });
-// })([Element.prototype, CharacterData.prototype]);
-
-
-const updateLink = document.querySelector(".update-link");
-
-/*
-* Function that gets form & submits data when update link is clicked
-*/
-updateLink.addEventListener("click", function() {
-    // let form = this.previousElementSibling;
-    let updateForm = document.querySelector(".update-form");
-    // console.log(form);
-    updateForm.submit();
-}, false);
-
-
-// Update quantity on click
-// $('.update-link').click(function(e) {
-//     var form = $(this).prev('.update-form');
-//     form.submit();
-// })
-
-
-const removeItem = document.querySelector(".remove-item");
-
-/*
-* Function that removes item when remove link is clicked, sends data to server & relaods page
-*/
-removeItem.addEventListener("click", function() {
-    let csrfToken = "{{ csrf_token }}";
-    let itemId = this.getAttribute("id").split("_")[1];
-    let size = this.dataset.size;
-    let url = `/basket/remove/${itemId}`;
-    let data = {'csrfmiddlewaretoken': csrfToken, 'size': size};
-    $.post(url, data).done(function() {
-        location.reload();
+    /**
+     * Function that updates product quantity when update link is liked then returns to basket page.
+     */
+    $('.update-link').click(function(e) {
+        var form = $(this).prev('.update-form');
+        form.submit();
     });
-}, false);
 
-// Remove item and reload on click
-// $('.remove-item').click(function(e) {
-//     var csrfToken = "{{ csrf_token }}";
-//     var itemId = $(this).attr('id').split('remove_')[1];
-//     var size = $(this).data('size');
-//     var url = `/bag/remove/${itemId}`;
-//     var data = {'csrfmiddlewaretoken': csrfToken, 'size': size};
 
-//     $.post(url, data)
-//      .done(function() {
-//          location.reload();
-//      });
-// })
+    /**
+    * Function that removes item from basket when remove link is clicked then reloads page.
+    */
+    $('.remove-item').click(function(e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var size = $(this).data('product_size');
+        var url = `/remove/${itemId}/`;
+        var data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
+        $.post(url, data)
+        .done(function() {
+            location.reload();
+        });
+    });
+});
 
 </script>
 
