@@ -1,0 +1,17 @@
+{% load static %}
+
+<!-- MESSAGES -->
+{% for message in messages %}
+    {% with message.level as level %}
+        {% if level == 40 %}
+            {% include 'layout/toasts/toast_warning.html' %}
+        {% elif level == 30 %}
+            {% include 'layout/toasts/toast_warning.html' %}
+        {% elif level == 25 %}
+            {% include 'layout/toasts/toast_success.html' %}
+        {% else %}
+            {% include 'layout/toasts/toast_info.html' %}
+        {% endif %}
+    {% endwith %}
+{% endfor %}
+<!-- MESSAGES-END -->
