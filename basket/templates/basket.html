@@ -12,7 +12,7 @@
                     <thead>
                         <tr>
                             <th scope="col">Product Info</th>
-                            <th scope="col">Product Name</th>
+                            <th scope="col">Name</th>
                             <th scope="col">Price</th>
                             <th scope="col">Qty</th>
                             <th scope="col">Subtotal</th>
@@ -61,8 +61,8 @@
                                                     </span>
                                                 </button>
                                             </div>
-                                            {% if item.product.has_sizes %}
-                                                <input type="hidden" name="product_size" value="{{ item.size }}">
+                                            {% if item.product.has_potency %}
+                                                <input type="hidden" name="product_potency" value="{{ item.potency }}">
                                             {% endif %}
                                         </div>
                                     </div>
