@@ -33,7 +33,7 @@
                     {% endif %}
                 </div>
                 <div class="card-footer">
-                    <form class="form shopping-basket" action="{% url 'add_to_basket' product.id %}" method="POST">
+                    <form class="form product-info" action="{% url 'add_to_basket' product.id %}" method="POST">
                         {% csrf_token %}
                             <div class="row">
                             {% with product.has_potency as p %}
@@ -52,7 +52,7 @@
                             {% endwith %}
                             <div class="form-group col-12">
                                 <label>Quantity:</label>
-                                <div id="changeQuantity" class="input-group">
+                                <div class="input-group">
                                     <div class="input-group-prepend">
                                         <button id="decrement-qty_{{ product.id }}" class="decrement-qty btn" data-item_id="{{ product.id }}">
                                             <i class="fas fa-minus"></i>
