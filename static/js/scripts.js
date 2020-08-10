@@ -2,6 +2,7 @@ const sm = window.matchMedia("(min-width: 576px)");
 const md = window.matchMedia("(min-width: 768px)");
 const backToTop = document.getElementById("backToTop");
 const searchFormButton = document.getElementById("searchFormButton");
+const closeToastBg = document.querySelector(".close");
 
 
 /**
@@ -256,6 +257,21 @@ $(document).ready(function(){
        var itemId = $(this).data('item_id');
        handleEnableDisable(itemId);
     });
+
+
+    /**
+     * jquery to intialise bootstrap toasts
+     */
+    $('.toast').toast('show');
+
+
+    /**
+     * Function hides custom toast background when toast close button is clicked
+     */
+    closeToastBg.addEventListener("click", function(){
+        const messageContainerBg = document.querySelector(".message-container-bg");
+        messageContainerBg.style.display = "none";
+    }, false);
 });
 
 
