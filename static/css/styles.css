@@ -900,42 +900,42 @@ footer {
   background-color: transparent;
 }
 
-/* PRODUCTS-END */
-/* SHOPPING-BASKET */
-.shopping-basket {
+.product-info {
   background-color: transparent;
   padding: 0;
 }
-.shopping-basket label {
+.product-info label {
   color: #76bb85;
 }
 @media (min-width: 768px) {
-  .shopping-basket label {
+  .product-info label {
     font-size: 1.125rem;
   }
 }
 @media (min-width: 992px) {
-  .shopping-basket label {
+  .product-info label {
     font-size: 1.25rem;
   }
 }
-.shopping-basket .btn {
+.product-info .btn {
   text-transform: uppercase;
   text-shadow: none;
   font-size: 0.75rem;
   margin-bottom: 0.625rem;
 }
 @media (min-width: 576px) {
-  .shopping-basket .btn {
+  .product-info .btn {
     font-size: 0.875rem;
   }
 }
 @media (min-width: 768px) {
-  .shopping-basket .btn {
+  .product-info .btn {
     font-size: 1rem;
   }
 }
 
+/* PRODUCTS-END */
+/* SHOPPING-BASKET */
 .delivery-bg {
   background-color: rgba(0, 0, 0, 0.6);
   margin-top: 3.75rem;
@@ -1022,5 +1022,148 @@ footer {
 }
 
 /* SHOPPING-BASKET-FORM-END */
+/* BOOTSTRAP-TOASTS */
+.message-container-bg {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.9);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+.message-container {
+  position: fixed;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+}
+
+.custom-toast {
+  overflow: visible;
+  max-width: 100%;
+}
+
+.toast-capper {
+  height: 10px;
+}
+
+.toast-header,
+.toast-body {
+  border: none;
+  color: #ffcd37;
+  width: 550px;
+}
+
+.toast-header {
+  background-color: #3d753b !important;
+  font-size: 1.25rem;
+  padding: 0.625rem;
+}
+.toast-header > strong {
+  margin-left: 0.625rem;
+  margin-right: auto !important;
+}
+.toast-header > .close > span {
+  color: #fff;
+  font-size: 1.875rem;
+  transition: all 0.25s ease-in-out;
+  text-shadow: 2px 2px 2px #000;
+}
+.toast-header > .close > span:hover {
+  color: #000;
+}
+
+.toast-body {
+  background-color: #222;
+  color: #ffcd37;
+  font-size: 1.25rem;
+  padding: 1.25rem 0;
+}
+.toast-body .basket-message {
+  color: #c4c6c7;
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+.toast-body .basket-summary-info {
+  padding: 1.25rem 2.5rem;
+}
+.toast-body .basket-summary-info > p {
+  color: #aaacae;
+  font-size: 1.25rem;
+  margin-bottom: 0.625rem;
+  text-align: right;
+}
+.toast-body .basket-summary-info > p > span {
+  color: #c4c6c7;
+  font-weight: 600;
+  font-size: inherit;
+}
+.toast-body .basket-delivery-message {
+  padding-bottom: 1.25rem;
+}
+.toast-body .basket-delivery-message > p {
+  text-align: center;
+}
+.toast-body .toast-btn {
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  width: 55%;
+}
+
+/* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
+/* Convenience classes - colors copied from Bootstrap */
+/* .arrow-primary {
+    border-bottom-color: #007bff !important;
+}
+
+.arrow-secondary {
+    border-bottom-color: #6c757d !important;
+}
+
+.arrow-success {
+    border-bottom-color: #28a745 !important;
+}
+
+.arrow-danger {
+    border-bottom-color: #dc3545 !important;
+}
+
+.arrow-warning {
+    border-bottom-color: #ffc107 !important;
+}
+
+.arrow-info {
+    border-bottom-color: #17a2b8 !important;
+}
+
+.arrow-light {
+    border-bottom-color: #f8f9fa !important;
+}
+
+.arrow-dark {
+    border-bottom-color: #343a40 !important;
+} */
+.basket-notification-wrapper {
+  background-color: rgba(0, 0, 0, 0.2);
+  max-height: 45vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 1.875rem 2.5rem;
+}
+.basket-notification-wrapper .row {
+  margin-bottom: 1.25rem;
+}
+.basket-notification-wrapper .row .small {
+  color: #76bb85;
+}
+.basket-notification-wrapper img {
+  padding-right: 1.25rem;
+}
+
+/* BOOTSTRAP-TOASTS-END */
 
 /*# sourceMappingURL=styles.css.map */
