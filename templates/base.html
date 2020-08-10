@@ -38,28 +38,26 @@
 <body>
     <header>
     {% include 'layout/header.html' %}
+    {% include 'layout/delivery.html' %}
+    {% include 'layout/logo.html' %}
     </header>
 
-    <!-- MESSAGES -->
     {% if messages %}
-    <section class="container banner-bg">
-        <div class="row justify-content-center">
-            <div class="col-12 banner">
-                <div class="message-container"></div>
-            </div>
-        </div>
-    </section>
-    {% endif %}
+    <!-- MESSAGES -->
+        {% include 'layout/messages.html' %}         
     <!-- MESSAGES-END -->
+    {% endif %}    
 
-    <!-- BANNER -->
     {% if banner %}
+    <!-- BANNER -->
         {% include 'layout/banner.html' %}
-    {% endif %}
     <!-- BANNER-END -->
+    {% endif %}
 
+    <!--PAGE-NAVBAR-->
     {% block page_navbar %}
     {% endblock page_navbar %}
+    <!--PAGE-NAVBAR-END-->
 
     <!-- MAIN CONTENT -->
     {% block content %} {% endblock content %}
