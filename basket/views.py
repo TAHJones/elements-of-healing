@@ -18,8 +18,8 @@ def add_to_basket(request, item_id):
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     potency = None
-    if 'product_potency' in request.POST:
-        potency = request.POST['product_potency']
+    if 'potency' in request.POST:
+        potency = request.POST['potency']
 
     basket = request.session.get('basket', {})
 
