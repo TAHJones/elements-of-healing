@@ -1,4 +1,12 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+<h1 align="center">
+  <a href="https://elementsofhealing.herokuapp.com/" target="_blank" style="width: 100%;">
+    <img src="/static/img/logo.png" alt="elements of healing logo">
+  </a>
+</h1>
+
+<img src="/static/img/homeopathy-montage--large.png" alt="elements of healing logo" style="width: 100%;">
+
+
 
 Welcome Thomas,
 
