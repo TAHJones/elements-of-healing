@@ -635,12 +635,12 @@
     color: #ffcd37;
     font-size: f.rem-calc(20);
     padding: f.rem-calc(20 0);
-    .basket-message {
+    .toast-message {
         color: #c4c6c7;
 	    margin-bottom: f.rem-calc(20);
         text-align: center;
     }
-    .basket-summary-info {
+    .toast-summary-info {
 	    padding: f.rem-calc(20 40);
         > p {
             color: #aaacae;
@@ -654,17 +654,14 @@
             }
         }
     }
-    .basket-delivery-message {
+    .toast-delivery-message {
         padding-bottom: f.rem-calc(20);
         > p {
             text-align: center;
         }
     }
-    .toast-btn {
-        text-align: center;
-        margin: 0 auto;
-        display: block;
-        width: 55%;
+    .toast-btns {
+        padding-left: f.rem-calc(20);
     }
 }
 
@@ -713,7 +710,7 @@
     border-bottom-color: #343a40 !important;
 } */
 
-.basket-notification-wrapper {
+.toast-notification-wrapper {
     background-color: rgba(0, 0, 0, 0.2);
     max-height: 45vh;
     overflow-x: hidden;
