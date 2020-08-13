@@ -10,11 +10,11 @@
                 </button>
             </div>
             <div class="toast-body">
-                <div class="basket-message">
+                <div class="toast-message">
                     {{ message }}
                 </div>
                 {% if grand_total %}
-                <div class="basket-notification-wrapper">
+                <div class="toast-notification-wrapper">
                     {% for item in basket_items %}
                         <div class="row">
                             <div class="col-4">
@@ -32,21 +32,27 @@
                         </div>
                     {% endfor %}
                 </div>
-                <div class="basket-summary-info">
+                <div class="toast-summary-info">
                     <p>Basket Items: <span>{{ product_count }}</span></p>        
                     <p>Total{% if free_delivery_delta > 0 %} (Exc. delivery){% endif %}: <span>£{{ total|floatformat:2 }}</span></p>
                 </div>
                 {% if free_delivery_delta > 0 %}
-                <div class="basket-delivery-message">
+                <div class="toast-delivery-message">
                     <p class="text-danger">
                         Spend <strong>${{ free_delivery_delta }}</strong> more to get free next day delivery!
                     </p>
                 </div>
                 {% endif %}
-                <a href="{% url 'view_basket' %}" class="btn toast-btn">
-                    <span class="text-uppercase">Go To Secure Checkout</span>
-                    <i class="fas fa-lock"></i>
-                </a>
+                <div class="toast-btns">
+                    <a href="{% url 'products' %}" class="btn">
+                        <i class="fas fa-chevron-left"></i>
+                        <span class="text-uppercase">Keep Shopping</span>
+                    </a>
+                    <a href="{% url 'view_basket' %}" class="btn">
+                        <span class="text-uppercase">Go To Secure Checkout</span>
+                        <i class="fas fa-lock"></i>
+                    </a>
+                </div>
                 {% endif %}
             </div>
         </div>
