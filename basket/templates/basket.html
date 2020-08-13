@@ -5,9 +5,8 @@
 {% block content %}
 <section class="container dark-bg">
     <div class="row justify-content-center">
-        <div class="col-12 col-sm-11 col-md-10 col-lg-9">
+        <div class="col-12 col-sm-11 col-md-10 col-lg-9 basket box">
         {% if basket_items %}
-            <div class="basket">
                 <table>
                     <thead>
                         <tr>
@@ -104,7 +103,6 @@
                         </td>
                     </tr>
                 </table>
-            </div>
         {% else %}
             <p>Your basket is empty.</p>
             <a href="{% url 'products' %}" class="btn btn-lg">
