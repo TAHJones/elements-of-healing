@@ -5,8 +5,8 @@
 @use "media_queries" as q;
 
 
-@mixin poster($bg-color, $header-color:false, $border-color: false) {
-    @if $header-color {
+@mixin poster($header:false, $border: false, $image: false) {
+    @if $header {
         h2 {
             color: v.$tertiary-header-color;
             font-weight: 600px;
@@ -14,15 +14,30 @@
             text-align: center;
         }
     }
-    text-shadow: 2px 2px #000;
-    @include q.respond-above(sm) {
-        background-color: $bg-color;
-        border-radius: f.rem-calc(6);
-        @if $border-color {
-            border: f.rem-calc(8) solid $border-color;
-            box-shadow: f.rem-calc(5 5 20 2) #000;
+    @if $image {
+        > img {
+            display: block;
+            margin: 0 auto;
+            padding: f.rem-calc(28);
+            width: 100%;
         }
     }
+    @include q.respond-above(sm) {
+        background-color: v.$poster-bg-color;
+        border-radius: f.rem-calc(6);
+        @if $image {
+            > img {
+                padding: f.rem-calc(40);
+                width: 100%;
+            }
+        }
+        @if $border {
+            border: f.rem-calc(8) solid v.$primary-border-color;
+            box-shadow: f.rem-calc(5 5 20 2) #000;
+            text-shadow: 2px 2px #000;
+        }
+    }
+
 }
 
 @mixin list-color($color-one, $color-two, $color-three, $color-four) {
