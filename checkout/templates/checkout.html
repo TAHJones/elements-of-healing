@@ -7,39 +7,45 @@
 {% endblock extra_css %}
 
 {% block page_navbar %}
-    <div class="container header-container">
+    <!-- <div class="container header-container">
         <div class="row">
-            <div class="col"></div>
+            <div class="col">
+                <h2>Checkout</h2>
+            </div>
         </div>
-    </div>
+    </div> -->
 {% endblock page_navbar %}
 
 {% block content %}
 <section class="container dark-bg">
     <div class="row justify-content-center">
-        <div class="col-12 col-sm-11 col-md-10 col-lg-10 box">
+        <div class="col-12 col-sm-11 col-md-10 col-lg-10 checkout box">
             <div class="overlay"></div>
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <h2 class="logo-font">Checkout</h2>
+                <div class="row checkout-header">
+                    <div class="col-12">
+                        <h2>Checkout</h2>
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="col-12 col-lg-6 order-lg-last mb-5">
-                        <p>Order Summary ({{ product_count }})</p>
-                        <div class="row">
-                            <div class="col-7 offset-2">
+                <div class="row checkout-subheaders">
+                    <div class="col-6">
+                        <p>Fill out the form to complete your order:</p>
+                    </div>
+                    <div class="col-4">
+                        <p>Order Summary: {{ product_count }}</p>
+                    </div>
+                    <div class="col-12 col-lg-6 order-lg-last">
+                        <div class="row checkout-basket-subheaders">
+                            <div class="col-6 offset-3">
                                 <p class="small">Item</p>
                             </div>
-                            <div class="col-3 text-right">
+                            <div class="col-2">
                                 <p class="small">Subtotal</p>
                             </div>
                         </div>
-                        {% for item in basket_items %}
-                            <div class="row">
-                                <div class="col-2">
+                        <div class="toast-notification-wrapper">
+                            {% for item in basket_items %}
+                            <div class="row checkout-basket-items">
+                                <div class="col-3">
                                     <a href="{% url 'product_detail' item.product.id %}">
                                         {% if item.product.image %}
                                             <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.name }}">
@@ -48,7 +54,7 @@
                                         {% endif %}
                                     </a>
                                 </div>
-                                <div class="col-7">
+                                <div class="col-6">
                                     <p><strong>{{ item.product.name }}</strong></p>
                                     <p class="small">Potency: {% if item.product.has_potency %}{{ item.potency|upper }}{% else %}N/A{% endif %}</p>
                                     <p class="small">Qty: {{ item.quantity }}</p>
@@ -57,22 +63,17 @@
                                     <p>${{ item.product.price | calc_subtotal:item.quantity }}</p>
                                 </div>
                             </div>
-                        {% endfor %}
-                        <div class="row text-right">
-                            <div class="col-7 offset-2">
-                                <p>Order Total:</p>
-                                <p>Delivery:</p>
-                                <p>Grand Total:</p>
-                            </div>
-                            <div class="col-3">
-                                <p>${{ total | floatformat:2 }}</p>
-                                <p>${{ delivery | floatformat:2 }}</p>
-                                <p><strong>${{ grand_total | floatformat:2 }}</strong></p>
+                            {% endfor %}
+                        </div>
+                        <div class="row">
+                            <div class="col-11 checkout-summary">
+                                <p>Order Total: <span>${{ total | floatformat:2 }}</span></p>
+                                <p>Delivery: <span>${{ delivery | floatformat:2 }}</span></p>
+                                <p>Grand Total: <span>${{ grand_total | floatformat:2 }}</span></p>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-lg-6">
-                        <p>Please fill out the form below to complete your order</p>
                         <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                             {% csrf_token %}
                             <fieldset>
@@ -89,14 +90,14 @@
                                 {{ order_form.street_address1 | as_crispy_field }}
                                 {{ order_form.street_address2 | as_crispy_field }}
                                 {{ order_form.county | as_crispy_field }}
-                                <div class="form-check form-check-inline float-right">
+                                <div class="checkout-form-check">
                                     {% if user.is_authenticated %}
                                         <label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
                                         <input class="form-check-input" type="checkbox" id="id-save-info" name="save-info" checked>
                                     {% else %}
                                         <label class="form-check-label" for="id-save-info">
                                             <a href="{% url 'account_signup' %}">Create an account</a> or 
-                                            <a href="{% url 'account_login' %}">login</a> to save this information
+                                            <a href="{% url 'account_login' %}">Login</a> to save this information
                                         </label>
                                     {% endif %}
                                 </div>
@@ -110,7 +111,7 @@
                                 <div class="text-danger" id="card-errors" role="alert"></div>
                             </fieldset>
 
-                            <div class="text-right">                    
+                            <div class="checkout-btns">                    
                                 <a href="{% url 'view_basket' %}" class="btn">
                                     <i class="fas fa-chevron-left"></i>
                                     <span>Adjust Basket</span>
@@ -119,6 +120,8 @@
                                     <span>Complete Order</span>
                                     <i class="fas fa-lock"></i>
                                 </button>
+                            </div>
+                            <div class="checkout-card-message">  
                                 <p class="text-danger">
                                         <i class="fas fa-exclamation-circle"></i>
                                     <span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
@@ -127,7 +130,7 @@
                         </form>
                     </div>
                 </div>
-            </div>
+            <!-- </div> -->
         </div>
     </div>
 </section>
