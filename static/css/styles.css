@@ -126,7 +126,6 @@ a:hover {
 /* LAYOUT */
 .dark-bg {
   background-color: rgba(0, 0, 0, 0.6);
-  text-shadow: 2px 2px #000;
 }
 @media (min-width: 576px) {
   .dark-bg {
@@ -165,21 +164,48 @@ a:hover {
   }
 }
 
-.testimonials {
-  text-shadow: 2px 2px #000;
-  padding: 1.25rem 1.875rem 0;
-}
-.testimonials h2 {
+.poster h2 {
   color: #ffcd37;
   font-weight: 600px;
   margin-bottom: 0;
   text-align: center;
 }
 @media (min-width: 576px) {
-  .testimonials {
+  .poster {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 0.375rem;
+    border: 0.5rem solid #7dab4b;
+    box-shadow: 0.3125rem 0.3125rem 1.25rem 0.125rem #000;
+    text-shadow: 2px 2px #000;
+  }
+}
+
+@media (min-width: 576px) {
+  .box {
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 0.375rem;
   }
+}
+
+.image-box > img {
+  display: block;
+  margin: 0 auto;
+  padding: 1.75rem;
+  width: 100%;
+}
+@media (min-width: 576px) {
+  .image-box {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 0.375rem;
+  }
+  .image-box > img {
+    padding: 2.5rem;
+    width: 100%;
+  }
+}
+
+.testimonials {
+  padding: 1.25rem 1.875rem 0;
 }
 @media (min-width: 576px) {
   .testimonials {
@@ -222,20 +248,7 @@ a:hover {
 }
 
 .colored-list {
-  text-shadow: 2px 2px #000;
   padding: 1.25rem 1.875rem 0;
-}
-.colored-list h2 {
-  color: #ffcd37;
-  font-weight: 600px;
-  margin-bottom: 0;
-  text-align: center;
-}
-@media (min-width: 576px) {
-  .colored-list {
-    background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 0.375rem;
-  }
 }
 .colored-list > ul > li {
   font-size: 1rem;
@@ -334,14 +347,7 @@ a:hover {
 }
 
 .gallery {
-  text-shadow: 2px 2px #000;
   padding: 0 2rem;
-}
-@media (min-width: 576px) {
-  .gallery {
-    background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 0.375rem;
-  }
 }
 @media (min-width: 450px) {
   .gallery {
@@ -369,23 +375,6 @@ a:hover {
   }
 }
 
-.image {
-  text-shadow: 2px 2px #000;
-}
-@media (min-width: 576px) {
-  .image {
-    background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 0.375rem;
-  }
-}
-
-.image > img {
-  display: block;
-  margin: 0 auto;
-  padding: 3.75rem;
-  width: 100%;
-}
-
 img[src*="assets/images/thomas.jpg"] {
   border-radius: 0.625rem;
   width: 90%;
@@ -403,14 +392,7 @@ img[src*="assets/images/thomas.jpg"] {
 }
 
 .form {
-  text-shadow: 2px 2px #000;
   padding: 1.875rem 3.125rem;
-}
-@media (min-width: 576px) {
-  .form {
-    background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 0.375rem;
-  }
 }
 
 footer {
@@ -970,8 +952,6 @@ footer {
 }
 
 .basket {
-  background-color: rgba(0, 0, 0, 0.6);
-  border-radius: 4px;
   padding: 1.25rem;
 }
 .basket th {
@@ -1129,5 +1109,75 @@ footer {
 }
 
 /* BOOTSTRAP-TOASTS-END */
+/* CHECKOUT */
+.checkout .checkout-header h2 {
+  color: #ffcd37;
+  margin: 1.25rem 0 1.25rem 0;
+}
+.checkout .checkout-subheaders p {
+  color: #aaacae;
+  font-size: 1rem;
+  margin-bottom: 0.625rem;
+}
+.checkout .checkout-basket-subheaders p {
+  color: #ffcd37;
+  margin: 1.25rem 0;
+}
+.checkout .checkout-basket-items {
+  margin-bottom: 0.625rem;
+}
+.checkout .checkout-basket-items p {
+  color: #76bb85;
+}
+.checkout .checkout-basket-items .small {
+  color: #aaacae;
+}
+.checkout .checkout-summary {
+  text-align: right;
+}
+.checkout .checkout-summary > p {
+  color: #aaacae;
+  text-align: right;
+}
+.checkout .checkout-summary > p > span {
+  font-weight: 600;
+  color: #c4c6c7;
+}
+.checkout .checkout-btns, .checkout .checkout-card-message {
+  margin-bottom: 1.25rem;
+}
+
+.checkout-form-check {
+  margin: 1.25rem 0;
+}
+
+.StripeElement, .stripe-style-input {
+  background-color: #f7f4cb;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-sizing: border-box;
+  height: 2rem;
+  margin-bottom: 0.625rem;
+  padding: 1.25rem;
+}
+.StripeElement ::placeholder, .stripe-style-input ::placeholder {
+  color: #495057;
+}
+
+.StripeElement--focus,
+.stripe-style-input:focus,
+.stripe-style-input:active {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #f7f4cb !important;
+}
+
+/* CHECKOUT-END */
 
 /*# sourceMappingURL=styles.css.map */
