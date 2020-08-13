@@ -1082,85 +1082,49 @@ footer {
   font-size: 1.25rem;
   padding: 1.25rem 0;
 }
-.toast-body .basket-message {
+.toast-body .toast-message {
   color: #c4c6c7;
   margin-bottom: 1.25rem;
   text-align: center;
 }
-.toast-body .basket-summary-info {
+.toast-body .toast-summary-info {
   padding: 1.25rem 2.5rem;
 }
-.toast-body .basket-summary-info > p {
+.toast-body .toast-summary-info > p {
   color: #aaacae;
   font-size: 1.25rem;
   margin-bottom: 0.625rem;
   text-align: right;
 }
-.toast-body .basket-summary-info > p > span {
+.toast-body .toast-summary-info > p > span {
   color: #c4c6c7;
   font-weight: 600;
   font-size: inherit;
 }
-.toast-body .basket-delivery-message {
+.toast-body .toast-delivery-message {
   padding-bottom: 1.25rem;
 }
-.toast-body .basket-delivery-message > p {
+.toast-body .toast-delivery-message > p {
   text-align: center;
 }
-.toast-body .toast-btn {
-  text-align: center;
-  margin: 0 auto;
-  display: block;
-  width: 55%;
+.toast-body .toast-btns {
+  padding-left: 1.25rem;
 }
 
-/* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
-/* Convenience classes - colors copied from Bootstrap */
-/* .arrow-primary {
-    border-bottom-color: #007bff !important;
-}
-
-.arrow-secondary {
-    border-bottom-color: #6c757d !important;
-}
-
-.arrow-success {
-    border-bottom-color: #28a745 !important;
-}
-
-.arrow-danger {
-    border-bottom-color: #dc3545 !important;
-}
-
-.arrow-warning {
-    border-bottom-color: #ffc107 !important;
-}
-
-.arrow-info {
-    border-bottom-color: #17a2b8 !important;
-}
-
-.arrow-light {
-    border-bottom-color: #f8f9fa !important;
-}
-
-.arrow-dark {
-    border-bottom-color: #343a40 !important;
-} */
-.basket-notification-wrapper {
+.toast-notification-wrapper {
   background-color: rgba(0, 0, 0, 0.2);
   max-height: 45vh;
   overflow-x: hidden;
   overflow-y: auto;
   padding: 1.875rem 2.5rem;
 }
-.basket-notification-wrapper .row {
+.toast-notification-wrapper .row {
   margin-bottom: 1.25rem;
 }
-.basket-notification-wrapper .row .small {
+.toast-notification-wrapper .row .small {
   color: #76bb85;
 }
-.basket-notification-wrapper img {
+.toast-notification-wrapper img {
   padding-right: 1.25rem;
 }
 
