@@ -4,7 +4,6 @@
 @use "functions" as f;
 @use "media_queries" as q;
 
-
 @mixin poster($header:false, $border: false, $image: false) {
     @if $header {
         h2 {
@@ -78,4 +77,12 @@
         color: $color-four;
         margin-bottom: 0;
     }
+}
+
+@mixin product-item-scroller() {
+    background-color: rgba(0, 0, 0, 0.2);
+    max-height: 45vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: f.rem-calc(30 40);
 }
