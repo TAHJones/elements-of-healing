@@ -6,16 +6,6 @@
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock extra_css %}
 
-{% block page_navbar %}
-    <!-- <div class="container header-container">
-        <div class="row">
-            <div class="col">
-                <h2>Checkout</h2>
-            </div>
-        </div>
-    </div> -->
-{% endblock page_navbar %}
-
 {% block content %}
 <section class="container dark-bg">
     <div class="row justify-content-center">
@@ -128,3 +118,10 @@
     </div>
 </section>
 {% endblock content %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+{% endblock %}
