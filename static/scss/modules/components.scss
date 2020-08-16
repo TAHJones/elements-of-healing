@@ -300,9 +300,12 @@
 }
 
 .btn {
-    background-color: v.$form-btn-color;
-    opacity: 0.9;
-    font-weight: 600;
+    @include m.custom-btn();
+    @include q.respond-below(sm) {
+        &:first-of-type {
+            margin-bottom: f.rem-calc(10);
+        }
+    }
 }
 
 .btn:hover {
@@ -536,16 +539,16 @@
             font-size: f.rem-calc(12);
         }
     }
-    .basket-info {
-        p {
-            color: #aaacae;
-            text-align: right;
-            > span {
-                font-weight: 600;
-                color: lighten(#aaacae, 10%);
-            }
-        }
-    }
+    // .basket-info {
+    //     p {
+    //         color: #aaacae;
+    //         text-align: right;
+    //         > span {
+    //             font-weight: 600;
+    //             color: lighten(#aaacae, 10%);
+    //         }
+    //     }
+    // }
     .delivery-message {
         padding-top: f.rem-calc(30);
     }
@@ -576,7 +579,7 @@
 
 /* BOOTSTRAP-TOASTS */
 
-.message-container-bg {
+.toast-container-bg {
 	position: fixed;
 	background-color: rgba(0,0,0,.9);
 	top: 0;
@@ -586,7 +589,7 @@
     z-index: 3;
 }
 
-.message-container {
+.toast-container {
 	position: fixed;
 	top: 52%;
 	left: 50%;
@@ -599,22 +602,23 @@
     max-width: 100%;
 }
 
-.toast-capper {
-    height: 10px;
-}
-
 .toast-header,
 .toast-body {
     border: none;
-    color: #ffcd37;
-    width: 550px;
+    padding: 0;
+    width: 320px;
+    @include q.respond-above(xs) {
+        width: 450px;
+    }
+    @include q.respond-above(sm) {
+        width: 550px;
+    }
 }
 
 .toast-header {
     background-color: lighten(#2b532a, 10%) !important;
-    font-size: f.rem-calc(20);
     padding: f.rem-calc(10);
-    > strong {
+    > h3 {
         margin-left: f.rem-calc(10); 
         margin-right: auto !important;
     }
@@ -632,52 +636,34 @@
 
 .toast-body {
     background-color: #222;
-    color: #ffcd37;
-    font-size: f.rem-calc(20);
-    padding: f.rem-calc(20 0);
-    .toast-message {
-        color: #c4c6c7;
-	    margin-bottom: f.rem-calc(20);
-        text-align: center;
+    padding: f.rem-calc(10);
+    > div {
+        padding: f.rem-calc(16);
     }
-    .toast-summary-info {
-	    padding: f.rem-calc(20 40);
-        > p {
-            color: #aaacae;
-            font-size: f.rem-calc(20);
-            margin-bottom: f.rem-calc(10);
-            text-align: right;
-            > span {
-                color: #c4c6c7;
-                font-weight: 600;
-                font-size: inherit;
-            }
+    p {
+        font-size: f.rem-calc(v.$font-size-xxxsmall);
+        margin: f.rem-calc(4 0);
+        @include q.respond-above(xs) {
+            font-size: f.rem-calc(v.$font-size-xxsmall);
+            margin: f.rem-calc(10 0);
+        }
+        @include q.respond-above(sm) {
+            font-size: f.rem-calc(v.$font-size-medium);
+            // margin: f.rem-calc(10 0);
         }
     }
-    .toast-delivery-message {
-        padding-bottom: f.rem-calc(20);
-        > p {
-            text-align: center;
-        }
-    }
-    .toast-btns {
-        padding-left: f.rem-calc(20);
+    img {
+        padding-right: f.rem-calc( 0 20 20 0);
+        margin-bottom: f.rem-calc(10);
     }
 }
 
 .product-item-scroller {
-    @include m.product-item-scroller();
-}
-
-.toast-item-scroller {
-    .row {
-        margin-bottom: f.rem-calc(20);
-        .small {
-            color: #76bb85;
-        }
+    @include q.respond-below(sm) {
+        @include m.product-item-scroller($max-height: 35vh);
     }
-    img {
-        padding-right: f.rem-calc(20);
+    @include q.respond-above(sm) {
+        @include m.product-item-scroller($max-height: 45vh);
     }
 }
 
