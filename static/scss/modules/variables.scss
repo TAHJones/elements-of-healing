@@ -10,10 +10,13 @@ $secondary-bg-color:rgba(0, 0, 0, 0.4);
 $tertiary-bg-color: #fffaa2;
 $banner-bg-color: rgba(0, 0, 0, 0.5);
 $poster-bg-color: rgba(0, 0, 0, 0.6);
+$inner-box-bg-color: #222;
 
 // font colors
 $primary-font-color:#527d5b;
 $secondary-font-color:#fffaa2;
+$tertiary-font-color: #76bb85;
+$small-font-color: #aaacae;
 
 // header colors
 $primary-header-color: #ffcd37;
@@ -55,7 +58,7 @@ $form-label-color: #ffcd37;
 $form-btn-color: #e3b72f;
 
 // font size
-
+$font-size-xxxsmall: 12px;
 $font-size-xxsmall: 14px;
 $font-size-xsmall: 16px;
 $font-size-small: 18px;
@@ -70,6 +73,16 @@ $h2-font-size-xsmall: 22px;
 $h2-font-size-small: 26px;
 $h2-font-size-medium: 32px;
 $h2-font-size-large: 36px;
+$h3-font-size-xxsmall: 14px;
+$h3-font-size-xsmall: 16px;
+$h3-font-size-small: 18px;
+$h3-font-size-medium: 20px;
+$h3-font-size-large: 24px;
+$h4-font-size-xxsmall: 12px;
+$h4-font-size-xsmall: 14px;
+$h4-font-size-small: 16px;
+$h4-font-size-medium: 20px;
+$h4-font-size-large: 22px;
 $link-font-size-xsmall: 16px;
 $link-font-size-small: 18px;
 $link-font-size-medium: 20px;
