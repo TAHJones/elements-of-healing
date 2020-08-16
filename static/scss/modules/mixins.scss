@@ -79,10 +79,48 @@
     }
 }
 
-@mixin product-item-scroller() {
+@mixin product-item-scroller($max-height) {
     background-color: rgba(0, 0, 0, 0.2);
-    max-height: 45vh;
+    max-height: $max-height;
     overflow-x: hidden;
     overflow-y: auto;
     padding: f.rem-calc(30 40);
+}
+
+@mixin inner-box() {
+	background-color: v.$inner-box-bg-color;
+	border-radius: 4px;
+	margin-bottom: f.rem-calc(24);
+
+}
+
+@mixin product-header() {
+	color: v.$tertiary-header-color;
+}
+
+@mixin product-text {
+	color: v.$tertiary-font-color;
+}
+
+@mixin product-text-small {
+	color: v.$small-font-color;
+}
+
+
+/* SUMMARY MIXIN */
+
+@mixin summary-text() {
+	color: #aaacae;
+	text-align: right;
+}
+
+@mixin summary-text-bold() {
+	font-weight: 600;
+	color: #c4c6c7;
+}
+
+@mixin custom-btn() {
+    background-color: v.$form-btn-color;
+    opacity: 0.9;
+    font-weight: 600;
 }
