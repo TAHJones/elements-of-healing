@@ -1,20 +1,18 @@
 {% load static %}
 
-<div class="message-container-bg">
-    <div class="message-container">
+<div class="toast-container-bg">
+    <div class="toast-container">
         <div class="toast custom-toast" data-autohide="false">
             <div class="toast-header">
-                <strong>Success!</strong>
+                <h3>Success!</h3>
                 <button type="button" class="close" data-dismiss="toast" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="toast-body">
-                <div class="toast-message">
-                    {{ message }}
-                </div>
+                <div><h4>{{ message }}</h4></div>
                 {% if grand_total %}
-                <div class="toast-item-scroller product-item-scroller">
+                <div class="product-item-scroller">
                     {% for item in basket_items %}
                         <div class="row">
                             <div class="col-4">
@@ -25,25 +23,25 @@
                             {% endif %}
                             </div>
                             <div class="col-8">
-                                <p class="small"><strong>{{ item.product.name }}</strong></p>
-                                <p class="small">Size: {% if item.product.has_potency %}{{ item.potency|upper }}{% else %}N/A{% endif %}</p>
-                                <p class="small">Qty: {{ item.quantity }}</p>
+                                <p>{{ item.product.name }}</p>
+                                <p>Size: {% if item.product.has_potency %}{{ item.potency|upper }}{% else %}N/A{% endif %}</p>
+                                <p>Qty: {{ item.quantity }}</p>
                             </div>
                         </div>
                     {% endfor %}
                 </div>
-                <div class="toast-summary-info">
+                <div class="summary">
                     <p>Basket Items: <span>{{ product_count }}</span></p>        
                     <p>Total{% if free_delivery_delta > 0 %} (Exc. delivery){% endif %}: <span>£{{ total|floatformat:2 }}</span></p>
                 </div>
                 {% if free_delivery_delta > 0 %}
-                <div class="toast-delivery-message">
+                <div>
                     <p class="text-danger">
                         Spend <strong>${{ free_delivery_delta }}</strong> more to get free next day delivery!
                     </p>
                 </div>
                 {% endif %}
-                <div class="toast-btns">
+                <div>
                     <a href="{% url 'products' %}" class="btn">
                         <i class="fas fa-chevron-left"></i>
                         <span class="text-uppercase">Keep Shopping</span>
