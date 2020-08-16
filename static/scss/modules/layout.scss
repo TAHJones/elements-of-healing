@@ -51,7 +51,31 @@
 
 .image-box {
     @include m.poster($image: true);  
+}
 
+.inner-box {
+    @include m.inner-box();
+}
+
+.summary {
+    p {
+        @include m.summary-text();
+        > span {
+            @include m.summary-text-bold();
+        }
+    }
+}
+
+.product {
+    h4, th {
+        @include m.product-header();
+    }
+    p {
+        @include m.product-text();
+    }
+    small {
+        @include m.product-text-small();
+    }
 }
 
 .testimonials {
