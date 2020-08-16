@@ -74,11 +74,11 @@
                             </td>
                         </tr>
                     {% endfor %}
-                    <tr class="basket-info">
-                        <td colspan="5" class="text-right">
-                            <p class="basket-total">Basket Total: <span>£{{ total|floatformat:2 }}</span></p>
-                            <p class="basket-delivery">Delivery: <span>£{{ delivery|floatformat:2 }}</span></p>
-                            <p class="basket-grand-total">Grand Total: <span>£{{ grand_total|floatformat:2 }}</span></p>
+                    <tr class="summary text-right">
+                        <td colspan="5">
+                            <p>Basket Total: <span>£{{ total|floatformat:2 }}</span></p>
+                            <p>Delivery: <span>£{{ delivery|floatformat:2 }}</span></p>
+                            <p>Grand Total: <span>£{{ grand_total|floatformat:2 }}</span></p>
                             {% if free_delivery_delta > 0 %}
                                 <p class="delivery-message text-danger">
                                     You could get free delivery by spending just <strong>£{{ free_delivery_delta }}</strong> more!
