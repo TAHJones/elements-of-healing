@@ -8,7 +8,7 @@
 /* LAYOUT */
 
 .dark-bg {
-    background-color: v.$poster-bg-color;
+    background-color: v.$secondary-bg-color--small;
     @include q.respond-above(sm) {
         background-color: v.$secondary-bg-color;
     }
