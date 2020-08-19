@@ -57,6 +57,11 @@
     @include m.inner-box();
 }
 
+
+.custom-btn {
+    @include m.custom-btn($large: true);
+}
+
 .summary {
     p {
         @include m.summary-text();
