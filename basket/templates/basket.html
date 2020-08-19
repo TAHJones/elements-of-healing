@@ -5,12 +5,12 @@
 {% block content %}
 <section class="container dark-bg">
     <div class="row justify-content-center">
-        <div class="col-12 col-sm-11 col-md-10 col-lg-9 basket box">
+        <div class="col-12 col-sm-11 col-md-11 col-lg-11 basket box">
         {% if basket_items %}
                 <table>
                     <thead>
                         <tr>
-                            <th scope="col">Product Info</th>
+                            <th scope="col">Product</th>
                             <th scope="col">Name</th>
                             <th scope="col">Price</th>
                             <th scope="col">Qty</th>
@@ -22,20 +22,23 @@
                         <tr>
                             <td>
                             {% if item.product.image.url != False %}
-                                <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                                <img src="{{ item.product.image.url }}" alt="{{ product.name }}">
                             {% else %}
-                                <img class="img-fluid rounded" src="{% static 'img/noimage.png' %}" alt="{{ product.name }}">
+                                <img src="{% static 'img/noimage.png' %}" alt="{{ product.name }}">
                             {% endif %}
                             </td>
                             <td>
-                                <p><strong>{{ item.product.name }}</strong></p>
-                                <p><strong>Potency: </strong>{% if item.product.has_potency %}{{ item.potency|upper }}{% else %}N/A{% endif %}</p>
+                                <p>{{ item.product.name }}</p>
+                                <p>Potency: {% if item.product.has_potency %}{{ item.potency|upper }}{% else %}N/A{% endif %}</p>
                                 <p class="sku">SKU: {{ item.product.sku|upper }}</p>
                             </td>
                             <td>
                                 <p>£{{ item.product.price }}</p>
                             </td>
-                            <td>
+                            <td class="d-block d-md-none item-quantity-text">
+                                <p>{{ item.quantity }}</p>
+                            </td>
+                            <td class="d-none d-md-block item-quantity-form">
                                 <form class="form update-form" method="POST" action="{% url 'adjust_basket' item.item_id %}">
                                     {% csrf_token %}
                                     <div class="form-group">
@@ -74,7 +77,7 @@
                             </td>
                         </tr>
                     {% endfor %}
-                    <tr class="summary text-right">
+                    <tr class="summary">
                         <td colspan="5">
                             <p>Basket Total: <span>£{{ total|floatformat:2 }}</span></p>
                             <p>Delivery: <span>£{{ delivery|floatformat:2 }}</span></p>
@@ -88,27 +91,21 @@
                     </tr>
                     <tr>
                         <td colspan="5">
-                            <a href="{% url 'products' %}" class="btn btn-lg">
-                                <span class="icon">
-                                    <i class="fas fa-chevron-left"></i>
-                                </span>
+                            <a href="{% url 'products' %}" class="btn custom-btn-lg">
+                                <i class="fas fa-chevron-left"></i>
                                 <span class="text-uppercase">Keep Shopping</span>
                             </a>
-                            <a href="{% url 'checkout' %}" class="btn btn-lg">
+                            <a href="{% url 'checkout' %}" class="btn custom-btn-lg">
                                 <span class="text-uppercase">Secure Checkout</span>
-                                <span class="icon">
-                                    <i class="fas fa-lock"></i>
-                                </span>
+                                <i class="fas fa-lock"></i>
                             </a>
                         </td>
                     </tr>
                 </table>
         {% else %}
             <p>Your basket is empty.</p>
-            <a href="{% url 'products' %}" class="btn btn-lg">
-                <span class="icon">
-                    <i class="fas fa-chevron-left"></i>
-                </span>
+            <a href="{% url 'products' %}" class="btn custom-btn-lg">
+                <i class="fas fa-chevron-left"></i>
                 <span class="text-uppercase">Keep Shopping</span>
             </a>
         {% endif %}
