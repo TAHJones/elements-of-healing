@@ -1,4 +1,3 @@
-/* SUMMARY TEXT MIXIN */
 /* GENERAL */
 html {
   font-size: 16px;
@@ -96,30 +95,69 @@ h3 {
   }
 }
 
-h4 {
+h4, th {
   color: #ffcd37;
   font-weight: 400;
   font-size: 0.75rem;
   margin-bottom: 0;
 }
 @media (min-width: 450px) {
-  h4 {
+  h4, th {
     font-size: 0.875rem;
   }
 }
 @media (min-width: 768px) {
-  h4 {
+  h4, th {
     font-size: 1rem;
   }
 }
 @media (min-width: 992px) {
-  h4 {
+  h4, th {
     font-size: 1.25rem;
   }
 }
 @media (min-width: 1200px) {
-  h4 {
+  h4, th {
     font-size: 1.375rem;
+  }
+}
+
+th {
+  padding: 1.25rem;
+}
+@media (min-width: 768px) {
+  th {
+    padding-left: 0.625rem;
+  }
+}
+@media (min-width: 992px) {
+  th {
+    padding-left: 3.125rem;
+  }
+}
+
+td {
+  padding: 0 0 1.25rem 1.25rem;
+}
+td > p {
+  color: #76bb85;
+  font-size: 0.625rem;
+  margin: 0;
+}
+@media (min-width: 768px) {
+  td {
+    padding: 0 0 1.875rem 0.625rem;
+  }
+  td > p {
+    font-size: 0.875rem;
+  }
+}
+@media (min-width: 992px) {
+  td {
+    padding: 0 0 2.5rem 3.125rem;
+  }
+  td > p {
+    font-size: 1.25rem;
   }
 }
 
@@ -183,7 +221,7 @@ a:hover {
 /* GENERAL-END */
 /* LAYOUT */
 .dark-bg {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 @media (min-width: 576px) {
   .dark-bg {
@@ -266,6 +304,26 @@ a:hover {
   background-color: #222;
   border-radius: 4px;
   margin-bottom: 1.5rem;
+}
+
+.custom-btn {
+  background-color: #e3b72f;
+  opacity: 0.9;
+  font-weight: 600;
+  margin-bottom: 0.625rem;
+  text-transform: uppercase;
+  transition: all 0.25s ease-in-out;
+}
+.custom-btn:hover {
+  opacity: 1;
+}
+@media (min-width: 768px) {
+  .custom-btn {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: 0.3rem;
+  }
 }
 
 .summary p {
@@ -822,22 +880,6 @@ footer {
   margin-bottom: 0.75rem;
 }
 
-.btn {
-  background-color: #e3b72f;
-  opacity: 0.9;
-  font-weight: 600;
-}
-@media (max-width: 575px) {
-  .btn:first-of-type {
-    margin-bottom: 0.625rem;
-  }
-}
-
-.btn:hover {
-  opacity: 1;
-  transition: all 0.25s ease-in-out;
-}
-
 /* FORM-END */
 /* ALLAUTH-FORM */
 .allauth-form-bg > h1 {
@@ -987,22 +1029,6 @@ footer {
     font-size: 1.25rem;
   }
 }
-.product-info .btn {
-  text-transform: uppercase;
-  text-shadow: none;
-  font-size: 0.75rem;
-  margin-bottom: 0.625rem;
-}
-@media (min-width: 576px) {
-  .product-info .btn {
-    font-size: 0.875rem;
-  }
-}
-@media (min-width: 768px) {
-  .product-info .btn {
-    font-size: 1rem;
-  }
-}
 
 /* PRODUCTS-END */
 /* SHOPPING-BASKET */
@@ -1039,32 +1065,55 @@ footer {
   }
 }
 
-.basket {
-  padding: 1.25rem;
+.basket td .item-quantity {
+  margin-top: 2.625rem;
 }
-.basket th {
-  color: #ffcd37;
-  font-size: 1.25rem;
-  padding-bottom: 1.25rem;
+.basket td img {
+  border-radius: 0.25rem !important;
+  width: 100px;
 }
-.basket td {
-  padding: 0 2.5rem 1.875rem 0;
+@media (min-width: 768px) {
+  .basket td img {
+    width: 120px;
+  }
 }
-.basket td > p {
-  color: #76bb85;
+@media (min-width: 992px) {
+  .basket td img {
+    width: 130px;
+  }
 }
-.basket td .img-fluid {
-  max-width: 90%;
+@media (min-width: 1200px) {
+  .basket td img {
+    width: 200px;
+  }
 }
 .basket td .sku {
   color: #aaacae;
-  font-size: 0.75rem;
+  font-size: 0.5rem;
+}
+@media (min-width: 768px) {
+  .basket td .sku {
+    font-size: 0.75rem;
+  }
+}
+.basket .item-quantity-text {
+  margin-top: 2.625rem;
+}
+.basket .item-quantity-form {
+  padding: 12% 10%;
+}
+@media (min-width: 992px) {
+  .basket .item-quantity-form {
+    padding: 16% 10%;
+  }
+}
+@media (min-width: 1200px) {
+  .basket .item-quantity-form {
+    padding: 31% 10%;
+  }
 }
 .basket .delivery-message {
-  padding-top: 1.875rem;
-}
-.basket .btn {
-  text-shadow: none;
+  text-align: left;
 }
 
 /* SHOPPING-BASKET-END */
@@ -1076,8 +1125,14 @@ footer {
 .update-form .qty_input {
   padding: 0.3125rem;
 }
-
-.basket .update-link, .basket .remove-item {
+.update-form .decrement-qty, .update-form .increment-qty {
+  height: 100%;
+}
+.update-form .increment-qty {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+.update-form .update-link, .update-form .remove-item {
   cursor: pointer;
 }
 
@@ -1151,7 +1206,7 @@ footer {
   padding: 1rem;
 }
 .toast-body p {
-  font-size: 0.75rem;
+  font-size: 0.625rem;
   margin: 0.25rem 0;
 }
 @media (min-width: 450px) {
