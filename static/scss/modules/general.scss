@@ -80,7 +80,7 @@ h3 {
     }
 }
 
-h4 {
+h4, th {
     color: v.$tertiary-header-color;
     font-weight: 400;
     font-size: f.rem-calc(v.$h4-font-size-xxsmall);
@@ -96,6 +96,37 @@ h4 {
     }
     @include q.respond-above(xl) {
         font-size: f.rem-calc(v.$h4-font-size-large);
+    }
+}
+
+th {
+    padding: f.rem-calc(20);
+    @include q.respond-above(md) {
+        padding-left: f.rem-calc(10);
+    }
+    @include q.respond-above(lg) {
+        padding-left: f.rem-calc(50);
+    }
+}
+
+td {
+    padding: f.rem-calc(0 0 20 20);
+    > p {
+        color: #76bb85;
+        font-size: f.rem-calc(v.$font-size-xxxsmall);
+        margin: 0;
+    }
+    @include q.respond-above(md) {
+        padding: f.rem-calc(0 0 30 10);
+        > p {
+            font-size: f.rem-calc(v.$font-size-xxsmall);
+        }
+    }
+    @include q.respond-above(lg) {
+        padding: f.rem-calc(0 0 40 50);
+        > p {
+            font-size: f.rem-calc(v.$font-size-medium);
+        }
     }
 }
 
