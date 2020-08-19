@@ -4,6 +4,27 @@
 @use "functions" as f;
 @use "media_queries" as q;
 
+
+@mixin custom-btn($large: false) {
+    background-color: v.$form-btn-color;
+    opacity: 0.9;
+    font-weight: 600;
+    margin-bottom: f.rem-calc(10);
+    text-transform: uppercase;
+    transition: all 0.25s ease-in-out;
+    &:hover {
+        opacity: 1;
+    }
+    @if $large {
+        @include q.respond-above(md) {
+            padding: .5rem 1rem;
+            font-size: 1.25rem;
+            line-height: 1.5;
+            border-radius: .3rem;
+        }
+    }
+}
+
 @mixin poster($header:false, $border: false, $image: false) {
     @if $header {
         h2 {
@@ -106,9 +127,6 @@
 	color: v.$small-font-color;
 }
 
-
-/* SUMMARY MIXIN */
-
 @mixin summary-text() {
 	color: #aaacae;
 	text-align: right;
@@ -117,10 +135,4 @@
 @mixin summary-text-bold() {
 	font-weight: 600;
 	color: #c4c6c7;
-}
-
-@mixin custom-btn() {
-    background-color: v.$form-btn-color;
-    opacity: 0.9;
-    font-weight: 600;
 }
