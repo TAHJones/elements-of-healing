@@ -57,9 +57,16 @@
     @include m.inner-box();
 }
 
-
 .custom-btn {
-    @include m.custom-btn($large: true);
+    @include m.custom-btn();
+}
+
+.form-btn {
+    @include m.custom-btn($medium: true);
+}
+
+.shopping-btn {
+    @include m.custom-btn($uppercase: true, $medium: true, $large: true);
 }
 
 .summary {
