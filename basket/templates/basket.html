@@ -44,7 +44,7 @@
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-prepend">
-                                                <button class="decrement-qty btn btn-sm" 
+                                                <button class="decrement-qty btn btn-sm custom-btn" 
                                                     data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
                                                     <span>
                                                         <i class="fas fa-minus fa-sm"></i>
@@ -56,7 +56,7 @@
                                                 data-item_id="{{ item.item_id }}"
                                                 id="id_qty_{{ item.item_id }}">
                                             <div class="input-group-append">
-                                                <button class="increment-qty btn btn-sm"
+                                                <button class="increment-qty btn btn-sm custom-btn"
                                                     data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
                                                     <span>
                                                         <i class="fas fa-plus fa-sm"></i>
@@ -91,11 +91,11 @@
                     </tr>
                     <tr>
                         <td colspan="5">
-                            <a href="{% url 'products' %}" class="btn custom-btn">
+                            <a href="{% url 'products' %}" class="btn shopping-btn">
                                 <i class="fas fa-chevron-left"></i>
                                 <span>Keep Shopping</span>
                             </a>
-                            <a href="{% url 'checkout' %}" class="btn custom-btn">
+                            <a href="{% url 'checkout' %}" class="btn shopping-btn">
                                 <span>Secure Checkout</span>
                                 <i class="fas fa-lock"></i>
                             </a>
@@ -104,7 +104,7 @@
                 </table>
         {% else %}
             <p>Your basket is empty.</p>
-            <a href="{% url 'products' %}" class="btn custom-btn">
+            <a href="{% url 'products' %}" class="btn shopping-btn">
                 <i class="fas fa-chevron-left"></i>
                 <span class="text-uppercase">Keep Shopping</span>
             </a>
@@ -125,7 +125,7 @@ $(document).ready(function(){
      * Function that updates product quantity when update link is liked then returns to basket page.
      */
     $('.update-link').click(function(e) {
-        var form = $(this).prev('.update-form');
+        let form = $(this).prev('.update-form');
         form.submit();
     });
 
@@ -134,11 +134,11 @@ $(document).ready(function(){
     * Function that removes item from basket when remove link is clicked then reloads page.
     */
     $('.remove-item').click(function(e) {
-        var csrfToken = "{{ csrf_token }}";
-        var itemId = $(this).attr('id').split('remove_')[1];
-        var size = $(this).data('product_size');
-        var url = `/remove/${itemId}/`;
-        var data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
+        let csrfToken = "{{ csrf_token }}";
+        let itemId = $(this).attr('id').split('remove_')[1];
+        let size = $(this).data('product_size');
+        let url = `/remove/${itemId}/`;
+        let data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
         $.post(url, data)
         .done(function() {
             location.reload();
