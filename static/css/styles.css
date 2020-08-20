@@ -309,18 +309,55 @@ a:hover {
 .custom-btn {
   background-color: #e3b72f;
   opacity: 0.9;
+  font-size: 0.875rem;
   font-weight: 600;
   margin-bottom: 0.625rem;
-  text-transform: uppercase;
   transition: all 0.25s ease-in-out;
 }
 .custom-btn:hover {
   opacity: 1;
 }
+
+.form-btn {
+  background-color: #e3b72f;
+  opacity: 0.9;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.625rem;
+  transition: all 0.25s ease-in-out;
+}
+.form-btn:hover {
+  opacity: 1;
+}
 @media (min-width: 768px) {
-  .custom-btn {
+  .form-btn {
+    padding: 0.4375rem 0.875rem;
+    font-size: 1rem;
+  }
+}
+
+.shopping-btn {
+  background-color: #e3b72f;
+  opacity: 0.9;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.625rem;
+  transition: all 0.25s ease-in-out;
+  text-transform: uppercase;
+}
+.shopping-btn:hover {
+  opacity: 1;
+}
+@media (min-width: 768px) {
+  .shopping-btn {
+    padding: 0.4375rem 0.875rem;
+    font-size: 1rem;
+  }
+}
+@media (min-width: 992px) {
+  .shopping-btn {
     padding: 0.5rem 1rem;
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     line-height: 1.5;
     border-radius: 0.3rem;
   }
