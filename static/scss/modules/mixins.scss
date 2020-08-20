@@ -5,20 +5,29 @@
 @use "media_queries" as q;
 
 
-@mixin custom-btn($large: false) {
+@mixin custom-btn($uppercase: false, $medium: false, $large: false) {
     background-color: v.$form-btn-color;
     opacity: 0.9;
+    font-size: .875rem;
     font-weight: 600;
     margin-bottom: f.rem-calc(10);
-    text-transform: uppercase;
     transition: all 0.25s ease-in-out;
     &:hover {
         opacity: 1;
     }
-    @if $large {
+    @if $uppercase {
+        text-transform: uppercase;
+    }
+    @if $medium {
         @include q.respond-above(md) {
+            padding: .4375rem .875rem;
+            font-size: 1rem;
+        }
+    }
+    @if $large {
+        @include q.respond-above(lg) {
             padding: .5rem 1rem;
-            font-size: 1.25rem;
+            font-size: 1.125rem;
             line-height: 1.5;
             border-radius: .3rem;
         }
