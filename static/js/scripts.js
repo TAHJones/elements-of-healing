@@ -269,8 +269,8 @@ $(document).ready(function(){
      * Function hides custom toast background when toast close button is clicked
      */
     closeToastBg.addEventListener("click", function(){
-        const messageContainerBg = document.querySelector(".message-container-bg");
-        messageContainerBg.style.display = "none";
+        const toastContainerBg = document.querySelector(".toast-container-bg");
+        toastContainerBg.style.display = "none";
     }, false);
 });
 
