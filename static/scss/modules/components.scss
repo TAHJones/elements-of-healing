@@ -370,47 +370,21 @@
     text-align: center;
 }
 
-.product {
-    .card {
-        background-color: rgba(0, 0, 0, 0.6);
-        border: none;
-        margin-bottom: f.rem-calc(50);
-        padding: f.rem-calc(15);
-        > a {
-            margin: 0;
-        }
-    }
-
-    .card-description {
-        color: #76bb85;
-        font-size: f.rem-calc(18);
-        padding: f.rem-calc(5);
+.sort-select-summary {
+    margin-bottom: f.rem-calc(40);
+    p {
+        font-size: f.rem-calc(20);
+        font-weight: 600;
         text-align: center;
-        @include q.respond-above(sm) {
-            font-size: f.rem-calc(16);
-        }
-        @include q.respond-above(md) {
-            font-size: f.rem-calc(20);
+        text-shadow: 2px 2px 2px #000;
+        > span {
+            color: #c4c6c7;
         }
     }
+}
 
-    .card-footer {
-        background-color: #2b532a;
-        border-radius: f.rem-calc(2);
-
-    }
-
-    .product-price {
-        color: #d0ac3d;
-        font-size: f.rem-calc(25);
-        text-align: center;
-        padding: f.rem-calc(10 0 15);
-        margin: 0;
-    }
-
-    .product-rating, .product-category {
-        color: #aaacae;
-    }
+.sort-select-wrapper {
+    margin-bottom: f.rem-calc(40);
 }
 
 .product-detail {
@@ -420,30 +394,6 @@
 
     .card-body {
         padding: f.rem-calc(30 16 0);
-        > .product-description {
-            color: #76bb85;
-            font-size: f.rem-calc(14);
-            text-align: left;
-        }
-        @include q.respond-above(sm) {
-            > .product-description {
-                font-size: f.rem-calc(16);
-                text-align: justify;
-            }
-        }
-        @include q.respond-above(md) {
-            > .product-description {
-                font-size: f.rem-calc(18);
-            }
-        }
-        .product-rating, .product-category {
-            @include q.respond-above(sm) {
-                padding: f.rem-calc(8 16 0);
-            }
-        }
-    }
-    .card-footer {
-        background-color: transparent;
     }
 }
 
