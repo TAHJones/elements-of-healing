@@ -122,23 +122,27 @@
     padding: f.rem-calc(30 40);
 }
 
-@mixin inner-box() {
+@mixin inner-box {
 	background-color: v.$inner-box-bg-color;
 	border-radius: 4px;
 	margin-bottom: f.rem-calc(24);
 
 }
 
-@mixin product-header() {
-	color: v.$tertiary-header-color;
-}
-
-@mixin product-text {
-	color: v.$tertiary-font-color;
-}
-
-@mixin product-text-small {
-	color: v.$small-font-color;
+@mixin product-item {
+    margin-bottom: f.rem-calc(50);
+    padding: f.rem-calc(16);
+    p {
+        color: v.$tertiary-font-color;
+        text-align: left;
+        > span {
+            color: v.$small-font-color;
+            font-size: 80%;
+        }
+    }
+    a {
+        margin: 0;
+    }
 }
 
 @mixin summary-text() {
