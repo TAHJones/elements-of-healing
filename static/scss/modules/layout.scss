@@ -78,16 +78,8 @@
     }
 }
 
-.product {
-    h4, th {
-        @include m.product-header();
-    }
-    p {
-        @include m.product-text();
-    }
-    small {
-        @include m.product-text-small();
-    }
+.product-item {
+    @include m.product-item;
 }
 
 .testimonials {
