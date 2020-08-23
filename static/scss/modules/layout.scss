@@ -80,6 +80,11 @@
 
 .product-item {
     @include m.product-item;
+    > .product-img-link {
+        display: block;
+        margin: 0 auto;
+        width: 90%;
+    }
 }
 
 .testimonials {
