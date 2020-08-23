@@ -25,13 +25,13 @@
 
 {% block content %}
 <section class="container dark-bg">
-    <div class="row justify-content-center no-gutters">
+    <div class="row justify-content-center">
         <div class="col-12">
             {% if current_categories == None %}
-            <h1 class="product-title">Homeopathic Remedies & Kits</h1>
+            <h1>Homeopathic Remedies & Kits</h1>
             {% else %}
                 {% for c in current_categories %}
-                <h1 class="product-title">Homeopathic {{ c.friendly_name }}</h1>
+                <h1>Homeopathic {{ c.friendly_name }}</h1>
                 {% endfor %}
             {% endif %}
         </div>
@@ -40,12 +40,12 @@
         <div class="col-12 col-md-6 sort-select-summary">
             <p>
             {% if search_term or current_categories or current_sorting != 'None_None' %}
-                <a href="{% url 'products' %}">Products Home</a>
+                <a href="{% url 'products' %}">Products Home</a><span>|</span>
             {% endif %}
-                <span>| {{ products|length }} Products{% if search_term %} found for"{{ search_term }}"{% endif %}</span>
+                <span>{{ products|length }} Products{% if search_term %} found for"{{ search_term }}"{% endif %}</span>
             </p>
         </div>
-        <div class="col-6 col-md-4">
+        <div class="col-6 col-md-4 col-lg-3">
             <div class="sort-select-wrapper">
                 <select id="sortSelector" class="custom-select custom-select-sm border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
                     <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
@@ -62,10 +62,10 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-9 col-sm-12">
+        <div class="col-8 offset-2 col-sm-10 offset-sm-1 col-lg-12 offset-lg-0">
             <div class="row">
                 {% for product in products %}
-                <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3">
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                     <div class="card product-item inner-box">
                         {% if product.image %}
                         <a href="{% url 'product_detail' product.id %}">
