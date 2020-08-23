@@ -394,8 +394,16 @@ a:hover {
 }
 
 .product-item {
-  margin-bottom: 3.125rem;
   padding: 1rem;
+}
+.product-item > h1 {
+  margin: 0 0 1.25rem;
+}
+.product-item > a {
+  margin: 0;
+}
+.product-item img {
+  border-radius: 0.9375rem;
 }
 .product-item p {
   color: #76bb85;
@@ -405,8 +413,13 @@ a:hover {
   color: #aaacae;
   font-size: 80%;
 }
-.product-item p a {
+.product-item p > a {
   margin: 0;
+}
+.product-item > .product-img-link {
+  display: block;
+  margin: 0 auto;
+  width: 90%;
 }
 
 .testimonials {
@@ -1017,7 +1030,6 @@ footer {
 }
 
 .product-info {
-  background-color: transparent;
   padding: 0;
 }
 .product-info label {
@@ -1032,6 +1044,12 @@ footer {
   .product-info label {
     font-size: 1.25rem;
   }
+}
+.product-info .form-control {
+  margin-bottom: 0.625rem;
+}
+.product-info .decrement-qty, .product-info .increment-qty {
+  height: 83%;
 }
 
 .overlay-container {
@@ -1053,7 +1071,7 @@ footer {
   transition: 0.5s ease-in-out;
   background-color: rgba(0, 0, 0, 0.6);
   margin: 0 auto;
-  border-radius: 3px;
+  border-radius: 0.875rem;
 }
 .overlay-container > .overlay > .overlay-text {
   color: #f9bf0c;
