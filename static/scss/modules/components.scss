@@ -365,22 +365,8 @@
 
 /* PRODUCTS */
 
-.product-title {
-    margin-bottom: f.rem-calc(50);
-    text-align: center;
-}
-
 .sort-select-summary {
-    margin-bottom: f.rem-calc(40);
-    p {
-        font-size: f.rem-calc(20);
-        font-weight: 600;
-        text-align: center;
-        text-shadow: 2px 2px 2px #000;
-        > span {
-            color: #c4c6c7;
-        }
-    }
+    @include m.sort-select-summary;
 }
 
 .sort-select-wrapper {
