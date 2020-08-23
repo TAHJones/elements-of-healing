@@ -4,9 +4,9 @@
 {% block content %}
 <section class="container dark-bg">
     <div class="row justify-content-center">
-        <div class="col-11 col-sm-10 col-md-9 col-lg-7 product product-detail">
-            <div class="card">
-                <h1 class="product-title">{{product.name}}</h1>
+        <div class="col-11 col-sm-10 col-md-9 col-lg-7">
+            <div class="card product-item inner-box">
+                <h1>{{product.name}}</h1>
                 {% if product.image %}
                 <a href="{{ product.image.url }}">
                     <img class="card-img img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
@@ -17,16 +17,16 @@
                 </a>
                 {% endif %}
                 <div class="card-body">
-                    <p class="product-price">£{{ product.price }}</p>
-                    <p class="product-description">{{ product.name }} - {{ product.description }}</p>
+                    <p>{{ product.name }} - {{ product.description }}</p>
+                    <p><span>£{{ product.price }}</span></p>
                     {% if product.rating %}
-                        <p class="product-rating"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</p>
+                        <p><span><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</span></p>
                     {% else %}
-                        <p class="product-rating">No Rating</p>
+                        <p><span>No Rating</span></p>
                     {% endif %}
                     {% if product.category %}
                     <p>
-                        <a class="product-category" href="{% url 'products' %}?category={{ product.category.name }}">
+                        <a href="{% url 'products' %}?category={{ product.category.name }}">
                             <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
                         </a>
                     </p>
