@@ -398,6 +398,10 @@
     }
 }
 
+.overlay-container {
+    @include m.img-overlay
+}
+
 /* PRODUCTS-END */
 
 /* SHOPPING-BASKET */
