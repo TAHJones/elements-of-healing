@@ -405,7 +405,7 @@ a:hover {
   color: #aaacae;
   font-size: 80%;
 }
-.product-item a {
+.product-item p a {
   margin: 0;
 }
 
@@ -1014,13 +1014,6 @@ footer {
 
 .sort-select-wrapper {
   margin-bottom: 2.5rem;
-}
-
-.product-detail .card {
-  padding: 1.5rem;
-}
-.product-detail .card-body {
-  padding: 1.875rem 1rem 0;
 }
 
 .product-info {
