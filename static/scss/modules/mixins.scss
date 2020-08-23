@@ -130,8 +130,16 @@
 }
 
 @mixin product-item {
-    margin-bottom: f.rem-calc(50);
+    > h1 {
+        margin: f.rem-calc(0 0 20);
+    }
     padding: f.rem-calc(16);
+    > a {
+        margin: 0;
+    }
+    img {
+        border-radius: f.rem-calc(15);
+    }
     p {
         color: v.$tertiary-font-color;
         text-align: left;
@@ -139,7 +147,7 @@
             color: v.$small-font-color;
             font-size: 80%;
         }
-        a {
+        > a {
             margin: 0;
         }
     }
@@ -163,7 +171,7 @@
         transition: .5s ease-in-out;
         background-color: rgba(0, 0, 0, .6);
         margin: 0 auto;
-        border-radius: 3px;
+        border-radius: f.rem-calc(14);
         > .overlay-text {
             color: #f9bf0c;
             position: absolute;
