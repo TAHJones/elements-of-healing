@@ -1045,6 +1045,9 @@ footer {
   position: relative;
   width: 100%;
 }
+.overlay-container:hover > .overlay {
+  opacity: 1;
+}
 .overlay-container > .overlay {
   position: absolute;
   top: 0;
@@ -1058,9 +1061,6 @@ footer {
   background-color: rgba(0, 0, 0, 0.6);
   margin: 0 auto;
   border-radius: 3px;
-}
-.overlay-container > .overlay:hover .overlay {
-  opacity: 1;
 }
 .overlay-container > .overlay > .overlay-text {
   color: #f9bf0c;

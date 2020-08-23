@@ -148,6 +148,9 @@
 @mixin img-overlay {
 	position: relative;
 	width: 100%;
+    &:hover > .overlay {
+        opacity: 1;
+    }
     > .overlay {
         position: absolute;
         top: 0;
@@ -161,9 +164,6 @@
         background-color: rgba(0, 0, 0, .6);
         margin: 0 auto;
         border-radius: 3px;
-        &:hover .overlay {
-            opacity: 1;
-        }
         > .overlay-text {
             color: #f9bf0c;
             position: absolute;
