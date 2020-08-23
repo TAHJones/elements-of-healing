@@ -78,15 +78,6 @@
     }
 }
 
-.product-item {
-    @include m.product-item;
-    > .product-img-link {
-        display: block;
-        margin: 0 auto;
-        width: 90%;
-    }
-}
-
 .testimonials {
     padding: f.rem-calc(20 30 0);
     @include q.respond-above(sm) {
