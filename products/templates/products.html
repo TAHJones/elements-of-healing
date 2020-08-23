@@ -69,11 +69,21 @@
                     <div class="card product-item inner-box">
                         {% if product.image %}
                         <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img" src="{{ product.image.url }}" alt="{{ product.name }}">
+                            <div class="overlay-container">
+                                <img class="card-img" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                <div class="overlay">
+                                    <div class="overlay-text">Purchase {{ product.name }}</div>
+                                </div>
+                            </div>
                         </a>
                         {% else %}
                         <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img" src="{% static 'img/noimage.png' %}" alt="{{ product.name }}">
+                            <div class="overlay-container">
+                                <img class="card-img" src="{% static 'img/noimage.png' %}" alt="{{ product.name }}">
+                                <div class="overlay">
+                                    <div class="overlay-text">Purchase {{ product.name }}</div>
+                                </div>
+                            </div>
                         </a>
                         {% endif %}
                         <div class="card-body">
