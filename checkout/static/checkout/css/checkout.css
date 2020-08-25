@@ -119,5 +119,12 @@
 }
 
 /* CHECKOUT-END */
+.checkout-success .order-confirmation > p {
+  margin-bottom: 1.875rem;
+}
+.checkout-success .inner-box {
+  margin: 0.625rem 0 2.5rem;
+  padding: 1.25rem;
+}
 
 /*# sourceMappingURL=checkout.css.map */

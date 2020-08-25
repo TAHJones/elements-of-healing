@@ -133,3 +133,15 @@
 }
 
 /* CHECKOUT-END */
+
+.checkout-success {
+    .order-confirmation {
+        > p {
+            margin-bottom: f.rem-calc(30);
+        }
+    }
+    .inner-box {
+        margin: f.rem-calc(10 0 40);
+        padding: f.rem-calc(20);
+    }
+}
