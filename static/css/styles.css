@@ -471,7 +471,7 @@ footer {
 @media (min-width: 576px) {
   .navbar-dark .navbar-nav .nav-link,
 .navbar-dark .navbar-nav .show > .nav-link {
-    padding: 0.5rem;
+    padding: 0.25rem;
   }
 }
 @media (min-width: 768px) {
@@ -559,6 +559,10 @@ footer {
 .navbar-nav .dropdown > .dropdown-menu > .nav-link {
   padding: 0.8rem;
   text-align: left;
+}
+
+.navbar-nav .search .nav-link {
+  padding: 0 !important;
 }
 
 /* NAVBAR-END */
