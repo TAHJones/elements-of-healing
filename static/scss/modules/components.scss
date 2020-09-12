@@ -366,16 +366,11 @@
     .secondaryAction {
         display: block;
         margin-top: f.rem-calc(15);
-        // padding: f.rem-calc(15 0 40);
     }
-    // .button.secondaryAction {
-    //     font-size: f.rem-calc(15);
-    //     display: block;
-    //     margin-bottom: f.rem-calc(15);
-    // }
-    // p {
-    //     color: #76bb85;
-    // }
+    .help-block {
+        color: #ff4444;
+        margin: f.rem-calc(32 0);
+    }
 }
 
 /* ALLAUTH-FORM-END */

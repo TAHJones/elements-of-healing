@@ -665,10 +665,6 @@ footer {
   text-align: left;
 }
 
-.navbar-nav .search .nav-link {
-  padding: 0 !important;
-}
-
 /* NAVBAR-END */
 /* SEARCH-FORM */
 .search-form .input-group {
@@ -984,6 +980,10 @@ footer {
 .allauth-form .secondaryAction {
   display: block;
   margin-top: 0.9375rem;
+}
+.allauth-form .help-block {
+  color: #ff4444;
+  margin: 2rem 0;
 }
 
 /* ALLAUTH-FORM-END */
