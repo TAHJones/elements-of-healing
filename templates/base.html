@@ -26,6 +26,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
     {% endblock js %}
 
     {% block extra_js %}
@@ -38,28 +39,26 @@
 <body>
     <header>
     {% include 'layout/header.html' %}
+    {% include 'layout/delivery.html' %}
+    {% include 'layout/logo.html' %}
     </header>
 
-    <!-- MESSAGES -->
     {% if messages %}
-    <section class="container banner-bg">
-        <div class="row justify-content-center">
-            <div class="col-12 banner">
-                <div class="message-container"></div>
-            </div>
-        </div>
-    </section>
-    {% endif %}
+    <!-- MESSAGES -->
+        {% include 'layout/messages.html' %}         
     <!-- MESSAGES-END -->
+    {% endif %}    
 
-    <!-- BANNER -->
     {% if banner %}
+    <!-- BANNER -->
         {% include 'layout/banner.html' %}
-    {% endif %}
     <!-- BANNER-END -->
+    {% endif %}
 
-    {% block page_header %}
-    {% endblock page_header %}
+    <!--PAGE-NAVBAR-->
+    {% block page_navbar %}
+    {% endblock page_navbar %}
+    <!--PAGE-NAVBAR-END-->
 
     <!-- MAIN CONTENT -->
     {% block content %} {% endblock content %}

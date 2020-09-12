@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+<section class="container dark-bg">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-11 col-md-10 col-lg-10 box">
+            <div class="row justify-content-center">
+                <div class="col-10 col-lg-8 checkout-success product-item">
+
+                    <div class="row">
+                        <div class="overlay"></div>
+                        <div class="col-12 checkout-header order-confirmation">
+                            <h2>Thank You</h2>
+                            <p>Your order information is below. A confirmation email will be sent to <span>{{ order.email }}</span>.</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <h4>Order Info:</h4>
+                            <div class="inner-box">
+                                <p>Order Number: <span>{{ order.order_number }}</span></p>
+                                <p>Order Date: <span>{{ order.date }}</span></p>
+                                {% for item in order.lineitems.all %}
+                                    <p>{{ item.product.name }}{% if item.product_size %} - Size {{ item.product.size|upper }}{% endif %}: <span>{{ item.quantity }} @ £{{ item.product.price }} each</span></p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <h4>Delivering To:</h4>
+                            <div class="inner-box">
+                                <p>Full Name: <span>{{ order.full_name }}</span></p>
+                                <p>Address 1: <span>{{ order.street_address1 }}</span></p>
+                                {% if order.street_address2 %}
+                                    <p>Address 2: <span>{{ order.street_address2 }}</span></p>
+                                {% endif %}
+                                {% if order.county %}
+                                    <p>County: <span>{{ order.county }}</span></p>
+                                {% endif %}
+                                <p>Town or City: <span>{{ order.town_or_city }}</span></p>
+                                {% if order.postcode %}
+                                    <p>Postal Code: <span>{{ order.postcode }}</span></p>
+                                {% endif %}
+                                <p>Country: <span>{{ order.country }}</span></p>
+                                <p>Phone Number: <span>{{ order.phone_number }}</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <h4>Billing Info:</h4>
+                            <div class="inner-box">
+                                <p>Order Total: <span>£{{ order.order_total }}</span></p>
+                                <p>Delivery: <span>£{{ order.delivery_cost }}</span></p>
+                                <p>Grand Total: <span>£{{ order.grand_total }}</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="btn shopping-btn">
+                                <i class="fas fa-gifts"></i>
+                                <span class="text-uppercase">Now check out the latest deals!</span>
+                            </a>
+                        </div>
+                    </div>
+ 
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

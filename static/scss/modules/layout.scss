@@ -8,8 +8,7 @@
 /* LAYOUT */
 
 .dark-bg {
-    background-color: v.$poster-bg-color;
-    text-shadow: 2px 2px #000;
+    background-color: v.$secondary-bg-color--small;
     @include q.respond-above(sm) {
         background-color: v.$secondary-bg-color;
     }
@@ -17,9 +16,9 @@
 
 .logo-bg {
 	background-color: v.$tertiary-bg-color;
-	margin-top: f.rem-calc(55);
+	margin-top: 0;
     @include q.respond-above(sm) {
-	    margin-top: f.rem-calc(120);
+	    margin-top: f.rem-calc(40);
     }
 }
 
@@ -42,8 +41,32 @@
     }
 }
 
+.poster {
+    @include m.poster($header: true, $border: true);  
+}
+
+.box {
+    @include m.poster();  
+}
+
+.image-box {
+    @include m.poster($image: true);  
+}
+
+.inner-box {
+    @include m.inner-box();
+}
+
+.summary {
+    p {
+        @include m.summary-text();
+        > span {
+            @include m.summary-text-bold();
+        }
+    }
+}
+
 .testimonials {
-    @include m.poster(v.$poster-bg-color, v.$tertiary-header-color);
     padding: f.rem-calc(20 30 0);
     @include q.respond-above(sm) {
         padding: f.rem-calc(60 40 76);
@@ -73,7 +96,6 @@
 }
 
 .colored-list {
-    @include m.poster(v.$poster-bg-color, v.$tertiary-header-color);
     @include m.list-color(v.$list-color-magenta--light, v.$list-color-red, v.$list-color-yellow, v.$list-color-blue);
     padding: f.rem-calc(20 30 0);
     @include q.respond-above(sm) {
@@ -83,7 +105,6 @@
 }
 
 .gallery {
-    @include m.poster(v.$poster-bg-color);
 	padding: f.rem-calc(0 32);
     @include q.respond-above(xs) {
 	    padding: f.rem-calc(0 48);
@@ -102,17 +123,6 @@
     }
 }
 
-.image {
-    @include m.poster(v.$poster-bg-color);
-}
-
-.image > img {
-	display: block;
-	margin: 0 auto;
-    padding: f.rem-calc(60);
-	width: 100%;
-}
-
 img[src*="assets/images/thomas.jpg"] {
     border-radius: f.rem-calc(10);
     width: 90%;
@@ -128,12 +138,11 @@ img[src*="assets/images/thomas.jpg"] {
 }
 
 .form {
-    @include m.poster(v.$poster-bg-color);
     padding: f.rem-calc(30 50);
 }
 
 footer {
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: #2b532a;
 	padding: 2rem 0 2rem;
 }
 

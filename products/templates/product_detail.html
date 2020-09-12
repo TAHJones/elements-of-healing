@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="container dark-bg">
+    <div class="row justify-content-center">
+        <div class="col-11 col-sm-9 col-md-8 col-lg-6">
+            <div class="card product-item inner-box">
+                <h1>{{product.name}}</h1>
+                {% if product.image %}
+                <a class="product-img-link" href="{{ product.image.url }}">
+                    <img class="card-img" src="{{ product.image.url }}" alt="{{ product.name }}">
+                </a>
+                {% else %}
+                <a class="product-img-link" href="">
+                    <img class="card-img" src="{% static 'img/noimage.png' %}" alt="{{ product.name }}">
+                </a>
+                {% endif %}
+                <div class="card-body">
+                    <p>{{ product.name }} - {{ product.description }}</p>
+                    <p><span>£{{ product.price }}</span></p>
+                    {% if product.rating %}
+                        <p><span><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</span></p>
+                    {% else %}
+                        <p><span>No Rating</span></p>
+                    {% endif %}
+                    {% if product.category %}
+                    <p>
+                        <a href="{% url 'products' %}?category={{ product.category.name }}">
+                            <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                        </a>
+                    </p>
+                    {% endif %}
+                </div>
+                <div class="card-footer">
+                    <form class="form product-info" action="{% url 'add_to_basket' product.id %}" method="POST">
+                        {% csrf_token %}
+                            <div class="row">
+                            {% with product.has_potency as p %}
+                            {% if p %}
+                                <div class="form-group col-12">
+                                    <label>Potency:</label>
+                                    <select class="form-control" name="potency" id="id_potency">
+                                        <option value="6c">6c</option>
+                                        <option value="30c" selected>30c</option>
+                                        <option value="200c">200c</option>
+                                        <option value="1M">1M</option>
+                                        <option value="10M">10M</option>
+                                    </select>
+                                </div>
+                            {% endif %}
+                            {% endwith %}
+                            <div class="form-group col-12">
+                                <label>Quantity:</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <button id="decrement-qty_{{ product.id }}" class="decrement-qty btn custom-btn" data-item_id="{{ product.id }}">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                    </div>
+                                    <input id="id_qty_{{ product.id }}" class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}">
+                                    <div class="input-group-append">
+                                        <button id="increment-qty_{{ product.id }}" class="increment-qty btn custom-btn" data-item_id="{{ product.id }}">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-12">
+                                <a href="{% url 'products' %}" class="btn shopping-btn">
+                                    <span ><i class="fas fa-chevron-left"></i></span>
+                                    <span class="">Keep Shopping</span>
+                                </a>
+                                <input type="submit" class="btn shopping-btn" value="Add to Basket">
+                            </div>
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+
+
+{% endblock postloadjs %}

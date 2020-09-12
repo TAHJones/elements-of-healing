@@ -1,0 +1,25 @@
+{% load static %}
+
+<div class="toast-container-bg">
+    <div class="toast-container">
+        <div class="toast custom-toast" data-autohide="false">
+            <div class="toast-capper bg-danger"></div>
+            <div class="toast-header">
+                <strong>Error!</strong>
+                <button type="button" class="close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                <div class="basket-message">
+                    {{ message }}
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-4">
+                        <img class="w-100" src="{% static 'img/error-icon.png' %}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

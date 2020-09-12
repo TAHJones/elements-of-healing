@@ -5,8 +5,42 @@
 @use "media_queries" as q;
 
 
-@mixin poster($bg-color, $header-color:false, $border-color: false) {
-    @if $header-color {
+@mixin custom-btn($uppercase: false, $medium: false, $large: false) {
+    background-color: v.$form-btn-color;
+    opacity: 0.9;
+    font-size: f.rem-calc(13);
+    font-weight: 600;
+    margin-bottom: f.rem-calc(10);
+    padding:f.rem-calc(5 10);
+    transition: all 0.25s ease-in-out;
+    @include q.respond-above(sm) {
+        font-size: f.rem-calc(14);
+        padding:f.rem-calc(5 12);
+    }
+    &:hover {
+        opacity: 1;
+    }
+    @if $uppercase {
+        text-transform: uppercase;
+    }
+    @if $medium {
+        @include q.respond-above(md) {
+            padding:f.rem-calc(7 14);
+            font-size: f.rem-calc(16);
+        }
+    }
+    @if $large {
+        @include q.respond-above(lg) {
+            padding:f.rem-calc(8 16);
+            font-size: f.rem-calc(18);
+            line-height: 1.5;
+            border-radius: .3rem;
+        }
+    }
+}
+
+@mixin poster($header:false, $border: false, $image: false) {
+    @if $header {
         h2 {
             color: v.$tertiary-header-color;
             font-weight: 600px;
@@ -14,15 +48,30 @@
             text-align: center;
         }
     }
-    text-shadow: 2px 2px #000;
-    @include q.respond-above(sm) {
-        background-color: $bg-color;
-        border-radius: f.rem-calc(6);
-        @if $border-color {
-            border: f.rem-calc(8) solid $border-color;
-            box-shadow: f.rem-calc(5 5 20 2) #000;
+    @if $image {
+        > img {
+            display: block;
+            margin: 0 auto;
+            padding: f.rem-calc(28);
+            width: 100%;
         }
     }
+    @include q.respond-above(sm) {
+        background-color: v.$poster-bg-color;
+        border-radius: f.rem-calc(6);
+        @if $image {
+            > img {
+                padding: f.rem-calc(40);
+                width: 100%;
+            }
+        }
+        @if $border {
+            border: f.rem-calc(8) solid v.$primary-border-color;
+            box-shadow: f.rem-calc(5 5 20 2) #000;
+            text-shadow: 2px 2px #000;
+        }
+    }
+
 }
 
 @mixin list-color($color-one, $color-two, $color-three, $color-four) {
@@ -63,4 +112,95 @@
         color: $color-four;
         margin-bottom: 0;
     }
+}
+
+@mixin product-item-scroller($max-height) {
+    background-color: rgba(0, 0, 0, 0.2);
+    max-height: $max-height;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: f.rem-calc(30 40);
+}
+
+@mixin inner-box {
+	background-color: v.$inner-box-bg-color;
+	border-radius: 4px;
+	margin-bottom: f.rem-calc(24);
+
+}
+
+@mixin product-item {
+    > h1 {
+        margin: f.rem-calc(0 0 20);
+    }
+    padding: f.rem-calc(16);
+    > a {
+        margin: 0;
+    }
+    img {
+        border-radius: f.rem-calc(15);
+    }
+    p {
+        color: v.$tertiary-font-color;
+        text-align: left;
+        > span {
+            color: v.$small-font-color;
+            font-size: 80%;
+        }
+        > a {
+            margin: 0;
+        }
+    }
+}
+
+@mixin img-overlay {
+	position: relative;
+	width: 100%;
+    &:hover > .overlay {
+        opacity: 1;
+    }
+    > .overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        max-width: 100%;
+        opacity: 0;
+        transition: .5s ease-in-out;
+        background-color: rgba(0, 0, 0, .6);
+        margin: 0 auto;
+        border-radius: f.rem-calc(14);
+        > .overlay-text {
+            color: #f9bf0c;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+    }
+}
+
+@mixin sort-select-summary {
+    margin-bottom: f.rem-calc(40);
+    p {
+        font-weight: 600;
+        text-align: center;
+        text-shadow: 2px 2px 2px #000;
+        > span {
+            color: #c4c6c7;
+        }
+    }
+}
+
+@mixin summary-text() {
+	color: #aaacae;
+	text-align: right;
+}
+
+@mixin summary-text-bold() {
+	font-weight: 600;
+	color: #c4c6c7;
 }
