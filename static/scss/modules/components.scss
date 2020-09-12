@@ -320,20 +320,31 @@
 /* ALLAUTH-FORM */
 
 .allauth-form-bg {
-    > h1 {
-        margin-bottom: f.rem-calc(24);
+    padding: f.rem-calc(30 0 40);
+}
+
+.allauth-form-inner {
+    margin: 0 auto;
+    width: 85%;
+        @include q.respond-above(md) {
+            width: 80%;
+        }
+    h2 {
+        color: #ffcd37;
     }
-    > p {
-        text-align: justify;
-        color: lighten(#527d5b, 25%);
-        @include q.respond-above(sm) {
-            color: lighten(#527d5b, 15%);
-            text-align: center;
+    p {
+        color: #76bb85;
+        margin-bottom: f.rem-calc(32);
+        > a {
+            margin: f.rem-calc(0 5);
         }
     }
 }
 
 .allauth-form {
+    .control-group {
+        margin-bottom: f.rem-calc(15);
+    }
     label {
         color: #d0ac3d;        
     }
@@ -344,7 +355,7 @@
         color: #495057;
         margin-bottom: f.rem-calc(15);
         padding: f.rem-calc(10);
-        height: 50px;
+        height: 45px;
         width: 100%;
     }
     input[type="checkbox"] {
@@ -352,11 +363,19 @@
         height: 0;
         width: 0;
     }
-    .button.secondaryAction {
-        font-size: f.rem-calc(15);
+    .secondaryAction {
         display: block;
-        margin-bottom: f.rem-calc(15);
+        margin-top: f.rem-calc(15);
+        // padding: f.rem-calc(15 0 40);
     }
+    // .button.secondaryAction {
+    //     font-size: f.rem-calc(15);
+    //     display: block;
+    //     margin-bottom: f.rem-calc(15);
+    // }
+    // p {
+    //     color: #76bb85;
+    // }
 }
 
 /* ALLAUTH-FORM-END */

@@ -932,20 +932,33 @@ footer {
 
 /* FORM-END */
 /* ALLAUTH-FORM */
-.allauth-form-bg > h1 {
-  margin-bottom: 1.5rem;
-}
-.allauth-form-bg > p {
-  text-align: justify;
-  color: #95b99d;
-}
-@media (min-width: 576px) {
-  .allauth-form-bg > p {
-    color: #76a580;
-    text-align: center;
-  }
+.allauth-form-bg {
+  padding: 1.875rem 0 2.5rem;
 }
 
+.allauth-form-inner {
+  margin: 0 auto;
+  width: 85%;
+}
+@media (min-width: 768px) {
+  .allauth-form-inner {
+    width: 80%;
+  }
+}
+.allauth-form-inner h2 {
+  color: #ffcd37;
+}
+.allauth-form-inner p {
+  color: #76bb85;
+  margin-bottom: 2rem;
+}
+.allauth-form-inner p > a {
+  margin: 0 0.3125rem;
+}
+
+.allauth-form .control-group {
+  margin-bottom: 0.9375rem;
+}
 .allauth-form label {
   color: #d0ac3d;
 }
@@ -956,7 +969,7 @@ footer {
   color: #495057;
   margin-bottom: 0.9375rem;
   padding: 0.625rem;
-  height: 50px;
+  height: 45px;
   width: 100%;
 }
 .allauth-form input[type=checkbox] {
@@ -964,10 +977,9 @@ footer {
   height: 0;
   width: 0;
 }
-.allauth-form .button.secondaryAction {
-  font-size: 0.9375rem;
+.allauth-form .secondaryAction {
   display: block;
-  margin-bottom: 0.9375rem;
+  margin-top: 0.9375rem;
 }
 
 /* ALLAUTH-FORM-END */
