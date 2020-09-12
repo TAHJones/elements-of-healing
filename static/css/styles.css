@@ -1294,6 +1294,9 @@ footer {
   padding-right: 0 1.25rem 1.25rem 0;
   margin-bottom: 0.625rem;
 }
+.toast-body .basket-message > p {
+  color: #ffcd37;
+}
 
 @media (max-width: 575px) {
   .product-item-scroller {
