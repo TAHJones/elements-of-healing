@@ -81,6 +81,12 @@
 
 - The potency value of purchased remedies failed to appear in either the shopping basket or on the checkout page. This was caused by the form value name for 'potency' being incorrectly named as 'product_potency' in the add_to_basket view.
 
+- The error message `Field 'id' expected a number but got 'checkout'.` occurred when clicking on the 'Secure Checkout' button to purchase items in the shopping basket. This error occurred because of an error in the structuring of my url naming. The project level url was changed from '' to 'checkout/' and the checkout app level url was changed from 'checkout/wh' to 'wh/' to fix this problem.
+
+- A problems occurred when customising the layout of my projects allauth forms. Forms with only a small amount of content would have a limited height which would break the pages layout. The footer section would be forced up the page and the page background image would be visible beneath it. To fix this problem the allauth base.html template was replaced with the form_base.html and message_base.html template. The message_base.html template would contain classnames that uses min-height with viewpoint units and the transform: translate property to center the page content. This prevented the limited content breaking the page layout.
+
+ - NoReverseMatch at /accounts/logout/ , Reverse for 'home' not found. 'home' is not a valid view function or pattern name.
+
 ## Deployment
 
 In order to deploy this project you must first set up an account at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas). Click [here](https://docs.atlas.mongodb.com/) for instructions on how to set up able Mongo Atlas account.
