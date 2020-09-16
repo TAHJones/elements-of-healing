@@ -11,7 +11,7 @@
             </div>
             <div class="toast-body">
                 <div><h4>{{ message }}</h4></div>
-                {% if grand_total %}
+                {% if grand_total and not on_profile_page %}
                 <div class="product-item-scroller">
                     {% for item in basket_items %}
                         <div class="row">
