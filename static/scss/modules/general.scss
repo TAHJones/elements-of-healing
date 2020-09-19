@@ -43,7 +43,7 @@ h1 {
 }
 
 h2 {
-    color: v.$secondary-header-color;
+    color: v.$primary-header-color;
     font-weight: 600;
     font-size: f.rem-calc(v.$h2-font-size-xxsmall);
     margin-bottom: f.rem-calc(20);
@@ -61,11 +61,15 @@ h2 {
     }
 }
 
+.paragraph-header {
+    color: v.$secondary-header-color;
+}
+
 h3 {
     color: v.$tertiary-header-color;
     font-weight: 400;
     font-size: f.rem-calc(v.$h3-font-size-xxsmall);
-    margin-bottom: f.rem-calc(0);
+    margin-bottom: f.rem-calc(20);
     @include q.respond-above(xs) {
         font-size: f.rem-calc(v.$h3-font-size-xsmall);
     }
@@ -81,7 +85,7 @@ h3 {
 }
 
 h4, th {
-    color: v.$tertiary-header-color;
+    color: v.$primary-header-color;
     font-weight: 400;
     font-size: f.rem-calc(v.$h4-font-size-xxsmall);
     margin-bottom: f.rem-calc(0);
@@ -111,20 +115,20 @@ th {
 
 td {
     padding: f.rem-calc(0 0 20 20);
-    > p {
+    > p, > a, li {
         color: #76bb85;
         font-size: f.rem-calc(v.$font-size-xxxsmall);
         margin: 0;
     }
     @include q.respond-above(md) {
         padding: f.rem-calc(0 0 30 10);
-        > p {
+        > p, > a, li {
             font-size: f.rem-calc(v.$font-size-xxsmall);
         }
     }
     @include q.respond-above(lg) {
         padding: f.rem-calc(0 0 40 50);
-        > p {
+        > p, > a, li {
             font-size: f.rem-calc(v.$font-size-medium);
         }
     }
