@@ -42,19 +42,30 @@
 }
 
 .poster {
-    @include m.poster($header: true, $border: true);  
+    @include m.poster($center-header: true, $border: true);  
 }
 
 .box {
     @include m.poster();  
 }
 
+.row:not(:nth-of-type(1)) > .box {
+    margin-top: f.rem-calc(30);
+    @include q.respond-above(sm) {
+        margin-top: f.rem-calc(50);
+    }
+}
+
 .image-box {
     @include m.poster($image: true);  
 }
 
-.inner-box {
-    @include m.inner-box();
+.inner-box--black {
+    @include m.inner-box(v.$inner-box-bg-black);
+}
+
+.inner-box--grey {
+    @include m.inner-box(v.$inner-box-bg-grey);
 }
 
 .summary {
