@@ -66,7 +66,7 @@
             <div class="row">
                 {% for product in products %}
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                    <div class="card product-item inner-box">
+                    <div class="card product-item inner-box--black">
                         {% if product.image %}
                         <a href="{% url 'product_detail' product.id %}">
                             <div class="overlay-container">
