@@ -11,7 +11,8 @@ $secondary-bg-color--small:rgba(0, 0, 0, 0.7);
 $tertiary-bg-color: #fffaa2;
 $banner-bg-color: rgba(0, 0, 0, 0.5);
 $poster-bg-color: rgba(0, 0, 0, 0.6);
-$inner-box-bg-color: rgba(0, 0, 0, 0.6);
+$inner-box-bg-black: rgba(0, 0, 0, 0.6);
+$inner-box-bg-grey: #222;
 
 // font colors
 $primary-font-color:#527d5b;
@@ -22,7 +23,7 @@ $small-font-color: #aaacae;
 // header colors
 $primary-header-color: #ffcd37;
 $secondary-header-color: #0aaa2d;
-$tertiary-header-color: #ffcd37;
+$tertiary-header-color: #aaacae;
 
 // link colors
 $primary-link-color: #d9b034;
