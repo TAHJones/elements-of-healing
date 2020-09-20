@@ -118,12 +118,17 @@
     }
 }
 
-@mixin product-item-scroller($max-height) {
-    background-color: rgba(0, 0, 0, 0.2);
-    max-height: $max-height;
+@mixin item-scroller($bg-color: false) {
+    max-height: 35vh;
     overflow-x: hidden;
     overflow-y: auto;
     padding: f.rem-calc(30 40);
+    @if $bg-color {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+    @include q.respond-above(sm) {
+        max-height: 45vh;
+    }
 }
 
 @mixin inner-box($bg-color) {
