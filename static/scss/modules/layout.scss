@@ -69,6 +69,7 @@
 }
 
 .summary {
+    margin-bottom: f.rem-calc(30);
     p {
         @include m.summary-text();
         > span {
