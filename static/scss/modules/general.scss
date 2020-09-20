@@ -106,10 +106,13 @@ h4, th {
 th {
     padding: f.rem-calc(20);
     @include q.respond-above(md) {
-        padding-left: f.rem-calc(10);
+        padding-left: f.rem-calc(20);
     }
     @include q.respond-above(lg) {
-        padding-left: f.rem-calc(50);
+        padding-left: f.rem-calc(20);
+    }
+    &:first-of-type {
+        padding: 0;
     }
 }
 
@@ -121,16 +124,19 @@ td {
         margin: 0;
     }
     @include q.respond-above(md) {
-        padding: f.rem-calc(0 0 30 10);
+        padding: f.rem-calc(0 0 30 20);
         > p, > a, li {
             font-size: f.rem-calc(v.$font-size-xxsmall);
         }
     }
     @include q.respond-above(lg) {
-        padding: f.rem-calc(0 0 40 50);
+        padding: f.rem-calc(0 0 40 20);
         > p, > a, li {
-            font-size: f.rem-calc(v.$font-size-medium);
+            font-size: f.rem-calc(v.$font-size-xxsmall);
         }
+    }
+    &:first-of-type {
+        padding-left: 0;
     }
 }
 
