@@ -14,12 +14,14 @@
 .checkout {
     padding: f.rem-calc(0 30);
 }
+
 .checkout-header {
     > h2 {
         color: #ffcd37;
         margin: f.rem-calc(20 0 20 0);
     }
 }
+
 .checkout-items, .checkout-form {
     h4 {
         color: #aaacae;
@@ -27,11 +29,13 @@
         margin-bottom: f.rem-calc(10);
     }
 }
+
 .checkout-items {
     @include q.respond-below(lg) {
         margin-bottom: f.rem-calc(30);
     }
 }
+
 .checkout-item-subheader {
     p {
         color: #ffcd37;
@@ -39,11 +43,13 @@
         margin: f.rem-calc(20 0);
     }
 }
+
 .checkout-item-scroller {
     background-color: #222;
     border-radius: 4px;
     margin-bottom: f.rem-calc(24);
 }
+
 .checkout-item {
     margin-bottom: f.rem-calc(10);
     p {
@@ -55,6 +61,7 @@
         color: #aaacae;
     }
 }
+
 .checkout-summary {
     > p {
         color: #aaacae;
@@ -66,6 +73,7 @@
         }
     }
 }
+
 .checkout-btns, .checkout-card-message {
     margin-bottom: f.rem-calc(20);
 }
@@ -89,10 +97,20 @@
         }
     }
 }
+
 .fieldset-label {
     color: #ffcd37;
     font-size: f.rem-calc(16);
 }
+
+.form-check-label {
+    color: #aaacae;
+}
+
+.form-check-input {
+    margin-left: f.rem-calc(15);
+}
+
 .payment-form-check {
     margin: f.rem-calc(5 0 10);
     a  {

@@ -79,6 +79,14 @@
   font-size: 1rem;
 }
 
+.form-check-label {
+  color: #aaacae;
+}
+
+.form-check-input {
+  margin-left: 0.9375rem;
+}
+
 .payment-form-check {
   margin: 0.3125rem 0 0.625rem;
 }
@@ -116,6 +124,14 @@
 
 .StripeElement--webkit-autofill {
   background-color: #f7f4cb !important;
+}
+
+select, select option {
+  color: #000;
+}
+
+select:invalid, select option[value=""] {
+  color: #aab7c4 !important;
 }
 
 /* CHECKOUT-END */
