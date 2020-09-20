@@ -8,22 +8,12 @@
 {% block content %}
 <section class="container dark-bg">
     <div class="row justify-content-center">
-        <div class="col-12 col-sm-11 col-md-10 col-lg-10 form box">
+        <div class="col-12 col-sm-11 form box">
             <h2>My Profile</h2>
             <div class="row justify-content-center">
-                <div class="col-12 col-lg-10 inner-box--grey">
-                    <h3>Default Delivery Information</h3>
-                    <form action="{% url 'profile' %}" method="POST" id="profile-update-form">
-                        {% csrf_token %}
-                        {{ form|crispy }}
-                        <button class="btn form-btn">Update Information</button>
-                    </form>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-12 col-sm-12 col-md-12 col-lg-10 inner-box--grey">
+                <div class="col-12 col-lg-7 order-lg-last">
                     <h3>Order History</h3>
-                    <div class="order-history table-responsive">
+                    <div class=" inner-box--grey">
                         <table>
                             <thead>
                                 <tr>
@@ -61,6 +51,16 @@
                                 {% endfor %}
                             </tbody>
                         </table>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-5">
+                    <h3>Default Delivery Information</h3>
+                    <div class="inner-box--grey">
+                        <form action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <button class="btn form-btn">Update Information</button>
+                        </form>
                     </div>
                 </div>
             </div>
