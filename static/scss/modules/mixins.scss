@@ -132,11 +132,12 @@
 }
 
 @mixin inner-box($bg-color) {
-	// background-color: $bg-color;
+	background-color: $bg-color;
 	border-radius: 4px;
 	margin-bottom: f.rem-calc(40);
+    padding: f.rem-calc(10);
     @include q.respond-above(sm) {
-	    background-color: $bg-color;
+	    // background-color: $bg-color;
         padding: f.rem-calc(30);
     }
 }
