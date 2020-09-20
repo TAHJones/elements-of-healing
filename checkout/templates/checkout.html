@@ -16,7 +16,7 @@
                         <h2>Checkout</h2>
                     </div>
                 <div class="col-12 col-lg-6 order-lg-last checkout-items">
-                    <h4>Order Summary: {{ product_count }}</h4>
+                    <h3>Order Summary: {{ product_count }}</h3>
                     <div class="row checkout-item-subheader">
                         <div class="col-6 offset-2">
                             <p>Item</p>
@@ -57,7 +57,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 checkout-form">
-                    <h4>Fill out the form to complete your order:</h4>
+                    <h3>Please complete the order form:</h3>
                     <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                         {% csrf_token %}
                         <fieldset>
@@ -76,7 +76,7 @@
                             {{ order_form.postcode | as_crispy_field }}
                             <div class="payment-form-check">
                                 {% if user.is_authenticated %}
-                                    <label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
+                                    <label class="form-check-label" for="id-save-info">Save delivery info to my profile</label>
                                     <input class="form-check-input" type="checkbox" id="id-save-info" name="save-info" checked>
                                 {% else %}
                                     <label class="form-check-label" for="id-save-info">
