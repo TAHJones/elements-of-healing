@@ -530,6 +530,10 @@
     }
 }
 
+.basket-item-scroller {
+    @include m.item-scroller($bg-color: true);
+}
+
 /* SHOPPING-BASKET-END */
 
 /* SHOPPING-BASKET-FORM */
@@ -634,15 +638,6 @@
     }
     .basket-message > p {
         color: #ffcd37;
-    }
-}
-
-.product-item-scroller {
-    @include q.respond-below(sm) {
-        @include m.product-item-scroller($max-height: 35vh);
-    }
-    @include q.respond-above(sm) {
-        @include m.product-item-scroller($max-height: 45vh);
     }
 }
 
