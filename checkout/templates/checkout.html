@@ -9,23 +9,20 @@
 {% block content %}
 <section class="container dark-bg">
     <div class="row justify-content-center">
-        <div class="col-12 col-sm-11 col-md-10 col-lg-10 checkout box">
+        <div class="col-12 col-sm-11 form box">
+            <h2>Checkout</h2>
             <div class="row">
-                <div class="overlay"></div>
-                    <div class="col-12 checkout-header">
-                        <h2>Checkout</h2>
-                    </div>
-                <div class="col-12 col-lg-6 order-lg-last checkout-items">
+                <div class="col-12 col-lg-5 order-lg-last">
                     <h3>Order Summary: {{ product_count }}</h3>
-                    <div class="row checkout-item-subheader">
-                        <div class="col-6 offset-2">
-                            <p>Item</p>
+                    <div class="checkout-item-scroller inner-box--grey">
+                        <div class="row checkout-item-subheader">
+                            <div class="col-6 offset-2">
+                                <p>Item</p>
+                            </div>
+                            <div class="col-3">
+                                <p>Subtotal</p>
+                            </div>
                         </div>
-                        <div class="col-3">
-                            <p>Subtotal</p>
-                        </div>
-                    </div>
-                    <div class="checkout-item-scroller product-item-scroller">
                         {% for item in basket_items %}
                         <div class="row checkout-item">
                             <div class="col-3">
@@ -56,47 +53,49 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-6 checkout-form">
+                <div class="col-12 col-lg-7">
                     <h3>Please complete the order form:</h3>
                     <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                         {% csrf_token %}
-                        <fieldset>
-                            <legend class="fieldset-label">Details</legend>
-                            {{ order_form.full_name | as_crispy_field }}
-                            {{ order_form.email | as_crispy_field }}
-                        </fieldset>
-                        <fieldset>
-                            <legend class="fieldset-label">Delivery</legend>
-                            {{ order_form.phone_number | as_crispy_field }}
-                            {{ order_form.street_address1 | as_crispy_field }}
-                            {{ order_form.street_address2 | as_crispy_field }}
-                            {{ order_form.town_or_city | as_crispy_field }}
-                            {{ order_form.county | as_crispy_field }}
-                            {{ order_form.country | as_crispy_field }}
-                            {{ order_form.postcode | as_crispy_field }}
-                            <div class="payment-form-check">
-                                {% if user.is_authenticated %}
-                                    <label class="form-check-label" for="id-save-info">Save delivery info to my profile</label>
-                                    <input class="form-check-input" type="checkbox" id="id-save-info" name="save-info" checked>
-                                {% else %}
-                                    <label class="form-check-label" for="id-save-info">
-                                        <a href="{% url 'account_signup' %}">Create an account</a><span>or</span>
-                                        <a href="{% url 'account_login' %}">Login</a><span>to save information</span>
-                                    </label>
-                                {% endif %}
-                            </div>
-                        </fieldset>
-                        <fieldset>
-                            <legend class="fieldset-label">Payment</legend>
-                            <!-- A Stripe card element will go here -->
-                            <div id="card-element"></div>
+                        <div class="inner-box--grey">
+                            <fieldset>
+                                <legend class="fieldset-label">Details</legend>
+                                {{ order_form.full_name | as_crispy_field }}
+                                {{ order_form.email | as_crispy_field }}
+                            </fieldset>
+                            <fieldset>
+                                <legend class="fieldset-label">Delivery</legend>
+                                {{ order_form.phone_number | as_crispy_field }}
+                                {{ order_form.street_address1 | as_crispy_field }}
+                                {{ order_form.street_address2 | as_crispy_field }}
+                                {{ order_form.town_or_city | as_crispy_field }}
+                                {{ order_form.county | as_crispy_field }}
+                                {{ order_form.country | as_crispy_field }}
+                                {{ order_form.postcode | as_crispy_field }}
+                                <div class="payment-form-check">
+                                    {% if user.is_authenticated %}
+                                        <label class="form-check-label" for="id-save-info">Save delivery info to my profile</label>
+                                        <input class="form-check-input" type="checkbox" id="id-save-info" name="save-info" checked>
+                                    {% else %}
+                                        <label class="form-check-label" for="id-save-info">
+                                            <a href="{% url 'account_signup' %}">Create an account</a><span>or</span>
+                                            <a href="{% url 'account_login' %}">Login</a><span>to save information</span>
+                                        </label>
+                                    {% endif %}
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <legend class="fieldset-label">Payment</legend>
+                                <!-- A Stripe card element will go here -->
+                                <div id="card-element"></div>
 
-                            <!-- Used to display form errors -->
-                            <div class="text-danger" id="card-errors" role="alert"></div>
+                                <!-- Used to display form errors -->
+                                <div class="text-danger" id="card-errors" role="alert"></div>
 
-                            <!-- Pass the client secret to the view so we can get the payment intent id -->
-                            <input type="hidden" value="{{ client_secret }}" name="client_secret">
-                        </fieldset>
+                                <!-- Pass the client secret to the view so we can get the payment intent id -->
+                                <input type="hidden" value="{{ client_secret }}" name="client_secret">
+                            </fieldset>
+                        </div>
 
                         <div class="checkout-btns">
                             <a href="{% url 'view_basket' %}" class="btn shopping-btn">
