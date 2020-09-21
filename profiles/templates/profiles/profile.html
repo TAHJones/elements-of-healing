@@ -55,13 +55,13 @@
                 </div>
                 <div class="col-12 col-lg-5">
                     <h3>Default Delivery Information</h3>
-                    <div class="inner-box--grey">
-                        <form action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                    <form action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                        <div class="inner-box--grey">
                             {% csrf_token %}
                             {{ form|crispy }}
-                            <button class="btn form-btn">Update Information</button>
-                        </form>
-                    </div>
+                        </div>
+                        <button class="btn form-btn">Update Information</button>
+                    </form>
                 </div>
             </div>
         </div>
