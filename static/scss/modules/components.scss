@@ -494,15 +494,18 @@
         }
         img {
             border-radius: .25rem !important;
-            width: 100px;
+            width: 65px;
+            // @include q.respond-above(sm) {
+            //     width: 5px;
+            // }
             @include q.respond-above(md) {
-                width: 120px;
+                width: 79px;
             }
             @include q.respond-above(lg) {
-                width: 130px;
+                width: 100px;
             }
             @include q.respond-above(xl) {
-                width: 200px;
+                width: 150px;
             }
         }
         .sku {
@@ -513,20 +516,20 @@
             }
         }
     }
-    .item-quantity-text {
-        margin-top: f.rem-calc(42);            
-    }
+    // .item-quantity-text {
+    //     margin-top: f.rem-calc(42);            
+    // }
     .item-quantity-form {
-        padding: 12% 10%;
+        padding: 5% 2%;
         @include q.respond-above(lg) {
-            padding: 16% 10%;
+            padding: 15% 10%;
         }
         @include q.respond-above(xl) {
-            padding: 31% 10%;
+            padding: 20% 10%;
         }
     }
     .delivery-message {
-        text-align: left;
+        margin-top: f.rem-calc(20);
     }
 }
 
@@ -542,17 +545,40 @@
 	background-color: none;
     padding: 0;
     .qty_input {
+        height: 35px;
         padding: f.rem-calc(5);
+        @include q.respond-above(lg) {
+            height: 50px;
+        }
     }
     .decrement-qty, .increment-qty {
-        height: 100%;
+        height: 80%;
+        @include q.respond-above(lg) {
+            height: 100%;
+        }
     }
     .increment-qty, {
         border-top-right-radius: 4px !important;
         border-bottom-right-radius: 4px !important;
     }
-    .update-link, .remove-item {
+}
+
+.item-quantity-form {
+    > .update-link, > .remove-item {
         cursor: pointer;
+        position: relative;
+        top: -20px;
+    }
+    > .remove-item {
+        top: -17px;
+    }
+    @include q.respond-above(lg) {
+        > .update-link {
+            top: -10px;
+        }
+        > .remove-item {
+            top: -7px;
+        }
     }
 }
 
