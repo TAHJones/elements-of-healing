@@ -140,7 +140,7 @@ th {
   }
 }
 th:first-of-type {
-  padding: 0;
+  padding-left: 0;
 }
 
 td {
@@ -318,23 +318,25 @@ a:hover {
 }
 
 .inner-box--black {
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 4px;
   margin-bottom: 2.5rem;
+  padding: 0.625rem;
 }
 @media (min-width: 576px) {
   .inner-box--black {
-    background-color: rgba(0, 0, 0, 0.6);
     padding: 1.875rem;
   }
 }
 
 .inner-box--grey {
+  background-color: #323c2e;
   border-radius: 4px;
   margin-bottom: 2.5rem;
+  padding: 0.625rem;
 }
 @media (min-width: 576px) {
   .inner-box--grey {
-    background-color: #323c2e;
     padding: 1.875rem;
   }
 }
@@ -1183,21 +1185,21 @@ footer {
 }
 .basket td img {
   border-radius: 0.25rem !important;
-  width: 100px;
+  width: 65px;
 }
 @media (min-width: 768px) {
   .basket td img {
-    width: 120px;
+    width: 79px;
   }
 }
 @media (min-width: 992px) {
   .basket td img {
-    width: 130px;
+    width: 100px;
   }
 }
 @media (min-width: 1200px) {
   .basket td img {
-    width: 200px;
+    width: 150px;
   }
 }
 .basket td .sku {
@@ -1209,24 +1211,21 @@ footer {
     font-size: 0.75rem;
   }
 }
-.basket .item-quantity-text {
-  margin-top: 2.625rem;
-}
 .basket .item-quantity-form {
-  padding: 12% 10%;
+  padding: 5% 2%;
 }
 @media (min-width: 992px) {
   .basket .item-quantity-form {
-    padding: 16% 10%;
+    padding: 15% 10%;
   }
 }
 @media (min-width: 1200px) {
   .basket .item-quantity-form {
-    padding: 31% 10%;
+    padding: 20% 10%;
   }
 }
 .basket .delivery-message {
-  text-align: left;
+  margin-top: 1.25rem;
 }
 
 .basket-item-scroller {
@@ -1249,17 +1248,42 @@ footer {
   padding: 0;
 }
 .update-form .qty_input {
+  height: 35px;
   padding: 0.3125rem;
 }
+@media (min-width: 992px) {
+  .update-form .qty_input {
+    height: 50px;
+  }
+}
 .update-form .decrement-qty, .update-form .increment-qty {
-  height: 100%;
+  height: 80%;
+}
+@media (min-width: 992px) {
+  .update-form .decrement-qty, .update-form .increment-qty {
+    height: 100%;
+  }
 }
 .update-form .increment-qty {
   border-top-right-radius: 4px !important;
   border-bottom-right-radius: 4px !important;
 }
-.update-form .update-link, .update-form .remove-item {
+
+.item-quantity-form > .update-link, .item-quantity-form > .remove-item {
   cursor: pointer;
+  position: relative;
+  top: -20px;
+}
+.item-quantity-form > .remove-item {
+  top: -17px;
+}
+@media (min-width: 992px) {
+  .item-quantity-form > .update-link {
+    top: -10px;
+  }
+  .item-quantity-form > .remove-item {
+    top: -7px;
+  }
 }
 
 /* SHOPPING-BASKET-FORM-END */
