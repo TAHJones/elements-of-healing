@@ -137,8 +137,13 @@
 	margin-bottom: f.rem-calc(40);
     padding: f.rem-calc(10);
     @include q.respond-above(sm) {
-	    // background-color: $bg-color;
         padding: f.rem-calc(30);
+    }
+    p {
+        color: #76bb85;
+        > span {
+            color: #c4c6c7;
+        }
     }
 }
 

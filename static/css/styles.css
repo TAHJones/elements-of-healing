@@ -328,6 +328,12 @@ a:hover {
     padding: 1.875rem;
   }
 }
+.inner-box--black p {
+  color: #76bb85;
+}
+.inner-box--black p > span {
+  color: #c4c6c7;
+}
 
 .inner-box--grey {
   background-color: #323c2e;
@@ -339,6 +345,12 @@ a:hover {
   .inner-box--grey {
     padding: 1.875rem;
   }
+}
+.inner-box--grey p {
+  color: #76bb85;
+}
+.inner-box--grey p > span {
+  color: #c4c6c7;
 }
 
 .summary {
@@ -1180,6 +1192,9 @@ footer {
   }
 }
 
+.basket table {
+  margin: 0 auto;
+}
 .basket td .item-quantity {
   margin-top: 2.625rem;
 }
@@ -1203,7 +1218,6 @@ footer {
   }
 }
 .basket td .sku {
-  color: #aaacae;
   font-size: 0.5rem;
 }
 @media (min-width: 768px) {
