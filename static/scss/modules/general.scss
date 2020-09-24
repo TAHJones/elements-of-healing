@@ -140,7 +140,7 @@ td {
     }
 }
 
-p {
+p, label {
     color: v.$primary-font-color;
     // font-family: v.$primary-font-stack;
     font-size: f.rem-calc(v.$font-size-xsmall);
