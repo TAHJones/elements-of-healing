@@ -148,8 +148,8 @@
 }
 
 @mixin product-item {
-    > h1 {
-        margin: f.rem-calc(0 0 20);
+    > h2 {
+        text-align: center;
     }
     padding: f.rem-calc(16);
     > a {
@@ -157,17 +157,6 @@
     }
     img {
         border-radius: f.rem-calc(15);
-    }
-    p {
-        color: v.$tertiary-font-color;
-        text-align: left;
-        > span {
-            color: v.$small-font-color;
-            font-size: 80%;
-        }
-        > a {
-            margin: 0;
-        }
     }
 }
 
