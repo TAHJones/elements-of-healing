@@ -439,18 +439,9 @@
     padding: 0;
     label {
         color: #76bb85;
-        @include q.respond-above(md) {
-            font-size: f.rem-calc(18);
-        }
-        @include q.respond-above(lg) {
-            font-size: f.rem-calc(20);
-        }
-    }
-    .form-control {
-        margin-bottom: f.rem-calc(10);
     }
     .decrement-qty, .increment-qty {
-        height: 83%;
+        margin-bottom: 0;
     }
 }
 
