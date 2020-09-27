@@ -35,9 +35,9 @@
                                 </a>
                             </div>
                             <div class="col-6">
-                                <p><strong>{{ item.product.name }}</strong></p>
-                                <p class="small">Potency: {% if item.product.has_potency %}{{ item.potency|upper }}{% else %}N/A{% endif %}</p>
-                                <p class="small">Qty: {{ item.quantity }}</p>
+                                <p>{{ item.product.name }}</p>
+                                <p><span>Potency: {% if item.product.has_potency %}{{ item.potency|upper }}{% else %}N/A{% endif %}</span></p>
+                                <p><span>Qty: {{ item.quantity }}</span></p>
                             </div>
                             <div class="col-3 text-right">
                                 <p>£{{ item.product.price | calc_subtotal:item.quantity }}</p>
@@ -74,10 +74,10 @@
                                 {{ order_form.postcode | as_crispy_field }}
                                 <div class="payment-form-check">
                                     {% if user.is_authenticated %}
-                                        <label class="form-check-label" for="id-save-info">Save delivery info to my profile</label>
-                                        <input class="form-check-input" type="checkbox" id="id-save-info" name="save-info" checked>
+                                        <label for="id-save-info">Save delivery info to my profile</label>
+                                        <input type="checkbox" id="id-save-info" name="save-info" checked>
                                     {% else %}
-                                        <label class="form-check-label" for="id-save-info">
+                                        <label for="id-save-info">
                                             <a href="{% url 'account_signup' %}">Create an account</a><span>or</span>
                                             <a href="{% url 'account_login' %}">Login</a><span>to save information</span>
                                         </label>
