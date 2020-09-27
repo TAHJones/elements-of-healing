@@ -1,0 +1,39 @@
+// profile.scss
+
+// To install sass: npm install -g sass
+// To convert checkout.scss into checkout.css: sass --watch static/scss/profile.scss profiles/static/profiles/css/profile.css
+
+// @use "modules/variables" as v;
+@use "modules/functions" as f;
+// @use "modules/mixins" as m;
+// @use "modules/media_queries" as q;
+
+
+/* PROFILE */
+
+#profile-update-form input::placeholder {
+    color: #aab7c4;
+}
+
+#id_default_country,
+#id_default_country option:not(:first-child) {
+    color: #000;
+}
+
+#id_default_country option:first-child {
+    color: #aab7c4;
+}
+
+.profile-form-input  {
+	height: 40px;
+	color: #495057;
+	background-color: #f7f4cb;
+    margin-bottom: f.rem-calc(20);
+	padding: f.rem-calc(6 12);
+	border: 1px solid #ced4da;
+	border-radius: f.rem-calc(4);
+	transition: border-color .15s ease-in-out .15s ease-in-out;
+    width: 100%;
+}
+
+/* PROFILE-END */
