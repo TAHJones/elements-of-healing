@@ -5,110 +5,36 @@
 
 // @use "modules/variables" as v;
 @use "modules/functions" as f;
-// @use "modules/mixins" as m;
+@use "modules/mixins" as m;
 @use "modules/media_queries" as q;
 
 
 /* CHECKOUT */
 
-.checkout {
-    padding: f.rem-calc(0 30);
-}
-
-.checkout-header {
-    > h2 {
-        color: #ffcd37;
-        margin: f.rem-calc(20 0 20 0);
-    }
-}
-
-.checkout-items, .checkout-form {
-    h4 {
-        color: #aaacae;
-        font-size: f.rem-calc(16);
-        margin-bottom: f.rem-calc(10);
-    }
-}
-
-.checkout-items {
-    @include q.respond-below(lg) {
-        margin-bottom: f.rem-calc(30);
-    }
-}
-
-.checkout-item-subheader {
-    p {
-        color: #ffcd37;
-        font-size: f.rem-calc(16);
-        margin: f.rem-calc(20 0);
-    }
-}
-
 .checkout-item-scroller {
-    background-color: #222;
-    border-radius: 4px;
-    margin-bottom: f.rem-calc(24);
+    @include m.item-scroller();
 }
+
+.checkout-item-subheader p, #payment-form .fieldset-label {
+    color: #ffcd37;
+    margin: f.rem-calc(0 0 10);
+}
+
 
 .checkout-item {
     margin-bottom: f.rem-calc(10);
     p {
-        color: #76bb85;
         font-size: f.rem-calc(12);
         margin-bottom: 5px;
     }
-    .small {
-        color: #aaacae;
-    }
 }
 
-.checkout-summary {
-    > p {
-        color: #aaacae;
-        font-size: f.rem-calc(20);
-        text-align: right;
-        > span {
-            font-weight: 600;
-            color: #c4c6c7;
-        }
-    }
-}
-
-.checkout-btns, .checkout-card-message {
-    margin-bottom: f.rem-calc(20);
-}
-
-#payment-form {
-    fieldset {
-        &:nth-of-type(1), &:nth-of-type(2) {
-            background-color: #222;
-            border-radius: 4px;
-            padding: f.rem-calc(20 40);
-            .fieldset-label {
-                position: relative;
-                top: 20px;
-            }
-        }
-        &:nth-of-type(2) {
-            padding-bottom: f.rem-calc(0);
-        }
-        &:nth-of-type(3) {
-            margin: f.rem-calc(10 0);
-        }
-    }
+.checkout-message {
+    margin-top: f.rem-calc(20);
 }
 
 .fieldset-label {
     color: #ffcd37;
-    font-size: f.rem-calc(16);
-}
-
-.form-check-label {
-    color: #aaacae;
-}
-
-.form-check-input {
-    margin-left: f.rem-calc(15);
 }
 
 .payment-form-check {
@@ -120,6 +46,12 @@
             font-size: f.rem-calc(12);
             padding-right: 4px;
         }
+    }
+    label {
+        color: #aaacae;
+    }
+    input{
+        margin: f.rem-calc(10 0 0 15);
     }
 }
 
@@ -158,17 +90,10 @@ select:invalid, select option[value=""] {
     color: #aab7c4 !important;
 }
 
-/* CHECKOUT-END */
-
 .checkout-success {
-    .order-confirmation {
-        > p {
-            margin-bottom: f.rem-calc(30);
-        }
-    }
-    .inner-box {
-        margin: f.rem-calc(10 0 40);
-        padding: f.rem-calc(20);
+    > p {
+        color: #76bb85;
+        margin-bottom: f.rem-calc(30);
     }
 }
 
@@ -179,14 +104,17 @@ select:invalid, select option[value=""] {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(23, 162, 184, .85);
+    background: rgba(0, 0, 0, .6);
     z-index: 9999;
 }
 
 .loading-spinner {
+    color: #76bb85;
 	display: flex;
     align-items: center;
     justify-content: center;
     margin: 0;
     height: 100%;
 }
+
+/* CHECKOUT-END */
