@@ -24,8 +24,11 @@ section {
     background-color: v.$primary-bg-color;
 }
 
-h1 {
+h1, h2, h4, th, label {
     color: v.$primary-header-color;
+}
+
+h1 {
     font-size: f.rem-calc(v.$h1-font-size-xsmall);
     font-weight: 600;
     margin-bottom: f.rem-calc(60);
@@ -43,7 +46,6 @@ h1 {
 }
 
 h2 {
-    color: v.$primary-header-color;
     font-weight: 600;
     font-size: f.rem-calc(v.$h2-font-size-xxsmall);
     margin-bottom: f.rem-calc(20);
@@ -85,7 +87,6 @@ h3 {
 }
 
 h4, th {
-    color: v.$primary-header-color;
     font-weight: 400;
     font-size: f.rem-calc(v.$h4-font-size-xxsmall);
     margin-bottom: f.rem-calc(0);
@@ -140,14 +141,17 @@ td {
     }
 }
 
-p, label {
+p {
     color: v.$primary-font-color;
-    // font-family: v.$primary-font-stack;
-    font-size: f.rem-calc(v.$font-size-xsmall);
     text-align: justify;
     &:last-of-type {
         margin-bottom: 0;
     }
+}
+
+p, label, .fieldset-label {
+    // font-family: v.$primary-font-stack;
+    font-size: f.rem-calc(v.$font-size-xsmall);
     @include q.respond-above(md) {
         font-size: f.rem-calc(v.$font-size-small);
     }
