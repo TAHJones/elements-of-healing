@@ -55,29 +55,6 @@
     }
 }
 
-.StripeElement, .stripe-style-input {
-	background-color: #f7f4cb;
-	border: 1px solid transparent;
-	border-radius: 4px;
-	box-sizing: border-box;
-	margin-bottom: f.rem-calc(10);
-	padding: f.rem-calc(8);
-    width: 100%;
-    &::placeholder {
-        color: #495057;
-    }
-}
-
-.StripeElement--focus,
-.stripe-style-input:focus,
-.stripe-style-input:active {
-	color: #495057;
-	background-color: #fff;
-	border-color: #80bdff;
-	outline: 0;
-	box-shadow: 0 0 0 .2rem rgba(0,123,255,.25);
-}
-
 .StripeElement--webkit-autofill {
   background-color: #f7f4cb !important;
 }
