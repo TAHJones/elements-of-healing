@@ -10,7 +10,7 @@
       "category": 1,
       "rating": 4.6,
       "image_url": "",
-      "image": ""
+      "image": "../static/img/product-img/remedy-kit.jpg"
     }
   },
   {
@@ -24,7 +24,7 @@
       "category": 1,
       "rating": 4.8,
       "image_url": "",
-      "image": ""
+      "image": "../static/img/product-img/remedy-kit.jpg"
     }
   },
   {
