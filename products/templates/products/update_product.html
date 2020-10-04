@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="container dark-bg">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-11 col-md-10 col-lg-9 form box">
+            <h2>Product Management</h2>
+            <h3>Update a Product</h3>
+            <form method="POST" action="{% url 'update_product' product.id %}" enctype="multipart/form-data">
+                <div class="inner-box--grey">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                </div>
+                <button class="btn form-btn" type="submit">Update Product</button>
+                <a class="btn form-btn" href="{% url 'products' %}">Cancel</a>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -8,8 +8,8 @@
             <div class="card product-item inner-box--black">
                 <h2>{{product.name}}</h2>
                 {% if product.image %}
-                <a class="product-img-link" href="{{ product.image.url }}">
-                    <img class="card-img" src="{{ product.image.url }}" alt="{{ product.name }}">
+                <a class="product-img-link" href="{{ product.image }}">
+                    <img class="card-img" src="{{ product.image }}" alt="{{ product.name }}">
                 </a>
                 {% else %}
                 <a class="product-img-link" href="">
@@ -20,14 +20,14 @@
                     <p>{{ product.name }} - {{ product.description }}</p>
                     <p><span>£{{ product.price }}</span></p>
                     {% if product.rating %}
-                        <p><span><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</span></p>
+                        <p><span><i class="fas fa-star"></i>{{ product.rating }} / 5</span></p>
                     {% else %}
                         <p><span>No Rating</span></p>
                     {% endif %}
                     {% if product.category %}
                     <p>
                         <a href="{% url 'products' %}?category={{ product.category.name }}">
-                            <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                            <i class="fas fa-tag"></i>{{ product.category.friendly_name }}
                         </a>
                     </p>
                     {% endif %}
