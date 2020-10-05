@@ -101,6 +101,14 @@
                                 </a>
                             </p>
                             {% endif %}
+                            {% if request.user.is_superuser %}
+                            <p>
+                                <a class="text-info" href="{% url 'update_product' product.id %}"><i class="fas fa-edit"></i>Update</a>
+                            </p>
+                            <p>
+                                <a class="text-danger" href="{% url 'delete_product' product.id %}"><i class="fas fa-trash-alt"></i>Delete</a>
+                            </p>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
