@@ -77,7 +77,7 @@
 
 ### Testing Stories
 
-- The following error message  `NameError at /checkout/ - name 'basket' is not defined` occurred during the final implementation of the checkout app. This was caused by the basket session varaible being incorrectly named 'bag' in the checkout view.
+- The following error message  `NameError at /checkout/ - name 'basket' is not defined` occurred during the final implementation of the checkout app. This was caused by the basket session variable being incorrectly named 'bag' in the checkout view.
 
 - The potency value of purchased remedies failed to appear in either the shopping basket or on the checkout page. This was caused by the form value name for 'potency' being incorrectly named as 'product_potency' in the add_to_basket view.
 
@@ -88,6 +88,12 @@
 - NoReverseMatch at /accounts/logout/ , Reverse for 'home' not found. 'home' is not a valid view function or pattern name.
 
 - The error message `AttributeError at /profile/, 'UserProfile' object has no attribute 'orders'` occurred when the current user clicks on the 'My Profile' link. This was fixed by adding the user_profile field to the Order model in the checkout app.
+
+- The error message `NoReverseMatch at /add/, Reverse for 'add_product' with arguments '(43,)' not found. 1 pattern(s) tried: ['products/add/$']` occurred when a product was being deleted. This was caused by the incorrect view `view.update_product` being used in the app level url path. This was changed to the correct view `views.delete_product`.
+
+NoReverseMatch at /products/add/, Reverse for 'add_product' with arguments '(44,)' not found. 1 pattern(s) tried: ['products/add/$']
+
+
 
 ## Deployment
 
