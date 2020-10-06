@@ -85,13 +85,13 @@
 
 - A problems occurred when customising the layout of my projects allauth forms. Forms with only a small amount of content would have a limited height which would break the pages layout. The footer section would be forced up the page and the page background image would be visible beneath it. To fix this problem the allauth base.html template was replaced with the form_base.html and message_base.html template. The message_base.html template would contain classnames that uses min-height with viewpoint units and the transform: translate property to center the page content. This prevented the limited content breaking the page layout.
 
-- NoReverseMatch at /accounts/logout/ , Reverse for 'home' not found. 'home' is not a valid view function or pattern name.
+- The following error message `NoReverseMatch at /accounts/logout/ , Reverse for 'home' not found. 'home' is not a valid view function or pattern name` occurred when the user clicks on the login button. This was fixed by changing the name for the root url from index to home.
 
-- The error message `AttributeError at /profile/, 'UserProfile' object has no attribute 'orders'` occurred when the current user clicks on the 'My Profile' link. This was fixed by adding the user_profile field to the Order model in the checkout app.
+- The following error message `AttributeError at /profile/, 'UserProfile' object has no attribute 'orders'` occurred when the current user clicks on the 'My Profile' link. This was fixed by adding the user_profile field to the Order model in the checkout app.
 
 - The error message `NoReverseMatch at /add/, Reverse for 'add_product' with arguments '(43,)' not found. 1 pattern(s) tried: ['products/add/$']` occurred when a product was being deleted. This was caused by the incorrect view `view.update_product` being used in the app level url path. This was changed to the correct view `views.delete_product`.
 
-NoReverseMatch at /products/add/, Reverse for 'add_product' with arguments '(44,)' not found. 1 pattern(s) tried: ['products/add/$']
+- The error message `NoReverseMatch at /products/add/, Reverse for 'add_product' with arguments '(44,)' not found. 1 pattern(s) tried: ['products/add/$']` occurred because the redirect was pointing back to the add_product view when it should have been pointing to the product_detail view. 
 
 
 
