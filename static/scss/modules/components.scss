@@ -623,7 +623,7 @@
     background-color: lighten(#2b532a, 10%) !important;
     padding: f.rem-calc(10);
     > h3 {
-        margin-left: f.rem-calc(10); 
+        margin: f.rem-calc(0 10); 
         margin-right: auto !important;
     }
     > .close > span {

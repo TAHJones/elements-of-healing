@@ -1253,7 +1253,7 @@ footer {
 }
 @media (min-width: 576px) {
   .basket-item-scroller {
-    max-height: 45vh;
+    max-height: 40vh;
   }
 }
 
@@ -1316,9 +1316,9 @@ footer {
 
 .toast-container {
   position: fixed;
-  top: 52%;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -46%);
   z-index: 4;
 }
 
@@ -1351,7 +1351,7 @@ footer {
   padding: 0.625rem;
 }
 .toast-header > h3 {
-  margin-left: 0.625rem;
+  margin: 0 0.625rem;
   margin-right: auto !important;
 }
 .toast-header > .close > span {
