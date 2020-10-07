@@ -342,24 +342,12 @@
 /* ALLAUTH-FORM */
 
 .allauth-form-bg {
-    // min-height: 50vh;
     padding: f.rem-calc(30 0 40);
 }
 
 .allauth-message-bg {
     min-height: 50vh;
-    // padding: f.rem-calc(30 0 40);
 }
-
-// .overlay-text {
-// 	color: #4b93da;
-// 	font-size: 3.2rem;
-// 	position: absolute;
-// 	top: 50%;
-// 	left: 50%;
-// 	transform: translate(-50%, -50%);
-// 	text-align: center;
-// }
 
 .allauth-form-inner {
     margin: 0 auto;
