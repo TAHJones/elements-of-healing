@@ -984,7 +984,7 @@ footer {
   margin-bottom: 0.75rem;
 }
 
-.form-style-input {
+.form-style-input, .StripeElement {
   background-color: #f7f4cb;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -993,17 +993,22 @@ footer {
   padding: 0.5rem;
   width: 100%;
 }
-.form-style-input::placeholder {
+.form-style-input::placeholder, .StripeElement::placeholder {
   color: #495057;
 }
 
 .form-style-input:focus,
-.form-style-input:active {
+.form-style-input:active,
+.StripeElement--focus {
   color: #495057;
   background-color: #fff;
   border-color: #80bdff;
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
 }
 
 /* FORM-END */

@@ -315,7 +315,7 @@
     margin-bottom: f.rem-calc(12);
 }
 
-.form-style-input {
+.form-style-input, .StripeElement  {
 	background-color: #f7f4cb;
 	border: 1px solid transparent;
 	border-radius: 4px;
@@ -329,12 +329,17 @@
 }
 
 .form-style-input:focus,
-.form-style-input:active {
+.form-style-input:active,
+.StripeElement--focus {
 	color: #495057;
 	background-color: #fff;
 	border-color: #80bdff;
 	outline: 0;
 	box-shadow: 0 0 0 .2rem rgba(0,123,255,.25);
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
 }
 
 /* FORM-END */
