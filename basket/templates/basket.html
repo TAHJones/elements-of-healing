@@ -72,7 +72,7 @@
                                 </div>
                             </form>
                             <a class="update-link text-info"><small>Update</small></a>
-                            <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
+                            <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-product_potency="{{ item.potency }}"><small>Remove</small></a>
                         </td>
                         <td>
                             <p>£{{ item.product.price | calc_subtotal:item.quantity }}</p>
@@ -137,9 +137,9 @@ $(document).ready(function(){
     $('.remove-item').click(function(e) {
         let csrfToken = "{{ csrf_token }}";
         let itemId = $(this).attr('id').split('remove_')[1];
-        let size = $(this).data('product_size');
+        let potency = $(this).data('product_potency');
         let url = `/remove/${itemId}/`;
-        let data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
+        let data = {'csrfmiddlewaretoken': csrfToken, 'product_potency': potency};
         $.post(url, data)
         .done(function() {
             location.reload();
