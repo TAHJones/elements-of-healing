@@ -12,45 +12,45 @@
             <div class="toast-body">
                 <div><h4>{{ message }}</h4></div>
                 {% if grand_total and not on_profile_page %}
-                <div class="basket-item-scroller">
-                    {% for item in basket_items %}
-                        <div class="row">
-                            <div class="col-4">
-                            {% if item.product.image %}
-                                <img class="w-100" src="{{ item.product.image.url }}">
-                            {% else %}
-                                <img class="w-100" src="{% static 'img/noimage.png' %}">
-                            {% endif %}
+                    <div class="basket-item-scroller">
+                        {% for item in basket_items %}
+                            <div class="row">
+                                <div class="col-4">
+                                {% if item.product.image %}
+                                    <img class="w-100" src="{{ item.product.image.url }}">
+                                {% else %}
+                                    <img class="w-100" src="{% static 'img/noimage.png' %}">
+                                {% endif %}
+                                </div>
+                                <div class="col-8">
+                                    <p>{{ item.product.name }}</p>
+                                    <p>Potency: {% if item.product.has_potency %}{{ item.potency|upper }}{% else %}N/A{% endif %}</p>
+                                    <p>Qty: {{ item.quantity }}</p>
+                                </div>
                             </div>
-                            <div class="col-8">
-                                <p>{{ item.product.name }}</p>
-                                <p>Size: {% if item.product.has_potency %}{{ item.potency|upper }}{% else %}N/A{% endif %}</p>
-                                <p>Qty: {{ item.quantity }}</p>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-                <div class="summary">
-                    <p>Basket Items: <span>{{ product_count }}</span></p>        
-                    <p>Total{% if free_delivery_delta > 0 %} (Exc. delivery){% endif %}: <span>£{{ total|floatformat:2 }}</span></p>
-                </div>
-                {% if free_delivery_delta > 0 %}
-                <div>
-                    <p class="text-danger">
-                        Spend <strong>${{ free_delivery_delta }}</strong> more to get free next day delivery!
-                    </p>
-                </div>
-                {% endif %}
-                <div>
-                    <a href="{% url 'products' %}" class="btn shopping-btn">
-                        <i class="fas fa-chevron-left"></i>
-                        <span class="text-uppercase">Keep Shopping</span>
-                    </a>
-                    <a href="{% url 'view_basket' %}" class="btn shopping-btn">
-                        <span class="text-uppercase">Go To Secure Checkout</span>
-                        <i class="fas fa-lock"></i>
-                    </a>
-                </div>
+                        {% endfor %}
+                    </div>
+                    <div class="summary">
+                        <p>Basket Items: <span>{{ product_count }}</span></p>        
+                        <p>Total{% if free_delivery_delta > 0 %} (Exc. delivery){% endif %}: <span>£{{ total|floatformat:2 }}</span></p>
+                    </div>
+                    {% if free_delivery_delta > 0 %}
+                    <div>
+                        <p class="text-danger">
+                            Spend <strong>£{{ free_delivery_delta }}</strong> more to get free next day delivery!
+                        </p>
+                    </div>
+                    {% endif %}
+                    <div>
+                        <a href="{% url 'products' %}" class="btn shopping-btn">
+                            <i class="fas fa-chevron-left"></i>
+                            <span class="text-uppercase">Keep Shopping</span>
+                        </a>
+                        <a href="{% url 'view_basket' %}" class="btn shopping-btn">
+                            <span class="text-uppercase">Go To Secure Checkout</span>
+                            <i class="fas fa-lock"></i>
+                        </a>
+                    </div>
                 {% endif %}
             </div>
         </div>
