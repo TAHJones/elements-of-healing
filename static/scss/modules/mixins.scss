@@ -72,6 +72,38 @@
 
 }
 
+@mixin box-message {
+	position: relative;
+    height: 45vh;
+    > div {
+        position: absolute;
+        top: 50%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        max-width: 100%;
+        transform: translateY(-50%);
+        @include q.respond-above(sm) {
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        > p {
+            color: v.$tertiary-font-color;
+            margin: f.rem-calc(60 0);
+            text-align: center;
+            @include q.respond-above(sm) {
+                margin: f.rem-calc(20 0);
+                text-align: center;
+            }
+        }
+    }
+    > a {
+        position: absolute;
+        top: 88%;
+    }
+}
+
 @mixin list-color($color-one, $color-two, $color-three, $color-four) {
     > ul > li {
         font-size: f.rem-calc(v.$list-font-size-xxsmall);
