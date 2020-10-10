@@ -41,12 +41,8 @@
     }
 }
 
-.poster {
-    @include m.poster($center-header: true, $border: true);  
-}
-
 .box {
-    @include m.poster();  
+    @include m.box();  
 }
 
 .row:not(:nth-of-type(1)) > .box {
@@ -56,8 +52,12 @@
     }
 }
 
+.poster {
+    @include m.box($center-header: true, $border: true);  
+}
+
 .image-box {
-    @include m.poster($image: true);  
+    @include m.box($image: true);  
 }
 
 .inner-box--black {
