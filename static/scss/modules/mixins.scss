@@ -39,7 +39,7 @@
     }
 }
 
-@mixin poster($center-header:false, $border: false, $image: false) {
+@mixin box($center-header:false, $border: false, $image: false) {
     @if $center-header {
         h2 {
             margin-bottom: f.rem-calc(0);
