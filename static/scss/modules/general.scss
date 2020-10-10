@@ -45,7 +45,7 @@ h1 {
     } 
 }
 
-h2, .box-message {
+h2, .box-message p {
     font-weight: 600;
     font-size: f.rem-calc(v.$h2-font-size-xxsmall);
     margin-bottom: f.rem-calc(20);
