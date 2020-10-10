@@ -6,9 +6,14 @@
 
 {% block inner_content %}
 
-    <h2>{% trans "Sign Out" %}</h2>
+    <h2 class="text-center">{% trans "Sign Out" %}</h2>
 
-    <p>{% trans 'Are you sure you want to sign out?' %}</p>
+    <div class="box-message">
+        <div>
+            <p><i class="fas fa-sign-out-alt fa-7x"></i></p>
+            <p>{% trans 'Want to sign out?' %}</p>
+        </div>
+    </div>
 
     <form class="allauth-form" method="POST" action="{% url 'account_logout' %}">
     {% csrf_token %}
