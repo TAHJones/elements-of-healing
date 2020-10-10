@@ -40,14 +40,8 @@
 }
 
 @mixin poster($center-header:false, $border: false, $image: false) {
-    // h2 {
-    //     color: v.$tertiary-header-color;
-    //     font-weight: 600;
-    // }
     @if $center-header {
         h2 {
-            // color: v.$tertiary-header-color;
-            // font-weight: 600px;
             margin-bottom: f.rem-calc(0);
             text-align: center;
         }
