@@ -535,6 +535,35 @@
     }
 }
 
+.basket-empty-bg {
+	position: relative;
+    height: 45vh;
+    > .basket-empty {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        max-width: 100%;
+        > p {
+            color: #76bb85;
+            position: absolute;
+            top: 40%;
+            left: 0;
+            transform: translateY(-40%);
+            @include q.respond-above(sm) {
+                left: 50%;
+                transform: translate(-50%, -40%);
+            }
+        }
+        > a {
+            position: absolute;
+            top: 88%;
+        }
+    }
+}
+
 .basket-item-scroller {
     @include m.item-scroller($bg-color: true);
 }
