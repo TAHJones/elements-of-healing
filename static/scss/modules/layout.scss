@@ -52,6 +52,10 @@
     }
 }
 
+.box-message {
+    @include m.box-message;
+}
+
 .poster {
     @include m.box($center-header: true, $border: true);  
 }
