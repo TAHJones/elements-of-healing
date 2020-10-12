@@ -2,7 +2,7 @@
 
 @use "variables" as v;
 @use "functions" as f;
-@use "media_queries" as q;
+@use "media_query_mixins" as q;
 
 /* GENERAL */
 
@@ -34,33 +34,33 @@ h1 {
     margin-bottom: f.rem-calc(60);
     text-align: center;
 	text-shadow: 2px 2px #000;
-    @include q.respond-above(md) {
-        font-size: f.rem-calc(v.$h1-font-size-small);
-    }
-    @include q.respond-above(lg) {
-        font-size: f.rem-calc(v.$h1-font-size-medium);
-    }
-    @include q.respond-above(xl) {
-        font-size: f.rem-calc(v.$h1-font-size-large);
-    } 
+    // @include q.respond-above(md) {
+    //     font-size: f.rem-calc(v.$h1-font-size-small);
+    // }
+    // @include q.respond-above(lg) {
+    //     font-size: f.rem-calc(v.$h1-font-size-medium);
+    // }
+    // @include q.respond-above(xl) {
+    //     font-size: f.rem-calc(v.$h1-font-size-large);
+    // } 
 }
 
 h2, .box-message p {
     font-weight: 600;
     font-size: f.rem-calc(v.$h2-font-size-xxsmall);
     margin-bottom: f.rem-calc(20);
-    @include q.respond-above(xs) {
-        font-size: f.rem-calc(v.$h2-font-size-xsmall);
-    }
-    @include q.respond-above(md) {
-        font-size: f.rem-calc(v.$h2-font-size-small);
-    }
-    @include q.respond-above(lg) {
-        font-size: f.rem-calc(v.$h2-font-size-medium);
-    }
-    @include q.respond-above(xl) {
-        font-size: f.rem-calc(v.$h2-font-size-large);
-    }
+    // @include q.respond-above(xs) {
+    //     font-size: f.rem-calc(v.$h2-font-size-xsmall);
+    // }
+    // @include q.respond-above(md) {
+    //     font-size: f.rem-calc(v.$h2-font-size-small);
+    // }
+    // @include q.respond-above(lg) {
+    //     font-size: f.rem-calc(v.$h2-font-size-medium);
+    // }
+    // @include q.respond-above(xl) {
+    //     font-size: f.rem-calc(v.$h2-font-size-large);
+    // }
 }
 
 .paragraph-header {
@@ -72,46 +72,46 @@ h3 {
     font-weight: 400;
     font-size: f.rem-calc(v.$h3-font-size-xxsmall);
     margin-bottom: f.rem-calc(20);
-    @include q.respond-above(xs) {
-        font-size: f.rem-calc(v.$h3-font-size-xsmall);
-    }
-    @include q.respond-above(md) {
-        font-size: f.rem-calc(v.$h3-font-size-small);
-    }
-    @include q.respond-above(lg) {
-        font-size: f.rem-calc(v.$h3-font-size-medium);
-    }
-    @include q.respond-above(xl) {
-        font-size: f.rem-calc(v.$h3-font-size-large);
-    }
+    // @include q.respond-above(xs) {
+    //     font-size: f.rem-calc(v.$h3-font-size-xsmall);
+    // }
+    // @include q.respond-above(md) {
+    //     font-size: f.rem-calc(v.$h3-font-size-small);
+    // }
+    // @include q.respond-above(lg) {
+    //     font-size: f.rem-calc(v.$h3-font-size-medium);
+    // }
+    // @include q.respond-above(xl) {
+    //     font-size: f.rem-calc(v.$h3-font-size-large);
+    // }
 }
 
 h4, th {
     font-weight: 400;
     font-size: f.rem-calc(v.$h4-font-size-xxsmall);
     margin-bottom: f.rem-calc(0);
-    @include q.respond-above(xs) {
-        font-size: f.rem-calc(v.$h4-font-size-xsmall);
-    }
-    @include q.respond-above(md) {
-        font-size: f.rem-calc(v.$h4-font-size-small);
-    }
-    @include q.respond-above(lg) {
-        font-size: f.rem-calc(v.$h4-font-size-medium);
-    }
-    @include q.respond-above(xl) {
-        font-size: f.rem-calc(v.$h4-font-size-large);
-    }
+    // @include q.respond-above(xs) {
+    //     font-size: f.rem-calc(v.$h4-font-size-xsmall);
+    // }
+    // @include q.respond-above(md) {
+    //     font-size: f.rem-calc(v.$h4-font-size-small);
+    // }
+    // @include q.respond-above(lg) {
+    //     font-size: f.rem-calc(v.$h4-font-size-medium);
+    // }
+    // @include q.respond-above(xl) {
+    //     font-size: f.rem-calc(v.$h4-font-size-large);
+    // }
 }
 
 th {
     padding: f.rem-calc(20);
-    @include q.respond-above(md) {
-        padding-left: f.rem-calc(20);
-    }
-    @include q.respond-above(lg) {
-        padding-left: f.rem-calc(20);
-    }
+    // @include q.respond-above(md) {
+    //     padding-left: f.rem-calc(20);
+    // }
+    // @include q.respond-above(lg) {
+    //     padding-left: f.rem-calc(20);
+    // }
     &:first-of-type {
         padding-left: 0;
     }
@@ -124,18 +124,18 @@ td {
         font-size: f.rem-calc(v.$font-size-xxxsmall);
         margin: 0;
     }
-    @include q.respond-above(md) {
-        padding: f.rem-calc(0 0 30 20);
-        > p, > a, li {
-            font-size: f.rem-calc(v.$font-size-xxsmall);
-        }
-    }
-    @include q.respond-above(lg) {
-        padding: f.rem-calc(0 0 40 20);
-        > p, > a, li {
-            font-size: f.rem-calc(v.$font-size-xxsmall);
-        }
-    }
+    // @include q.respond-above(md) {
+    //     padding: f.rem-calc(0 0 30 20);
+    //     > p, > a, li {
+    //         font-size: f.rem-calc(v.$font-size-xxsmall);
+    //     }
+    // }
+    // @include q.respond-above(lg) {
+    //     padding: f.rem-calc(0 0 40 20);
+    //     > p, > a, li {
+    //         font-size: f.rem-calc(v.$font-size-xxsmall);
+    //     }
+    // }
     &:first-of-type {
         padding-left: 0;
     }
@@ -152,15 +152,15 @@ p {
 p, label, .fieldset-label {
     // font-family: v.$primary-font-stack;
     font-size: f.rem-calc(v.$font-size-xsmall);
-    @include q.respond-above(md) {
-        font-size: f.rem-calc(v.$font-size-small);
-    }
-    @include q.respond-above(lg) {
-        font-size: f.rem-calc(v.$font-size-medium);
-    }
-    @include q.respond-above(xl) {
-        font-size: f.rem-calc(v.$font-size-large);
-    }
+    // @include q.respond-above(md) {
+    //     font-size: f.rem-calc(v.$font-size-small);
+    // }
+    // @include q.respond-above(lg) {
+    //     font-size: f.rem-calc(v.$font-size-medium);
+    // }
+    // @include q.respond-above(xl) {
+    //     font-size: f.rem-calc(v.$font-size-large);
+    // }
 }
 
 ul {
@@ -174,15 +174,15 @@ a {
 	font-size: f.rem-calc(v.$link-font-size-xsmall);
 	margin-right: f.rem-calc(10);
 	transition: all .25s ease-in-out;
-    @include q.respond-above(md) {
-        font-size: f.rem-calc(v.$link-font-size-small);
-    }
-    @include q.respond-above(lg) {
-        font-size: f.rem-calc(v.$link-font-size-medium);
-    }
-    @include q.respond-above(xl) {
-        font-size: f.rem-calc(v.$link-font-size-large);
-    }
+    // @include q.respond-above(md) {
+    //     font-size: f.rem-calc(v.$link-font-size-small);
+    // }
+    // @include q.respond-above(lg) {
+    //     font-size: f.rem-calc(v.$link-font-size-medium);
+    // }
+    // @include q.respond-above(xl) {
+    //     font-size: f.rem-calc(v.$link-font-size-large);
+    // }
 }
 
 a:hover {

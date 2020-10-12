@@ -6,7 +6,8 @@
 @use "modules/variables";
 @use "modules/functions";
 @use "modules/mixins";
-@use "modules/media_queries";
+@use "modules/media_query_mixins";
 @use "modules/general";
 @use "modules/layout";
 @use "modules/components";
+@use "modules/media_queries";

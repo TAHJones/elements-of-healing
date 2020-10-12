@@ -1,0 +1,79 @@
+// allauth.scss
+
+// To install sass: npm install -g sass
+// To convert checkout.scss into checkout.css: sass --watch static/scss/allauth.scss static/css/allauth.css
+
+// @use "modules/variables" as v;
+@use "modules/functions" as f;
+// @use "modules/mixins" as m;
+// @use "modules/media_query_mixins" as q;
+
+
+/* ALLAUTH-FORM */
+
+.allauth-form-bg {
+    padding: f.rem-calc(30 0 40);
+}
+
+.allauth-message-bg {
+    min-height: 50vh;
+}
+
+.allauth-form-inner {
+    margin: 0 auto;
+    width: 85%
+}
+
+.allauth-message-inner {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	padding: f.rem-calc(0 50);
+}
+
+.allauth-form-inner, .allauth-message-inner {
+    h2 {
+        color: #ffcd37;
+    }
+    p {
+        color: #76bb85;
+        margin-bottom: f.rem-calc(32);
+        > a {
+            margin: f.rem-calc(0 5);
+        }
+    }
+}
+
+.allauth-form {
+    .control-group {
+        margin-bottom: f.rem-calc(15);
+    }
+    label {
+        color: #d0ac3d;        
+    }
+    input {
+        background-color: #f7f4cb;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        color: #495057;
+        margin-bottom: f.rem-calc(15);
+        padding: f.rem-calc(10);
+        height: 45px;
+        width: 100%;
+    }
+    input[type="checkbox"] {
+        margin-right: f.rem-calc(10);
+        height: 0;
+        width: 0;
+    }
+    .secondaryAction {
+        display: block;
+        margin-top: f.rem-calc(15);
+    }
+    .help-block {
+        color: #ff4444;
+        margin: f.rem-calc(32 0);
+    }
+}
+
+/* ALLAUTH-FORM-END */

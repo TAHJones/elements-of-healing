@@ -1,0 +1,65 @@
+/* ALLAUTH-FORM */
+.allauth-form-bg {
+  padding: 1.875rem 0 2.5rem;
+}
+
+.allauth-message-bg {
+  min-height: 50vh;
+}
+
+.allauth-form-inner {
+  margin: 0 auto;
+  width: 85%;
+}
+
+.allauth-message-inner {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 3.125rem;
+}
+
+.allauth-form-inner h2, .allauth-message-inner h2 {
+  color: #ffcd37;
+}
+.allauth-form-inner p, .allauth-message-inner p {
+  color: #76bb85;
+  margin-bottom: 2rem;
+}
+.allauth-form-inner p > a, .allauth-message-inner p > a {
+  margin: 0 0.3125rem;
+}
+
+.allauth-form .control-group {
+  margin-bottom: 0.9375rem;
+}
+.allauth-form label {
+  color: #d0ac3d;
+}
+.allauth-form input {
+  background-color: #f7f4cb;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  color: #495057;
+  margin-bottom: 0.9375rem;
+  padding: 0.625rem;
+  height: 45px;
+  width: 100%;
+}
+.allauth-form input[type=checkbox] {
+  margin-right: 0.625rem;
+  height: 0;
+  width: 0;
+}
+.allauth-form .secondaryAction {
+  display: block;
+  margin-top: 0.9375rem;
+}
+.allauth-form .help-block {
+  color: #ff4444;
+  margin: 2rem 0;
+}
+
+/* ALLAUTH-FORM-END */
+
+/*# sourceMappingURL=allauth.css.map */

@@ -2,10 +2,10 @@
 
 @use "variables" as v;
 @use "functions" as f;
-@use "media_queries" as q;
+@use "media_query_mixins" as q;
 
 
-@mixin custom-btn($uppercase: false, $medium: false, $large: false) {
+@mixin custom-btn($uppercase: false) {
     background-color: v.$form-btn-color;
     opacity: 0.9;
     font-size: f.rem-calc(13);
@@ -13,64 +13,45 @@
     margin-bottom: f.rem-calc(10);
     padding:f.rem-calc(5 10);
     transition: all 0.25s ease-in-out;
-    @include q.respond-above(sm) {
-        font-size: f.rem-calc(14);
-        padding:f.rem-calc(5 12);
-    }
     &:hover {
         opacity: 1;
     }
     @if $uppercase {
         text-transform: uppercase;
     }
-    @if $medium {
-        @include q.respond-above(md) {
-            padding:f.rem-calc(7 14);
-            font-size: f.rem-calc(16);
-        }
-    }
-    @if $large {
-        @include q.respond-above(lg) {
-            padding:f.rem-calc(8 16);
-            font-size: f.rem-calc(18);
-            line-height: 1.5;
-            border-radius: .3rem;
-        }
-    }
 }
 
-@mixin box($center-header:false, $border: false, $image: false) {
-    @if $center-header {
-        h2 {
-            margin-bottom: f.rem-calc(0);
-            text-align: center;
-        }
-    }
-    @if $image {
-        > img {
-            display: block;
-            margin: 0 auto;
-            padding: f.rem-calc(28);
-            width: 100%;
-        }
-    }
-    @include q.respond-above(sm) {
-        background-color: v.$poster-bg-color;
-        border-radius: f.rem-calc(6);
-        @if $image {
-            > img {
-                padding: f.rem-calc(40);
-                width: 100%;
-            }
-        }
-        @if $border {
-            border: f.rem-calc(8) solid v.$primary-border-color;
-            box-shadow: f.rem-calc(5 5 20 2) #000;
-            text-shadow: 2px 2px #000;
-        }
-    }
-
-}
+// @mixin box($center-header:false, $border: false, $image: false) {
+//     @if $center-header {
+//         h2 {
+//             margin-bottom: f.rem-calc(0);
+//             text-align: center;
+//         }
+//     }
+//     @if $image {
+//         > img {
+//             display: block;
+//             margin: 0 auto;
+//             padding: f.rem-calc(28);
+//             width: 100%;
+//         }
+//     }
+//     @include q.respond-above(sm) {
+//         background-color: v.$poster-bg-color;
+//         border-radius: f.rem-calc(6);
+//         @if $image {
+//             > img {
+//                 padding: f.rem-calc(40);
+//                 width: 100%;
+//             }
+//         }
+//         @if $border {
+//             border: f.rem-calc(8) solid v.$primary-border-color;
+//             box-shadow: f.rem-calc(5 5 20 2) #000;
+//             text-shadow: 2px 2px #000;
+//         }
+//     }
+// }
 
 @mixin box-message {
 	position: relative;
@@ -79,23 +60,12 @@
         position: absolute;
         top: 50%;
         bottom: 0;
-        left: 0;
         right: 0;
         height: 100%;
         max-width: 100%;
-        transform: translateY(-50%);
-        @include q.respond-above(sm) {
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
         > p {
             color: v.$tertiary-font-color;
-            margin: f.rem-calc(60 0);
             text-align: center;
-            @include q.respond-above(sm) {
-                margin: f.rem-calc(20 0);
-                text-align: center;
-            }
         }
     }
     > a {
@@ -104,6 +74,7 @@
     }
 }
 
+
 @mixin list-color($color-one, $color-two, $color-three, $color-four) {
     > ul > li {
         font-size: f.rem-calc(v.$list-font-size-xxsmall);
@@ -111,33 +82,17 @@
         list-style: none;
         margin-bottom: f.rem-calc(32);
         text-align: center;
-        @include q.respond-above(xs) {
-            font-size: f.rem-calc(v.$list-font-size-xsmall);
-        }
-        @include q.respond-above(sm) {
-            font-size: f.rem-calc(v.$list-font-size-small);
-        }
-        @include q.respond-above(md) {
-            font-size: f.rem-calc(v.$list-font-size-medium);
-        }
-        @include q.respond-above(lg) {
-            font-size: f.rem-calc(v.$list-font-size-large);
-        }
     }
-
     > ul > li:nth-of-type(1) {
         color: $color-one;
         margin-top: f.rem-calc(40)
     }
-
     > ul > li:nth-of-type(2) {
         color: $color-two;
     }
-
     > ul > li:nth-of-type(3) {
         color: $color-three;
     }
-
     > ul > li:nth-of-type(4) {
         color: $color-four;
         margin-bottom: 0;
@@ -152,9 +107,9 @@
     @if $bg-color {
         background-color: rgba(0, 0, 0, 0.2);
     }
-    @include q.respond-above(sm) {
-        max-height: 40vh;
-    }
+    // @include q.respond-above(sm) {
+    //     max-height: 40vh;
+    // }
 }
 
 @mixin inner-box($bg-color) {
@@ -162,9 +117,9 @@
 	border-radius: 4px;
 	margin-bottom: f.rem-calc(40);
     padding: f.rem-calc(10);
-    @include q.respond-above(sm) {
-        padding: f.rem-calc(30);
-    }
+    // @include q.respond-above(sm) {
+    //     padding: f.rem-calc(30);
+    // }
     p {
         color: #76bb85;
         > span {

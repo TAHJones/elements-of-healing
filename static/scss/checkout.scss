@@ -6,7 +6,7 @@
 // @use "modules/variables" as v;
 @use "modules/functions" as f;
 @use "modules/mixins" as m;
-@use "modules/media_queries" as q;
+@use "modules/media_query_mixins" as q;
 
 
 /* CHECKOUT */
@@ -95,3 +95,13 @@ select:invalid, select option[value=""] {
 }
 
 /* CHECKOUT-END */
+
+/* MEDIA-QUERIES */
+
+@include q.respond-above(sm) {
+    .checkout-item-scroller {
+        max-height: 40vh;
+    }
+}
+
+/* MEDIA-QUERIES-END */

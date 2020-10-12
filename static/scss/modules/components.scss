@@ -3,7 +3,7 @@
 @use "variables" as v;
 @use "functions" as f;
 @use "mixins" as m;
-@use "media_queries" as q;
+@use "media_query_mixins" as q;
 
 
 /* NAVBAR */
@@ -12,35 +12,35 @@
 	background-color: #2b532a !important
 }
 
-.secondary-navbar {
-    @include q.respond-below(sm) {
-        position: fixed;
-        top: 52px;
-        right: 0;
-        .nav-item:nth-of-type(1) {
-            margin: f.rem-calc(32 0 16);
-        }
-    }
-}
+// .secondary-navbar {
+//     @include q.respond-below(sm) {
+//         position: fixed;
+//         top: 52px;
+//         right: 0;
+//         .nav-item:nth-of-type(1) {
+//             margin: f.rem-calc(32 0 16);
+//         }
+//     }
+// }
 
-.navbar-nav:nth-of-type(2) {
-    @include q.respond-above(sm) {
-        position: absolute;
-	    right: 0;
-    }
-}
+// .navbar-nav:nth-of-type(2) {
+//     @include q.respond-above(sm) {
+//         position: absolute;
+// 	    right: 0;
+//     }
+// }
 
 .navbar-dark .navbar-nav .nav-link,
 .navbar-dark .navbar-nav .show > .nav-link {
 	color: #d9b034;
     font-weight: 400;
     padding: f.rem-calc(0 15 15 0);
-    @include q.respond-above(sm) {
-        padding: f.rem-calc(4);
-    }
-    @include q.respond-above(md) {
-        padding: f.rem-calc(15);
-    }
+    // @include q.respond-above(sm) {
+    //     padding: f.rem-calc(4);
+    // }
+    // @include q.respond-above(md) {
+    //     padding: f.rem-calc(15);
+    // }
 }
 
 .navbar-dark .navbar-nav .nav-link:focus,
@@ -57,22 +57,22 @@
     &:nth-of-type(1) {
         margin-top: f.rem-calc(20);
     }
-    @include q.respond-above(sm) {
-        &:nth-of-type(1) {
-            margin-top: f.rem-calc(0);
-        }
-    }
+    // @include q.respond-above(sm) {
+    //     &:nth-of-type(1) {
+    //         margin-top: f.rem-calc(0);
+    //     }
+    // }
     > .nav-link {
         font-size: f.rem-calc(v.$link-font-size-xsmall);
-        @include q.respond-above(md) {
-            font-size: f.rem-calc(v.$link-font-size-small);
-        }
-        @include q.respond-above(lg) {
-            font-size: f.rem-calc(v.$link-font-size-medium);
-        }
-        @include q.respond-above(xl) {
-            font-size: f.rem-calc(v.$link-font-size-large);
-        }
+        // @include q.respond-above(md) {
+        //     font-size: f.rem-calc(v.$link-font-size-small);
+        // }
+        // @include q.respond-above(lg) {
+        //     font-size: f.rem-calc(v.$link-font-size-medium);
+        // }
+        // @include q.respond-above(xl) {
+        //     font-size: f.rem-calc(v.$link-font-size-large);
+        // }
     }
 }
 
@@ -101,9 +101,9 @@
 	margin: 0;
 	min-width: 100px;
 	padding: 0;
-    @include q.respond-above(md) {
- 	    min-width: 140px;   
-    }
+    // @include q.respond-above(md) {
+ 	//     min-width: 140px;   
+    // }
 }
 
 .dropdown-item:focus,
@@ -130,28 +130,28 @@
         height: 35px;
         width: 100%;
     }
-    @include q.respond-above(sm) {
-        right: 55px;
-        top: 0;
-        width: 100%;
-        .form-control {
-            height: 30px;
-        }
-    }
-    @include q.respond-above(md) {
-        right: 70px;
-        top: 10px;
-        .form-control {
-            height: 35px;
-        }
-    }
-    @include q.respond-above(lg) {
-        right: 75px;
-        top: 10px;
-        .form-control {
-            height: 40px;
-        }
-    }
+    // @include q.respond-above(sm) {
+    //     right: 55px;
+    //     top: 0;
+    //     width: 100%;
+    //     .form-control {
+    //         height: 30px;
+    //     }
+    // }
+    // @include q.respond-above(md) {
+    //     right: 70px;
+    //     top: 10px;
+    //     .form-control {
+    //         height: 35px;
+    //     }
+    // }
+    // @include q.respond-above(lg) {
+    //     right: 75px;
+    //     top: 10px;
+    //     .form-control {
+    //         height: 40px;
+    //     }
+    // }
 }
 
 .hide-search-form .input-group {
@@ -162,13 +162,13 @@
 	display: inline-block;
 }
 
-@include q.respond-below(sm) {
-    #searchFormButton {
-        position: relative;
-        left: 50px;
-        top: -158px;
-    }
-}
+// @include q.respond-below(sm) {
+//     #searchFormButton {
+//         position: relative;
+//         left: 50px;
+//         top: -158px;
+//     }
+// }
 
 /* SEARCH-FORM-END */
 
@@ -180,19 +180,19 @@
 
 .carousel-indicators {
     display: none;
-    @include q.respond-above(sm) {
-	    bottom: -15%;
-        display: flex;
-    }
+    // @include q.respond-above(sm) {
+	//     bottom: -15%;
+    //     display: flex;
+    // }
 }
 
 .carousel-control-prev,
 .carousel-control-next {
     display: none;
-    @include q.respond-above(xs) {
-        display: block;
-        top: 50%;
-    }
+    // @include q.respond-above(xs) {
+    //     display: block;
+    //     top: 50%;
+    // }
 }
 
 .carousel-control-prev {
@@ -226,24 +226,24 @@
     .card-body {
         padding: f.rem-calc(20);
         height: 470px;
-        @include q.respond-above(lg) {
-            padding: f.rem-calc(30);
-            height: 500px;
-        }
-        @include q.respond-above(xl) {
-            height: 570px;
-        }
+        // @include q.respond-above(lg) {
+        //     padding: f.rem-calc(30);
+        //     height: 500px;
+        // }
+        // @include q.respond-above(xl) {
+        //     height: 570px;
+        // }
     }
 
     .card-body > p {
         color: v.$card-font-color;
         font-size: f.rem-calc(14);
-        @include q.respond-above(lg) {
-            font-size: f.rem-calc(16);
-        }
-        @include q.respond-above(xl) {
-            font-size: f.rem-calc(18);
-        }
+        // @include q.respond-above(lg) {
+        //     font-size: f.rem-calc(16);
+        // }
+        // @include q.respond-above(xl) {
+        //     font-size: f.rem-calc(18);
+        // }
     }
 
     .card-body > p > strong{
@@ -255,16 +255,30 @@
 
 /* BUTTON */
 
-.custom-btn {
+.custom-btn, .form-btn {
     @include m.custom-btn();
+    // @include q.respond-above(sm) {
+    //     font-size: v.$font-size-xxsmall;
+    //     padding:f.rem-calc(5 12);
+    // }
 }
 
-.form-btn {
-    @include m.custom-btn($medium: true);
-}
+// .form-btn {
+//     @include m.custom-btn();
+//     @include q.respond-above(md) {
+//         font-size: v.$font-size-xsmall;
+//         padding:f.rem-calc(7 14);
+//     }
+// }
 
 .shopping-btn {
-    @include m.custom-btn($uppercase: true, $medium: true, $large: true);
+    @include m.custom-btn($uppercase: true);
+    // @include q.respond-above(lg) {
+    //     border-radius: .3rem;
+    //     font-size: v.$font-size-small;
+    //     line-height: 1.5;
+    //     padding:f.rem-calc(8 16);
+    // }
 }
 
 /* BUTTON-END */
@@ -344,75 +358,6 @@
 
 /* FORM-END */
 
-/* ALLAUTH-FORM */
-
-.allauth-form-bg {
-    padding: f.rem-calc(30 0 40);
-}
-
-.allauth-message-bg {
-    min-height: 50vh;
-}
-
-.allauth-form-inner {
-    margin: 0 auto;
-    width: 85%
-}
-
-.allauth-message-inner {
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	padding: f.rem-calc(0 50);
-}
-
-.allauth-form-inner, .allauth-message-inner {
-    h2 {
-        color: #ffcd37;
-    }
-    p {
-        color: #76bb85;
-        margin-bottom: f.rem-calc(32);
-        > a {
-            margin: f.rem-calc(0 5);
-        }
-    }
-}
-
-.allauth-form {
-    .control-group {
-        margin-bottom: f.rem-calc(15);
-    }
-    label {
-        color: #d0ac3d;        
-    }
-    input {
-        background-color: #f7f4cb;
-        border: 1px solid #ced4da;
-        border-radius: .25rem;
-        color: #495057;
-        margin-bottom: f.rem-calc(15);
-        padding: f.rem-calc(10);
-        height: 45px;
-        width: 100%;
-    }
-    input[type="checkbox"] {
-        margin-right: f.rem-calc(10);
-        height: 0;
-        width: 0;
-    }
-    .secondaryAction {
-        display: block;
-        margin-top: f.rem-calc(15);
-    }
-    .help-block {
-        color: #ff4444;
-        margin: f.rem-calc(32 0);
-    }
-}
-
-/* ALLAUTH-FORM-END */
-
 /* FONT-AWESOME */
 
 .fas {
@@ -470,26 +415,26 @@
 
 .delivery-bg {
 	background-color: rgba(0, 0, 0, 0.6);
-        margin-top: f.rem-calc(60);
-        padding: f.rem-calc(24);
-    @include q.respond-above(sm) {
-	    background-color: transparent;
-        margin-top: f.rem-calc(80);
-    }
-    @include q.respond-above(md) {
-        margin-top: f.rem-calc(104);
-    }
+    margin-top: f.rem-calc(60);
+    padding: f.rem-calc(24);
+    // @include q.respond-above(sm) {
+	//     background-color: transparent;
+    //     margin-top: f.rem-calc(80);
+    // }
+    // @include q.respond-above(md) {
+    //     margin-top: f.rem-calc(104);
+    // }
     span {
         color: #f9bf0c;
         font-size: f.rem-calc(16);
         font-weight: 600;
         text-shadow: 2px 2px 2px #000;
-        @include q.respond-above(sm) {
-            font-size: f.rem-calc(28);
-        }
-        @include q.respond-above(md) {
-            font-size: f.rem-calc(36);
-        }
+        // @include q.respond-above(sm) {
+        //     font-size: f.rem-calc(28);
+        // }
+        // @include q.respond-above(md) {
+        //     font-size: f.rem-calc(36);
+        // }
     }
 }
 
@@ -504,31 +449,31 @@
         img {
             border-radius: .25rem !important;
             width: 65px;
-            @include q.respond-above(md) {
-                width: 79px;
-            }
-            @include q.respond-above(lg) {
-                width: 100px;
-            }
-            @include q.respond-above(xl) {
-                width: 150px;
-            }
+            // @include q.respond-above(md) {
+            //     width: 79px;
+            // }
+            // @include q.respond-above(lg) {
+            //     width: 100px;
+            // }
+            // @include q.respond-above(xl) {
+            //     width: 150px;
+            // }
         }
         .sku {
             font-size: f.rem-calc(8);
-            @include q.respond-above(md) {
-                font-size: f.rem-calc(12);
-            }
+            // @include q.respond-above(md) {
+            //     font-size: f.rem-calc(12);
+            // }
         }
     }
     .item-quantity-form {
         padding: 5% 2%;
-        @include q.respond-above(lg) {
-            padding: 15% 10%;
-        }
-        @include q.respond-above(xl) {
-            padding: 20% 10%;
-        }
+        // @include q.respond-above(lg) {
+        //     padding: 15% 10%;
+        // }
+        // @include q.respond-above(xl) {
+        //     padding: 20% 10%;
+        // }
     }
     .delivery-message {
         margin-top: f.rem-calc(20);
@@ -549,15 +494,15 @@
     .qty_input {
         height: 35px;
         padding: f.rem-calc(5);
-        @include q.respond-above(lg) {
-            height: 50px;
-        }
+        // @include q.respond-above(lg) {
+        //     height: 50px;
+        // }
     }
     .decrement-qty, .increment-qty {
         height: 80%;
-        @include q.respond-above(lg) {
-            height: 100%;
-        }
+        // @include q.respond-above(lg) {
+        //     height: 100%;
+        // }
     }
     .increment-qty, {
         border-top-right-radius: 4px !important;
@@ -574,14 +519,14 @@
     > .remove-item {
         top: -17px;
     }
-    @include q.respond-above(lg) {
-        > .update-link {
-            top: -10px;
-        }
-        > .remove-item {
-            top: -7px;
-        }
-    }
+    // @include q.respond-above(lg) {
+    //     > .update-link {
+    //         top: -10px;
+    //     }
+    //     > .remove-item {
+    //         top: -7px;
+    //     }
+    // }
 }
 
 /* SHOPPING-BASKET-FORM-END */
@@ -616,12 +561,12 @@
     border: none;
     padding: 0;
     width: 320px;
-    @include q.respond-above(xs) {
-        width: 450px;
-    }
-    @include q.respond-above(sm) {
-        width: 550px;
-    }
+    // @include q.respond-above(xs) {
+    //     width: 450px;
+    // }
+    // @include q.respond-above(sm) {
+    //     width: 550px;
+    // }
 }
 
 .toast-header {
@@ -652,13 +597,13 @@
     p {
         font-size: f.rem-calc(v.$font-size-xxxsmall);
         margin: f.rem-calc(4 0);
-        @include q.respond-above(xs) {
-            font-size: f.rem-calc(v.$font-size-xxsmall);
-            margin: f.rem-calc(10 0);
-        }
-        @include q.respond-above(sm) {
-            font-size: f.rem-calc(v.$font-size-medium);
-        }
+        // @include q.respond-above(xs) {
+        //     font-size: f.rem-calc(v.$font-size-xxsmall);
+        //     margin: f.rem-calc(10 0);
+        // }
+        // @include q.respond-above(sm) {
+        //     font-size: f.rem-calc(v.$font-size-medium);
+        // }
     }
     img {
         padding-right: f.rem-calc( 0 20 20 0);
