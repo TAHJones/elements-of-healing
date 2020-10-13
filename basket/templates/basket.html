@@ -2,6 +2,11 @@
 {% load static %}
 {% load basket_tools %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'basket/css/basket.css' %}">
+{% endblock extra_css %}
+
+
 {% block content %}
 <section class="container dark-bg">
     <div class="row justify-content-center">
