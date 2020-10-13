@@ -118,6 +118,17 @@
 
 /* NAVBAR-END */
 
+/* SHOPPING-BASKET-ICON */
+
+.shopping-basket-icon {
+	color: #527d5b;
+	font-size: .9rem;
+	display: inline;
+}
+
+/* SHOPPING-BASKET-ICON-END */
+
+
 /* SEARCH-FORM */
 
 .search-form .input-group {
@@ -366,171 +377,6 @@
 
 /* FONT-AWESOME-END */
 
-/* SHOPPING-CART */
-
-.shopping-cart {
-	color: #527d5b;
-	font-size: .9rem;
-	display: inline;
-}
-
-/* SHOPPING-CART-END */
-
-/* PRODUCTS */
-
-.product-item {
-    @include m.product-item;
-    > .product-img-link {
-        display: block;
-        margin: 0 auto;
-        width: 90%;
-    }
-}
-
-.sort-select-summary {
-    @include m.sort-select-summary;
-}
-
-.sort-select-wrapper {
-    margin-bottom: f.rem-calc(40);
-}
-
-.product-info {
-    padding: 0;
-    label {
-        color: #76bb85;
-    }
-    .decrement-qty, .increment-qty {
-        margin-bottom: 0;
-    }
-}
-
-.overlay-container {
-    @include m.img-overlay
-}
-
-/* PRODUCTS-END */
-
-/* SHOPPING-BASKET */
-
-.delivery-bg {
-	background-color: rgba(0, 0, 0, 0.6);
-    margin-top: f.rem-calc(60);
-    padding: f.rem-calc(24);
-    // @include q.respond-above(sm) {
-	//     background-color: transparent;
-    //     margin-top: f.rem-calc(80);
-    // }
-    // @include q.respond-above(md) {
-    //     margin-top: f.rem-calc(104);
-    // }
-    span {
-        color: #f9bf0c;
-        font-size: f.rem-calc(16);
-        font-weight: 600;
-        text-shadow: 2px 2px 2px #000;
-        // @include q.respond-above(sm) {
-        //     font-size: f.rem-calc(28);
-        // }
-        // @include q.respond-above(md) {
-        //     font-size: f.rem-calc(36);
-        // }
-    }
-}
-
-.basket {
-    table {
-        margin: 0 auto;
-    }
-    td {
-        .item-quantity {
-            margin-top: f.rem-calc(42);
-        }
-        img {
-            border-radius: .25rem !important;
-            width: 65px;
-            // @include q.respond-above(md) {
-            //     width: 79px;
-            // }
-            // @include q.respond-above(lg) {
-            //     width: 100px;
-            // }
-            // @include q.respond-above(xl) {
-            //     width: 150px;
-            // }
-        }
-        .sku {
-            font-size: f.rem-calc(8);
-            // @include q.respond-above(md) {
-            //     font-size: f.rem-calc(12);
-            // }
-        }
-    }
-    .item-quantity-form {
-        padding: 5% 2%;
-        // @include q.respond-above(lg) {
-        //     padding: 15% 10%;
-        // }
-        // @include q.respond-above(xl) {
-        //     padding: 20% 10%;
-        // }
-    }
-    .delivery-message {
-        margin-top: f.rem-calc(20);
-    }
-}
-
-.basket-item-scroller {
-    @include m.item-scroller($bg-color: true);
-}
-
-/* SHOPPING-BASKET-END */
-
-/* SHOPPING-BASKET-FORM */
-
-.update-form {
-	background-color: none;
-    padding: 0;
-    .qty_input {
-        height: 35px;
-        padding: f.rem-calc(5);
-        // @include q.respond-above(lg) {
-        //     height: 50px;
-        // }
-    }
-    .decrement-qty, .increment-qty {
-        height: 80%;
-        // @include q.respond-above(lg) {
-        //     height: 100%;
-        // }
-    }
-    .increment-qty, {
-        border-top-right-radius: 4px !important;
-        border-bottom-right-radius: 4px !important;
-    }
-}
-
-.item-quantity-form {
-    > .update-link, > .remove-item {
-        cursor: pointer;
-        position: relative;
-        top: -20px;
-    }
-    > .remove-item {
-        top: -17px;
-    }
-    // @include q.respond-above(lg) {
-    //     > .update-link {
-    //         top: -10px;
-    //     }
-    //     > .remove-item {
-    //         top: -7px;
-    //     }
-    // }
-}
-
-/* SHOPPING-BASKET-FORM-END */
-
 /* BOOTSTRAP-TOASTS */
 
 .toast-container-bg {
@@ -615,33 +461,3 @@
 }
 
 /* BOOTSTRAP-TOASTS-END */
-
-/* PRODUCT-FORM */
-
-.btn-file {
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-file input[type="file"] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    min-width: 100%;
-    min-height: 100%;
-    opacity: 0;
-    cursor: pointer;
-}
-
-.custom-checkbox .custom-control-label::before {
-    border-radius: 0;
-    border-color: #dc3545;
-}
-
-.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-    background-color: #dc3545;
-    border-color: #dc3545;
-    border-radius: 0;
-}
-
-/* PRODUCT-FORM-END */
