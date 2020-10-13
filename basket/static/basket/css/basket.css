@@ -1,0 +1,127 @@
+/* SHOPPING-BASKET */
+.delivery-bg {
+  background-color: rgba(0, 0, 0, 0.6);
+  margin-top: 3.75rem;
+  padding: 1.5rem;
+}
+.delivery-bg span {
+  color: #f9bf0c;
+  font-size: 1rem;
+  font-weight: 600;
+  text-shadow: 2px 2px 2px #000;
+}
+
+.basket table {
+  margin: 0 auto;
+}
+.basket td .item-quantity {
+  margin-top: 2.625rem;
+}
+.basket td img {
+  border-radius: 0.25rem !important;
+  width: 65px;
+}
+.basket td .sku {
+  font-size: 0.5rem;
+}
+.basket .item-quantity-form {
+  padding: 5% 2%;
+}
+.basket .delivery-message {
+  margin-top: 1.25rem;
+}
+
+.basket-item-scroller {
+  max-height: 35vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 1.875rem 2.5rem;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* SHOPPING-BASKET-END */
+/* SHOPPING-BASKET-FORM */
+.update-form {
+  background-color: none;
+  padding: 0;
+}
+.update-form .qty_input {
+  height: 35px;
+  padding: 0.3125rem;
+}
+.update-form .decrement-qty, .update-form .increment-qty {
+  height: 80%;
+}
+.update-form .increment-qty {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.item-quantity-form > .update-link, .item-quantity-form > .remove-item {
+  cursor: pointer;
+  position: relative;
+  top: -20px;
+}
+.item-quantity-form > .remove-item {
+  top: -17px;
+}
+
+/* SHOPPING-BASKET-FORM-END */
+/* MEDIA-QUERIES */
+@media (min-width: 576px) {
+  .delivery-bg {
+    background-color: transparent;
+    margin-top: 5rem;
+  }
+  .delivery-bg span {
+    font-size: 1.75rem;
+  }
+}
+@media (min-width: 768px) {
+  .delivery-bg {
+    margin-top: 6.5rem;
+  }
+  .delivery-bg span {
+    font-size: 2.25rem;
+  }
+
+  .basket td img {
+    width: 79px;
+  }
+  .basket td .sku {
+    font-size: 0.75rem;
+  }
+}
+@media (min-width: 992px) {
+  .basket td img {
+    width: 100px;
+  }
+  .basket .item-quantity-form {
+    padding: 15% 10%;
+  }
+
+  .update-form .qty_input {
+    height: 50px;
+  }
+  .update-form .decrement-qty, .update-form .increment-qty {
+    height: 100%;
+  }
+
+  .item-quantity-form > .update-link {
+    top: -10px;
+  }
+  .item-quantity-form > .remove-item {
+    top: -7px;
+  }
+}
+@media (min-width: 1200px) {
+  .basket td img {
+    width: 150px;
+  }
+  .basket .item-quantity-form {
+    padding: 20% 10%;
+  }
+}
+/* MEDIA-QUERIES-END */
+
+/*# sourceMappingURL=basket.css.map */
