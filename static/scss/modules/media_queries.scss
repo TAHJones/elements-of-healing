@@ -6,7 +6,7 @@
 @use "media_query_mixins" as q;
 
 
-/* MEDIA-QUERIES-END */
+/* MEDIA-QUERIES */
 
 @include q.respond-above(xs) {
     h2, .box-message p {
@@ -133,13 +133,13 @@
 	    bottom: -15%;
         display: flex;
     }
-    .delivery-bg {
-	    background-color: transparent;
-        margin-top: f.rem-calc(80);
-        span {
-            font-size: f.rem-calc(28);
-        }
-    }
+    // .delivery-bg {
+	//     background-color: transparent;
+    //     margin-top: f.rem-calc(80);
+    //     span {
+    //         font-size: f.rem-calc(28);
+    //     }
+    // }
     .toast-header,
     .toast-body {
         width: 550px;
@@ -239,20 +239,20 @@
             height: 35px;
         }
     }
-    .delivery-bg {
-        margin-top: f.rem-calc(104);
-        span {
-            font-size: f.rem-calc(36);
-        }
-    }
-    .basket td {
-        img {
-            width: 79px;
-        }
-        .sku {
-            font-size: f.rem-calc(12);
-        }
-    }
+    // .delivery-bg {
+    //     margin-top: f.rem-calc(104);
+    //     span {
+    //         font-size: f.rem-calc(36);
+    //     }
+    // }
+    // .basket td {
+    //     img {
+    //         width: 79px;
+    //     }
+    //     .sku {
+    //         font-size: f.rem-calc(12);
+    //     }
+    // }
 }
 // @include q.respond-above(md) {
 
@@ -318,30 +318,30 @@
             font-size: f.rem-calc(16);
         }
     }
-    .basket td {
-        img {
-            width: 100px;
-        }
-        .item-quantity-form {
-            padding: 15% 10%;
-        }
-    }
-    .update-form {
-        .qty_input {
-            height: 50px;
-        }
-        .decrement-qty, .increment-qty {
-            height: 100%;
-        }
-    }
-    .item-quantity-form {
-        > .update-link {
-            top: -10px;
-        }
-        > .remove-item {
-            top: -7px;
-        }
-    }
+    // .basket {
+    //     td img {
+    //         width: 100px;
+    //     }
+    //     .item-quantity-form {
+    //         padding: 15% 10%;
+    //     }
+    // }
+    // .update-form {
+    //     .qty_input {
+    //         height: 50px;
+    //     }
+    //     .decrement-qty, .increment-qty {
+    //         height: 100%;
+    //     }
+    // }
+    // .item-quantity-form {
+    //     > .update-link {
+    //         top: -10px;
+    //     }
+    //     > .remove-item {
+    //         top: -7px;
+    //     }
+    // }
 }
 // @include q.respond-above(lg) {
 
@@ -381,14 +381,14 @@
             font-size: f.rem-calc(18);
         }
     }
-    .basket td {
-        img {
-            width: 150px;
-        }
-        .item-quantity-form {
-            padding: 20% 10%;
-        }
-    }
+    // .basket {
+    //     td img {
+    //         width: 150px;
+    //     }
+    //     .item-quantity-form {
+    //         padding: 20% 10%;
+    //     }
+    // }
 }
 // @include q.respond-above(xl) {
 
