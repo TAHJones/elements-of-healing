@@ -150,7 +150,6 @@ p {
 }
 
 p, label, .fieldset-label {
-    // font-family: v.$primary-font-stack;
     font-size: f.rem-calc(v.$font-size-xsmall);
     // @include q.respond-above(md) {
     //     font-size: f.rem-calc(v.$font-size-small);
