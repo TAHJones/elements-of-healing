@@ -11,10 +11,10 @@
 
 /* SHOPPING-BASKET */
 
-.delivery-bg {
-	background-color: rgba(0, 0, 0, 0.6);
-    margin-top: f.rem-calc(60);
-    padding: f.rem-calc(24);
+// .delivery-bg {
+// 	background-color: rgba(0, 0, 0, 0.6);
+//     margin-top: f.rem-calc(60);
+//     padding: f.rem-calc(24);
     // @include q.respond-above(sm) {
 	//     background-color: transparent;
     //     margin-top: f.rem-calc(80);
@@ -22,19 +22,19 @@
     // @include q.respond-above(md) {
     //     margin-top: f.rem-calc(104);
     // }
-    span {
-        color: #f9bf0c;
-        font-size: f.rem-calc(16);
-        font-weight: 600;
-        text-shadow: 2px 2px 2px #000;
+    // span {
+    //     color: #f9bf0c;
+    //     font-size: f.rem-calc(16);
+    //     font-weight: 600;
+    //     text-shadow: 2px 2px 2px #000;
         // @include q.respond-above(sm) {
         //     font-size: f.rem-calc(28);
         // }
         // @include q.respond-above(md) {
         //     font-size: f.rem-calc(36);
         // }
-    }
-}
+//     }
+// }
 
 .basket {
     table {
@@ -135,23 +135,23 @@
 
 // }
 
-@include q.respond-above(sm) {
-    .delivery-bg {
-	    background-color: transparent;
-        margin-top: f.rem-calc(80);
-        span {
-            font-size: f.rem-calc(28);
-        }
-    }
-}
+// @include q.respond-above(sm) {
+//     .delivery-bg {
+// 	    background-color: transparent;
+//         margin-top: f.rem-calc(80);
+//         span {
+//             font-size: f.rem-calc(28);
+//         }
+//     }
+// }
 
 @include q.respond-above(md) {
-    .delivery-bg {
-        margin-top: f.rem-calc(104);
-        span {
-            font-size: f.rem-calc(36);
-        }
-    }
+    // .delivery-bg {
+    //     margin-top: f.rem-calc(104);
+    //     span {
+    //         font-size: f.rem-calc(36);
+    //     }
+    // }
     .basket td {
         img {
             width: 79px;

@@ -1,16 +1,4 @@
 /* SHOPPING-BASKET */
-.delivery-bg {
-  background-color: rgba(0, 0, 0, 0.6);
-  margin-top: 3.75rem;
-  padding: 1.5rem;
-}
-.delivery-bg span {
-  color: #f9bf0c;
-  font-size: 1rem;
-  font-weight: 600;
-  text-shadow: 2px 2px 2px #000;
-}
-
 .basket table {
   margin: 0 auto;
 }
@@ -68,23 +56,7 @@
 
 /* SHOPPING-BASKET-FORM-END */
 /* MEDIA-QUERIES */
-@media (min-width: 576px) {
-  .delivery-bg {
-    background-color: transparent;
-    margin-top: 5rem;
-  }
-  .delivery-bg span {
-    font-size: 1.75rem;
-  }
-}
 @media (min-width: 768px) {
-  .delivery-bg {
-    margin-top: 6.5rem;
-  }
-  .delivery-bg span {
-    font-size: 2.25rem;
-  }
-
   .basket td img {
     width: 79px;
   }
