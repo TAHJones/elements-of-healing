@@ -48,7 +48,7 @@
         background-color: v.$secondary-bg-color;
     }
     .logo-bg {
-	    margin-top: f.rem-calc(40);
+	    margin-top: f.rem-calc(88);
     }
     .banner > img {
         width: 98%;
@@ -209,6 +209,9 @@
     .colored-list > ul > li {
         font-size: f.rem-calc(v.$list-font-size-medium);
     }
+    .logo-bg {
+	    margin-top: f.rem-calc(120);
+    }
     .gallery {
 	    padding: f.rem-calc(44 56 60);
     }
@@ -286,6 +289,9 @@
     }
     .colored-list > ul > li {
         font-size: f.rem-calc(v.$list-font-size-large);
+    }
+    .logo-bg {
+	    margin-top: f.rem-calc(136);
     }
     .gallery {
 	    padding: f.rem-calc(60 56 92);
