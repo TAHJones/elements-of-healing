@@ -109,7 +109,7 @@ a:hover {
 
 .logo-bg {
   background-color: #fffaa2;
-  margin-top: 0;
+  margin-top: 3.6875rem;
 }
 
 .banner-bg {
@@ -663,7 +663,7 @@ footer {
   }
 
   .logo-bg {
-    margin-top: 2.5rem;
+    margin-top: 5.5rem;
   }
 
   .banner > img {
@@ -860,6 +860,10 @@ footer {
     font-size: 1.5rem;
   }
 
+  .logo-bg {
+    margin-top: 7.5rem;
+  }
+
   .gallery {
     padding: 2.75rem 3.5rem 3.75rem;
   }
@@ -936,6 +940,10 @@ footer {
 
   .colored-list > ul > li {
     font-size: 1.75rem;
+  }
+
+  .logo-bg {
+    margin-top: 8.5rem;
   }
 
   .gallery {
