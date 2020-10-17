@@ -46,8 +46,13 @@
 /* PRODUCT-FORM */
 
 .btn-file {
+    color: #c4c6c7;
     position: relative;
     overflow: hidden;
+    &:hover {
+        color: #d96a28;
+        transition: all 0.5s ease-in-out;
+    }
 }
 
 .btn-file input[type="file"] {
