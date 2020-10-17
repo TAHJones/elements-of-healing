@@ -200,7 +200,7 @@
             font-size: f.rem-calc(v.$font-size-xxsmall);
         }
     }
-    p, label, .fieldset-label {
+    p, label, .fieldset-label, .btn-file {
         font-size: f.rem-calc(v.$font-size-small);
     }
     a {
@@ -281,7 +281,7 @@
             font-size: f.rem-calc(v.$font-size-xxsmall);
         }
     }
-    p, label, .fieldset-label {
+    p, label, .fieldset-label, .btn-file {
         font-size: f.rem-calc(v.$font-size-medium);
     }
     a {
@@ -364,7 +364,7 @@
     h4, th {
         font-size: f.rem-calc(v.$h4-font-size-large);
     }
-    p, label, .fieldset-label {
+    p, label, .fieldset-label, .btn-file {
         font-size: f.rem-calc(v.$font-size-large);
     }
     a {

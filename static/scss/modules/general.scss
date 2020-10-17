@@ -149,7 +149,7 @@ p {
     }
 }
 
-p, label, .fieldset-label {
+p, label, .fieldset-label, .btn-file {
     font-size: f.rem-calc(v.$font-size-xsmall);
     // @include q.respond-above(md) {
     //     font-size: f.rem-calc(v.$font-size-small);
