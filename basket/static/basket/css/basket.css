@@ -19,14 +19,6 @@
   margin-top: 1.25rem;
 }
 
-.basket-item-scroller {
-  max-height: 35vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  padding: 1.875rem 2.5rem;
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
 /* SHOPPING-BASKET-END */
 /* SHOPPING-BASKET-FORM */
 .update-form {
