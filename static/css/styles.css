@@ -415,9 +415,9 @@ footer {
 /* CAROUSEL-END */
 /* RESPONSIVE-CARDS */
 #responsiveCardsTitle {
-  color: #aaacae;
-  text-align: center;
   margin-bottom: 3.75rem;
+  text-align: center;
+  text-shadow: 2px 2px #000;
 }
 
 #responsiveCards .card {

@@ -219,9 +219,10 @@
 /* RESPONSIVE-CARDS */
 
 #responsiveCardsTitle {
-    color: v.$tertiary-header-color;
-    text-align: center;
+    // color: v.$tertiary-header-color;
     margin-bottom: f.rem-calc(60);
+    text-align: center;
+    text-shadow: 2px 2px #000;
 }
 
 #responsiveCards {
