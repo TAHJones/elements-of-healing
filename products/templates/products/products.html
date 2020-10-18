@@ -83,7 +83,7 @@
                         {% else %}
                         <a href="{% url 'product_detail' product.id %}">
                             <div class="overlay-container">
-                                <img class="card-img" src="{% static 'img/noimage.png' %}" alt="{{ product.name }}">
+                                <img class="card-img" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                                 <div class="overlay">
                                     <div class="overlay-text">Purchase {{ product.name }}</div>
                                 </div>
