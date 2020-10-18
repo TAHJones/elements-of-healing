@@ -15,10 +15,10 @@ function responsiveTitle(pageWidth) {
     if(title != null) {
         if(pageWidth.matches) {
             title.textContent = "Thomas Jones BSc LCHE - Classical Homeopath";
-            bannerImg.src = "/static/img/homeopathy-montage--large.png";
+            bannerImg.src = "/media/homeopathy-montage--large.png";
         } else {
             title.textContent = "Thomas Jones - Homeopath";
-            bannerImg.src = "/static/img/homeopathy-montage--small.png";
+            bannerImg.src = "/media/homeopathy-montage--small.png";
         }
     }
 }
@@ -94,7 +94,7 @@ function responsiveCards() {
             responsiveCards.innerHTML = `<div class="col-md-4 col-lg-4">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <img class="card-img" src="/static/img/coffee.jpg" alt="coffee beans">
+                                                    <img class="card-img" src="/media/coffee.jpg" alt="coffee beans">
                                                     <p><strong>Coffee</strong> - If you drink too much coffee it can make you feel anxious, give you a rapid heartbeat and keep you awake. A patient suffering from stress experiencing these symptoms might need <em>Coffea</em>, the homeopathic remedy made from coffee.</p>
                                                 </div>
                                             </div>
@@ -102,7 +102,7 @@ function responsiveCards() {
                                         <div class="col-md-4 col-lg-4">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <img class="card-img" src="/static/img/onion.jpg" alt="onion">
+                                                    <img class="card-img" src="/media/onion.jpg" alt="onion">
                                                     <p><strong>Onion</strong> - <em>Allium cepa</em> is a homeopathic remedy made from onions. A person chopping onions can develop stinging watery eyes and a runny nose. This remedy is for hayfever with stinging watery eyes and a runny nose.</p>
                                                 </div>
                                             </div>
@@ -110,7 +110,7 @@ function responsiveCards() {
                                         <div class="col-md-4 col-lg-4">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <img class="card-img" src="/static/img/bee.jpg" alt="honey bee">
+                                                    <img class="card-img" src="/media/bee.jpg" alt="honey bee">
                                                     <p><strong>Honey Bee</strong> - <em>Apis Mellifora</em> is the homeopathic remedy made from the honey bee. It is great for insect bites and stings where the affected area is swollen, red and hot, with burning and stinging pains. Just like a bee string!</p>
                                                 </div>
                                             </div>
@@ -121,7 +121,7 @@ function responsiveCards() {
             responsiveCards.innerHTML = `<div class="col-sm-5">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <img class="card-img" src="/static/img/coffee.jpg" alt="coffee beans">
+                                                    <img class="card-img" src="/media/coffee.jpg" alt="coffee beans">
                                                     <p><strong>Coffee</strong> - If you drink too much coffee it can make you feel anxious, give you a rapid heartbeat and keep you awake. A patient suffering from stress experiencing these symptoms might need <em>Coffea</em>, the homeopathic remedy made from coffee.</p>
                                                 </div>
                                             </div>
@@ -129,7 +129,7 @@ function responsiveCards() {
                                         <div class="col-sm-5">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <img class="card-img" src="/static/img/onion.jpg" alt="onion">
+                                                    <img class="card-img" src="/media/onion.jpg" alt="onion">
                                                     <p><strong>Onion</strong> - <em>Allium cepa</em> is a homeopathic remedy made from onions. A person chopping onions can develop stinging watery eyes and a runny nose. This remedy is for hayfever with stinging watery eyes and a runny nose.</p>
                                                 </div>
                                             </div>
@@ -140,7 +140,7 @@ function responsiveCards() {
             responsiveCards.innerHTML = `<div class="col-8">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <img class="card-img" src="/static/img/coffee.jpg" alt="coffee beans">
+                                                    <img class="card-img" src="/media/coffee.jpg" alt="coffee beans">
                                                     <p><strong>Coffee</strong> - If you drink too much coffee it can make you feel anxious, give you a rapid heartbeat and keep you awake. A patient suffering from stress experiencing these symptoms might need <em>Coffea</em>, the homeopathic remedy made from coffee.</p>
                                                 </div>
                                             </div>
