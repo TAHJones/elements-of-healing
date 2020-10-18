@@ -31,7 +31,7 @@
                         {% if item.product.image.url != False %}
                             <img src="{{ item.product.image.url }}" alt="{{ product.name }}">
                         {% else %}
-                            <img src="{% static 'img/noimage.png' %}" alt="{{ product.name }}">
+                            <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                         {% endif %}
                         </td>
                         <td>
