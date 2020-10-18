@@ -12,12 +12,12 @@
             <div class="card product-item inner-box--black">
                 <h2>{{product.name}}</h2>
                 {% if product.image %}
-                <a class="product-img-link" href="{{ product.image }}">
-                    <img class="card-img" src="{{ product.image }}" alt="{{ product.name }}">
+                <a class="product-img-link" href="{{ product.image.url }}">
+                    <img class="card-img" src="{{ product.image.url }}" alt="{{ product.name }}">
                 </a>
                 {% else %}
                 <a class="product-img-link" href="">
-                    <img class="card-img" src="{% static 'img/noimage.png' %}" alt="{{ product.name }}">
+                    <img class="card-img" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                 </a>
                 {% endif %}
                 <div class="card-body">
