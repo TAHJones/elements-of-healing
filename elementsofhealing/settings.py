@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 
     # custom
     'pages',
+    'contact',
     'products',
     'basket',
     'checkout',
