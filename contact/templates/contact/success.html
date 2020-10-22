@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="container dark-bg">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-11 col-lg-10 basket form box">
+            <h2 class="text-center">Shopping Basket</h2>
+            <div class="inner-box--grey">
+
+                <div class="box-message">
+                    <div>
+                        <p><i class="fas fa-shopping-basket fa-7x"></i></p>
+                        <p>Basket Empty</p>
+                    </div>
+                    <a href="{% url 'products' %}" class="btn shopping-btn">
+                        <i class="fas fa-chevron-left"></i>
+                        <span class="text-uppercase">Keep Shopping</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
