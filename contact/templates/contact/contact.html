@@ -7,22 +7,13 @@
     <div class="row justify-content-center">
         <div class="col-xs-12 col-sm-10 col-md-9 col-lg-8 form box">
             <h2 class="text-center">Contact Form</h2>
-            <!-- <form method="POST" action=""> -->
-                <div class="inner-box--grey">
-                    <!-- {% for field in form %}
-                        {{ field | as_crispy_field }}
-                    {% endfor %} -->
-                    <form method="post">
-                        {% csrf_token %}
-                        {{ form | crispy }}
-                        <!-- <input type="submit" value="Submit" /> -->
-                        <button type="submit" value="Submit" class="btn form-btn">Submit</button>
-                    </form>
-                </div>
-                <!-- <div class="form-group">
-                    <button type="submit" class="btn form-btn" id="formButton">Submit</button>
-                </div> -->
-            <!-- </form> -->
+            <div class="inner-box--grey">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <button type="submit" value="Submit" class="btn form-btn">Submit</button>
+                </form>
+            </div>
         </div>
     </div>
 </section>
