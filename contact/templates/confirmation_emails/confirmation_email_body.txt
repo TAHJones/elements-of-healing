@@ -1,0 +1,15 @@
+Hello {{ email.name }}
+
+Thank you for the following message:
+
+Name: {{ email.name }}
+Email: {{ email.cust_email }}
+Message: {{ email.message }}
+
+I will reply to your enquiry as soon as is possible for me to do so.
+
+If you have any further questions, feel free to contact me at {{ email.host_email }}.
+
+Best wishes,
+
+Thomas Jones
