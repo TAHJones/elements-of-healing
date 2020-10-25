@@ -9,6 +9,9 @@ from .forms import ProductForm
 
 def all_products(request):
     """ A view to show all remedies and remedy kits, including sorting and search queries """
+    if not request.user.is_authenticated:
+        messages.error(request, 'Sorry, only registered users can purchase products on this site.')
+        return redirect(reverse('home'))
 
     products = Product.objects.all()
     query = None
@@ -59,6 +62,9 @@ def all_products(request):
 
 def product_detail(request, product_id):
     """ A view to show individual remedies and remedy kits """
+    if not request.user.is_authenticated:
+        messages.error(request, 'Sorry, only registered users can purchase products on this site.')
+        return redirect(reverse('home'))
 
     product = get_object_or_404(Product, pk=product_id)
 
