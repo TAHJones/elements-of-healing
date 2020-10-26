@@ -2,24 +2,7 @@ from django import forms
 from .models import Contact
 
 
-class ContactForm(forms.ModelForm):
-    class Meta:
-        model = Contact
-        fields = ('name', 'email', 'message',)
-
-    def __init__(self, *args, **kwargs):
-        """
-        Add placeholders and set autofocus on first field
-        """
-        super().__init__(*args, **kwargs)
-        placeholders = {
-            'name': 'Full Name',
-            'email': 'Email Address',
-            'message': 'Enter Message',
-        }
-
-        self.fields['name'].widget.attrs['autofocus'] = True
-        for field in self.fields:
-            placeholder = placeholders[field]
-            self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'form-style-input'
+class ContactForm(forms.Form):
+    name= forms.CharField(max_length=50, widget= forms.TextInput(attrs={'class':'form-style-input','placeholder':'Full Name'}))
+    email= forms.CharField(max_length=50, widget= forms.EmailInput(attrs={'class':'form-style-input', 'placeholder':'Email Address'}))
+    message= forms.CharField(max_length=300, widget= forms.Textarea(attrs={'class':'form-style-input','placeholder':'Enter Message'}))
