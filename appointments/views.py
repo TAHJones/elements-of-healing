@@ -3,5 +3,5 @@ from .forms import AppointmentForm
 
 
 def appointments(request):
-    form = AppointmentForm()
-    return render(request, 'appointments/appointments.html', {'form': form})
+    appointmentForm = AppointmentForm()
+    return render(request, 'appointments/appointments.html', {'appointmentForm': appointmentForm})

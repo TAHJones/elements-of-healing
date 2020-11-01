@@ -1,20 +1,53 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
+    <link rel="stylesheet" media="all" href="{% static 'bootstrap_datepicker_plus/css/datepicker-widget.css' %}">
+{% endblock extra_css %}
 
-    {% block extra_css %}
-        {% load bootstrap4 %}{% endblock %}
-        {% bootstrap_css %} {# Embed Bootstrap CSS #}
-        {% endblock %}
-    {% endblock extra_css %}
+{% block extra_js %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="{% static 'bootstrap_datepicker_plus/js/datepicker-widget.js' %}"></script>
+{% endblock %}
 
-
-    {% block content %}
-    <div class="container">
-        {{ form.media }}
+{% block content %}
+<section class="container dark-bg">
+    <div class="row justify-content-center">
+        <div class="col-xs-12 col-sm-10 col-md-9 col-lg-8 form box">
+            <h2 class="text-center">Request an Appointment</h2>
+            <div class="inner-box--grey">
+                <form class="appointments-form" method="POST">
+                    {% csrf_token %}
+                    {{ appointmentForm | crispy }}
+                    <button type="submit" value="Submit" class="btn form-btn">Submit</button>
+                </form>
+            </div>
+        </div>
     </div>
-    {% endblock content %}
+</section>
+{% endblock content %}
 
-    {% block postloadjs %}
-        {% bootstrap_javascript jquery='full' %} {# Embed Bootstrap JS+jQuery #}
-    {% endblock postloadjs %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script>
+
+$(function(){
+    $('#datePicker').datetimepicker({
+        format: 'DD/MM/YYYY',
+        minDate: moment(),
+        daysOfWeekDisabled: [0, 6],
+        locale: 'en',
+    });
+    $('#timePicker').datetimepicker({
+        disabledTimeIntervals: [[moment({ h: 0 }), moment({ h: 9 })], [moment({ h: 17 }), moment({ h: 24 })]],
+        format: 'hh:mm A',
+        locale: 'en',
+        stepping: 60,
+    });
+});
+
+</script>
+{% endblock postloadjs %}
