@@ -6,7 +6,7 @@ class Appointments(models.Model):
     email = models.EmailField(max_length=50, null=False, blank=False)
     message = models.TextField(max_length=300, null=True, blank=True)
     date = models.CharField(max_length=10, null=False, blank=False)
-    time = models.CharField(max_length=10, null=True, blank=True)
+    time = models.CharField(max_length=10, null=False, blank=False)
 
     def __str__(self):
         return self.name
