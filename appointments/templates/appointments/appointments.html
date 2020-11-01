@@ -20,7 +20,7 @@
             <div class="inner-box--grey">
                 <form class="appointments-form" method="POST">
                     {% csrf_token %}
-                    {{ appointmentForm | crispy }}
+                    {{ form | crispy }}
                     <button type="submit" value="Submit" class="btn form-btn">Submit</button>
                 </form>
             </div>
