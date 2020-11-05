@@ -71,25 +71,23 @@
                 {% for product in products %}
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                     <div class="card product-item inner-box--black">
-                        {% if product.image %}
-                        <a href="{% url 'product_detail' product.id %}">
-                            <div class="overlay-container">
-                                <img class="card-img" src="{{ product.image.url }}" alt="{{ product.name }}">
-                                <div class="overlay">
-                                    <div class="overlay-text">Purchase {{ product.name }}</div>
-                                </div>
-                            </div>
-                        </a>
+                        {% if product.category.friendly_name == "Appointments" %}
+                        <a href="{% url 'appointments' product.id %}">
                         {% else %}
                         <a href="{% url 'product_detail' product.id %}">
+                        {% endif %}
                             <div class="overlay-container">
+                                {% if product.image %}
+                                <img class="card-img" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                {% else %}
                                 <img class="card-img" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                {% endif %}
                                 <div class="overlay">
-                                    <div class="overlay-text">Purchase {{ product.name }}</div>
+                                    <div class="overlay-text">
+                                    {% if product.category.friendly_name == "Appointments" %}Book Appointment{% else %}Purchase {{ product.name }}{% endif %}</div>
                                 </div>
                             </div>
                         </a>
-                        {% endif %}
                         <div class="card-body">
                             <p>{{ product.name }}</p>
                             <p><span>£{{ product.price }}</span></p>
