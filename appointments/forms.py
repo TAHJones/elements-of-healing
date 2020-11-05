@@ -1,6 +1,6 @@
 from bootstrap_datepicker_plus import DatePickerInput, TimePickerInput
 from django import forms
-from .models import Appointments
+from .models import BookAppointment
 
 
 class AppointmentDatePickerInput(DatePickerInput):
@@ -13,7 +13,7 @@ class AppointmentTimePickerInput(TimePickerInput):
 
 class AppointmentForm(forms.ModelForm):
     class Meta:
-        model = Appointments
+        model = BookAppointment
         fields = ['name', 'email', 'message', 'date', 'time']
         widgets = {
             'date': AppointmentDatePickerInput(),
