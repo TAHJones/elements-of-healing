@@ -95,6 +95,8 @@
 
 - The error message `404 Not Found` occurred when remove link is clicked in shopping basket. This was fixed by changing the url variable from `/remove/${itemId}/` to `basket/remove/${itemId}/`.
 
+- Conditional statement was failing to prevent the addition of more than one appointment to the basket. This was fixed by changing the if statement from `if quantity > 1` to `if item_id in list(basket.keys())`
+
 ## Deployment
 
 In order to deploy this project you must first set up an account at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas). Click [here](https://docs.atlas.mongodb.com/) for instructions on how to set up able Mongo Atlas account.
