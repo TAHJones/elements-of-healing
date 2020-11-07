@@ -6,6 +6,7 @@ from products.models import Product
 
 
 def appointments(request, product_id):
+    """ A view to request an appointment at a specified date & time """
     if request.method == 'GET':
         form = AppointmentForm()
     else:
@@ -34,7 +35,7 @@ def appointments(request, product_id):
 
 
 def purchaseAppointment(request):
-    """ A view to purchase an appointment """
+    """ A view to confirm appointment details then add to shopping basket """
     if not request.user.is_authenticated:
         messages.error(request, 'Sorry, only registered users can purchase an appointment.')
         return redirect(reverse('appointments'))
