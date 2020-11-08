@@ -36,49 +36,76 @@
                         </td>
                         <td>
                             <p>{{ item.product.name }}</p>
-                            <p>Potency: {% if item.product.has_potency %}{{ item.potency|upper }}{% else %}N/A{% endif %}</p>
-                            <p class="sku d-none d-md-block"><span>SKU: {{ item.product.sku|upper }}</span></p>
+                            {% if item.product.category.friendly_name == "Appointments" %}
+                                <p class="d-block d-lg-none"><span>{{ appointment_details.date }}</span></p>
+                                <p class="d-block d-lg-none"><span>{{ appointment_details.time }}</span></p>
+                                <p class="d-none d-lg-block">Date: <span>{{ appointment_details.date }}</span></p>
+                                <p class="d-none d-lg-block">Time: <span>{{ appointment_details.time }}</span></p>
+                            {% else %}
+                                <p>Potency: {% if item.product.has_potency %}{{ item.potency|upper }}{% else %}N/A{% endif %}</p>
+                                <p class="sku d-none d-md-block"><span>SKU: {{ item.product.sku|upper }}</span></p>
+                            {% endif %}
                         </td>
                         <td>
                             <p>£{{ item.product.price }}</p>
                         </td>
-                        <td class="d-block d-md-none">
-                            <p>{{ item.quantity }}</p>
-                        </td>
-                        <td class="d-none d-md-block item-quantity-form">
-                            <form class="form update-form" method="POST" action="{% url 'adjust_basket' item.item_id %}">
-                                {% csrf_token %}
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <button class="decrement-qty btn btn-sm custom-btn" 
-                                                data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
-                                                <span>
-                                                    <i class="fas fa-minus fa-sm"></i>
-                                                </span>
-                                            </button>
+                        {% if item.product.category.friendly_name == "Appointments" %}
+                            <td class="d-block d-md-none">
+                                <p>{{ item.quantity }}</p>
+                            </td>
+                            <td class="d-none d-md-block item-quantity-form">
+                                <form class="form update-form" method="POST" action="{% url 'adjust_basket' item.item_id %}">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input class="form-control form-control-sm qty_input" type="number" name="quantity"
+                                            value="{{ item.quantity }}" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}" readonly>
                                         </div>
-                                        <input class="form-control form-control-sm qty_input" type="number"
-                                            name="quantity" value="{{ item.quantity }}" min="1" max="99"
-                                            data-item_id="{{ item.item_id }}"
-                                            id="id_qty_{{ item.item_id }}">
-                                        <div class="input-group-append">
-                                            <button class="increment-qty btn btn-sm custom-btn"
-                                                data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
-                                                <span>
-                                                    <i class="fas fa-plus fa-sm"></i>
-                                                </span>
-                                            </button>
-                                        </div>
-                                        {% if item.product.has_potency %}
-                                            <input type="hidden" name="product_potency" value="{{ item.potency }}">
-                                        {% endif %}
                                     </div>
-                                </div>
-                            </form>
-                            <a class="update-link text-info"><small>Update</small></a>
-                            <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-product_potency="{{ item.potency }}"><small>Remove</small></a>
-                        </td>
+                                </form>
+                                <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-product_potency="{{ item.potency }}">
+                                    <small>Remove</small>
+                                </a>
+                            </td>
+                        {% else %}
+                            <td class="d-block d-md-none">
+                                <p>{{ item.quantity }}</p>
+                            </td>
+                            <td class="d-none d-md-block item-quantity-form">
+                                <form class="form update-form" method="POST" action="{% url 'adjust_basket' item.item_id %}">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <button class="decrement-qty btn btn-sm custom-btn" 
+                                                    data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                                    <span>
+                                                        <i class="fas fa-minus fa-sm"></i>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                            <input class="form-control form-control-sm qty_input" type="number"
+                                                name="quantity" value="{{ item.quantity }}" min="1" max="99"
+                                                data-item_id="{{ item.item_id }}"
+                                                id="id_qty_{{ item.item_id }}">
+                                            <div class="input-group-append">
+                                                <button class="increment-qty btn btn-sm custom-btn"
+                                                    data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                                    <span>
+                                                        <i class="fas fa-plus fa-sm"></i>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                            {% if item.product.has_potency %}
+                                                <input type="hidden" name="product_potency" value="{{ item.potency }}">
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </form>
+                                <a class="update-link text-info"><small>Update</small></a>
+                                <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-product_potency="{{ item.potency }}"><small>Remove</small></a>
+                            </td>
+                        {% endif %}
                         <td>
                             <p>£{{ item.product.price | calc_subtotal:item.quantity }}</p>
                         </td>
