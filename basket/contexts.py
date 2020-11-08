@@ -50,6 +50,7 @@ def basket_contents(request):
         'free_delivery_delta': free_delivery_delta,
         'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
         'grand_total': grand_total,
+        'appointment_details': request.session['appointment_details'],
     }
 
     return context
