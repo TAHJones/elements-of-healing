@@ -42,12 +42,19 @@ $(function(){
         locale: 'en',
     });
     $('#timePicker').datetimepicker({
-        defaultDate: moment(),
         disabledTimeIntervals: [[moment({ h: 0 }), moment({ h: 9 })], [moment({ h: 17 }), moment({ h: 24 })]],
         format: 'hh:mm A',
         locale: 'en',
         stepping: 60,
     });
+
+    let d = new Date();
+    let month = d.getMonth();
+    let day = d.getDate();
+    let year = d.getFullYear();
+
+    $('#timePicker').data("DateTimePicker").defaultDate(new Date(year, month, day, 09, 00));
+
 });
 
 </script>
