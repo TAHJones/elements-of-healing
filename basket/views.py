@@ -16,7 +16,7 @@ def add_to_basket(request, item_id):
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
-    appointment_details = request.session['appointment_details']
+    appointment_details = request.session.get('appointment_details', {})
     potency = None
     if 'potency' in request.POST:
         potency = request.POST['potency']
