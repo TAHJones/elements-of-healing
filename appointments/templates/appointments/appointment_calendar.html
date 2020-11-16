@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<section class="container dark-bg">
+    <div class="row justify-content-center">
+        <div class="col-xs-12 col-sm-10 col-md-9 col-lg-8 form box">
+            <h2 class="text-center">Appointment Bookings</h2>
+            <div class="inner-box--grey">
+                {{ calendar }}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
