@@ -4,7 +4,9 @@ from django.contrib import messages
 from .forms import AppointmentForm
 from appointments.models import BookAppointment
 from products.models import Product
-import datetime
+from .utils import Calendar
+from datetime import datetime
+from django.utils.safestring import mark_safe
 
 
 def appointments(request, product_id):
@@ -60,3 +62,26 @@ def purchaseAppointment(request):
     }
 
     return render(request, 'appointments/purchase_appointment.html', context)
+
+
+def appointmentCalendar(request):
+    """  Displays a calendar of all appointments """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry you must have admin privileges to view appointment bookings')
+        return redirect(reverse('appointments'))
+
+    # bookings = list(BookAppointment.objects.all().values())
+    d = datetime.today()
+    cal = Calendar(d.year, d.month)
+    # cal = Calendar(2016, 11)
+
+    # Call the formatmonth method, which returns our calendar as a table
+    html_cal = cal.formatmonth(withyear=True)
+    calendar = mark_safe(html_cal)
+    print(calendar)
+
+    context = {
+        'calendar': calendar,
+    }
+
+    return render(request, 'appointments/appointment_calendar.html', context)
