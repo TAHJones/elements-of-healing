@@ -35,6 +35,7 @@
                     {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
                             <a class="nav-link dropdown-item" href="{% url 'add_product' %}">Product Management</a>
+                            <a class="nav-link dropdown-item" href="{% url 'appointment_calendar' %}">Calendar</a>
                         {% endif %}
                         <a class="nav-link dropdown-item" href="{% url 'profile' %}">My Profile</a>
                         <a class="nav-link dropdown-item" href="{% url 'account_logout' %}">Logout</a>
