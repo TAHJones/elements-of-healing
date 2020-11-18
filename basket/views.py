@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 from django.contrib import messages
-from products.models import Product
 from django.template.loader import render_to_string
 from django.core.mail import send_mail
+from products.models import Product
+from appointments.models import AppointmentsCalendar
+from datetime import datetime
 
 
 def view_basket(request):
@@ -30,9 +32,28 @@ def add_to_basket(request, item_id):
             name = appointment_details['name']
             cust_email = appointment_details['cust_email']
             message = appointment_details['message']
-            # date = appointment_details['date']
-            # time = appointment_details['time']
+            d = appointment_details['date']
+            time = appointment_details['time']
             host_email = appointment_details['host_email']
+
+            def _getDate(req_day):
+                date = []
+                if req_day:
+                    for item in req_day.split('/'):
+                        date.append(int(item))
+                    return date
+                return datetime.today()
+
+            getDate = _getDate(d)
+            date = datetime(getDate[2], getDate[1], getDate[0])
+
+            AppointmentsCalendar(
+                name=name,
+                email=cust_email,
+                message=message,
+                date=date,
+                time=time
+            ).save()
 
             subject = render_to_string(
                 'appointments/confirmation_emails/confirmation_email_subject.txt',
