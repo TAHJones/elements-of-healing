@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.conf import settings
 from django.contrib import messages
 from .forms import AppointmentForm
-from appointments.models import BookAppointment
+from appointments.models import BookAppointment, AppointmentsCalendar
 from products.models import Product
 from .utils import Calendar
 from datetime import datetime
@@ -15,8 +15,8 @@ def appointments(request, product_id):
     if request.method == 'GET':
         form = AppointmentForm()
     else:
-        currentMonth = datetime.datetime.now().date().strftime('%m/%y')
-        day = datetime.datetime.now().date().strftime('%d')
+        currentMonth = datetime.now().date().strftime('%m/%y')
+        day = datetime.now().date().strftime('%d')
         form = AppointmentForm(request.POST)
         if form.is_valid():
             name = form.cleaned_data['name']
@@ -70,15 +70,12 @@ def appointmentCalendar(request):
         messages.error(request, 'Sorry you must have admin privileges to view appointment bookings')
         return redirect(reverse('appointments'))
 
-    # bookings = list(BookAppointment.objects.all().values())
     d = datetime.today()
     cal = Calendar(d.year, d.month)
-    # cal = Calendar(2016, 11)
 
     # Call the formatmonth method, which returns our calendar as a table
     html_cal = cal.formatmonth(withyear=True)
     calendar = mark_safe(html_cal)
-    print(calendar)
 
     context = {
         'calendar': calendar,
