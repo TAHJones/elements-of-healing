@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<section class="container dark-bg">
+    <div class="row justify-content-center">
+        <div class="col-xs-12 col-sm-10 col-md-9 col-lg-8 form box">
+            <h2 class="text-center">Appointment Details</h2>
+            <div class="inner-box--grey">
+                <ul>
+                {% for key, value in appointment_details.items %}
+                    <li><p>{{ key }}: <span>{{ value }}</span></p></li>
+                {% endfor %}
+                </ul>
+
+
+                {{ appointment_details.name }}
+                {{ appointment_details.email }}
+                {{ appointment_details.message }}
+                {{ appointment_details.date }}
+                {{ appointment_details.time }}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
