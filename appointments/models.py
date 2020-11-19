@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime
+from django.urls import reverse
 
 
 class BookAppointment(models.Model):
@@ -22,3 +23,8 @@ class AppointmentsCalendar(models.Model):
 
     def __str__(self):
         return self.name
+
+    @property
+    def get_html_url(self):
+        url = reverse('appointment_details', args=(self.id,))
+        return f'<a href="{url}">{self.name}</a>'
