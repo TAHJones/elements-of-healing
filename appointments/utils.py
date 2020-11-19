@@ -16,7 +16,7 @@ class Calendar(HTMLCalendar):
         appointments_per_day = appointments.filter(date__day=day)
         d = ''
         for appointment in appointments_per_day:
-            d += f'<li>{appointment.name}: {appointment.time}</li>'
+            d += f'<li>{appointment.get_html_url}: {appointment.time}</li>'
 
         if day != 0:
             return f"<td><span class='date'>{day}</span><ul> {d} </ul></td>"
