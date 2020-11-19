@@ -82,3 +82,17 @@ def appointmentCalendar(request):
     }
 
     return render(request, 'appointments/appointment_calendar.html', context)
+
+
+def appointmentDetails(request,  appointment_details_id):
+    """ Displays individual calendar appointment details """
+    # appointment_details = get_object_or_404(AppointmentsCalendar, pk=appointment_details_id)
+    appointment_details = AppointmentsCalendar.objects.filter(pk=appointment_details_id).values()[0]
+    print(appointment_details)
+    print(type(appointment_details))
+
+    context = {
+        'appointment_details': appointment_details,
+    }
+
+    return render(request, 'appointments/appointment_details.html', context)
