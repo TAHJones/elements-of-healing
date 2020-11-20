@@ -9,17 +9,12 @@
             <h2 class="text-center">Appointment Details</h2>
             <div class="inner-box--grey">
                 <ul>
-                {% for key, value in appointment_details.items %}
-                    <li><p>{{ key }}: <span>{{ value }}</span></p></li>
-                {% endfor %}
+                    <li><p>Name: <span>{{ appointment_details.name }}</span></p></li>
+                    <li><p>Email: <span>{{ appointment_details.email }}</span></p></li>
+                    <li><p>Message: <span>{{ appointment_details.message }}</span></p></li>
+                    <li><p>Date: <span>{{ appointment_details.date_str }}</span></p></li>
+                    <li><p>Time: <span>{{ appointment_details.time }}</span></p></li>
                 </ul>
-
-
-                {{ appointment_details.name }}
-                {{ appointment_details.email }}
-                {{ appointment_details.message }}
-                {{ appointment_details.date }}
-                {{ appointment_details.time }}
             </div>
         </div>
     </div>
