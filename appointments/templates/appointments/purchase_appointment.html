@@ -26,30 +26,15 @@
                     <p>Date: <span>{{ appointment_details.date }}</span></p>
                     <p>Time: <span>{{ appointment_details.time }}</span></p>
                     <p>Description: <span>{{ appointment.description }}</span></p>
-                    {% if appointment.category.friendly_name %}
-                    <p>
-                        <a href="{% url 'products' %}?category={{ appointment.category.name }}">
-                            <i class="fas fa-tag"></i>{{ appointment.category.friendly_name }}
-                        </a>
-                    </p>
-                    {% endif %}
-                    {% if request.user.is_superuser %}
-                    <p>
-                        <a class="text-info" href="{% url 'update_product' appointment.id %}"><i class="fas fa-edit"></i>Update</a>
-                    </p>
-                    <p>
-                        <a class="text-danger" href="{% url 'delete_product' appointment.id %}"><i class="fas fa-trash-alt"></i>Delete</a>
-                    </p>
-                    {% endif %}
                 </div>
                 <div class="card-footer">
                     <form class="form product-info" action="{% url 'add_to_basket' appointment.id %}" method="POST">
                         {% csrf_token %}
                         <div class="row">
                             <div class="form-group col-12">
-                                <a href="{% url 'products' %}" class="btn shopping-btn">
+                                <a href="{% url 'appointments' appointment.id %}" class="btn shopping-btn">
                                     <span ><i class="fas fa-chevron-left"></i></span>
-                                    <span class="">Keep Shopping</span>
+                                    <span>Return</span>
                                 </a>
                                 <input type="submit" class="btn shopping-btn" value="Add to Basket">
                             </div>
