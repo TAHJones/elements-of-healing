@@ -1,6 +1,5 @@
 from bootstrap_datepicker_plus import DatePickerInput, TimePickerInput
 from django import forms
-from .models import BookAppointment
 
 
 class AppointmentDatePickerInput(DatePickerInput):
@@ -11,29 +10,27 @@ class AppointmentTimePickerInput(TimePickerInput):
     template_name = 'appointments/time-picker.html'
 
 
-class AppointmentForm(forms.ModelForm):
-    class Meta:
-        model = BookAppointment
-        fields = ['name', 'email', 'message', 'date', 'time']
-        widgets = {
-            'date': AppointmentDatePickerInput(),
-            'time': AppointmentTimePickerInput(),
-        }
+class AppointmentForm(forms.Form):
+    name = forms.CharField(
+        max_length=50,
+        widget=forms.TextInput(attrs={"class": "form-style-input", 'placeholder': 'Full Name', 'autofocus': True})
+    )
+    email = forms.CharField(
+        max_length=50,
+        widget=forms.EmailInput(attrs={"class": "form-style-input", 'placeholder': 'Email Address'})
+    )
 
-    def __init__(self, *args, **kwargs):
-        """
-        Add placeholders and set autofocus on first field
-        """
-        super().__init__(*args, **kwargs)
-        placeholders = {
-            'name': 'Full Name',
-            'email': 'Email Address',
-            'message': 'Enter Message',
-        }
+    message = forms.CharField(
+        max_length=300,
+        widget= forms.Textarea(attrs={'class': 'form-style-input', 'placeholder': 'Enter Message'})
+    )
 
-        self.fields['name'].widget.attrs['autofocus'] = True
-        for field in self.fields:
-            for key, value in placeholders.items():
-                if field == key:
-                    self.fields[field].widget.attrs['placeholder'] = value
-                    self.fields[field].widget.attrs['class'] = 'form-style-input'
+    date = forms.CharField(
+        max_length=10,
+        widget=AppointmentDatePickerInput()
+    )
+
+    time = forms.CharField(
+        max_length=10,
+        widget=AppointmentTimePickerInput()
+    )
