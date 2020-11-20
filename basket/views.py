@@ -56,6 +56,11 @@ def add_to_basket(request, item_id):
                 time=time
             ).save()
 
+            appointments = list(AppointmentsCalendar.objects.all().values())
+            for item in appointments:
+                if item['time'] == time and item['date_str'] == date_str:
+                    request.session['appointment_details']['id'] = item['id']
+
             subject = render_to_string(
                 'appointments/confirmation_emails/confirmation_email_subject.txt',
                 {'email': appointment_details})
@@ -143,7 +148,11 @@ def remove_from_basket(request, item_id):
             messages.success(request, f'Removed potency {potency.upper()} {product.name} from your basket')
         else:
             basket.pop(item_id)
-            messages.success(request, f'Removed {product.name} from your basket')
+            if product.category.friendly_name == "Appointments":
+                AppointmentsCalendar(id=request.session['appointment_details']['id']).delete()
+                messages.success(request, 'Removed appointment from your basket')
+            else:
+                messages.success(request, f'Removed {product.name} from your basket')
 
         request.session['basket'] = basket
         return HttpResponse(status=200)
