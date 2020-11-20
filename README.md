@@ -72,6 +72,7 @@
 - [django-allauth](https://django-allauth.readthedocs.io/en/latest/)
 - [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/)
 - [pillow](https://pillow.readthedocs.io/en/stable/)
+- [bootstrap-datepicker](https://getdatepicker.com/4/Installing/)
 
 ## Testing
 
