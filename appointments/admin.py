@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BookAppointment
+from .models import AppointmentsCalendar
 
 
 class AppointmentAdmin(admin.ModelAdmin):
@@ -8,10 +8,11 @@ class AppointmentAdmin(admin.ModelAdmin):
         'email',
         'message',
         'date',
+        'date_str',
         'time',
     )
 
     ordering = ('date',)
 
 
-admin.site.register(BookAppointment, AppointmentAdmin)
+admin.site.register(AppointmentsCalendar, AppointmentAdmin)
