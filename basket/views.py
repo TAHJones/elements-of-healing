@@ -32,7 +32,7 @@ def add_to_basket(request, item_id):
             name = appointment_details['name']
             cust_email = appointment_details['cust_email']
             message = appointment_details['message']
-            d = appointment_details['date']
+            date_str = appointment_details['date']
             time = appointment_details['time']
             host_email = appointment_details['host_email']
 
@@ -44,7 +44,7 @@ def add_to_basket(request, item_id):
                     return date
                 return datetime.today()
 
-            getDate = _getDate(d)
+            getDate = _getDate(date_str)
             date = datetime(getDate[2], getDate[1], getDate[0])
 
             AppointmentsCalendar(
@@ -52,6 +52,7 @@ def add_to_basket(request, item_id):
                 email=cust_email,
                 message=message,
                 date=date,
+                date_str=date_str,
                 time=time
             ).save()
 
