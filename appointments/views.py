@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.conf import settings
 from django.contrib import messages
 from .forms import AppointmentForm
-from appointments.models import BookAppointment, AppointmentsCalendar
+# from appointments.models import BookAppointment, AppointmentsCalendar
+from appointments.models import AppointmentsCalendar
 from products.models import Product
 from .utils import Calendar
 from datetime import datetime
@@ -11,7 +12,8 @@ from django.utils.safestring import mark_safe
 
 def appointments(request, product_id):
     """ A view to request an appointment at a specified date & time """
-    bookings = list(BookAppointment.objects.all().values())
+    appointments = list(AppointmentsCalendar.objects.all().values())
+    print(appointments)
     if request.method == 'GET':
         form = AppointmentForm()
     else:
@@ -26,14 +28,14 @@ def appointments(request, product_id):
             time = form.cleaned_data['time']
             host_email = settings.DEFAULT_FROM_EMAIL
             # email_to = settings.EMAIL_HOST_USER
-            for item in bookings:
-                if item['date'][3:8] == currentMonth:
-                    if int(item['date'][0:2]) < int(day):
-                        BookAppointment(id=item['id']).delete()
-                    elif item['time'] == time and item['date'] == date:
+            for item in appointments:
+                if item['date_str'][3:8] == currentMonth:
+                    if int(item['date_str'][0:2]) < int(day):
+                        AppointmentsCalendar(id=item['id']).delete()
+                    elif item['time'] == time and item['date_str'] == date:
                         messages.error(request, 'Sorry, that appointment time has already been taken. Please select another time.')
                         return redirect(reverse('appointments', args=[product_id]))
-            form.save()
+            # form.save()
             appointment_details = {
                 'name': name,
                 'cust_email': cust_email,
