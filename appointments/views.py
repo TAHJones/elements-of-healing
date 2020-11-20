@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.conf import settings
 from django.contrib import messages
 from .forms import AppointmentForm
-# from appointments.models import BookAppointment, AppointmentsCalendar
 from appointments.models import AppointmentsCalendar
 from products.models import Product
 from .utils import Calendar
@@ -13,11 +12,19 @@ from django.utils.safestring import mark_safe
 def appointments(request, product_id):
     """ A view to request an appointment at a specified date & time """
     appointments = list(AppointmentsCalendar.objects.all().values())
-    print(appointments)
     if request.method == 'GET':
-        form = AppointmentForm()
+        username = request.user.username
+        email = request.user.email
+        form = AppointmentForm(initial={'name': username, 'email': email})
     else:
-        currentMonth = datetime.now().date().strftime('%m/%y')
+        currentMonth = datetime.now().month
+        currentYear = datetime.now().date().strftime('%y')
+        if currentMonth < 3:
+            minMonth = currentMonth + 10
+        else:
+            minMonth = currentMonth - 2
+
+        minDate = f'{minMonth}/{currentYear}'
         day = datetime.now().date().strftime('%d')
         form = AppointmentForm(request.POST)
         if form.is_valid():
@@ -29,13 +36,12 @@ def appointments(request, product_id):
             host_email = settings.DEFAULT_FROM_EMAIL
             # email_to = settings.EMAIL_HOST_USER
             for item in appointments:
-                if item['date_str'][3:8] == currentMonth:
+                if item['date_str'][3:8] == minDate:
                     if int(item['date_str'][0:2]) < int(day):
                         AppointmentsCalendar(id=item['id']).delete()
                     elif item['time'] == time and item['date_str'] == date:
                         messages.error(request, 'Sorry, that appointment time has already been taken. Please select another time.')
                         return redirect(reverse('appointments', args=[product_id]))
-            # form.save()
             appointment_details = {
                 'name': name,
                 'cust_email': cust_email,
@@ -88,10 +94,7 @@ def appointmentCalendar(request):
 
 def appointmentDetails(request,  appointment_details_id):
     """ Displays individual calendar appointment details """
-    # appointment_details = get_object_or_404(AppointmentsCalendar, pk=appointment_details_id)
     appointment_details = AppointmentsCalendar.objects.filter(pk=appointment_details_id).values()[0]
-    print(appointment_details)
-    print(type(appointment_details))
 
     context = {
         'appointment_details': appointment_details,
