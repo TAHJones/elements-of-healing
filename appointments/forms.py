@@ -13,7 +13,7 @@ class AppointmentTimePickerInput(TimePickerInput):
 class AppointmentForm(forms.Form):
     name = forms.CharField(
         max_length=50,
-        widget=forms.TextInput(attrs={"class": "form-style-input", 'placeholder': 'Full Name', 'autofocus': True})
+        widget=forms.TextInput(attrs={"class": "form-style-input", 'placeholder': 'Name', 'autofocus': True})
     )
     email = forms.CharField(
         max_length=50,
