@@ -8,6 +8,8 @@
         <div class="col-xs-12 col-sm-10 col-md-9 col-lg-8 form box">
             <h2 class="text-center">Appointment Bookings</h2>
             <div class="inner-box--grey">
+                <a href="{% url 'appointment_calendar' %}?{{ prev_month }}"> Previous Month </a>
+                <a href="{% url 'appointment_calendar' %}?{{ next_month }}"> Next Month </a>
                 {{ calendar }}
             </div>
         </div>
