@@ -14,11 +14,13 @@ class Calendar(HTMLCalendar):
         appointments_per_day = appointments.filter(date__day=day)
         d = ''
         for appointment in appointments_per_day:
-            d += f'<li>{appointment.get_html_url}: {appointment.time}</li>'
-
-        if day != 0:
+            d += f'<li>{appointment.get_html_url}: <span>{appointment.time}</span></li>'
+        if day != 0 and d:
+            return f"<td class='appointment'><span class='date'>{day}</span><ul> {d} </ul></td>"
+        elif day != 0:
             return f"<td><span class='date'>{day}</span><ul> {d} </ul></td>"
-        return '<td></td>'
+        else:
+            return "<td class='no-date'></td>"
 
     # formats a week as a tr
     def formatweek(self, theweek, appointments):
