@@ -85,6 +85,7 @@ class appointmentCalendar(generic.ListView):
         d = get_date(self.request.GET.get('month', None))
         cal = Calendar(d.year, d.month)
         html_cal = cal.formatmonth(withyear=True)
+        html_cal += get_footer()
         context['calendar'] = mark_safe(html_cal)
         context['prev_month'] = prev_month(d)
         context['next_month'] = next_month(d)
@@ -116,8 +117,25 @@ def next_month(d):
     return month
 
 
+def get_footer():
+    currentYear = datetime.now().date().strftime('%Y')
+    footer = f'</table><footer><div class="footer-copyright"><div id="copyRight">2011 - {currentYear} © Thomas Jones - All Rights Reserved</div></div></footer>'
+    return footer
+
+
 def appointmentDetails(request,  appointment_details_id):
     """ Displays individual calendar appointment details """
+    appointment_details = AppointmentsCalendar.objects.filter(pk=appointment_details_id).values()[0]
+
+    context = {
+        'appointment_details': appointment_details,
+    }
+
+    return render(request, 'appointments/appointment_details.html', context)
+
+
+def confirmAppointment(request, appointment_details_id):
+    """ Allows superuser to confirms individual calendar appointment details """
     appointment_details = AppointmentsCalendar.objects.filter(pk=appointment_details_id).values()[0]
 
     context = {
