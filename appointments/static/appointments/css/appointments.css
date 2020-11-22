@@ -100,5 +100,89 @@
 }
 
 /* APPOINTMENTS-FORM-END */
+/* APPOINTMENT-CALENDAR */
+.calendar {
+  background-color: rgba(0, 0, 0, 0.6);
+  margin: 0 auto;
+}
+
+.calendar {
+  margin: 3.75rem auto 0;
+  width: 100%;
+}
+
+@media (min-width: 576px) {
+  .calendar {
+    margin: 3rem auto 0;
+  }
+}
+@media (min-width: 768px) {
+  .calendar {
+    margin: 7.5rem auto 2.8125rem;
+    width: 97%;
+  }
+}
+@media (min-width: 992px) {
+  .calendar {
+    margin: 8.5rem auto 3.8125rem;
+    width: 95%;
+  }
+}
+.calendar tr, .calendar td {
+  border: 2px solid black;
+}
+
+.calendar th {
+  padding: 25px;
+  text-align: center;
+}
+
+.calendar td {
+  width: 200px;
+  height: 150px;
+  padding: 20px 0px 0px 5px;
+}
+
+tbody > tr:nth-of-type(2), .calendar .appointment {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.date {
+  color: #76bb85;
+}
+
+.no-date {
+  background-color: #222;
+  border: #222 !important;
+}
+
+li {
+  list-style: none;
+}
+li > span {
+  color: #aaacae !important;
+  font-weight: 600 !important;
+}
+
+/* APPOINTMENT-CALENDAR-END */
+/* APPOINTMENT-DETAILS */
+.appointment-details {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  min-height: 30vh;
+}
+.appointment-details > ul {
+  list-style: none;
+  padding: 1.25rem;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+/* APPOINTMENT-DETAILS-END */
 
 /*# sourceMappingURL=appointments.css.map */
