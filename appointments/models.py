@@ -10,6 +10,7 @@ class AppointmentsCalendar(models.Model):
     date = models.DateTimeField(default=datetime.today)
     date_str = models.CharField(max_length=10, null=False, blank=False)
     time = models.CharField(max_length=10, null=False, blank=False)
+    confirmed = models.BooleanField(default=False, null=False, blank=False)
 
     def __str__(self):
         return self.name
