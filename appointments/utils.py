@@ -14,9 +14,17 @@ class Calendar(HTMLCalendar):
         appointments_per_day = appointments.filter(date__day=day)
         d = ''
         for appointment in appointments_per_day:
-            d += f'<li>{appointment.get_html_url}: <span>{appointment.time}</span></li>'
+            if appointment.confirmed:
+                li = '<li class="confirmed">'
+                # print(appointment.confirmed)
+            else:
+                li = '<li class="unconfirmed">'
+                # print(appointment.confirmed)
+            listItem = li + f'{appointment.get_html_url}: <span>{appointment.time}</span></li>'
+            d += listItem
+            print(d)
         if day != 0 and d:
-            return f"<td class='appointment'><span class='date'>{day}</span><ul> {d} </ul></td>"
+            return f'<td class="appointment"><span class="date">{day}</span><ul> {d} </ul></td>'
         elif day != 0:
             return f"<td><span class='date'>{day}</span><ul> {d} </ul></td>"
         else:
