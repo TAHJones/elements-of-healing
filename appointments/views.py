@@ -95,9 +95,6 @@ class appointmentCalendar(generic.ListView):
 def get_date(req_day):
     if req_day:
         year, month = (int(x) for x in req_day.split('-'))
-        print(year)
-        print(month)
-
         return datetime(year, month, day=1)
     return datetime.today()
 
@@ -136,10 +133,14 @@ def appointmentDetails(request,  appointment_details_id):
 
 def confirmAppointment(request, appointment_details_id):
     """ Allows superuser to confirms individual calendar appointment details """
-    appointment_details = AppointmentsCalendar.objects.filter(pk=appointment_details_id).values()[0]
+    appointment_details = AppointmentsCalendar.objects.filter(pk=appointment_details_id)
+    appointment_details.update(confirmed=True)
+    appointment = appointment_details.values()[0]
+    name = appointment['name']
+    messages.success(request, f'Appointment for {name} has been confirmed')
 
     context = {
-        'appointment_details': appointment_details,
+        'appointment': appointment,
     }
 
     return render(request, 'appointments/appointment_details.html', context)
