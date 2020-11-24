@@ -156,6 +156,22 @@ tbody > tr:nth-of-type(2), .calendar .appointment {
   border: #222 !important;
 }
 
+.appointment .confirmed > a {
+  color: #d9b034;
+  transition: all 0.25s ease-in-out;
+}
+.appointment .confirmed > a:hover {
+  color: #8d701a;
+}
+
+.appointment .unconfirmed > a {
+  color: #bd2130;
+  transition: all 0.25s ease-in-out;
+}
+.appointment .unconfirmed > a:hover {
+  color: #921925;
+}
+
 li {
   list-style: none;
 }
