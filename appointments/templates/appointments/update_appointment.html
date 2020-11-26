@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
+    <link rel="stylesheet" media="all" href="{% static 'bootstrap_datepicker_plus/css/datepicker-widget.css' %}">
+    <link rel="stylesheet" href="{% static 'appointments/css/appointments.css' %}">
+{% endblock extra_css %}
+
+{% block extra_js %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="{% static 'bootstrap_datepicker_plus/js/datepicker-widget.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<section class="container dark-bg">
+    <div class="row justify-content-center">
+        <div class="col-xs-12 col-sm-10 col-md-9 col-lg-8 form box">
+            <h2 class="text-center">Update Appointment Details</h2>
+            <div class="inner-box--grey">
+                <form class="appointments-form" method="POST">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <button type="submit" value="Submit" class="btn form-btn">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
+
+
+{% block postloadjs %}
+{{ block.super }}
+<script>
+
+$(function(){
+
+    let d = new Date();
+    let month = d.getMonth();
+    let day = d.getDate();
+    let year = d.getFullYear();
+    // let maximumDate = 0;
+
+    $('#datePicker').datetimepicker({
+        format: 'DD/MM/YYYY',
+        minDate: d,
+        // maxDate: maximumDate,
+        daysOfWeekDisabled: [0, 6],
+        locale: 'en',
+        debug: true,
+        widgetPositioning: {horizontal: 'left', vertical: 'top'},
+    });
+
+    $('#timePicker').datetimepicker({
+        disabledTimeIntervals: [[moment({ h: 0 }), moment({ h: 9 })], [moment({ h: 17 }), moment({ h: 24 })]],
+        format: 'HH:mm',
+        locale: 'en',
+        stepping: 60,
+        debug: true,
+        disabledDates: ["10:00"],
+        widgetPositioning: {horizontal: 'left', vertical: 'top'},
+    });
+
+    $('#timePicker').data("DateTimePicker").defaultDate(new Date(year, month, day, 09, 00));
+});
+
+</script>
+{% endblock postloadjs %}
