@@ -144,3 +144,30 @@ def confirmAppointment(request, appointment_details_id):
     }
 
     return render(request, 'appointments/appointment_details.html', context)
+
+
+def updateAppointment(request, appointment_details_id):
+    """ Allows superuser to update individual calendar appointment details """
+    appointment_details = AppointmentsCalendar.objects.filter(pk=appointment_details_id)
+    if request.method == 'GET':
+        appointment = appointment_details.values()[0]
+        name = appointment['name']
+        email = appointment['email']
+        message = appointment['message']
+        date_str = appointment['date_str']
+        time = appointment['time']
+        form = AppointmentForm(initial={'name': name, 'email': email, 'message': message, 'date_str': date_str, 'time': time})
+    else:
+        form = AppointmentForm(request.POST)
+        appointment = {}
+        if form.is_valid():
+            appointment['name'] = form.cleaned_data['name']
+            appointment['email'] = form.cleaned_data['email']
+            appointment['message'] = form.cleaned_data['message']
+            appointment['date_str'] = form.cleaned_data['date']
+            # appointment['date'] = datetime.today
+            appointment['time'] = form.cleaned_data['time']
+            messages.success(request, 'Your appointment details have been updated.')
+            appointment_details.update(**appointment)
+        return redirect(reverse('appointment_details', args=[appointment_details_id]))
+    return render(request, 'appointments/update_appointment.html', {'form': form})
