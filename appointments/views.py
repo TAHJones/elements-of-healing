@@ -138,7 +138,21 @@ def updateAppointment(request, appointment_details_id):
             appointment['date_str'] = form.cleaned_data['date']
             appointment['date'] = convertToDatetime(appointment['date_str'])
             appointment['time'] = form.cleaned_data['time']
-            messages.success(request, 'Your appointment details have been updated.')
+            messages.success(request, 'The selected appointment details have been updated.')
             appointment_details.update(**appointment)
         return redirect(reverse('appointment_details', args=[appointment_details_id]))
     return render(request, 'appointments/update_appointment.html', {'form': form})
+
+
+def deleteAppointment(request,  appointment_details_id):
+    """ Allows superuser to delete individual calendar appointment """
+    appointment = AppointmentsCalendar.objects.filter(pk=appointment_details_id)
+    appointment_details = appointment.values()[0]
+    appointment.delete()
+    messages.success(request, 'The selected appointment details have been deleted.')
+
+    context = {
+        'appointment_details': appointment_details,
+    }
+
+    return render(request, 'appointments/appointment_details.html', context)
