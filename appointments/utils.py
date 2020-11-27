@@ -1,5 +1,7 @@
 from calendar import HTMLCalendar
 from .models import AppointmentsCalendar
+from datetime import datetime, timedelta
+import calendar
 
 
 class Calendar(HTMLCalendar):
@@ -48,3 +50,42 @@ class Calendar(HTMLCalendar):
         for week in self.monthdays2calendar(self.year, self.month):
             cal += f'{self.formatweek(week, appointments)}\n'
         return cal
+
+
+def convertToDatetime(date):
+    getDate = []
+    if date:
+        for item in date.split('/'):
+            getDate.append(int(item))
+        convertDate = datetime(getDate[2], getDate[1], getDate[0])
+    else:
+        convertDate = datetime.today()
+    return convertDate
+
+
+def get_date(req_day):
+    if req_day:
+        year, month = (int(x) for x in req_day.split('-'))
+        return datetime(year, month, day=1)
+    return datetime.today()
+
+
+def prev_month(d):
+    first = d.replace(day=1)
+    prev_month = first - timedelta(days=1)
+    month = 'month=' + str(prev_month.year) + '-' + str(prev_month.month)
+    return month
+
+
+def next_month(d):
+    days_in_month = calendar.monthrange(d.year, d.month)[1]
+    last = d.replace(day=days_in_month)
+    next_month = last + timedelta(days=1)
+    month = 'month=' + str(next_month.year) + '-' + str(next_month.month)
+    return month
+
+
+def get_footer():
+    currentYear = datetime.now().date().strftime('%Y')
+    footer = f'</table><footer><div class="footer-copyright"><div id="copyRight">2011 - {currentYear} © Thomas Jones - All Rights Reserved</div></div></footer>'
+    return footer
