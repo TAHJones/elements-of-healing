@@ -4,7 +4,7 @@ from django.template.loader import render_to_string
 from django.core.mail import send_mail
 from products.models import Product
 from appointments.models import AppointmentsCalendar
-from datetime import datetime
+from appointments.utils import convertToDatetime
 
 
 def view_basket(request):
@@ -36,16 +36,7 @@ def add_to_basket(request, item_id):
             time = appointment_details['time']
             host_email = appointment_details['host_email']
 
-            def _getDate(req_day):
-                date = []
-                if req_day:
-                    for item in req_day.split('/'):
-                        date.append(int(item))
-                    return date
-                return datetime.today()
-
-            getDate = _getDate(date_str)
-            date = datetime(getDate[2], getDate[1], getDate[0])
+            date = convertToDatetime(date_str)
 
             AppointmentsCalendar(
                 name=name,
