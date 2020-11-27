@@ -4,12 +4,11 @@ from django.contrib import messages
 from .forms import AppointmentForm
 from appointments.models import AppointmentsCalendar
 from products.models import Product
-from .utils import Calendar
-from datetime import datetime, timedelta
+from .utils import Calendar, convertToDatetime, get_date, prev_month, next_month, get_footer
+from datetime import datetime
 from django.utils.safestring import mark_safe
 from django.views import generic
 from django.urls import reverse_lazy
-import calendar
 
 
 def appointments(request, product_id):
@@ -92,34 +91,6 @@ class appointmentCalendar(generic.ListView):
         return context
 
 
-def get_date(req_day):
-    if req_day:
-        year, month = (int(x) for x in req_day.split('-'))
-        return datetime(year, month, day=1)
-    return datetime.today()
-
-
-def prev_month(d):
-    first = d.replace(day=1)
-    prev_month = first - timedelta(days=1)
-    month = 'month=' + str(prev_month.year) + '-' + str(prev_month.month)
-    return month
-
-
-def next_month(d):
-    days_in_month = calendar.monthrange(d.year, d.month)[1]
-    last = d.replace(day=days_in_month)
-    next_month = last + timedelta(days=1)
-    month = 'month=' + str(next_month.year) + '-' + str(next_month.month)
-    return month
-
-
-def get_footer():
-    currentYear = datetime.now().date().strftime('%Y')
-    footer = f'</table><footer><div class="footer-copyright"><div id="copyRight">2011 - {currentYear} © Thomas Jones - All Rights Reserved</div></div></footer>'
-    return footer
-
-
 def appointmentDetails(request,  appointment_details_id):
     """ Displays individual calendar appointment details """
     appointment_details = AppointmentsCalendar.objects.filter(pk=appointment_details_id).values()[0]
@@ -165,7 +136,7 @@ def updateAppointment(request, appointment_details_id):
             appointment['email'] = form.cleaned_data['email']
             appointment['message'] = form.cleaned_data['message']
             appointment['date_str'] = form.cleaned_data['date']
-            # appointment['date'] = datetime.today
+            appointment['date'] = convertToDatetime(appointment['date_str'])
             appointment['time'] = form.cleaned_data['time']
             messages.success(request, 'Your appointment details have been updated.')
             appointment_details.update(**appointment)
