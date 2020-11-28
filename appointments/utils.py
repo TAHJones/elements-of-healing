@@ -4,7 +4,13 @@ from datetime import datetime, timedelta
 import calendar
 
 
+""" Code for Calendar take and modified from the following sources:
+    https://www.huiwenteo.com/normal/2018/07/24/django-calendar.html
+    https://medium.com/@unionproject88/django-and-python-calendar-e647a8eccff6
+    https://www.geeksforgeeks.org/python-calendar-module/ """
+
 class Calendar(HTMLCalendar):
+    """ Constructs a monthly calendar and populates with appointments """
     def __init__(self, year=None, month=None):
         self.year = year
         self.month = month
@@ -18,13 +24,10 @@ class Calendar(HTMLCalendar):
         for appointment in appointments_per_day:
             if appointment.confirmed:
                 li = '<li class="confirmed">'
-                # print(appointment.confirmed)
             else:
                 li = '<li class="unconfirmed">'
-                # print(appointment.confirmed)
             listItem = li + f'{appointment.get_html_url}: <span>{appointment.time}</span></li>'
             d += listItem
-            print(d)
         if day != 0 and d:
             return f'<td class="appointment"><span class="date">{day}</span><ul> {d} </ul></td>'
         elif day != 0:
@@ -53,6 +56,7 @@ class Calendar(HTMLCalendar):
 
 
 def convertToDatetime(date):
+    """ Converts previous or next month date from GET request into datetime object """
     getDate = []
     if date:
         for item in date.split('/'):
@@ -64,6 +68,7 @@ def convertToDatetime(date):
 
 
 def get_date(req_day):
+    """ Converts string date from form into datetime object """
     if req_day:
         year, month = (int(x) for x in req_day.split('-'))
         return datetime(year, month, day=1)
@@ -71,13 +76,18 @@ def get_date(req_day):
 
 
 def prev_month(d):
+    """ Gets previous month using datetime & timedelta & converts to url string query """
     first = d.replace(day=1)
+    print(first)
     prev_month = first - timedelta(days=1)
+    print(prev_month)
     month = 'month=' + str(prev_month.year) + '-' + str(prev_month.month)
+    print(month)
     return month
 
 
 def next_month(d):
+    """ Gets next month using calendar & timedelta & converts to url string query """
     days_in_month = calendar.monthrange(d.year, d.month)[1]
     last = d.replace(day=days_in_month)
     next_month = last + timedelta(days=1)
@@ -86,6 +96,7 @@ def next_month(d):
 
 
 def get_footer():
+    """ Adds footer section to bottom of calendar table """
     currentYear = datetime.now().date().strftime('%Y')
     footer = f'</table><footer><div class="footer-copyright"><div id="copyRight">2011 - {currentYear} © Thomas Jones - All Rights Reserved</div></div></footer>'
     return footer
