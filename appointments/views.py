@@ -9,6 +9,7 @@ from datetime import datetime
 from django.utils.safestring import mark_safe
 from django.views import generic
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
 
 
 def appointments(request, product_id):
@@ -91,8 +92,13 @@ class appointmentCalendar(generic.ListView):
         return context
 
 
+@login_required
 def appointmentDetails(request,  appointment_details_id):
     """ Displays individual calendar appointment details """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only users with admin privileges can do that.')
+        return redirect(reverse('home'))
+
     appointment_details = AppointmentsCalendar.objects.filter(pk=appointment_details_id).values()[0]
 
     context = {
@@ -102,8 +108,13 @@ def appointmentDetails(request,  appointment_details_id):
     return render(request, 'appointments/appointment_details.html', context)
 
 
+@login_required
 def confirmAppointment(request, appointment_details_id):
     """ Allows superuser to confirms individual calendar appointment details """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only users with admin privileges can do that.')
+        return redirect(reverse('home'))
+
     appointment_details = AppointmentsCalendar.objects.filter(pk=appointment_details_id)
     appointment_details.update(confirmed=True)
     appointment = appointment_details.values()[0]
@@ -117,8 +128,13 @@ def confirmAppointment(request, appointment_details_id):
     return render(request, 'appointments/appointment_details.html', context)
 
 
+@login_required
 def updateAppointment(request, appointment_details_id):
     """ Allows superuser to update individual calendar appointment details """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only users with admin privileges can do that.')
+        return redirect(reverse('home'))
+
     appointment_details = AppointmentsCalendar.objects.filter(pk=appointment_details_id)
     if request.method == 'GET':
         appointment = appointment_details.values()[0]
@@ -144,7 +160,12 @@ def updateAppointment(request, appointment_details_id):
     return render(request, 'appointments/update_appointment.html', {'form': form})
 
 
+@login_required
 def deleteAppointment(request,  appointment_details_id):
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only users with admin privileges can do that.')
+        return redirect(reverse('home'))
+
     """ Allows superuser to delete individual calendar appointment """
     appointment = AppointmentsCalendar.objects.filter(pk=appointment_details_id)
     appointment_details = appointment.values()[0]
