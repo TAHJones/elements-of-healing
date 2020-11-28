@@ -73,6 +73,8 @@
 - [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/)
 - [pillow](https://pillow.readthedocs.io/en/stable/)
 - [bootstrap-datepicker](https://getdatepicker.com/4/Installing/)
+- [dj_database_url](https://pypi.org/project/psycopg2-binary/)
+- [psycopg2-binary](https://pypi.org/project/dj-database-url/)
 
 ## Testing
 
