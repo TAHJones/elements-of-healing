@@ -87,12 +87,9 @@
     </header>
 
     {% block content %}
-        <h2 class="text-center">Appointment Bookings</h2>
-        <div class="text-left">
-            <a href="{% url 'appointment_calendar' %}?{{ prev_month }}"> Previous Month </a>
-        </div>
-        <div class="text-right">
-            <a href="{% url 'appointment_calendar' %}?{{ next_month }}"> Next Month </a>
+        <div class="calendar-header">
+            <a href="{% url 'appointment_calendar' %}?{{ prev_month }}"><i class="fas fa-chevron-left"></i> Previous Month </a>
+            <a href="{% url 'appointment_calendar' %}?{{ next_month }}"> Next Month <i class="fas fa-chevron-right"></i></a>
         </div>
         {{ calendar }}
     {% endblock %}
