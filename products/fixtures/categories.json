@@ -14,5 +14,13 @@
       "name": "individual_remedies",
       "friendly_name": "Remedies"
     }
+  },
+  {
+    "pk": 3,
+    "model": "products.category",
+    "fields": {
+      "name": "appointments",
+      "friendly_name": "Appointments"
+    }
   }
 ]

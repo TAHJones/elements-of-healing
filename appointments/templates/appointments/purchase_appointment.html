@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+<section class="container dark-bg">
+    <div class="row justify-content-center">
+        <div class="col-11 col-sm-9 col-md-8 col-lg-6">
+            <div class="card product-item inner-box--black">
+                <h2>Appointment Details</h2>
+                {% if appointment.image %}
+                <a class="product-img-link" href="{{ appointment.image.url }}">
+                    <img class="card-img" src="{{ appointment.image.url }}" alt="{{ appointment.name }}">
+                </a>
+                {% else %}
+                <a class="product-img-link" href="">
+                    <img class="card-img" src="{{ MEDIA_URL }}noimage.png" alt="{{ appointment.name }}">
+                </a>
+                {% endif %}
+                <div class="card-body">
+                    <p>Price: <span>£{{ appointment.price }}</span></p>
+                    <p>Name: <span>{{ appointment_details.name }}</span></p>
+                    <p>Date: <span>{{ appointment_details.date }}</span></p>
+                    <p>Time: <span>{{ appointment_details.time }}</span></p>
+                    <p>Description: <span>{{ appointment.description }}</span></p>
+                </div>
+                <div class="card-footer">
+                    <form class="form product-info" action="{% url 'add_to_basket' appointment.id %}" method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <a href="{% url 'appointments' appointment.id %}" class="btn shopping-btn">
+                                    <span ><i class="fas fa-chevron-left"></i></span>
+                                    <span>Return</span>
+                                </a>
+                                <input type="submit" class="btn shopping-btn" value="Add to Basket">
+                            </div>
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                            <input type="hidden" name="quantity" value="1">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

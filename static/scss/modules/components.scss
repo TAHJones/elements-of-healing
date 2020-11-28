@@ -336,6 +336,12 @@
 	background-color: #f7f4cb;
 }
 
+.form-control[readonly] {
+	// height: 50px;
+	// color: #495057;
+	background-color: #bbb;
+}
+
 .form-group > label {
     color: v.$form-label-color;
     margin-bottom: f.rem-calc(12);
@@ -466,17 +472,3 @@
 }
 
 /* BOOTSTRAP-TOASTS-END */
-
-
-/* APPOINTMENTS-FORM */
-
-.appointments-form > .control-group:nth-of-type(4) {
-    margin-top: 20px;
-}
-
-.appointments-form > .control-group:nth-of-type(4),
-.appointments-form > .control-group:nth-of-type(5) {
-    margin-bottom: 15px;
-}
-
-/* APPOINTMENTS-FORM-END */

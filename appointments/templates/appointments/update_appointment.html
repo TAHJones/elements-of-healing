@@ -17,7 +17,7 @@
 <section class="container dark-bg">
     <div class="row justify-content-center">
         <div class="col-xs-12 col-sm-10 col-md-9 col-lg-8 form box">
-            <h2 class="text-center">Request an Appointment Time</h2>
+            <h2 class="text-center">Update Appointment Details</h2>
             <div class="inner-box--grey">
                 <form class="appointments-form" method="POST">
                     {% csrf_token %}
@@ -42,25 +42,6 @@ $(function(){
     let day = d.getDate();
     let year = d.getFullYear();
     // let maximumDate = 0;
-
-    // function getMaximumDate(currentMonth) {
-        //     if(currentMonth == 10) {
-            //         maximumDate = 1;
-    //     } else if (currentMonth == 11) {
-        //         maximumDate = 2;
-    //     } else if (currentMonth == 12) {
-        //         maximumDate = 2;
-    //     } else {
-        //         maximumDate = currentMonth + 3;
-    //     }
-    //     return maximumDate;
-    // }
-    // maximumDate = new Date(year, getMaximumDate(month), day)
-    // console.log(maximumDate);
-    // console.log(month);
-    // console.log(day);
-    // console.log(year);
-    // console.log(getMaximumDate(month));
 
     $('#datePicker').datetimepicker({
         format: 'DD/MM/YYYY',

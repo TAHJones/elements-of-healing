@@ -72,6 +72,7 @@
 - [django-allauth](https://django-allauth.readthedocs.io/en/latest/)
 - [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/)
 - [pillow](https://pillow.readthedocs.io/en/stable/)
+- [bootstrap-datepicker](https://getdatepicker.com/4/Installing/)
 
 ## Testing
 
@@ -94,6 +95,14 @@
 - The error message `NoReverseMatch at /products/add/, Reverse for 'add_product' with arguments '(44,)' not found. 1 pattern(s) tried: ['products/add/$']` occurred because the redirect was pointing back to the add_product view when it should have been pointing to the product_detail view. 
 
 - The error message `404 Not Found` occurred when remove link is clicked in shopping basket. This was fixed by changing the url variable from `/remove/${itemId}/` to `basket/remove/${itemId}/`.
+
+- Conditional statement was failing to prevent the addition of more than one appointment to the basket. This was fixed by changing the if statement from `if quantity > 1` to `if item_id in list(basket.keys())`
+
+- When navigating to the homepage a http 500 internal server error occurred with the following error message `KeyError at /, 'appointment_details'`. This error was traced back to the basket context.py file and was fixed by replacing `appointment_details = request.session['appointment_details]` with `appointment_details = request.session.get('appointment_details', {})`.
+
+- When adding a product to the shopping basket a http 500 internal server error occurred with the following error message `KeyError at /basket/add/22/, 'appointment_details'`. This error was traced back to the add_to_basket view and was fixed by replacing `appointment_details = request.session['appointment_details]` with `appointment_details = request.session.get('appointment_details', {})`.
+
+- Found a security problem with the shopping basket. The appointment form input field is designated as readonly to prevent more than one appointment being entered at a time. However this can be overridden by the client using the developer tools. This was fixed by resetting the appointment quantity to 1 in the checkout view.
 
 ## Deployment
 

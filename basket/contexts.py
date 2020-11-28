@@ -10,6 +10,7 @@ def basket_contents(request):
     total = 0
     product_count = 0
     basket = request.session.get('basket', {})
+    appointment_details = request.session.get('appointment_details', {})
 
     for item_id, item_data in basket.items():
         if isinstance(item_data, int):
@@ -50,6 +51,7 @@ def basket_contents(request):
         'free_delivery_delta': free_delivery_delta,
         'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
         'grand_total': grand_total,
+        'appointment_details': appointment_details,
     }
 
     return context

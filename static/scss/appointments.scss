@@ -1,0 +1,246 @@
+// basket.scss
+
+// To install sass: npm install -g sass
+// To convert checkout.scss into checkout.css: sass --watch static/scss/appointments.scss appointments/static/appointments/css/appointments.css
+
+// @use "modules/variables" as v;
+@use "modules/functions" as f;
+// @use "modules/mixins" as m;
+@use "modules/media_query_mixins" as q;
+
+
+/* APPOINTMENTS-FORM */
+
+.appointments-form > .control-group:nth-of-type(4) {
+    margin-top: 20px;
+}
+
+.appointments-form > .control-group:nth-of-type(4),
+.appointments-form > .control-group:nth-of-type(5) {
+    margin-bottom: 15px;
+}
+
+.bootstrap-datetimepicker-widget,
+.bootstrap-datetimepicker-widget.dropdown-menu  {
+    background-color: #000;
+    padding: 0;
+    width: 60%;
+}
+
+.bootstrap-datetimepicker-widget.dropdown-menu.top::after {
+	border-top: 6px solid #000;
+}
+
+.bootstrap-datetimepicker-widget table {
+    thead tr:first-child th:hover {
+        background: #333;
+        transition: all 0.25s ease-in-out;
+    }
+    th {
+        color: #ffcd37;
+    }
+    td {
+        color: #76bb85;    
+        padding: 0;
+        transition: all 0.25s ease-in-out;
+    }
+}
+
+.bootstrap-datetimepicker-widget table td.day:hover,
+.bootstrap-datetimepicker-widget table td.hour:hover,
+.bootstrap-datetimepicker-widget table td.minute:hover,
+.bootstrap-datetimepicker-widget table td.second:hover {
+	background: #333;
+}
+
+.bootstrap-datetimepicker-widget table td span:hover {
+	background: #333;
+}
+
+.datepicker table tr td.day:not(.disabled, .weekend):hover,
+.datepicker table tr td.focused {
+  background: #323c2e;
+  color: #ffcd37;
+  cursor: pointer;
+}
+
+.datepicker table tr td.disabled,
+.datepicker table tr td.weekend {
+  color: #ce7470 !important;
+}
+
+.datepicker table tr td.new {
+  color: #d1d4d7;
+}
+
+.bootstrap-datetimepicker-widget table td.today {
+    color: #ffcd37;
+    background-color: #333;
+    border-color: #aaacae;
+    &::before {
+        border-bottom-color: #aaacae;
+    }
+}
+
+.bootstrap-datetimepicker-widget table td.active,
+.bootstrap-datetimepicker-widget table td.active:hover {
+	background-color: #555;
+}
+
+#datePicker > .input-group-addon > .input-group-text,
+#timePicker > .input-group-addon > .input-group-text {
+    background-color: #2b532a;
+	transition: all 0.4s ease-in-out;
+    &:hover {
+        background-color: #ffcd37;
+    }
+}
+
+.fa-calendar-check,
+.fa-clock {
+    color: #ffcd37;
+	transition: all 0.25s ease-in-out;
+}
+
+#datePicker > .input-group-addon > .input-group-text:hover > .fa-calendar-check,
+#timePicker > .input-group-addon > .input-group-text:hover > .fa-clock {
+    color: #2b532a;
+}
+
+.glyphicon-chevron-up,
+.glyphicon-chevron-down {
+    color: #ffcd37;
+}
+
+/* APPOINTMENTS-FORM-END */
+
+/* APPOINTMENT-CALENDAR */
+
+.calendar-header {
+    background-color: #222;
+    border: 2px solid black;
+    border-bottom: 0;
+	padding: f.rem-calc(10 25 15);
+    margin: f.rem-calc(60) auto f.rem-calc(0);
+    > a:nth-of-type(2) {
+        float: right;
+    }
+}
+
+.calendar {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.calendar {
+    margin: f.rem-calc(0) auto;
+    width: 100%;
+}
+
+@include q.respond-above(sm) {
+    .calendar-header {
+	    margin: f.rem-calc(48) auto f.rem-calc(0);
+    }
+
+    .calendar {
+	    margin: f.rem-calc(0) auto;
+    }
+}
+
+@include q.respond-above(md) {
+    .calendar-header {
+	    margin: f.rem-calc(120) auto f.rem-calc(0);
+        width: 97%;
+    }
+
+    .calendar {
+	    margin: f.rem-calc(0) auto f.rem-calc(45);
+        width: 97%;
+    }
+}
+
+@include q.respond-above(lg) {
+    .calendar-header {
+	    margin: f.rem-calc(136) auto f.rem-calc(0);
+        width: 95%;
+    }
+
+    .calendar {
+	    margin: f.rem-calc(0) auto f.rem-calc(61);
+        width: 95%;
+    }
+}
+
+.calendar tr, .calendar td {
+  border: 2px solid black;
+}
+
+.calendar th {
+	padding: 25px;
+	text-align: center;
+}
+
+.calendar td {
+  width: 200px;
+  height: 150px;
+  padding: 20px 0px 0px 5px;
+}
+
+tbody > tr:nth-of-type(2), .calendar .appointment {
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.date {
+  color: #76bb85;
+}
+
+.no-date {
+    background-color: #222;
+    border: #222 !important;;
+}
+
+.appointment .confirmed > a {
+    color: #d9b034;
+    transition: all 0.25s ease-in-out;
+    &:hover {
+        color: darken(#d9b034, 20%);
+    }
+}
+
+.appointment .unconfirmed > a {
+    color: #bd2130;
+    transition: all 0.25s ease-in-out;
+    &:hover {
+        color:  darken(#bd2130, 10%);
+    }
+}
+
+li {
+    list-style: none;  
+    > span {
+        color: #aaacae !important;
+        font-weight: 600 !important;
+    }
+}
+
+/* APPOINTMENT-CALENDAR-END */
+
+/* APPOINTMENT-DETAILS */
+
+.appointment-details {
+	position: relative;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+    min-height: 30vh;
+    > ul {
+        list-style: none;
+        padding: f.rem-calc(20);
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+    }
+}
+
+/* APPOINTMENT-DETAILS-END */

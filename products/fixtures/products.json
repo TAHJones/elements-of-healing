@@ -1,6 +1,34 @@
 [
-  {
+  { 
     "pk": 1,
+    "model": "products.product",
+    "fields": {
+      "sku": "pro/app/001",
+      "name": "Appointment",
+      "description": "60 min homeopathic consultation.",
+      "price": 60.00,
+      "category": 3,
+      "rating": 4.8,
+      "image_url": "",
+      "image": "appointments.jpg"
+    }
+  },
+  { 
+    "pk": 2,
+    "model": "products.product",
+    "fields": {
+      "sku": "pro/app/002",
+      "name": "First Appointment",
+      "description": "90 min homeopathic consultation.",
+      "price": 90.00,
+      "category": 3,
+      "rating": 4.6,
+      "image_url": "",
+      "image": "appointments.jpg"
+    }
+  },
+  {
+    "pk": 3,
     "model": "products.product",
     "fields": {
       "sku": "pro/kit/001",
@@ -14,7 +42,7 @@
     }
   },
   {
-    "pk": 2,
+    "pk": 4,
     "model": "products.product",
     "fields": {
       "sku": "pro/kit/002",
@@ -28,7 +56,7 @@
     }
   },
   {
-    "pk": 3,
+    "pk": 5,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/001",
@@ -42,7 +70,7 @@
     }
   },
   {
-    "pk": 4,
+    "pk": 6,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/002",
@@ -56,7 +84,7 @@
     }
   },
   {
-    "pk": 5,
+    "pk": 7,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/003",
@@ -70,7 +98,7 @@
     }
   },
   {
-    "pk": 6,
+    "pk": 8,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/004",
@@ -83,7 +111,7 @@
       "image": "arnica.jpg"
     }
   },{
-    "pk": 7,
+    "pk": 9,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/005",
@@ -97,7 +125,7 @@
     }
   },
   {
-    "pk": 8,
+    "pk": 10,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/006",
@@ -111,7 +139,7 @@
     }
   },
  {
-    "pk": 9,
+    "pk": 11,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/007",
@@ -125,7 +153,7 @@
     }
   },
  {
-    "pk": 10,
+    "pk": 12,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/008",
@@ -139,7 +167,7 @@
     }
   },
    {
-    "pk": 11,
+    "pk": 13,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/009",
@@ -153,7 +181,7 @@
     }
   },
    {
-    "pk": 12,
+    "pk": 14,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/010",
@@ -167,7 +195,7 @@
     }
   },
    {
-    "pk": 13,
+    "pk": 15,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/011",
@@ -181,7 +209,7 @@
     }
   },
    { 
-    "pk": 14,
+    "pk": 16,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/012",
@@ -195,7 +223,7 @@
     }
   },
    { 
-    "pk": 15,
+    "pk": 17,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/013",
@@ -209,7 +237,7 @@
     }
   },
    { 
-    "pk": 16,
+    "pk": 18,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/014",
@@ -223,7 +251,7 @@
     }
   },
    { 
-    "pk": 17,
+    "pk": 19,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/015",
@@ -237,7 +265,7 @@
     }
   },
    { 
-    "pk": 18,
+    "pk": 20,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/016",
@@ -251,7 +279,7 @@
     }
   },
    { 
-    "pk": 19,
+    "pk": 21,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/017",
@@ -265,7 +293,7 @@
     }
   },
    { 
-    "pk": 20,
+    "pk": 22,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/018",
@@ -279,7 +307,7 @@
     }
   },
    { 
-    "pk": 21,
+    "pk": 23,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/019",
@@ -293,7 +321,7 @@
     }
   },
    { 
-    "pk": 22,
+    "pk": 24,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/020",
@@ -307,7 +335,7 @@
     }
   },
    { 
-    "pk": 23,
+    "pk": 25,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/021",
@@ -321,7 +349,7 @@
     }
   },
    { 
-    "pk": 24,
+    "pk": 26,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/022",
@@ -335,7 +363,7 @@
     }
   },
    { 
-    "pk": 25,
+    "pk": 27,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/023",
@@ -349,7 +377,7 @@
     }
   },
    { 
-    "pk": 26,
+    "pk": 28,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/024",
@@ -363,7 +391,7 @@
     }
   },
    { 
-    "pk": 27,
+    "pk": 29,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/025",
@@ -377,7 +405,7 @@
     }
   },
    { 
-    "pk": 28,
+    "pk":30,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/026",
@@ -391,7 +419,7 @@
     }
   },
    { 
-    "pk": 29,
+    "pk": 31,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/027",
@@ -405,7 +433,7 @@
     }
   },
    { 
-    "pk": 30,
+    "pk": 32,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/028",
@@ -419,10 +447,10 @@
     }
   },
    { 
-    "pk": 31,
+    "pk": 33,
     "model": "products.product",
     "fields": {
-      "sku": "pro/rem/029",
+      "sku": "pro/app/029",
       "name": "Nat Mur",
       "description": "No.1 remedy for cold sores especially around or on  the lips. No.1 remedy for silent grief (the stiff upper lip). The middle of the lower lip may be deeply cracked.",
       "price": 2.95,
@@ -433,7 +461,7 @@
     }
   },
    { 
-    "pk": 32,
+    "pk": 34,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/030",
@@ -447,7 +475,7 @@
     }
   },
    { 
-    "pk": 33,
+    "pk": 35,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/031",
@@ -461,7 +489,7 @@
     }
   },
    { 
-    "pk": 34,
+    "pk": 36,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/032",
@@ -475,7 +503,7 @@
     }
   },
    { 
-    "pk": 35,
+    "pk": 37,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/033",
@@ -489,7 +517,7 @@
     }
   },
    { 
-    "pk": 36,
+    "pk": 38,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/034",
@@ -503,7 +531,7 @@
     }
   },
     { 
-    "pk": 37,
+    "pk": 39,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/035",
@@ -517,7 +545,7 @@
     }
   },
    { 
-    "pk": 38,
+    "pk": 40,
     "model": "products.product",
     "fields": {
       "sku": "pro/rem/036",

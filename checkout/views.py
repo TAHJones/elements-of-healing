@@ -57,6 +57,8 @@ def checkout(request):
             for item_id, item_data in basket.items():
                 try:
                     product = Product.objects.get(id=item_id)
+                    if product.category.friendly_name == "Appointments":
+                        item_data = 1
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
                             order=order,

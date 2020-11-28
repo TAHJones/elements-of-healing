@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'appointments/css/appointments.css' %}">
+{% endblock extra_css %}
+
+
+{% block content %}
+<section class="container dark-bg">
+    <div class="row justify-content-center">
+        <div class="col-xs-12 col-sm-10 col-md-9 col-lg-8 form box">
+            <h2 class="text-center">Appointment Details</h2>
+            <div class="inner-box--grey appointment-details">
+                <ul>
+                    <li><p>Name: <span>{{ appointment_details.name }}</span></p></li>
+                    <li><p>Email: <span>{{ appointment_details.email }}</span></p></li>
+                    <li><p>Message: <span>{{ appointment_details.message }}</span></p></li>
+                    <li><p>Date: <span>{{ appointment_details.date_str }}</span></p></li>
+                    <li><p>Time: <span>{{ appointment_details.time }}</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <a href="{% url 'appointment_calendar' %}" class="btn custom-btn">
+                    <i class="fas fa-chevron-left"></i>
+                    <span>Return</span>
+                </a>
+                <a href="{% url 'confirm_appointment' appointment_details.id %}" class="btn custom-btn bg-success">
+                    <span>Confirm</span>
+                    <i class="fas fa-check-circle"></i>
+                </a>
+                <a href="{% url 'update_appointment' appointment_details.id %}" class="btn custom-btn bg-warning">
+                    <span>Update</span>
+                    <i class="fas fa-edit"></i>
+                </a>
+                <a href="{% url 'delete_appointment' appointment_details.id %}" class="btn custom-btn bg-danger">
+                    <span>Delete</span>
+                    <i class="fas fa-trash-alt"></i>
+                </a> 
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 from django.contrib import messages
+from django.template.loader import render_to_string
+from django.core.mail import send_mail
 from products.models import Product
+from appointments.models import AppointmentsCalendar
+from appointments.utils import convertToDatetime
 
 
 def view_basket(request):
@@ -11,17 +15,60 @@ def view_basket(request):
 
 def add_to_basket(request, item_id):
     """Add a specific quantity of a selected product to the shopping basket"""
-
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
+    appointment_details = request.session.get('appointment_details', {})
     potency = None
     if 'potency' in request.POST:
         potency = request.POST['potency']
 
     basket = request.session.get('basket', {})
 
-    if potency:
+    if product.category.friendly_name == "Appointments":
+        if item_id in list(basket.keys()):
+            messages.error(request, 'Error, you already have an appointment booked')
+        else:
+            name = appointment_details['name']
+            cust_email = appointment_details['cust_email']
+            message = appointment_details['message']
+            date_str = appointment_details['date']
+            time = appointment_details['time']
+            host_email = appointment_details['host_email']
+
+            date = convertToDatetime(date_str)
+
+            AppointmentsCalendar(
+                name=name,
+                email=cust_email,
+                message=message,
+                date=date,
+                date_str=date_str,
+                time=time
+            ).save()
+
+            appointments = list(AppointmentsCalendar.objects.all().values())
+            for item in appointments:
+                if item['time'] == time and item['date_str'] == date_str:
+                    request.session['appointment_details']['id'] = item['id']
+
+            subject = render_to_string(
+                'appointments/confirmation_emails/confirmation_email_subject.txt',
+                {'email': appointment_details})
+            body = render_to_string(
+                'appointments/confirmation_emails/confirmation_email_body.txt',
+                {'email': appointment_details})
+            try:
+                # forward message from customer to host email address
+                basket[item_id] = quantity
+                send_mail(name, message, cust_email, [host_email])
+                messages.success(request, f'Your appointment request has been received. A confirmation email will be sent to {cust_email}.')
+                # send confirmation message from host to customer email address
+                send_mail(subject, body, host_email, [cust_email])
+            except Exception as e:
+                messages.error(request, 'Sorry, there was a problem sending your appointment request. Please try again.')
+                return HttpResponse(content=e, status=400)
+    elif potency:
         if item_id in list(basket.keys()):
             if potency in basket[item_id]['items_by_potency'].keys():
                 basket[item_id]['items_by_potency'][potency] += quantity
@@ -92,7 +139,11 @@ def remove_from_basket(request, item_id):
             messages.success(request, f'Removed potency {potency.upper()} {product.name} from your basket')
         else:
             basket.pop(item_id)
-            messages.success(request, f'Removed {product.name} from your basket')
+            if product.category.friendly_name == "Appointments":
+                AppointmentsCalendar(id=request.session['appointment_details']['id']).delete()
+                messages.success(request, 'Removed appointment from your basket')
+            else:
+                messages.success(request, f'Removed {product.name} from your basket')
 
         request.session['basket'] = basket
         return HttpResponse(status=200)
