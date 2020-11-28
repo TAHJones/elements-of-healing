@@ -101,30 +101,54 @@
 
 /* APPOINTMENTS-FORM-END */
 /* APPOINTMENT-CALENDAR */
-.calendar {
-  background-color: rgba(0, 0, 0, 0.6);
-  margin: 0 auto;
+.calendar-header {
+  background-color: #222;
+  border: 2px solid black;
+  border-bottom: 0;
+  padding: 0.625rem 1.5625rem 0.9375rem;
+  margin: 3.75rem auto 0;
+}
+.calendar-header > a:nth-of-type(2) {
+  float: right;
 }
 
 .calendar {
-  margin: 3.75rem auto 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.calendar {
+  margin: 0 auto;
   width: 100%;
 }
 
 @media (min-width: 576px) {
-  .calendar {
+  .calendar-header {
     margin: 3rem auto 0;
+  }
+
+  .calendar {
+    margin: 0 auto;
   }
 }
 @media (min-width: 768px) {
+  .calendar-header {
+    margin: 7.5rem auto 0;
+    width: 97%;
+  }
+
   .calendar {
-    margin: 7.5rem auto 2.8125rem;
+    margin: 0 auto 2.8125rem;
     width: 97%;
   }
 }
 @media (min-width: 992px) {
+  .calendar-header {
+    margin: 8.5rem auto 0;
+    width: 95%;
+  }
+
   .calendar {
-    margin: 8.5rem auto 3.8125rem;
+    margin: 0 auto 3.8125rem;
     width: 95%;
   }
 }

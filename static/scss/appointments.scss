@@ -116,38 +116,56 @@
 
 /* APPOINTMENT-CALENDAR */
 
-.calendar {
-    background-color: rgba(0, 0, 0, 0.6);
-    // width: 98%;
-    margin: 0 auto;
-    // font-size: 13px;
+.calendar-header {
+    background-color: #222;
+    border: 2px solid black;
+    border-bottom: 0;
+	padding: f.rem-calc(10 25 15);
+    margin: f.rem-calc(60) auto f.rem-calc(0);
+    > a:nth-of-type(2) {
+        float: right;
+    }
 }
 
 .calendar {
-    // margin-top: f.rem-calc(59);
-    margin: f.rem-calc(60) auto f.rem-calc(0);
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.calendar {
+    margin: f.rem-calc(0) auto;
     width: 100%;
 }
 
 @include q.respond-above(sm) {
-    .calendar {
-	    // margin-top: f.rem-calc(88);
+    .calendar-header {
 	    margin: f.rem-calc(48) auto f.rem-calc(0);
+    }
+
+    .calendar {
+	    margin: f.rem-calc(0) auto;
     }
 }
 
 @include q.respond-above(md) {
+    .calendar-header {
+	    margin: f.rem-calc(120) auto f.rem-calc(0);
+        width: 97%;
+    }
+
     .calendar {
-	    // margin-top: f.rem-calc(120);
-	    margin: f.rem-calc(120) auto f.rem-calc(45);
+	    margin: f.rem-calc(0) auto f.rem-calc(45);
         width: 97%;
     }
 }
 
 @include q.respond-above(lg) {
+    .calendar-header {
+	    margin: f.rem-calc(136) auto f.rem-calc(0);
+        width: 95%;
+    }
+
     .calendar {
-	    // margin-top: f.rem-calc(136);
-	    margin: f.rem-calc(136) auto f.rem-calc(61);
+	    margin: f.rem-calc(0) auto f.rem-calc(61);
         width: 95%;
     }
 }
@@ -159,7 +177,6 @@
 .calendar th {
 	padding: 25px;
 	text-align: center;
-	// font-size: 25px;
 }
 
 .calendar td {
@@ -172,12 +189,7 @@ tbody > tr:nth-of-type(2), .calendar .appointment {
 	background-color: rgba(0, 0, 0, 0.6);
 }
 
-.month {
-//   font-size: 25px;
-}
-
 .date {
-//   font-size: 16px;
   color: #76bb85;
 }
 
@@ -202,20 +214,12 @@ tbody > tr:nth-of-type(2), .calendar .appointment {
     }
 }
 
-ul {
-//   height: 100%;
-//   padding: 0px 5px 0px 20px;
-}
-
 li {
     list-style: none;  
     > span {
         color: #aaacae !important;
         font-weight: 600 !important;
     }
-    // > a {
-    // color: #76bb85;
-    // }
 }
 
 /* APPOINTMENT-CALENDAR-END */
@@ -238,23 +242,5 @@ li {
         transform: translateY(-50%);
     }
 }
-
-// .overlay {
-// 	height: 100%;
-// 	max-width: 100%;
-// 	opacity: 0;
-// 	transition: .5s ease-in-out;
-// 	background-color: rgba(0, 0, 0, .6);
-// 	margin: 0 auto;
-// 	border: 2rem solid rgba(0, 0, 0, .6);
-// 	border-radius: 1rem;
-// }
-
-// .overlay-text {
-// 	color: #4b93da;
-// 	font-size: 3.2rem;
-// 	transform: translate(-50%, -50%);
-// 	text-align: center;
-// }
 
 /* APPOINTMENT-DETAILS-END */
