@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'bootstrap_datepicker_plus',
+    'storages',
 
     # custom
     'pages',
