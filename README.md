@@ -270,7 +270,6 @@ We continually tweak and adjust this template to help give you the best experien
 Happy coding!
 
 
-
 ## Deployment
 
 ## How to Deploy Project Using Gitpod
