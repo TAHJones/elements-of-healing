@@ -110,9 +110,8 @@
 
 - Found a security problem with the shopping basket. The appointment form input field is designated as readonly to prevent more than one appointment being entered at a time. However this can be overridden by the client using the developer tools. This was fixed by resetting the appointment quantity to 1 in the checkout view.
 
-## Deployment
 
-In order to deploy this project you must first set up an account at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas). Click [here](https://docs.atlas.mongodb.com/) for instructions on how to set up able Mongo Atlas account.
+## Deployment
 
 ## How to Deploy Project Using Gitpod
 
@@ -128,54 +127,88 @@ In order to deploy this project you must first set up an account at [MongoDB Atl
 
 4. Gitpod will create a workspace container for you in the cloud, containing a full Linux system. It will also clone the GitHub repository branch based on the GitHub page you were coming from.
 
-5. Click 'Select Python interpreter' in the blue bar at the bottom of the page then select 'Python 3.7.4 64-bit ('3.7.4': pyenv) from the dropdown menu.
+5. Click 'Select Python interpreter' in the blue bar at the bottom of the page then select 'Python 3.8.3 64-bit ('3.8.3': pyenv) from the dropdown menu.
 
 6. Open a terminal and run the following command to install project dependencies:
 ```
 pip3 install -r requirements.txt
 ```
-6. In the projects root directory create a file called `env.py`.
+7. In the gitpod settings page enter the following environment variables:
 
-7. Inside the env.py file create SECRET_KEY, MONGO_DBNAME and MONGO_URI environment variables to link to your own mongodb database. Please make sure to call your database `sequencingMetricsDB`, with 2 collections called `users` and `seqMetCol`. You will find example json structures for these collections in the [schemas](https://github.com/TAHJones/qc-metrics-analyser/tree/master/schemas/) folder.
+| Key | Value |
+ --- | ---
+SECRET_KEY | `<your_secret_key>`
+STRIPE_PUBLIC_KEY | `<your_public_key>`
+STRIPE_SECRET_KEY | `<your_secret_key>`
+STRIPE_WH_SECRET | `<your_secret_key>`
+DEVELOPMENT | True
 
-8. You can now run the application from the terminal using the following command:
+8. To migrate your models and generate your database use the following command:
 ```
-python3 app.py
+python3 manage.py migrate
 ```
+
+9. Use the following command create a superuser account to access the django admin panel and database:
+```
+python3 manage.py createsuperuser
+```
+
+10. You can now run the application locally from the terminal using the following command:
+```
+python3 manage.py runserver
+```
+
+11. Once the local server is running, add `/admin` to the end of the base url to access the admin panel login page.
+
 
 ## How to Deploy Project Using Heroku
 
 1. Create a `requirements.txt` file from the terminal using the command `pip3 freeze --local > requirements.txt`.
 
-2. Create a `Procfile` from the terminal using the command `echo web: python app.py > Procfile`.
+2. Create a `Procfile` from the terminal using the command `echo web: gunicorn your-projects-name.wsgi:application > Procfile`.
 
 3. `git add` and `git commit` the new requirements and Procfile and then `git push` the project to GitHub.
 
-3. Create a new app on the [Heroku website](https://dashboard.heroku.com/apps) by clicking the "New" button in your dashboard. Give it a name and set the region to Europe.
+4. Create a new app on the [Heroku website](https://dashboard.heroku.com/apps) by clicking the "New" button in your dashboard. Give it a name and set the region to Europe.
 
-4. From the heroku dashboard of your new app, click on "Deploy" > "Deployment method" and select GitHub.
+5. Type the following command into the terminal: `heroku login -i` then enter your heroku username and password.
 
-5. In the **App connected to GitHub** section confirm the heroku app is linked to the correct GitHub repository.
+6. Disable the collection of static files during deployment using the following command:
+```
+heroku config:set DISABLE_COLLECTSTATIC=1 --app your-project-name
+```
 
-6. In the heroku dashboard for the application, click on "Settings" > "Reveal Config Vars".
+7. Initalise your heroku git remote using the following command:
+```
+heroku git:remote -a your-project-name
+```
 
-7. Set the following config vars:
+8. Deploy your project to heroku with the following command:
+```
+git push heroku master
+```
+
+9. From the heroku dashboard of your new app, click on "Deploy" > "Deployment method" and select GitHub.
+
+10. In the **App connected to GitHub** section confirm the heroku app is linked to the correct GitHub repository.
+
+11. In the heroku dashboard for the application, click on "Settings" > "Reveal Config Vars".
+
+12. In the **Automatic Deploys** section click **Enable Automatic Deploys** to ensure your heroku app is automatically updated everytime your github repository is updated.
+
+13. Set the following config vars:
 
 | Key | Value |
  --- | ---
-DEBUG | FALSE
-IP | 0.0.0.0
-MONGO_URI | `mongodb+srv://<username>:<password>@<cluster_name>-kpu2s.mongodb.net/<database_name>?retryWrites=true&w=majority`
-PORT | 5000
+AWS_ACCESS_KEY_ID | `<your_secret_key>`
+AWS_SECRET_ACCESS_KEY | `<your_secret_key>`
+DATABASE_URL | `postgres://your_projects_database_url`
 SECRET_KEY | `<your_secret_key>`
+USE_AWS | True
 
-- To get you MONGO_URI read the MongoDB Atlas documentation [here](https://docs.atlas.mongodb.com/)
+14. In the heroku dashboard, click "Deploy".
 
-8. In the heroku dashboard, click "Deploy".
-
-9. In the **Automatic Deploys** section click **Enable Automatic Deploys** to ensure your heroku app is automatically updated everytime your github repository is updated.
-
-10. Click on the "Open App" button at the top of the page. The [Heroku website]( https://qc-metrics-analyser.herokuapp.com/) is now successfully deployed.
+15. Click on the "Open App" button at the top of the page. Your [Heroku website]( https://elementsofhealing.herokuapp.com/) is now successfully deployed.
 
 
 ## Credits
@@ -187,7 +220,6 @@ The content of this site was written by myself.
 ### Media
 
 Images were obtained from:
-- [Vecteezy](https://www.vecteezy.com/)
 - [iconsplace](https://iconsplace.com/)
 - [iconfinder](https://www.iconfinder.com/)
 - [wikipedia](https://en.wikipedia.org/)
@@ -202,7 +234,7 @@ The color scheme was designed by myself. It is inspired by nature and uses a lot
 
 - The project is inspired by my passion for homeopathy and holistic medicine. I hope to use this site to restart my Homeopathy practice to help support people during these difficult times.
 
-- Special thanks to my Code Institute Mentor [Simen Daehlin](https://github.com/eventyret) for his coding expertise, patience and generosity with his time.
+- The shopping cart is largely based on the codeinstitute Boutique Ado django project and was modified by myself for the purposes of this site.
 
 
 
@@ -230,106 +262,3 @@ In addition the website records the following related run information:
 1. **Sequencing Chemistry** - The type of chemistry used can be Mid150, Mid300 or High300. This effects the amount of sequencing that can be performed and therefore the expected yield.
 
 2. **Sequencing Experiment** - The type of experiment performed can be Capture, Exome or Genome. This determines the amount of sequencing required and effects the type of chemistry used and therefore the expected yield.
-
-Welcome Thomas,
-
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
-
-## Gitpod Reminders
-
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
-
-`python3 -m http.server`
-
-A blue button should appear to click: *Make Public*,
-
-Another blue button should appear to click: *Open Browser*.
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A blue button should appear to click: *Make Public*,
-
-Another blue button should appear to click: *Open Browser*.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
-
-## Updates Since The Instructional Video
-
-We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
---------
-
-Happy coding!
-
-
-## Deployment
-
-## How to Deploy Project Using Gitpod
-
-1. Navigate to the github repository located at https://github.com/TAHJones/homeopathy.
-
-2. Create a Gitpod workspace using one of the following methods:
-
-- Prefix the github repository URL in the address bar of your browser with https://gitpod.io/# e.g. https://gitpod.io/#https://github.com/TAHJones/homeopathy.
-
-- If you have installed the Gitpod [extension](https://www.gitpod.io/docs/browser-extension/) for Chrome or Firefox click on the green 'Gitpod' button located on the top right of the github repository homepage.
-
-3. If using Gitpod for the first time, you will have to authorize access to your GitHub account. This is necessary so you can access your data from within Gitpod.
-
-4. Gitpod will create a workspace container for you in the cloud, containing a full Linux system. It will also clone the GitHub repository branch based on the GitHub page you were coming from.
-
-## How to Create a Django Project
-
-1. Click `Select Python interpreter` in the blue bar at the bottom of the page then select `Python 3.7.4 64-bit ('3.8.2': pyenv)` from the dropdown menu.
-
-2. Open a terminal and run the following command to install the django framework:
-```
-pip3 install django
-```
-
-3. In the terminal run the following command to create a new project:
-```
-django-admin startproject your-project-name
-```
-
-4. To confirm the project has been installed correctly, navigate to the project folder and run the following command:
-```
-python3 manage.py runserver
-```
-5. Click `Open Browser` in the pop up window. The default Django page should appear with the message `The install worked successfully! Congratulations!`.
-
-## How to Create a Django App
-
-1. To create a new app in your Django project run the following command:
-```
-python3 manage.py startapp your-app-name
-```
-
-2. In the project folder open `settings.py` and add the new app to the `INSTALLED_APPS` list:
-```
-INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'your-app-name'
-]
-```
-
-
-
-pip3 install django
-
-django-admin startproject homeopathy
-
-python3 manage.py startapp homeopathy
