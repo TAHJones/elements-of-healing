@@ -78,11 +78,8 @@ def get_date(req_day):
 def prev_month(d):
     """ Gets previous month using datetime & timedelta & converts to url string query """
     first = d.replace(day=1)
-    print(first)
     prev_month = first - timedelta(days=1)
-    print(prev_month)
     month = 'month=' + str(prev_month.year) + '-' + str(prev_month.month)
-    print(month)
     return month
 
 
