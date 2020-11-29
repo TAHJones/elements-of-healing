@@ -122,7 +122,7 @@ def confirmAppointment(request, appointment_details_id):
     messages.success(request, f'Appointment for {name} has been confirmed')
 
     context = {
-        'appointment': appointment,
+        'appointment_details': appointment,
     }
 
     return render(request, 'appointments/appointment_details.html', context)
