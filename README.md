@@ -75,7 +75,8 @@
 - [bootstrap-datepicker](https://getdatepicker.com/4/Installing/)
 - [dj_database_url](https://pypi.org/project/psycopg2-binary/)
 - [psycopg2-binary](https://pypi.org/project/dj-database-url/)
-
+- [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
+- [django-storages](https://django-storages.readthedocs.io/en/latest/)
 ## Testing
 
 ### Testing Stories
