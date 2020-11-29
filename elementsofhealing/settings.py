@@ -24,6 +24,7 @@ ALLAUTH_DIR = os.path.join(BASE_DIR, "templates", "allauth")
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# SECRET_KEY = 'tb(@v8v)8e5gqj%u%4f)k)ib7=4uk(-oe)&1=_5+$^994wo!1p'
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 
