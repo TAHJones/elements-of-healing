@@ -1,1 +1,1 @@
-web: gunicorn elements-of-healing.wsgi:application
+web: gunicorn elementsofhealing.wsgi:application
