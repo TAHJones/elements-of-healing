@@ -205,6 +205,9 @@ AWS_SECRET_ACCESS_KEY | `<your_secret_key>`
 DATABASE_URL | `postgres://your_projects_database_url`
 SECRET_KEY | `<your_secret_key>`
 USE_AWS | True
+STRIPE_PUBLIC_KEY | `<your_public_key>`
+STRIPE_SECRET_KEY | `<your_secret_key>`
+STRIPE_WH_SECRET | `<your_secret_key>`
 
 14. In the heroku dashboard, click "Deploy".
 
