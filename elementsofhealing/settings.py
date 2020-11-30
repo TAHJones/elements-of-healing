@@ -24,13 +24,11 @@ ALLAUTH_DIR = os.path.join(BASE_DIR, "templates", "allauth")
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'tb(@v8v)8e5gqj%u%4f)k)ib7=4uk(-oe)&1=_5+$^994wo!1p'
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
-# DEBUG = True
 
 
 ALLOWED_HOSTS = ['elementsofhealing.herokuapp.com', 'localhost']
@@ -175,7 +173,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -185,10 +183,10 @@ CRIPSY_TEMPLATE_PACK = 'bootstrap4'
 
 if 'USE_AWS' in os.environ:
     # Cache control
-    # AWS_S3_OBJECT_PARAMETERS = {
-    #     'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
-    #     'CacheControl': 'max-age=94608000',
-    # }
+    AWS_S3_OBJECT_PARAMETERS = {
+        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+        'CacheControl': 'max-age=94608000',
+    }
 
     # Bucket Config
     AWS_STORAGE_BUCKET_NAME = 'elementsofhealing'
