@@ -9,6 +9,7 @@ import calendar
     https://medium.com/@unionproject88/django-and-python-calendar-e647a8eccff6
     https://www.geeksforgeeks.org/python-calendar-module/ """
 
+
 class Calendar(HTMLCalendar):
     """ Constructs a monthly calendar and populates with appointments """
     def __init__(self, year=None, month=None):
