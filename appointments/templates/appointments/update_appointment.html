@@ -41,12 +41,10 @@ $(function(){
     let month = d.getMonth();
     let day = d.getDate();
     let year = d.getFullYear();
-    // let maximumDate = 0;
 
     $('#datePicker').datetimepicker({
         format: 'DD/MM/YYYY',
         minDate: d,
-        // maxDate: maximumDate,
         daysOfWeekDisabled: [0, 6],
         locale: 'en',
         debug: true,
