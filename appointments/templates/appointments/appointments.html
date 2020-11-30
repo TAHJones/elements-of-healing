@@ -41,31 +41,10 @@ $(function(){
     let month = d.getMonth();
     let day = d.getDate();
     let year = d.getFullYear();
-    // let maximumDate = 0;
-
-    // function getMaximumDate(currentMonth) {
-        //     if(currentMonth == 10) {
-            //         maximumDate = 1;
-    //     } else if (currentMonth == 11) {
-        //         maximumDate = 2;
-    //     } else if (currentMonth == 12) {
-        //         maximumDate = 2;
-    //     } else {
-        //         maximumDate = currentMonth + 3;
-    //     }
-    //     return maximumDate;
-    // }
-    // maximumDate = new Date(year, getMaximumDate(month), day)
-    // console.log(maximumDate);
-    // console.log(month);
-    // console.log(day);
-    // console.log(year);
-    // console.log(getMaximumDate(month));
 
     $('#datePicker').datetimepicker({
         format: 'DD/MM/YYYY',
         minDate: d,
-        // maxDate: maximumDate,
         daysOfWeekDisabled: [0, 6],
         locale: 'en',
         debug: true,
