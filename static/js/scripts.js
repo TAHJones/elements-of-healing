@@ -25,13 +25,13 @@ const closeToastBg = document.querySelector(".close");
 
 function responsiveTitle() {
     let title = document.getElementById("title");
-    let bannerImg = document.getElementById("bannerImg");
+    // let bannerImg = document.getElementById("bannerImg");
     if(window.innerWidth < 576) {
         title.textContent = "Thomas Jones - Homeopath";
-        bannerImg.src = "/media/homeopathy-montage--small.png";
+        // bannerImg.src = "/media/homeopathy-montage--small.png";
     } else {
         title.textContent = "Thomas Jones BSc LCHE - Classical Homeopath";
-        bannerImg.src = "/media/homeopathy-montage--large.png";
+        // bannerImg.src = "/media/homeopathy-montage--large.png";
     }
 }
 
