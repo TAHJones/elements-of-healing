@@ -4,10 +4,14 @@ from django.http import HttpResponse
 from django.template.loader import render_to_string
 from django.conf import settings
 from django.contrib import messages
+from datetime import datetime
 from .forms import ContactForm
+from .models import Contact
 
 
 def contact(request):
+    contacts = list(Contact.objects.all().values())
+    print(contacts)
     if request.method == 'GET':
         form = ContactForm()
     else:
@@ -16,8 +20,9 @@ def contact(request):
             name = form.cleaned_data['name']
             cust_email = form.cleaned_data['email']
             message = form.cleaned_data['message']
+            date = datetime.today().year
+            print(date)
             host_email = settings.DEFAULT_FROM_EMAIL
-            # email_to = settings.EMAIL_HOST_USER
             email = {
                 'name': name,
                 'cust_email': cust_email,
