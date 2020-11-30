@@ -27,6 +27,9 @@ ALLAUTH_DIR = os.path.join(BASE_DIR, "templates", "allauth")
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 
+# SECRET_KEY = 'tb(@v8v)8e5gqj%u%4f)k)ib7=4uk(-oe)&1=_5+$^994wo!1p'
+# DEBUG = True
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
 
@@ -226,3 +229,20 @@ else:
     EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
     DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+
+
+# LOGGING = {
+#    'version': 1,
+#    'disable_existing_loggers': False,
+#    'handlers': {
+#        'console': {
+#            'class': 'logging.StreamHandler',
+#        },
+#    }, 
+#    'loggers': {
+#        'django': {
+#             'handlers': ['console'],
+#             'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
+#        },
+#    },
+# }
