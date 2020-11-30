@@ -315,7 +315,7 @@
             height: 40px;
         }
     }
-    #responsiveCards {
+    .responsive-cards {
         > .card-body {
             padding: f.rem-calc(30);
             height: 500px;
@@ -379,7 +379,7 @@
     .nav-item > .nav-link {
         font-size: f.rem-calc(v.$link-font-size-large);
     }
-    #responsiveCards {
+    .responsive-cards {
         > .card-body {
             height: 570px;
         }

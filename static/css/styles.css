@@ -420,22 +420,22 @@ footer {
   text-shadow: 2px 2px #000;
 }
 
-#responsiveCards .card {
+.responsive-cards .card {
   background-color: rgba(0, 0, 0, 0.6);
   padding: 0.3125rem;
 }
-#responsiveCards .card-img {
+.responsive-cards .card-img {
   margin-bottom: 1.25rem;
 }
-#responsiveCards .card-body {
+.responsive-cards .card-body {
   padding: 1.25rem;
   height: 470px;
 }
-#responsiveCards .card-body > p {
+.responsive-cards .card-body > p {
   color: #76bb85;
   font-size: 0.875rem;
 }
-#responsiveCards .card-body > p > strong {
+.responsive-cards .card-body > p > strong {
   color: #d0ac3d;
 }
 
@@ -627,39 +627,6 @@ footer {
 }
 
 /* BOOTSTRAP-TOASTS-END */
-/* APPOINTMENTS-FORM */
-.appointments-form > .control-group:nth-of-type(4) {
-  margin-top: 20px;
-}
-
-.appointments-form > .control-group:nth-of-type(4),
-.appointments-form > .control-group:nth-of-type(5) {
-  margin-bottom: 15px;
-}
-
-.bootstrap-datetimepicker-widget.dropdown-menu {
-  position: absolute;
-  left: 0;
-  z-index: 1000;
-  display: none;
-  float: left;
-  min-width: 160px;
-  padding: 5px 0;
-  margin: 2px 0 0;
-  font-size: 14px;
-  text-align: left;
-  list-style: none;
-  background-color: #f7f4cb;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  border: 1px solid #ccc;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-}
-
-/* APPOINTMENTS-FORM-END */
 /* MEDIA-QUERIES */
 @media (min-width: 450px) {
   h2, .box-message p {
@@ -1018,11 +985,11 @@ footer {
     height: 40px;
   }
 
-  #responsiveCards > .card-body {
+  .responsive-cards > .card-body {
     padding: 1.875rem;
     height: 500px;
   }
-  #responsiveCards > .card-body > p {
+  .responsive-cards > .card-body > p {
     font-size: 1rem;
   }
 }
@@ -1063,10 +1030,10 @@ footer {
     font-size: 1.25rem;
   }
 
-  #responsiveCards > .card-body {
+  .responsive-cards > .card-body {
     height: 570px;
   }
-  #responsiveCards > .card-body > p {
+  .responsive-cards > .card-body > p {
     font-size: 1.125rem;
   }
 }
