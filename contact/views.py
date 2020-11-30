@@ -5,6 +5,7 @@ from django.template.loader import render_to_string
 from django.conf import settings
 from django.contrib import messages
 from datetime import datetime
+from appointments.utils import convertToDatetime
 from .forms import ContactForm
 from .models import Contact
 
@@ -20,16 +21,17 @@ def contact(request):
             name = form.cleaned_data['name']
             cust_email = form.cleaned_data['email']
             message = form.cleaned_data['message']
-            date = datetime.today().year
+            date = datetime.today()
+            year = datetime.today().year
             for item in contacts:
-                if date - int(item['date'].strftime('%Y-%m-%d')[0:4]) > 1:
+                if year - int(item['date'].strftime('%Y-%m-%d')[0:4]) > 1:
                     Contact(id=item['id']).delete()
 
             Contact(
                 name=name,
                 email=cust_email,
                 message=message,
-                date=datetime.strptime(f'{date}', "%Y")
+                date=date,
             ).save()
 
             host_email = settings.DEFAULT_FROM_EMAIL
