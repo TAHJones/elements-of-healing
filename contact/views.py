@@ -11,7 +11,7 @@ from .models import Contact
 
 def contact(request):
     contacts = list(Contact.objects.all().values())
-    print(contacts)
+    # print(contacts)
     if request.method == 'GET':
         form = ContactForm()
     else:
@@ -21,7 +21,18 @@ def contact(request):
             cust_email = form.cleaned_data['email']
             message = form.cleaned_data['message']
             date = datetime.today().year
-            print(date)
+            # print(date)
+            for item in contacts:
+                if date - item['date'] > 1:
+                    Contact(id=item['id']).delete()
+
+            Contact(
+                name=name,
+                email=cust_email,
+                message=message,
+                date=date,
+            ).save()
+
             host_email = settings.DEFAULT_FROM_EMAIL
             email = {
                 'name': name,
