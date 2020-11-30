@@ -10,8 +10,8 @@ from .models import Contact
 
 
 def contact(request):
+    """ A view to send an email enquires about homeopathic services & information """
     contacts = list(Contact.objects.all().values())
-    # print(contacts)
     if request.method == 'GET':
         form = ContactForm()
     else:
@@ -21,16 +21,15 @@ def contact(request):
             cust_email = form.cleaned_data['email']
             message = form.cleaned_data['message']
             date = datetime.today().year
-            # print(date)
             for item in contacts:
-                if date - item['date'] > 1:
+                if date - int(item['date'].strftime('%Y-%m-%d')[0:4]) > 1:
                     Contact(id=item['id']).delete()
 
             Contact(
                 name=name,
                 email=cust_email,
                 message=message,
-                date=date,
+                date=datetime.strptime(f'{date}', "%Y")
             ).save()
 
             host_email = settings.DEFAULT_FROM_EMAIL
