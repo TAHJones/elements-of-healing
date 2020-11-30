@@ -9,19 +9,34 @@ const closeToastBg = document.querySelector(".close");
  * Function that uses matchMedia method. It toggles h2 text content if the current window width matches the CSS media query string parameter or not.
  * @param {string} pageWidth - MediaQueryList object representing the results of the specified CSS media query string.
  */
-function responsiveTitle(pageWidth) {
+// function responsiveTitle(pageWidth) {
+//     let title = document.getElementById("title");
+//     let bannerImg = document.getElementById("bannerImg");
+//     if(title != null) {
+//         if(pageWidth.matches) {
+//             title.textContent = "Thomas Jones BSc LCHE - Classical Homeopath";
+//             bannerImg.src = "/media/homeopathy-montage--large.png";
+//         } else {
+//             title.textContent = "Thomas Jones - Homeopath";
+//             bannerImg.src = "/media/homeopathy-montage--small.png";
+//         }
+//     }
+// }
+
+function responsiveTitle() {
     let title = document.getElementById("title");
     let bannerImg = document.getElementById("bannerImg");
-    if(title != null) {
-        if(pageWidth.matches) {
-            title.textContent = "Thomas Jones BSc LCHE - Classical Homeopath";
-            bannerImg.src = "/media/homeopathy-montage--large.png";
-        } else {
-            title.textContent = "Thomas Jones - Homeopath";
-            bannerImg.src = "/media/homeopathy-montage--small.png";
-        }
+    if(window.innerWidth < 576) {
+        title.textContent = "Thomas Jones - Homeopath";
+        bannerImg.src = "/media/homeopathy-montage--small.png";
+    } else {
+        title.textContent = "Thomas Jones BSc LCHE - Classical Homeopath";
+        bannerImg.src = "/media/homeopathy-montage--large.png";
     }
 }
+
+
+
 
 
 /**
@@ -182,23 +197,23 @@ function showSearchForm() {
  * function for bootstrap custom form validation taken from https://www.w3schools.com/bootstrap4/bootstrap_forms.asp
  * Disable form submissions if there are invalid fields
  *  */ 
-(function() {
-  'use strict';
-  window.addEventListener('load', function() {
-    // Get the forms we want to add validation styles to
-    let forms = document.getElementsByClassName('needs-validation');
-    // Loop over them and prevent submission
-    let validation = Array.prototype.filter.call(forms, function(form) {
-      form.addEventListener('submit', function(event) {
-        if (form.checkValidity() === false) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
-    });
-  }, false);
-})();
+// (function() {
+//   'use strict';
+//   window.addEventListener('load', function() {
+//     // Get the forms we want to add validation styles to
+//     let forms = document.getElementsByClassName('needs-validation');
+//     // Loop over them and prevent submission
+//     let validation = Array.prototype.filter.call(forms, function(form) {
+//       form.addEventListener('submit', function(event) {
+//         if (form.checkValidity() === false) {
+//           event.preventDefault();
+//           event.stopPropagation();
+//         }
+//         form.classList.add('was-validated');
+//       }, false);
+//     });
+//   }, false);
+// })();
 
 // jquery scripts for basket & product_detail pages
 $(document).ready(function(){
@@ -276,7 +291,7 @@ $(document).ready(function(){
 
 
 // eventlisteners
-sm.addListener(responsiveTitle);
+// sm.addListener(responsiveTitle);
 sm.addListener(getCurrentYear);
 window.addEventListener("scroll", scrollingButton, false);
 backToTop.addEventListener("click", topFunction, false);
@@ -285,12 +300,13 @@ window.addEventListener("resize", function() {
     floatButton();
     responsiveCards();
     showSearchForm();
+    responsiveTitle();
 }, false);
 
 
 // function calls
 document.addEventListener("DOMContentLoaded", function() {
-    responsiveTitle(sm);
+    responsiveTitle();
     floatButton();
     responsiveCards();
     showSearchForm();
