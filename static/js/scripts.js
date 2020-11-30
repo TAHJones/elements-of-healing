@@ -11,32 +11,14 @@ const closeToastBg = document.querySelector(".close");
  */
 function responsiveTitle(pageWidth) {
     let title = document.getElementById("title");
-    // let bannerImg = document.getElementById("bannerImg");
     if(title != null) {
         if(pageWidth.matches) {
             title.textContent = "Thomas Jones BSc LCHE - Classical Homeopath";
-            // bannerImg.src = "/media/homeopathy-montage--large.png";
         } else {
             title.textContent = "Thomas Jones - Homeopath";
-            // bannerImg.src = "/media/homeopathy-montage--small.png";
         }
     }
 }
-
-// function responsiveTitle() {
-//     let title = document.getElementById("title");
-//     let bannerImg = document.getElementById("bannerImg");
-//     if(window.innerWidth < 576) {
-//         title.textContent = "Thomas Jones - Homeopath";
-//         bannerImg.src = "/media/homeopathy-montage--small.png";
-//     } else {
-//         title.textContent = "Thomas Jones BSc LCHE - Classical Homeopath";
-//         bannerImg.src = "/media/homeopathy-montage--large.png";
-//     }
-// }
-
-
-
 
 
 /**
@@ -192,28 +174,6 @@ function showSearchForm() {
     }
 }
 
-
-/**
- * function for bootstrap custom form validation taken from https://www.w3schools.com/bootstrap4/bootstrap_forms.asp
- * Disable form submissions if there are invalid fields
- *  */ 
-// (function() {
-//   'use strict';
-//   window.addEventListener('load', function() {
-//     // Get the forms we want to add validation styles to
-//     let forms = document.getElementsByClassName('needs-validation');
-//     // Loop over them and prevent submission
-//     let validation = Array.prototype.filter.call(forms, function(form) {
-//       form.addEventListener('submit', function(event) {
-//         if (form.checkValidity() === false) {
-//           event.preventDefault();
-//           event.stopPropagation();
-//         }
-//         form.classList.add('was-validated');
-//       }, false);
-//     });
-//   }, false);
-// })();
 
 // jquery scripts for basket & product_detail pages
 $(document).ready(function(){
