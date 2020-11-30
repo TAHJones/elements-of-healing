@@ -110,6 +110,10 @@
 
 - Found a security problem with the shopping basket. The appointment form input field is designated as readonly to prevent more than one appointment being entered at a time. However this can be overridden by the client using the developer tools. This was fixed by resetting the appointment quantity to 1 in the checkout view.
 
+- Tested appointment booking / email using the temporary email website `https://temp-mail.org` and my gmail account.
+
+- Tested shopping basket & checkout pages using temporary email website `https://temp-mail.org` and Stripes payment page.
+
 
 ## Deployment
 
