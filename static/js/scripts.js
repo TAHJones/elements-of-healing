@@ -9,31 +9,31 @@ const closeToastBg = document.querySelector(".close");
  * Function that uses matchMedia method. It toggles h2 text content if the current window width matches the CSS media query string parameter or not.
  * @param {string} pageWidth - MediaQueryList object representing the results of the specified CSS media query string.
  */
-// function responsiveTitle(pageWidth) {
-//     let title = document.getElementById("title");
-//     let bannerImg = document.getElementById("bannerImg");
-//     if(title != null) {
-//         if(pageWidth.matches) {
-//             title.textContent = "Thomas Jones BSc LCHE - Classical Homeopath";
-//             bannerImg.src = "/media/homeopathy-montage--large.png";
-//         } else {
-//             title.textContent = "Thomas Jones - Homeopath";
-//             bannerImg.src = "/media/homeopathy-montage--small.png";
-//         }
-//     }
-// }
-
-function responsiveTitle() {
+function responsiveTitle(pageWidth) {
     let title = document.getElementById("title");
     // let bannerImg = document.getElementById("bannerImg");
-    if(window.innerWidth < 576) {
-        title.textContent = "Thomas Jones - Homeopath";
-        // bannerImg.src = "/media/homeopathy-montage--small.png";
-    } else {
-        title.textContent = "Thomas Jones BSc LCHE - Classical Homeopath";
-        // bannerImg.src = "/media/homeopathy-montage--large.png";
+    if(title != null) {
+        if(pageWidth.matches) {
+            title.textContent = "Thomas Jones BSc LCHE - Classical Homeopath";
+            // bannerImg.src = "/media/homeopathy-montage--large.png";
+        } else {
+            title.textContent = "Thomas Jones - Homeopath";
+            // bannerImg.src = "/media/homeopathy-montage--small.png";
+        }
     }
 }
+
+// function responsiveTitle() {
+//     let title = document.getElementById("title");
+//     let bannerImg = document.getElementById("bannerImg");
+//     if(window.innerWidth < 576) {
+//         title.textContent = "Thomas Jones - Homeopath";
+//         bannerImg.src = "/media/homeopathy-montage--small.png";
+//     } else {
+//         title.textContent = "Thomas Jones BSc LCHE - Classical Homeopath";
+//         bannerImg.src = "/media/homeopathy-montage--large.png";
+//     }
+// }
 
 
 
@@ -291,22 +291,22 @@ $(document).ready(function(){
 
 
 // eventlisteners
-// sm.addListener(responsiveTitle);
+sm.addListener(responsiveTitle);
 sm.addListener(getCurrentYear);
 window.addEventListener("scroll", scrollingButton, false);
 backToTop.addEventListener("click", topFunction, false);
 searchFormButton.addEventListener("click", toggleSearchForm, false);
 window.addEventListener("resize", function() {
+    responsiveTitle(sm);
     floatButton();
     responsiveCards();
     showSearchForm();
-    responsiveTitle();
 }, false);
 
 
 // function calls
 document.addEventListener("DOMContentLoaded", function() {
-    responsiveTitle();
+    responsiveTitle(sm);
     floatButton();
     responsiveCards();
     showSearchForm();
