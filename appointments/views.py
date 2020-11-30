@@ -37,7 +37,6 @@ def appointments(request, product_id):
             date = form.cleaned_data['date']
             time = form.cleaned_data['time']
             host_email = settings.DEFAULT_FROM_EMAIL
-            # email_to = settings.EMAIL_HOST_USER
             for item in appointments:
                 if item['date_str'][3:8] == minDate:
                     if int(item['date_str'][0:2]) < int(day):
