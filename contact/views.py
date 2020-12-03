@@ -23,9 +23,9 @@ def contact(request):
             message = form.cleaned_data['message']
             date = datetime.today()
             year = datetime.today().year
-            for item in contacts:
-                if year - item['year'] > 1:
-                    Contact(id=item['id']).delete()
+            # for item in contacts:
+            #     if year - item['year'] > 1:
+            #         Contact(id=item['id']).delete()
 
             Contact(
                 name=name,
