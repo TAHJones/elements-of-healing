@@ -24,7 +24,7 @@ def contact(request):
             date = datetime.today()
             year = datetime.today().year
             for item in contacts:
-                if year - int(item['date'].strftime('%Y-%m-%d')[0:4]) > 1:
+                if year - item['year'] > 1:
                     Contact(id=item['id']).delete()
 
             Contact(
@@ -32,6 +32,7 @@ def contact(request):
                 email=cust_email,
                 message=message,
                 date=date,
+                year=year,
             ).save()
 
             host_email = settings.DEFAULT_FROM_EMAIL
