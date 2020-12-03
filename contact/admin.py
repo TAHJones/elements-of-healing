@@ -8,6 +8,7 @@ class ContactAdmin(admin.ModelAdmin):
         'email',
         'message',
         'date',
+        'year',
     )
 
     ordering = ('date',)
