@@ -13,7 +13,6 @@ from .models import Contact
 def contact(request):
     """ A view to send an email enquires about homeopathic services & information """
     contacts = list(Contact.objects.all().values())
-    print(contacts)
     if request.method == 'GET':
         form = ContactForm()
     else:
@@ -25,11 +24,6 @@ def contact(request):
             date = datetime.today()
             year = datetime.today().year
             for item in contacts:
-                print(int(item['date'].strftime('%Y-%m-%d')[0:4]))
-                print(type(int(item['date'].strftime('%Y-%m-%d')[0:4])))
-                print(year)
-                print(type(year))
-                # print(int(item['date'].strftime('%Y-%m-%d')))
                 if year - int(item['date'].strftime('%Y-%m-%d')[0:4]) > 1:
                     Contact(id=item['id']).delete()
 
