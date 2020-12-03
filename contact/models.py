@@ -6,7 +6,7 @@ class Contact(models.Model):
     name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=50, null=False, blank=False)
     message = models.TextField(max_length=300, null=True, blank=True)
-    date = models.DateTimeField()
-
+    date = models.DateTimeField(default=datetime.today())
+    year = models.IntegerField(default=datetime.today().year)
     def __str__(self):
         return self.name
