@@ -60,7 +60,6 @@ def contact(request):
             return redirect(reverse('contact'))
 
     context = {
-        'banner': True,
         'form': form,
     }
 
