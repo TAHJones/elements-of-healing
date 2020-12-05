@@ -8,5 +8,6 @@ class Contact(models.Model):
     message = models.TextField(max_length=300, null=True, blank=True)
     date = models.DateTimeField()
     year = models.IntegerField()
+
     def __str__(self):
         return self.name
