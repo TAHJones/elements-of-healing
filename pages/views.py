@@ -20,11 +20,3 @@ def about(request):
         'banner': True
     }
     return render(request, "about.html", context)
-
-
-
-def contact(request):
-    context = {
-        'banner': True
-    }
-    return render(request, "contact.html", context)
