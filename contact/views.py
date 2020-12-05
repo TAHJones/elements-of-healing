@@ -59,9 +59,9 @@ def contact(request):
                 return HttpResponse(content=e, status=400)
             return redirect(reverse('contact'))
 
-        context = {
-            'banner': True,
-            'form': form,
-        }
+    context = {
+        'banner': True,
+        'form': form,
+    }
 
     return render(request, 'contact/contact.html', context)
