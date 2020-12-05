@@ -23,9 +23,9 @@ def contact(request):
             message = form.cleaned_data['message']
             date = datetime.today()
             year = datetime.today().year
-            # for item in contacts:
-            #     if year - item['year'] > 1:
-            #         Contact(id=item['id']).delete()
+            for item in contacts:
+                if year - item['year'] > 1:
+                    Contact(id=item['id']).delete()
 
             Contact(
                 name=name,
@@ -58,4 +58,10 @@ def contact(request):
                 messages.error(request, 'Sorry, there was a problem sending your message. Please try again.')
                 return HttpResponse(content=e, status=400)
             return redirect(reverse('contact'))
-    return render(request, 'contact/contact.html', {'form': form})
+
+        context = {
+            'banner': True,
+            'form': form,
+        }
+
+    return render(request, 'contact/contact.html', context)
