@@ -188,7 +188,6 @@ searchFormButton.addEventListener("click", toggleSearchForm, false);
 window.addEventListener("resize", function() {
     responsiveTitle(sm);
     floatButton();
-    responsiveCards();
     showSearchForm();
 }, false);
 
@@ -197,7 +196,6 @@ window.addEventListener("resize", function() {
 document.addEventListener("DOMContentLoaded", function() {
     responsiveTitle(sm);
     floatButton();
-    responsiveCards();
     showSearchForm();
     getCurrentYear(sm);
 }, false);
