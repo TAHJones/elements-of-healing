@@ -5,7 +5,6 @@ from django.template.loader import render_to_string
 from django.conf import settings
 from django.contrib import messages
 from datetime import datetime
-from appointments.utils import convertToDatetime
 from .forms import ContactForm
 from .models import Contact
 
