@@ -29,6 +29,7 @@ def add_to_basket(request, item_id):
         if item_id in list(basket.keys()):
             messages.error(request, 'Error, you already have an appointment booked')
         else:
+            user = appointment_details['user']
             name = appointment_details['name']
             cust_email = appointment_details['cust_email']
             message = appointment_details['message']
@@ -39,6 +40,7 @@ def add_to_basket(request, item_id):
             date = convertToDatetime(date_str)
 
             AppointmentsCalendar(
+                user=user,
                 name=name,
                 email=cust_email,
                 message=message,
