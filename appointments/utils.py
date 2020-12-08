@@ -12,9 +12,10 @@ import calendar
 
 class Calendar(HTMLCalendar):
     """ Constructs a monthly calendar and populates with appointments """
-    def __init__(self, year=None, month=None):
+    def __init__(self, year=None, month=None, user=None):
         self.year = year
         self.month = month
+        self.user = user
         super(Calendar, self).__init__()
 
     # formats a day as a td
@@ -27,8 +28,15 @@ class Calendar(HTMLCalendar):
                 li = '<li class="confirmed">'
             else:
                 li = '<li class="unconfirmed">'
-            listItem = li + f'{appointment.get_html_url}: <span>{appointment.time}</span></li>'
-            d += listItem
+
+            if self.user:
+                if appointment.user == self.user:
+                    listItem = li + f'{appointment.get_html_url}: <span>{appointment.time}</span></li>'
+                    d += listItem
+            else:
+                listItem = li + f'{appointment.get_html_url}: <span>{appointment.time}</span></li>'
+                d += listItem
+
         if day != 0 and d:
             return f'<td class="appointment"><span class="date">{day}</span><ul> {d} </ul></td>'
         elif day != 0:
@@ -47,7 +55,6 @@ class Calendar(HTMLCalendar):
     # filter events by year and month
     def formatmonth(self, withyear=True):
         appointments = AppointmentsCalendar.objects.filter(date__year=self.year, date__month=self.month)
-
         cal = '<table border="0" cellpadding="0" cellspacing="0" class="calendar">\n'
         cal += f'{self.formatmonthname(self.year, self.month, withyear=withyear)}\n'
         cal += f'{self.formatweekheader()}\n'
@@ -96,5 +103,5 @@ def next_month(d):
 def get_footer():
     """ Adds footer section to bottom of calendar table """
     currentYear = datetime.now().date().strftime('%Y')
-    footer = f'</table><footer><div class="footer-copyright"><div id="copyRight">2011 - {currentYear} © Thomas Jones - All Rights Reserved</div></div></footer>'
+    footer = f'</table><footer><div class="footer-copyright"><div id="copyRight">2011 - {currentYear} © Thomas Jones - All Rights Reserved</div></div><div class="footer-nav"><a href="#" id="backToTop" class="back-to-top btn-float active" title="Back to top"><i class="fas fa-chevron-circle-up fa-2x"></i></a></div></footer>'
     return footer
