@@ -16,8 +16,6 @@ def appointments(request, product_id):
     """ A view to request an appointment at a specified date & time """
     appointments = list(AppointmentsCalendar.objects.all().values())
     username = request.user.username
-    print(username)
-    print(type(username))
     email = request.user.email
     if request.method == 'GET':
         form = AppointmentForm(initial={'name': username, 'email': email})
