@@ -15,9 +15,11 @@ from django.contrib.auth.decorators import login_required
 def appointments(request, product_id):
     """ A view to request an appointment at a specified date & time """
     appointments = list(AppointmentsCalendar.objects.all().values())
+    username = request.user.username
+    print(username)
+    print(type(username))
+    email = request.user.email
     if request.method == 'GET':
-        username = request.user.username
-        email = request.user.email
         form = AppointmentForm(initial={'name': username, 'email': email})
     else:
         currentMonth = datetime.now().month
@@ -45,6 +47,7 @@ def appointments(request, product_id):
                         messages.error(request, 'Sorry, that appointment time has already been taken. Please select another time.')
                         return redirect(reverse('appointments', args=[product_id]))
             appointment_details = {
+                'user': username,
                 'name': name,
                 'cust_email': cust_email,
                 'message': message,
@@ -80,9 +83,15 @@ class appointmentCalendar(generic.ListView):
     success_url = reverse_lazy("appointment_calendar")
 
     def get_context_data(self, **kwargs):
+        """ displays calendar of users appointments or all appointments if user is superuser """
         context = super().get_context_data(**kwargs)
         d = get_date(self.request.GET.get('month', None))
-        cal = Calendar(d.year, d.month)
+        if self.request.user.is_superuser:
+            cal = Calendar(d.year, d.month)
+        elif self.request.user.is_authenticated:
+            user = self.request.user.username
+            cal = Calendar(d.year, d.month, user)
+
         html_cal = cal.formatmonth(withyear=True)
         html_cal += get_footer()
         context['calendar'] = mark_safe(html_cal)
