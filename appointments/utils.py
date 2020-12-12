@@ -1,3 +1,4 @@
+from django.shortcuts import get_object_or_404
 from calendar import HTMLCalendar
 from .models import AppointmentsCalendar
 from datetime import datetime, timedelta
@@ -18,42 +19,37 @@ class Calendar(HTMLCalendar):
         self.user = user
         super(Calendar, self).__init__()
 
-    # formats a day as a td
-    # filter events by day
     def formatday(self, day, appointments):
+        """ Formats a day as a td & filters events by day """
         appointments_per_day = appointments.filter(date__day=day)
         d = ''
+        appointmentList = []
         for appointment in appointments_per_day:
-            if appointment.confirmed:
-                li = '<li class="confirmed">'
-            else:
-                li = '<li class="unconfirmed">'
-
             if self.user:
                 if appointment.user == self.user:
-                    listItem = li + f'{appointment.get_html_url}: <span>{appointment.time}</span></li>'
-                    d += listItem
+                    appointmentList.append(getAppointmentDict(appointment))
             else:
-                listItem = li + f'{appointment.get_html_url}: <span>{appointment.time}</span></li>'
-                d += listItem
+                appointmentList.append(getAppointmentDict(appointment))
+
+        for item in sortAppointmentList(appointmentList, 'appointmentTime'):
+            d += item['listItem']
 
         if day != 0 and d:
-            return f'<td class="appointment"><span class="date">{day}</span><ul> {d} </ul></td>'
+            return f'<td class="appointment"><span class="date">{day}</span><ul>{d}</ul></td>'
         elif day != 0:
-            return f"<td><span class='date'>{day}</span><ul> {d} </ul></td>"
+            return f"<td><span class='date'>{day}</span><ul>{d}</ul></td>"
         else:
             return "<td class='no-date'></td>"
 
-    # formats a week as a tr
     def formatweek(self, theweek, appointments):
+        """ Formats a week as a tr """
         week = ''
         for d, weekday in theweek:
             week += self.formatday(d, appointments)
         return f'<tr> {week} </tr>'
 
-    # formats a month as a table
-    # filter events by year and month
     def formatmonth(self, withyear=True):
+        """ Formats a month as a table & filter & events by year and month """
         appointments = AppointmentsCalendar.objects.filter(date__year=self.year, date__month=self.month)
         cal = '<table border="0" cellpadding="0" cellspacing="0" class="calendar">\n'
         cal += f'{self.formatmonthname(self.year, self.month, withyear=withyear)}\n'
@@ -105,3 +101,26 @@ def get_footer():
     currentYear = datetime.now().date().strftime('%Y')
     footer = f'</table><footer><div class="footer-copyright"><div id="copyRight">2011 - {currentYear} © Thomas Jones - All Rights Reserved</div></div><div class="footer-nav"><a href="#" id="backToTop" class="back-to-top btn-float active" title="Back to top"><i class="fas fa-chevron-circle-up fa-2x"></i></a></div></footer>'
     return footer
+
+
+def getAppointmentDict(obj):
+    """ Takes appointments obj & constructs dict of calendar HTML list item & appointment time """
+    if obj.confirmed is True:
+        li = '<li class="confirmed">'
+    else:
+        li = '<li class="unconfirmed">'
+    appointmentTime = int(obj.time[0:2])
+    listItem = li + f'{obj.get_html_url}: <span>{obj.time}</span></li>'
+    appointmentDict = {
+        'appointmentTime': appointmentTime,
+        'listItem': listItem,
+    }
+    return appointmentDict
+
+
+def sortAppointmentList(appointmentList, key):
+    """ Takes list of dicts containing calendar HTML list items & sorts by time """
+    def _sortFunc(appointmentList):
+        return appointmentList[key]
+    appointmentList.sort(key=_sortFunc)
+    return appointmentList
