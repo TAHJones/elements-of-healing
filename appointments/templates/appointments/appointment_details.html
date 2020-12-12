@@ -18,6 +18,7 @@
                     <li><p>Message: <span>{{ appointment_details.message }}</span></p></li>
                     <li><p>Date: <span>{{ appointment_details.date_str }}</span></p></li>
                     <li><p>Time: <span>{{ appointment_details.time }}</span></p></li>
+                    <li><p>Confirmed: <span>{% if appointment_details.confirmed %} Yes {% else %} No {% endif %}</span></p></li>
                 </ul>
             </div>
             <div>
@@ -25,18 +26,22 @@
                     <i class="fas fa-chevron-left"></i>
                     <span>Return</span>
                 </a>
-                <a href="{% url 'confirm_appointment' appointment_details.id %}" class="btn custom-btn bg-success">
-                    <span>Confirm</span>
-                    <i class="fas fa-check-circle"></i>
-                </a>
-                <a href="{% url 'update_appointment' appointment_details.id %}" class="btn custom-btn bg-warning">
-                    <span>Update</span>
-                    <i class="fas fa-edit"></i>
-                </a>
-                <a href="{% url 'delete_appointment' appointment_details.id %}" class="btn custom-btn bg-danger">
-                    <span>Delete</span>
-                    <i class="fas fa-trash-alt"></i>
-                </a> 
+                {% if request.user.is_superuser and not appointment_details.confirmed %}
+                    <a href="{% url 'confirm_appointment' appointment_details.id %}" class="btn custom-btn bg-success">
+                        <span>Confirm</span>
+                        <i class="fas fa-check-circle"></i>
+                    </a>
+                {% endif %}
+                {% if request.user.is_superuser %}
+                    <a href="{% url 'update_appointment' appointment_details.id %}" class="btn custom-btn bg-warning">
+                        <span>Update</span>
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a href="{% url 'delete_appointment' appointment_details.id %}" class="btn custom-btn bg-danger">
+                        <span>Delete</span>
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                {% endif %}
             </div>
         </div>
     </div>
