@@ -22,6 +22,7 @@ def appointments(request, product_id):
     else:
         currentMonth = datetime.now().month
         currentYear = datetime.now().date().strftime('%y')
+        nextYear = int(currentYear) + 1
         if currentMonth < 3:
             minMonth = currentMonth + 10
         else:
@@ -41,9 +42,28 @@ def appointments(request, product_id):
                 if item['date_str'][3:8] == minDate:
                     if int(item['date_str'][0:2]) < int(day):
                         AppointmentsCalendar(id=item['id']).delete()
-                    elif item['time'] == time and item['date_str'] == date:
-                        messages.error(request, 'Sorry, that appointment time has already been taken. Please select another time.')
-                        return redirect(reverse('appointments', args=[product_id]))
+
+                if item['time'] == time and item['date_str'] == date:
+                    messages.error(request, 'Sorry, that appointment time has already been taken. Please select another time.')
+                    return redirect(reverse('appointments', args=[product_id]))
+                elif item['user'] == username and item['date_str'] == date:
+                    messages.error(request, 'Sorry, you cannot book more than one appointment on the same day')
+                    return redirect(reverse('appointments', args=[product_id]))
+
+            getDate = []
+            for item in date.split('/'):
+                getDate.append(int(item))
+
+            fourDigitYear = getDate[2]
+            year_str = str(fourDigitYear)
+            year_len = len(year_str)
+            year = int(year_str[year_len - 2: year_len])
+            month = getDate[1]
+
+            if year > nextYear or month >= currentMonth and year == nextYear:
+                messages.error(request, 'Sorry, you cannot book an appointment more than a year in advance.')
+                return redirect(reverse('appointments', args=[product_id]))
+
             appointment_details = {
                 'user': username,
                 'name': name,
@@ -101,11 +121,12 @@ class appointmentCalendar(generic.ListView):
 @login_required
 def appointmentDetails(request,  appointment_details_id):
     """ Displays individual calendar appointment details """
-    if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only users with admin privileges can do that.')
+    if not request.user.is_authenticated:
+        messages.error(request, 'Sorry, only registered users are allowed do that.')
         return redirect(reverse('home'))
 
     appointment_details = AppointmentsCalendar.objects.filter(pk=appointment_details_id).values()[0]
+    print(appointment_details)
 
     context = {
         'appointment_details': appointment_details,
@@ -122,10 +143,13 @@ def confirmAppointment(request, appointment_details_id):
         return redirect(reverse('home'))
 
     appointment_details = AppointmentsCalendar.objects.filter(pk=appointment_details_id)
-    appointment_details.update(confirmed=True)
+    # print(appointment_details.values())
     appointment = appointment_details.values()[0]
-    name = appointment['name']
-    messages.success(request, f'Appointment for {name} has been confirmed')
+    print(appointment)
+    user = appointment['user']
+    # if request.user.username
+    appointment_details.update(confirmed=True)
+    messages.success(request, f'Appointment for {user} has been confirmed')
 
     context = {
         'appointment_details': appointment,
