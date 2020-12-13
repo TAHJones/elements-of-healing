@@ -37,31 +37,30 @@
 
 $(function(){
 
-    let d = new Date();
-    let month = d.getMonth();
-    let day = d.getDate();
-    let year = d.getFullYear();
+    let jsData = JSON.parse("{{ jsData | escapejs }}");
+    let month = parseInt(jsData.month);
+    let day = parseInt(jsData.day);
+    let year = parseInt(jsData.year);
+    let time = parseInt(jsData.time);
+    let date = jsData.date;
 
     $('#datePicker').datetimepicker({
         format: 'DD/MM/YYYY',
-        minDate: d,
-        daysOfWeekDisabled: [0, 6],
         locale: 'en',
-        debug: true,
+        // debug: true,
         widgetPositioning: {horizontal: 'left', vertical: 'top'},
     });
 
     $('#timePicker').datetimepicker({
-        disabledTimeIntervals: [[moment({ h: 0 }), moment({ h: 9 })], [moment({ h: 17 }), moment({ h: 24 })]],
         format: 'HH:mm',
         locale: 'en',
         stepping: 60,
-        debug: true,
-        disabledDates: ["10:00"],
+        // debug: true,
         widgetPositioning: {horizontal: 'left', vertical: 'top'},
     });
 
-    $('#timePicker').data("DateTimePicker").defaultDate(new Date(year, month, day, 09, 00));
+    $('#datePicker input').val(date);
+    $('#timePicker').data("DateTimePicker").defaultDate(new Date(year, month, day, time, 00));
 });
 
 </script>
