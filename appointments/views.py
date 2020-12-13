@@ -10,6 +10,7 @@ from django.utils.safestring import mark_safe
 from django.views import generic
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
+from json import dumps
 
 
 def appointments(request, product_id):
@@ -76,7 +77,10 @@ def appointments(request, product_id):
             request.session['appointment_id'] = product_id
             request.session['appointment_details'] = appointment_details
             return redirect(reverse('purchase_appointment'))
-    return render(request, 'appointments/appointments.html', {'form': form})
+    context = {
+        'form': form
+    }
+    return render(request, 'appointments/appointments.html', context)
 
 
 def purchaseAppointment(request):
@@ -143,11 +147,8 @@ def confirmAppointment(request, appointment_details_id):
         return redirect(reverse('home'))
 
     appointment_details = AppointmentsCalendar.objects.filter(pk=appointment_details_id)
-    # print(appointment_details.values())
     appointment = appointment_details.values()[0]
-    print(appointment)
     user = appointment['user']
-    # if request.user.username
     appointment_details.update(confirmed=True)
     messages.success(request, f'Appointment for {user} has been confirmed')
 
@@ -163,17 +164,19 @@ def updateAppointment(request, appointment_details_id):
     """ Allows superuser to update individual calendar appointment details """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only users with admin privileges can do that.')
-        return redirect(reverse('home'))
-
+        return redirect(reverse('appointment_calendar'))
     appointment_details = AppointmentsCalendar.objects.filter(pk=appointment_details_id)
+    allAppointments = list(AppointmentsCalendar.objects.all().values())
+    appointment = appointment_details.values()[0]
+    user = appointment['user']
+    date_str = appointment['date_str']
     if request.method == 'GET':
-        appointment = appointment_details.values()[0]
-        name = appointment['name']
         email = appointment['email']
         message = appointment['message']
-        date_str = appointment['date_str']
         time = appointment['time']
-        form = AppointmentForm(initial={'name': name, 'email': email, 'message': message, 'date_str': date_str, 'time': time})
+        form = AppointmentForm(initial={'name': user, 'email': email, 'message': message})
+        dateTime = {'day': date_str[0:2], 'month': date_str[3:5], 'year': date_str[6:10], 'time': time[0:2], 'date': date_str}
+        jsData = dumps(dateTime)
     else:
         form = AppointmentForm(request.POST)
         appointment = {}
@@ -184,10 +187,25 @@ def updateAppointment(request, appointment_details_id):
             appointment['date_str'] = form.cleaned_data['date']
             appointment['date'] = convertToDatetime(appointment['date_str'])
             appointment['time'] = form.cleaned_data['time']
+            for item in allAppointments:
+                if item['time'] == appointment['time'] and item['date_str'] == appointment['date_str']:
+                    messages.error(request, 'Sorry, that appointment time has already been taken. Please select another time.')
+                    return redirect(reverse('appointment_details', args=[appointment_details_id]))
+                elif item['user'] == user and item['date_str'] == appointment['date_str']:
+                    if appointment['date_str'] !=  date_str:
+                        messages.error(request, 'Sorry, you cannot book more than one appointment per user on the same day')
+                        return redirect(reverse('appointment_details', args=[appointment_details_id]))
             messages.success(request, 'The selected appointment details have been updated.')
             appointment_details.update(**appointment)
+            return redirect(reverse('appointment_details', args=[appointment_details_id]))
         return redirect(reverse('appointment_details', args=[appointment_details_id]))
-    return render(request, 'appointments/update_appointment.html', {'form': form})
+
+    context = {
+        'jsData': jsData,
+        'form': form
+    }
+
+    return render(request, 'appointments/update_appointment.html', context)
 
 
 @login_required
