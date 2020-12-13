@@ -1,4 +1,3 @@
-from django.shortcuts import get_object_or_404
 from calendar import HTMLCalendar
 from .models import AppointmentsCalendar
 from datetime import datetime, timedelta
