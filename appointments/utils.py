@@ -58,13 +58,19 @@ class Calendar(HTMLCalendar):
         return cal
 
 
-def convertToDatetime(date):
+def convertToDatetime(date, time):
     """ Converts previous or next month date from GET request into datetime object """
     getDate = []
-    if date:
+    getTime = []
+    if date and time:
         for item in date.split('/'):
             getDate.append(int(item))
-        convertDate = datetime(getDate[2], getDate[1], getDate[0])
+
+        for item in time.split(':'):
+            getTime.append(int(item))
+        print(getTime[0])
+        print(getTime[1])
+        convertDate = datetime(getDate[2], getDate[1], getDate[0], getTime[0], getTime[1])
     else:
         convertDate = datetime.today()
     return convertDate
