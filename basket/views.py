@@ -37,7 +37,7 @@ def add_to_basket(request, item_id):
             time = appointment_details['time']
             host_email = appointment_details['host_email']
 
-            date = convertToDatetime(date_str)
+            date = convertToDatetime(date_str, time)
 
             AppointmentsCalendar(
                 user=user,
