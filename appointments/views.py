@@ -3,6 +3,7 @@ from django.conf import settings
 from django.contrib import messages
 from .forms import AppointmentForm
 from appointments.models import AppointmentsCalendar
+from appointments.googleCalendar import addGoogleCalendarEvent
 from products.models import Product
 from .utils import Calendar, convertToDatetime, get_date, prev_month, next_month, get_footer
 from datetime import datetime
@@ -38,6 +39,7 @@ def appointments(request, product_id):
             message = form.cleaned_data['message']
             date = form.cleaned_data['date']
             time = form.cleaned_data['time']
+            print(time)
             host_email = settings.DEFAULT_FROM_EMAIL
             for item in appointments:
                 if item['date_str'][3:8] == minDate:
@@ -130,7 +132,6 @@ def appointmentDetails(request,  appointment_details_id):
         return redirect(reverse('home'))
 
     appointment_details = AppointmentsCalendar.objects.filter(pk=appointment_details_id).values()[0]
-    print(appointment_details)
 
     context = {
         'appointment_details': appointment_details,
@@ -150,6 +151,8 @@ def confirmAppointment(request, appointment_details_id):
     appointment = appointment_details.values()[0]
     user = appointment['user']
     appointment_details.update(confirmed=True)
+    startTime = convertToDatetime(appointment['date_str'], appointment['time'])
+    addGoogleCalendarEvent(startTime, appointment['user'], appointment['message'])
     messages.success(request, f'Appointment for {user} has been confirmed')
 
     context = {
@@ -185,7 +188,7 @@ def updateAppointment(request, appointment_details_id):
             appointment['email'] = form.cleaned_data['email']
             appointment['message'] = form.cleaned_data['message']
             appointment['date_str'] = form.cleaned_data['date']
-            appointment['date'] = convertToDatetime(appointment['date_str'])
+            appointment['date'] = convertToDatetime(appointment['date_str'], appointment['time'])
             appointment['time'] = form.cleaned_data['time']
             for item in allAppointments:
                 if item['time'] == appointment['time'] and item['date_str'] == appointment['date_str']:
