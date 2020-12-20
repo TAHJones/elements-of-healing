@@ -3,7 +3,7 @@ from django.conf import settings
 from django.contrib import messages
 from .forms import AppointmentForm
 from appointments.models import AppointmentsCalendar
-from appointments.googleCalendar import addGoogleCalendarEvent
+from appointments.googleCalendar import addGoogleCalendarEvent, updateGoogleCalendarEvent, deleteGoogleCalendarEvent
 from products.models import Product
 from .utils import Calendar, convertToDatetime, get_date, prev_month, next_month, get_footer
 from datetime import datetime
@@ -39,7 +39,6 @@ def appointments(request, product_id):
             message = form.cleaned_data['message']
             date = form.cleaned_data['date']
             time = form.cleaned_data['time']
-            print(time)
             host_email = settings.DEFAULT_FROM_EMAIL
             for item in appointments:
                 if item['date_str'][3:8] == minDate:
@@ -144,16 +143,21 @@ def appointmentDetails(request,  appointment_details_id):
 def confirmAppointment(request, appointment_details_id):
     """ Allows superuser to confirms individual calendar appointment details """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only users with admin privileges can do that.')
+        messages.error(request, 'Sorry, only users with admin privileges can confirm appointments.')
         return redirect(reverse('home'))
 
     appointment_details = AppointmentsCalendar.objects.filter(pk=appointment_details_id)
     appointment = appointment_details.values()[0]
+    if appointment['confirmed']:
+        messages.error(request, 'The selected appointment has already been confirmed.')
+        return redirect(reverse('appointment_details'))
+
     user = appointment['user']
-    appointment_details.update(confirmed=True)
     startTime = convertToDatetime(appointment['date_str'], appointment['time'])
-    addGoogleCalendarEvent(startTime, appointment['user'], appointment['message'])
-    messages.success(request, f'Appointment for {user} has been confirmed')
+    googleCalendarEvent = addGoogleCalendarEvent(startTime, appointment['user'], appointment['email'], appointment['message'])
+    appointment_details.update(confirmed=True, eventId=googleCalendarEvent['id'])
+    appointment = appointment_details.values()[0]
+    messages.success(request, f'Appointment for {user} has been confirmed & added to your Google Calendar')
 
     context = {
         'appointment_details': appointment,
@@ -166,11 +170,12 @@ def confirmAppointment(request, appointment_details_id):
 def updateAppointment(request, appointment_details_id):
     """ Allows superuser to update individual calendar appointment details """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only users with admin privileges can do that.')
+        messages.error(request, 'Sorry, only users with admin privileges can update appointments.')
         return redirect(reverse('appointment_calendar'))
     appointment_details = AppointmentsCalendar.objects.filter(pk=appointment_details_id)
     allAppointments = list(AppointmentsCalendar.objects.all().values())
     appointment = appointment_details.values()[0]
+    eventId = appointment['eventId']
     user = appointment['user']
     date_str = appointment['date_str']
     if request.method == 'GET':
@@ -198,7 +203,8 @@ def updateAppointment(request, appointment_details_id):
                     if appointment['date_str'] !=  date_str:
                         messages.error(request, 'Sorry, you cannot book more than one appointment per user on the same day')
                         return redirect(reverse('appointment_details', args=[appointment_details_id]))
-            messages.success(request, 'The selected appointment details have been updated.')
+            messages.success(request, 'The selected appointment has been updated.')
+            updateGoogleCalendarEvent(appointment['date'], user, appointment['email'], eventId, appointment['message'])
             appointment_details.update(**appointment)
             return redirect(reverse('appointment_details', args=[appointment_details_id]))
         return redirect(reverse('appointment_details', args=[appointment_details_id]))
@@ -214,17 +220,19 @@ def updateAppointment(request, appointment_details_id):
 @login_required
 def deleteAppointment(request,  appointment_details_id):
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only users with admin privileges can do that.')
+        messages.error(request, 'Sorry, only users with admin privileges can delete appointments.')
         return redirect(reverse('home'))
 
     """ Allows superuser to delete individual calendar appointment """
-    appointment = AppointmentsCalendar.objects.filter(pk=appointment_details_id)
-    appointment_details = appointment.values()[0]
-    appointment.delete()
-    messages.success(request, 'The selected appointment details have been deleted.')
+    appointment_details = AppointmentsCalendar.objects.filter(pk=appointment_details_id)
+    appointment = appointment_details.values()[0]
+    eventId = appointment['eventId']
+    messages.success(request, 'The selected appointment has been deleted from your calendar.')
+    deleteGoogleCalendarEvent(eventId)
+    appointment_details.delete()
 
     context = {
-        'appointment_details': appointment_details,
+        'appointment_details': appointment,
     }
 
-    return render(request, 'appointments/appointment_details.html', context)
+    return render(request, 'appointments/appointment_calendar.html', context)
