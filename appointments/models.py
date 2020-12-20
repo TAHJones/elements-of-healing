@@ -12,6 +12,7 @@ class AppointmentsCalendar(models.Model):
     date_str = models.CharField(max_length=10, null=False, blank=False)
     time = models.CharField(max_length=10, null=False, blank=False)
     confirmed = models.BooleanField(default=False, null=False, blank=False)
+    eventId = models.CharField(max_length=50,  null=True, blank=True)
 
     def __str__(self):
         return self.user
