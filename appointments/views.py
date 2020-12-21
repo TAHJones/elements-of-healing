@@ -151,7 +151,6 @@ def confirmAppointment(request, appointment_details_id):
     if appointment['confirmed']:
         messages.error(request, 'The selected appointment has already been confirmed.')
         return redirect(reverse('appointment_details'))
-
     user = appointment['user']
     startTime = convertToDatetime(appointment['date_str'], appointment['time'])
     googleCalendarEvent = addGoogleCalendarEvent(startTime, appointment['user'], appointment['email'], appointment['message'])
@@ -176,6 +175,7 @@ def updateAppointment(request, appointment_details_id):
     allAppointments = list(AppointmentsCalendar.objects.all().values())
     appointment = appointment_details.values()[0]
     eventId = appointment['eventId']
+    confirmed = appointment['confirmed']
     user = appointment['user']
     date_str = appointment['date_str']
     if request.method == 'GET':
@@ -193,8 +193,8 @@ def updateAppointment(request, appointment_details_id):
             appointment['email'] = form.cleaned_data['email']
             appointment['message'] = form.cleaned_data['message']
             appointment['date_str'] = form.cleaned_data['date']
-            appointment['date'] = convertToDatetime(appointment['date_str'], appointment['time'])
             appointment['time'] = form.cleaned_data['time']
+            appointment['date'] = convertToDatetime(appointment['date_str'], appointment['time'])
             for item in allAppointments:
                 if item['time'] == appointment['time'] and item['date_str'] == appointment['date_str']:
                     messages.error(request, 'Sorry, that appointment time has already been taken. Please select another time.')
@@ -204,7 +204,8 @@ def updateAppointment(request, appointment_details_id):
                         messages.error(request, 'Sorry, you cannot book more than one appointment per user on the same day')
                         return redirect(reverse('appointment_details', args=[appointment_details_id]))
             messages.success(request, 'The selected appointment has been updated.')
-            updateGoogleCalendarEvent(appointment['date'], user, appointment['email'], eventId, appointment['message'])
+            if confirmed:
+                updateGoogleCalendarEvent(appointment['date'], user, appointment['email'], eventId, appointment['message'])
             appointment_details.update(**appointment)
             return redirect(reverse('appointment_details', args=[appointment_details_id]))
         return redirect(reverse('appointment_details', args=[appointment_details_id]))
@@ -227,12 +228,9 @@ def deleteAppointment(request,  appointment_details_id):
     appointment_details = AppointmentsCalendar.objects.filter(pk=appointment_details_id)
     appointment = appointment_details.values()[0]
     eventId = appointment['eventId']
+    confirmed = appointment['confirmed']
     messages.success(request, 'The selected appointment has been deleted from your calendar.')
-    deleteGoogleCalendarEvent(eventId)
     appointment_details.delete()
-
-    context = {
-        'appointment_details': appointment,
-    }
-
-    return render(request, 'appointments/appointment_calendar.html', context)
+    if confirmed:
+        deleteGoogleCalendarEvent(eventId)
+    return redirect(reverse('products'))
