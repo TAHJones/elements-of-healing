@@ -6,6 +6,8 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from django.conf import settings
 
+calendar_id = settings.DEFAULT_FROM_EMAIL
+
 
 """ Code for working with google calendar api take and modified from the following sources:
     https://gist.github.com/nikhilkumarsingh/8a88be71243afe8d69390749d16c8322
@@ -43,7 +45,6 @@ def getGoogleCalendarService():
 
 
 def addGoogleCalendarEvent(start_time_str, name, email, description=None):
-    calendar_id = settings.DEFAULT_FROM_EMAIL
     start_time = start_time_str
     end_time = start_time + timedelta(hours=1)
 
@@ -116,5 +117,5 @@ def updateGoogleCalendarEvent(start_time_str, name, email, eventId, description=
 
 def deleteGoogleCalendarEvent(eventId):
     service = getGoogleCalendarService()
-    deleteEvent = service.events().delete(calendarId=calendar_id, eventId='eventId').execute()
+    deleteEvent = service.events().delete(calendarId=calendar_id, eventId=eventId).execute()
     return deleteEvent
