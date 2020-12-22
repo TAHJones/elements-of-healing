@@ -16,6 +16,12 @@ from json import dumps
 
 def appointments(request, product_id):
     """ A view to request an appointment at a specified date & time """
+    basket = request.session.get('basket')
+    for item_id in basket.keys():
+        if int(item_id) == 1 or int(item_id) == 2:
+            messages.error(request, 'Error, you already have an appointment in your basket')
+            return redirect(reverse('view_basket'))
+
     appointments = list(AppointmentsCalendar.objects.all().values())
     username = request.user.username
     email = request.user.email
@@ -75,22 +81,22 @@ def appointments(request, product_id):
                 'time': time,
                 'host_email': host_email,
             }
-            request.session['appointment_id'] = product_id
+
             request.session['appointment_details'] = appointment_details
-            return redirect(reverse('purchase_appointment'))
+            return redirect(reverse('purchase_appointment', args=[product_id]))
     context = {
         'form': form
     }
     return render(request, 'appointments/appointments.html', context)
 
 
-def purchaseAppointment(request):
+def purchaseAppointment(request, product_id):
     """ A view to confirm appointment details then add to shopping basket """
     if not request.user.is_authenticated:
         messages.error(request, 'Sorry, only registered users can purchase an appointment.')
-        return redirect(reverse('appointments'))
+        return redirect(reverse('appointments', args=[product_id]))
 
-    appointment = get_object_or_404(Product, pk=request.session['appointment_id'])
+    appointment = get_object_or_404(Product, pk=product_id)
 
     context = {
         'appointment': appointment,
@@ -150,12 +156,18 @@ def confirmAppointment(request, appointment_details_id):
     appointment = appointment_details.values()[0]
     if appointment['confirmed']:
         messages.error(request, 'The selected appointment has already been confirmed.')
-        return redirect(reverse('appointment_details'))
+        return redirect(reverse('appointment_details', args=[appointment_details_id]))
     user = appointment['user']
     startTime = convertToDatetime(appointment['date_str'], appointment['time'])
     googleCalendarEvent = addGoogleCalendarEvent(startTime, appointment['user'], appointment['email'], appointment['message'])
     appointment_details.update(confirmed=True, eventId=googleCalendarEvent['id'])
     appointment = appointment_details.values()[0]
+    appointmentInSession = request.session['appointment_details']
+    if isinstance(appointmentInSession['id'], int):
+        if appointment['time'] == appointmentInSession['time'] and appointment['date_str'] == appointmentInSession['date']:
+            request.session['confirmed'] = appointment['confirmed']
+            if appointment['confirmed']:
+                request.session['eventId'] = appointment['eventId']
     messages.success(request, f'Appointment for {user} has been confirmed & added to your Google Calendar')
 
     context = {
