@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 import calendar
 
 
-""" Code for Calendar take and modified from the following sources:
+""" Code for Calendar taken and modified from the following sources:
     https://www.huiwenteo.com/normal/2018/07/24/django-calendar.html
     https://medium.com/@unionproject88/django-and-python-calendar-e647a8eccff6
     https://www.geeksforgeeks.org/python-calendar-module/ """
