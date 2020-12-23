@@ -16,7 +16,7 @@ from json import dumps
 
 def appointments(request, product_id):
     """ A view to request an appointment at a specified date & time """
-    basket = request.session.get('basket')
+    basket = request.session.get('basket', {})
     for item_id in basket.keys():
         if int(item_id) == 1 or int(item_id) == 2:
             messages.error(request, 'Error, you already have an appointment in your basket')
