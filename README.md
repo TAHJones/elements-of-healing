@@ -106,7 +106,8 @@
 
 - When navigating to the homepage a http 500 internal server error occurred with the following error message `KeyError at /, 'appointment_details'`. This error was traced back to the basket context.py file and was fixed by replacing `appointment_details = request.session['appointment_details]` with `appointment_details = request.session.get('appointment_details', {})`.
 
-- When adding a product to the shopping basket a http 500 internal server error occurred with the following error message `KeyError at /basket/add/22/, 'appointment_details'`. This error was traced back to the add_to_basket view and was fixed by replacing `appointment_details = request.session['appointment_details]` with `appointment_details = request.session.get('appointment_details', {})`.
+- When adding a product to the shopping basket a http 500 internal server error occurred with the following error message `KeyError at /basket/add/22/, 'appointment_details'`. This error was traced back to the add_to_basket view and was fixed by replacing `appointment_de
+tails = request.session['appointment_details]` with `appointment_details = request.session.get('appointment_details', {})`.
 
 - Found a security problem with the shopping basket. The appointment form input field is designated as readonly to prevent more than one appointment being entered at a time. However this can be overridden by the client using the developer tools. This was fixed by resetting the appointment quantity to 1 in the checkout view.
 
@@ -117,6 +118,10 @@
 - Error message when using the contact form  `invalid literal for int() with base 10: '2020-11-30'`. This was fixed by replacing `datetime.today()` with `datetime.today().year` which provided necessary integer value without the need for extra steps which were causing the error above.
 
 - `Server Error (500)` & `ProgrammingError at /contact/` occurs when navigating to contact form after deployment to heroku.This was caused by migration changes not being added to postgres database. These Errors were fixed by adding DATABASE_URL to gitpod environment variables so that migration changes were updated to postgres rather than mysqlite database.
+
+- When an appointment is purchased & an appointment is already in the shopping basket the 'remove' link for that appointment stops working.  The following error `Internal Server Error: "POST /basket/remove/2/ HTTP/1.1" 500 0` is displayed in the terminal. This was fixed by adding a conditional statement to the appointments view and add_to_basket view to check if the basket already contains an appointment. If it does it redirects to the basket page instead of trying to add a new appointment and breaking the link. 
+
+- When an appointment is deleted from the shopping basket, the appointment is still displayed on the calendar. This was fixed by adding the calendar appointment `id number` to the `appointment_details` session variable. This could then be used to delete the appointment from the calendar if the appointment was removed from the basket. Two other session variables, `confirmed` & `eventID` were used to delete the corresponding google calendar event if the appointment was removed from the basket.
 
 
 ## Deployment
