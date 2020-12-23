@@ -17,6 +17,7 @@ calendar_id = settings.DEFAULT_FROM_EMAIL
 
 
 def getGoogleCalendarService():
+    """ links to google calendar api and gets google calendar """
     API_SERVICE_NAME = 'calendar'
     API_VERSION = 'v3'
     CLIENT_SECRET_FILE = 'client_secret.json'
@@ -45,6 +46,7 @@ def getGoogleCalendarService():
 
 
 def addGoogleCalendarEvent(start_time_str, name, email, description=None):
+    """ When appointment is added on site calendar adds corresponding event on google calendar """
     start_time = start_time_str
     end_time = start_time + timedelta(hours=1)
 
@@ -81,6 +83,7 @@ def addGoogleCalendarEvent(start_time_str, name, email, description=None):
 
 
 def updateGoogleCalendarEvent(start_time_str, name, email, eventId, description=None):
+    """ When appointment is updated on site calendar updates corresponding event on google calendar """
     start_time = start_time_str
     end_time = start_time + timedelta(hours=1)
 
@@ -116,6 +119,7 @@ def updateGoogleCalendarEvent(start_time_str, name, email, eventId, description=
 
 
 def deleteGoogleCalendarEvent(eventId):
+    """ When appointment is deleted from site calendar deletes corresponding event from google calendar """
     service = getGoogleCalendarService()
     deleteEvent = service.events().delete(calendarId=calendar_id, eventId=eventId).execute()
     return deleteEvent
