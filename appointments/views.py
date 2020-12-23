@@ -80,6 +80,8 @@ def appointments(request, product_id):
                 'date': date,
                 'time': time,
                 'host_email': host_email,
+                'confirmed': False,
+                'eventId': None,
             }
 
             request.session['appointment_details'] = appointment_details
@@ -165,9 +167,9 @@ def confirmAppointment(request, appointment_details_id):
     appointmentInSession = request.session['appointment_details']
     if appointment['id'] == appointmentInSession['id'] and appointment['user'] == appointmentInSession['user']:
         if appointment['time'] == appointmentInSession['time'] and appointment['date_str'] == appointmentInSession['date']:
-            request.session['confirmed'] = appointment['confirmed']
-            if appointment['confirmed']:
-                request.session['eventId'] = appointment['eventId']
+            appointment_details.session['confirmed'] = appointment['confirmed']
+            if appointment_details['confirmed']:
+                appointment_details.session['eventId'] = appointment['eventId']
     messages.success(request, f'Appointment for {user} has been confirmed & added to your Google Calendar')
 
     context = {
@@ -232,17 +234,18 @@ def updateAppointment(request, appointment_details_id):
 
 @login_required
 def deleteAppointment(request,  appointment_details_id):
+    """ Allows superuser to delete individual calendar appointment """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only users with admin privileges can delete appointments.')
         return redirect(reverse('home'))
 
-    """ Allows superuser to delete individual calendar appointment """
     appointment_details = AppointmentsCalendar.objects.filter(pk=appointment_details_id)
     appointment = appointment_details.values()[0]
     eventId = appointment['eventId']
     confirmed = appointment['confirmed']
     messages.success(request, 'The selected appointment has been deleted from your calendar.')
     appointment_details.delete()
+
     if confirmed:
         deleteGoogleCalendarEvent(eventId)
     return redirect(reverse('products'))
