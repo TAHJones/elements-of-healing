@@ -24,10 +24,11 @@ def add_to_basket(request, item_id):
         potency = request.POST['potency']
 
     basket = request.session.get('basket', {})
-    for item_id in basket.keys():
-        if int(item_id) == 1 or int(item_id) == 2:
-            messages.error(request, 'Error, you already have an appointment in your basket')
-            return redirect(reverse('view_basket'))
+    if int(item_id) == 1 or int(item_id) == 2:
+        for k in basket.keys():
+            if int(k) == 1 or int(k) == 2:
+                messages.error(request, 'Error, you already have an appointment in your basket')
+                return redirect(reverse('view_basket'))
 
     if product.category.friendly_name == "Appointments":
         appointment_details = request.session.get('appointment_details', {})
@@ -39,12 +40,6 @@ def add_to_basket(request, item_id):
         time = appointment_details['time']
         host_email = appointment_details['host_email']
         date = convertToDatetime(date_str, time)
-
-        appointments = list(AppointmentsCalendar.objects.all().values())
-        for item in appointments:
-            if item['time'] == time and item['date_str'] == date_str:
-                messages.error(request, 'Sorry, that appointment time has already been taken. Please select another time.')
-                return redirect(redirect_url)
 
         AppointmentsCalendar(
             user=user,
@@ -133,9 +128,9 @@ def adjust_basket(request, item_id):
 
 def remove_from_basket(request, item_id):
     """Remove the item from the shopping bag"""
-    confirmed = request.session['confirmed']
+    confirmed = request.session['appointment_details']['confirmed']
     if confirmed:
-        eventId = request.session['eventId']
+        eventId = request.session['appointment_details']['eventId']
     try:
         product = get_object_or_404(Product, pk=item_id)
         potency = None
@@ -155,8 +150,8 @@ def remove_from_basket(request, item_id):
                     deleteGoogleCalendarEvent(eventId)
                     AppointmentsCalendar(id=request.session['appointment_details']['id']).delete()
                     messages.success(request, 'Removed appointment from your basket')
-                    request.session['confirmed'] = False
-                    request.session['eventId'] = None
+                    request.session['appointment_details']['confirmed'] = False
+                    request.session['appointment_details']['eventId'] = None
                 elif confirmed is not True:
                     AppointmentsCalendar(id=request.session['appointment_details']['id']).delete()
                     messages.success(request, 'Removed appointment from your basket')
