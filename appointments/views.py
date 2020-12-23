@@ -163,7 +163,7 @@ def confirmAppointment(request, appointment_details_id):
     appointment_details.update(confirmed=True, eventId=googleCalendarEvent['id'])
     appointment = appointment_details.values()[0]
     appointmentInSession = request.session['appointment_details']
-    if isinstance(appointmentInSession['id'], int):
+    if appointment['id'] == appointmentInSession['id'] and appointment['user'] == appointmentInSession['user']:
         if appointment['time'] == appointmentInSession['time'] and appointment['date_str'] == appointmentInSession['date']:
             request.session['confirmed'] = appointment['confirmed']
             if appointment['confirmed']:
