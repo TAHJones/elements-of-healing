@@ -10,7 +10,6 @@ from products.models import Product
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 from basket.contexts import basket_contents
-# from appointments.utils import convertToDatetime
 import stripe
 import json
 
@@ -65,15 +64,8 @@ def checkout(request):
                         item_data = 1 # limit number of appointments to 1
 
                         appointment_details = request.session.get('appointment_details', {})
-                        # user = appointment_details['user']
-                        # name = appointment_details['name']
                         cust_email = appointment_details['cust_email']
-                        # message = appointment_details['message']
-                        # date_str = appointment_details['date']
-                        # time = appointment_details['time']
                         host_email = settings.DEFAULT_FROM_EMAIL
-                        # host_email = appointment_details['host_email']
-                        # date = convertToDatetime(date_str, time)
 
                         filePath = 'appointments/confirmation_emails/'
                         subject = render_to_string(
@@ -86,15 +78,11 @@ def checkout(request):
                             f'{filePath}confirmation_host_email_body.txt',
                             {'email': appointment_details})
 
-                        # body = render_to_string(
-                        #     f'{filePath}confirmation_email_body.txt',
-                        #     {'email': appointment_details})
                         try:
                             # send confirmation message to customer email address
                             send_mail(subject, cust_body, host_email, [cust_email])
                             # send confirmation message to host email address
                             send_mail(subject, host_body, cust_email, [host_email])
-                            # messages.success(request, f'Your appointment request has been received. A confirmation email will be sent to {cust_email}.')
                         except Exception as e:
                             messages.error(request, 'Sorry, there was a problem sending your appointment request. Please try again.')
                             return HttpResponse(content=e, status=400)
