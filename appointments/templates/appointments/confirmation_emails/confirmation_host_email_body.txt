@@ -1,0 +1,14 @@
+Hello Thomas
+
+You have received the following appointment request:
+
+Name: {{ email.name }}
+Email: {{ email.cust_email }}
+Date: {{ email.date }}
+Time: {{ email.time }}
+
+Message: {{ email.message }}
+
+Best wishes,
+
+Elements of Healing

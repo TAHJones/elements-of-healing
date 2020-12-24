@@ -4,11 +4,12 @@ Thank you for the following appointment request:
 
 Name: {{ email.name }}
 Email: {{ email.cust_email }}
-Message: {{ email.message }}
-date: {{ email.date }}
-time: {{ email.time }}
+Date: {{ email.date }}
+Time: {{ email.time }}
 
-I will reply to your enquiry as soon as is possible for me to do so.
+Message: {{ email.message }}
+
+I will confirm your appointment request as soon as is possible for me to do so.
 
 If you have any further questions, feel free to contact me at {{ email.host_email }}.
 

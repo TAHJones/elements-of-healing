@@ -1,1 +1,1 @@
-Elements of Healing: Appointment request received from {{ email.name }}
+Elements of Healing: Appointment request received from {{ email.user }}
