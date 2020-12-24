@@ -164,7 +164,7 @@ def confirmAppointment(request, appointment_details_id):
     googleCalendarEvent = addGoogleCalendarEvent(startTime, appointment['user'], appointment['email'], appointment['message'])
     appointment_details.update(confirmed=True, eventId=googleCalendarEvent['id'])
     appointment = appointment_details.values()[0]
-    appointmentInSession = request.session['appointment_details']
+    appointmentInSession = request.session.get('appointment_details', {})
     if appointment['id'] == appointmentInSession['id'] and appointment['user'] == appointmentInSession['user']:
         if appointment['time'] == appointmentInSession['time'] and appointment['date_str'] == appointmentInSession['date']:
             appointment_details.session['confirmed'] = appointment['confirmed']
