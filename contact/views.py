@@ -20,6 +20,7 @@ def contact(request):
             name = form.cleaned_data['name']
             cust_email = form.cleaned_data['email']
             message = form.cleaned_data['message']
+            host_email = settings.DEFAULT_FROM_EMAIL
             date = datetime.today()
             year = datetime.today().year
             for item in contacts:
@@ -34,25 +35,28 @@ def contact(request):
                 year=year,
             ).save()
 
-            host_email = settings.DEFAULT_FROM_EMAIL
             email = {
                 'name': name,
                 'cust_email': cust_email,
                 'message': message,
                 'host_email': host_email,
+                'date': date,
             }
             subject = render_to_string(
                 'confirmation_emails/confirmation_email_subject.txt',
                 {'email': email})
-            body = render_to_string(
-                'confirmation_emails/confirmation_email_body.txt',
+            cust_body = render_to_string(
+                'confirmation_emails/confirmation_cust_email_body.txt',
+                {'email': email})
+            host_body = render_to_string(
+                'confirmation_emails/confirmation_host_email_body.txt',
                 {'email': email})
             try:
-                # forward message from customer to host email address
-                send_mail(name, message, cust_email, [host_email])
+                # send confirmation message to customer email address
+                send_mail(subject, cust_body, host_email, [cust_email])
+                # send confirmation message to host email address
+                send_mail(subject, host_body, cust_email, [host_email])
                 messages.success(request, f'Your message has been received! A confirmation email will be sent to {cust_email}.')
-                # send confirmation message from host to customer email address
-                send_mail(subject, body, host_email, [cust_email])
             except Exception as e:
                 messages.error(request, 'Sorry, there was a problem sending your message. Please try again.')
                 return HttpResponse(content=e, status=400)
