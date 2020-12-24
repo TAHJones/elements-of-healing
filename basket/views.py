@@ -1,7 +1,5 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 from django.contrib import messages
-# from django.template.loader import render_to_string
-# from django.core.mail import send_mail
 from products.models import Product
 from appointments.models import AppointmentsCalendar
 from appointments.utils import convertToDatetime
@@ -32,6 +30,7 @@ def add_to_basket(request, item_id):
 
     if product.category.friendly_name == "Appointments":
         basket[item_id] = quantity
+        messages.success(request, f'Your appointment request has been added to your shopping basket.')
 
         appointment_details = request.session.get('appointment_details', {})
         user = appointment_details['user']
