@@ -18,18 +18,20 @@ class StripeWH_Handler:
 
     def _send_confirmation_email(self, order):
         """Send the user a confirmation email"""
+        filePath = 'checkout/confirmation_emails/'
         cust_email = order.email
+        host_email = settings.DEFAULT_FROM_EMAIL
         subject = render_to_string(
-            'confirmation_emails/confirmation_email_subject.txt',
+            f'{filePath}confirmation_email_subject.txt',
             {'order': order})
         body = render_to_string(
-            'confirmation_emails/confirmation_email_body.txt',
-            {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+            f'{filePath}confirmation_email_body.txt',
+            {'order': order, 'host_email': host_email})
 
         send_mail(
             subject,
             body,
-            settings.DEFAULT_FROM_EMAIL,
+            host_email,
             [cust_email]
         )
 
