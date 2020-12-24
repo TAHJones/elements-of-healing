@@ -9,9 +9,7 @@ Order Total: £{{ order.order_total }}
 Delivery: £{{ order.delivery_cost }}
 Grand Total: £{{ order.grand_total }}
 
-{{ order.lineitems }}
-
-The order need to be delivered to {{ order.street_address1 }} in {{ order.town_or_city }}, {{ order.country }}.
+The order needs to be delivered to {{ order.street_address1 }} in {{ order.town_or_city }}, {{ order.country }}.
 
 The contact number on file is {{ order.phone_number }}.
 
