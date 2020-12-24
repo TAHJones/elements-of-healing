@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.views.decorators.http import require_POST
 from django.contrib import messages
+from django.template.loader import render_to_string
+from django.core.mail import send_mail
 from django.conf import settings
 from .forms import OrderForm
 from .models import Order, OrderLineItem
@@ -8,6 +10,7 @@ from products.models import Product
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 from basket.contexts import basket_contents
+# from appointments.utils import convertToDatetime
 import stripe
 import json
 
@@ -35,6 +38,7 @@ def checkout(request):
 
     if request.method == 'POST':
         basket = request.session.get('basket', {})
+        print(basket)
 
         form_data = {
             'full_name': request.POST['full_name'],
@@ -58,7 +62,43 @@ def checkout(request):
                 try:
                     product = Product.objects.get(id=item_id)
                     if product.category.friendly_name == "Appointments":
-                        item_data = 1
+                        item_data = 1 # limit number of appointments to 1
+
+                        appointment_details = request.session.get('appointment_details', {})
+                        # user = appointment_details['user']
+                        # name = appointment_details['name']
+                        cust_email = appointment_details['cust_email']
+                        # message = appointment_details['message']
+                        # date_str = appointment_details['date']
+                        # time = appointment_details['time']
+                        host_email = settings.DEFAULT_FROM_EMAIL
+                        # host_email = appointment_details['host_email']
+                        # date = convertToDatetime(date_str, time)
+
+                        filePath = 'appointments/confirmation_emails/'
+                        subject = render_to_string(
+                            f'{filePath}confirmation_email_subject.txt',
+                            {'email': appointment_details})
+                        cust_body = render_to_string(
+                            f'{filePath}confirmation_cust_email_body.txt',
+                            {'email': appointment_details})
+                        host_body = render_to_string(
+                            f'{filePath}confirmation_host_email_body.txt',
+                            {'email': appointment_details})
+
+                        # body = render_to_string(
+                        #     f'{filePath}confirmation_email_body.txt',
+                        #     {'email': appointment_details})
+                        try:
+                            # send confirmation message to customer email address
+                            send_mail(subject, cust_body, host_email, [cust_email])
+                            # send confirmation message to host email address
+                            send_mail(subject, host_body, cust_email, [host_email])
+                            messages.success(request, f'Your appointment request has been received. A confirmation email will be sent to {cust_email}.')
+                        except Exception as e:
+                            messages.error(request, 'Sorry, there was a problem sending your appointment request. Please try again.')
+                            return HttpResponse(content=e, status=400)
+
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
                             order=order,

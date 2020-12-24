@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 from django.contrib import messages
-from django.template.loader import render_to_string
-from django.core.mail import send_mail
+# from django.template.loader import render_to_string
+# from django.core.mail import send_mail
 from products.models import Product
 from appointments.models import AppointmentsCalendar
 from appointments.utils import convertToDatetime
@@ -31,6 +31,8 @@ def add_to_basket(request, item_id):
                 return redirect(reverse('view_basket'))
 
     if product.category.friendly_name == "Appointments":
+        basket[item_id] = quantity
+
         appointment_details = request.session.get('appointment_details', {})
         user = appointment_details['user']
         name = appointment_details['name']
@@ -38,7 +40,6 @@ def add_to_basket(request, item_id):
         message = appointment_details['message']
         date_str = appointment_details['date']
         time = appointment_details['time']
-        host_email = appointment_details['host_email']
         date = convertToDatetime(date_str, time)
 
         AppointmentsCalendar(
@@ -56,22 +57,6 @@ def add_to_basket(request, item_id):
             if item['time'] == time and item['date_str'] == date_str:
                 request.session['appointment_details']['id'] = item['id']
 
-        subject = render_to_string(
-            'appointments/confirmation_emails/confirmation_email_subject.txt',
-            {'email': appointment_details})
-        body = render_to_string(
-            'appointments/confirmation_emails/confirmation_email_body.txt',
-            {'email': appointment_details})
-        try:
-            # forward message from customer to host email address
-            basket[item_id] = quantity
-            send_mail(name, message, cust_email, [host_email])
-            messages.success(request, f'Your appointment request has been received. A confirmation email will be sent to {cust_email}.')
-            # send confirmation message from host to customer email address
-            send_mail(subject, body, host_email, [cust_email])
-        except Exception as e:
-            messages.error(request, 'Sorry, there was a problem sending your appointment request. Please try again.')
-            return HttpResponse(content=e, status=400)
     elif potency:
         if item_id in list(basket.keys()):
             if potency in basket[item_id]['items_by_potency'].keys():
