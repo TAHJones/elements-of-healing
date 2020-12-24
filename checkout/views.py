@@ -94,7 +94,7 @@ def checkout(request):
                             send_mail(subject, cust_body, host_email, [cust_email])
                             # send confirmation message to host email address
                             send_mail(subject, host_body, cust_email, [host_email])
-                            messages.success(request, f'Your appointment request has been received. A confirmation email will be sent to {cust_email}.')
+                            # messages.success(request, f'Your appointment request has been received. A confirmation email will be sent to {cust_email}.')
                         except Exception as e:
                             messages.error(request, 'Sorry, there was a problem sending your appointment request. Please try again.')
                             return HttpResponse(content=e, status=400)
