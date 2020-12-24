@@ -24,16 +24,17 @@ class StripeWH_Handler:
         subject = render_to_string(
             f'{filePath}confirmation_email_subject.txt',
             {'order': order})
-        body = render_to_string(
-            f'{filePath}confirmation_email_body.txt',
+        cust_body = render_to_string(
+            f'{filePath}confirmation_cust_email_body.txt',
+            {'order': order, 'host_email': host_email})
+        host_body = render_to_string(
+            f'{filePath}confirmation_host_email_body.txt',
             {'order': order, 'host_email': host_email})
 
-        send_mail(
-            subject,
-            body,
-            host_email,
-            [cust_email]
-        )
+        # send confirmation message to customer email address
+        send_mail(subject, cust_body, host_email, [cust_email])
+        # send confirmation message to host email address
+        send_mail(subject, host_body, host_email, [host_email])
 
     def handle_event(self, event):
         """
