@@ -23,7 +23,7 @@ def getGoogleCalendarService():
     CLIENT_SECRET_FILE = 'client_secret.json'
     SCOPES = ['https://www.googleapis.com/auth/calendar']
     creds = None
-    token = 'appointments/token.pkl'
+    token = 'token.pkl'
 
     if os.path.exists(token):
         with open(token, 'rb') as token:
