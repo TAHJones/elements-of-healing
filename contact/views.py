@@ -42,14 +42,15 @@ def contact(request):
                 'host_email': host_email,
                 'date': date,
             }
+            filePath = 'contact/confirmation_emails/'
             subject = render_to_string(
-                'confirmation_emails/confirmation_email_subject.txt',
+                f'{filePath}confirmation_email_subject.txt',
                 {'email': email})
             cust_body = render_to_string(
-                'confirmation_emails/confirmation_cust_email_body.txt',
+                f'{filePath}confirmation_cust_email_body.txt',
                 {'email': email})
             host_body = render_to_string(
-                'confirmation_emails/confirmation_host_email_body.txt',
+                f'{filePath}confirmation_host_email_body.txt',
                 {'email': email})
             try:
                 # send confirmation message to customer email address

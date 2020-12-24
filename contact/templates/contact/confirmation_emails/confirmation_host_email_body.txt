@@ -4,9 +4,10 @@ You have received the following message from your contact page:
 
 Name: {{ email.name }}
 Email: {{ email.cust_email }}
-Message: {{ email.message }}
 Date: {{ email.date }}
+
+Message: {{ email.message }}
 
 Best wishes,
 
-elementsofhealing.co.uk
+Elements of Healing
