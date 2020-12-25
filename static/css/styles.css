@@ -819,13 +819,25 @@ footer {
     right: 0;
   }
   .secondary-navbar .nav-item:nth-of-type(1) {
-    margin: 2rem 0 1rem;
+    margin: 0.75rem 0 1rem;
   }
 
   #searchFormButton {
     position: relative;
     left: 50px;
-    top: -158px;
+    top: -177px;
+  }
+
+  .navbar-nav .dropdown > .dropdown-menu > .dropdown-item {
+    padding: 5px;
+    text-align: left;
+    font-size: 0.75rem;
+    background-color: #2b532a;
+  }
+
+  .secondary-navbar .dropdown > .dropdown-menu > .dropdown-item {
+    position: relative;
+    right: 35px;
   }
 }
 @media (min-width: 576px) and (max-width: 767px) {
