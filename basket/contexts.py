@@ -2,7 +2,9 @@ from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
+from datetime import datetime
 
+currentYear = datetime.now().date().strftime('%y')
 
 def basket_contents(request):
 
@@ -52,6 +54,7 @@ def basket_contents(request):
         'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
         'grand_total': grand_total,
         'appointment_details': appointment_details,
+        'currentYear': currentYear,
     }
 
     return context
