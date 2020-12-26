@@ -164,14 +164,16 @@ def confirmAppointment(request, appointment_details_id):
     googleCalendarEvent = addGoogleCalendarEvent(startTime, appointment['user'], appointment['email'], appointment['message'])
     appointment_details.update(confirmed=True, eventId=googleCalendarEvent['id'])
     appointment = appointment_details.values()[0]
-    appointmentInSession = request.session.get('appointment_details', {})
-    if appointment['id'] == appointmentInSession['id'] and appointment['user'] == appointmentInSession['user']:
-        if appointment['time'] == appointmentInSession['time'] and appointment['date_str'] == appointmentInSession['date']:
-            appointment_details.session['confirmed'] = appointment['confirmed']
-            if appointment_details['confirmed']:
-                appointment_details.session['eventId'] = appointment['eventId']
-    messages.success(request, f'Appointment for {user} has been confirmed & added to your Google Calendar')
+    appointmentInSession = request.session.get('appointment_details', None)
+    if appointmentInSession:
+        if appointment['id'] == appointmentInSession['id'] and appointment['user'] == appointmentInSession['user']:
+            if appointment['time'] == appointmentInSession['time'] and appointment['date_str'] == appointmentInSession['date']:
+                appointmentInSession['confirmed'] = appointment['confirmed']
+                if appointmentInSession['confirmed']:
+                    appointmentInSession['eventId'] = appointment['eventId']
 
+    messages.success(request, f'Appointment for {user} has been confirmed & added to your Google Calendar')
+    request.session['appointment_details'] = appointmentInSession
     context = {
         'appointment_details': appointment,
     }
