@@ -8,12 +8,12 @@
 {% block content %}
 <section class="container dark-bg">
     <div class="row justify-content-center">
-        <div class="col-12 col-sm-11 form box">
+        <div class="col-12 form box">
             <h2>Profile for {{ username }}</h2>
             <div class="row justify-content-center">
-                <div class="col-12 col-lg-7 order-lg-last">
+                <div class="col-12 col-lg-8 order-lg-last">
                     <h3>Order History</h3>
-                    <div class="inner-box--grey">
+                    <div class="inner-box--grey order-history">
                         <table>
                             <thead>
                                 <tr>
@@ -52,8 +52,42 @@
                             </tbody>
                         </table>
                     </div>
+                    <h3>Appointment History</h3>
+                    <div class="inner-box--grey appointment-history">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Appointment Date</th>
+                                    <th>Order No.</th>
+                                    <th>Order Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for appointment in appointments %}
+                                    {% if appointment.confirmed %}
+                                    <tr>
+                                        <td>
+                                            <a href="{% url 'appointment_details' appointment.id %}" title="appointment.user">
+                                                {{ appointment.date }}
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="{% url 'order_history' appointment.order_number %}" title="{{ appointment.order_number }}">
+                                                {{ appointment.order_number|truncatechars:6 }}
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <p>{{ appointment.order_date }}</p>
+                                        </td>
+                                    </tr>
+                                    {% endif %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                <div class="col-12 col-lg-5">
+
+                <div class="col-12 col-lg-4">
                     <h3>Default Delivery Information</h3>
                     <form action="{% url 'profile' %}" method="POST" id="profile-update-form">
                         <div class="inner-box--grey">
