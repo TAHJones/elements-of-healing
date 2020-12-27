@@ -4,6 +4,7 @@ from products.models import Product
 from appointments.models import AppointmentsCalendar
 from appointments.utils import convertToDatetime
 from appointments.googleCalendar import deleteGoogleCalendarEvent
+from profiles.models import UserProfile
 
 
 def view_basket(request):
@@ -41,7 +42,11 @@ def add_to_basket(request, item_id):
         time = appointment_details['time']
         date = convertToDatetime(date_str, time)
 
+        profile = UserProfile.objects.get(user=request.user)
+        user_profile_id = profile.id
+
         AppointmentsCalendar(
+            user_profile_id=user_profile_id,
             user=user,
             name=name,
             email=cust_email,
