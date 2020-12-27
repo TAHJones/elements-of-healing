@@ -9,7 +9,7 @@ def home(request):
         'banner': True,
         'currentYear': currentYear,
     }
-    return render(request, "index.html", context)
+    return render(request, "pages/index.html", context)
 
 
 def homeopathy(request):
@@ -17,7 +17,7 @@ def homeopathy(request):
         'banner': True,
         'currentYear': currentYear,
     }
-    return render(request, "homeopathy.html", context)
+    return render(request, "pages/homeopathy.html", context)
 
 
 def about(request):
@@ -25,4 +25,4 @@ def about(request):
         'banner': True,
         'currentYear': currentYear,
     }
-    return render(request, "about.html", context)
+    return render(request, "pages/about.html", context)
