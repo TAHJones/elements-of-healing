@@ -7,6 +7,7 @@ from django.conf import settings
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from products.models import Product
+from appointments.models import AppointmentsCalendar
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 from basket.contexts import basket_contents
@@ -37,7 +38,6 @@ def checkout(request):
 
     if request.method == 'POST':
         basket = request.session.get('basket', {})
-        print(basket)
 
         form_data = {
             'full_name': request.POST['full_name'],
@@ -57,13 +57,16 @@ def checkout(request):
             order.stripe_pid = pid
             order.original_basket = json.dumps(basket)
             order.save()
+            updatedFields = {'order_number': order.order_number, 'order_date': order.date}
             for item_id, item_data in basket.items():
                 try:
                     product = Product.objects.get(id=item_id)
                     if product.category.friendly_name == "Appointments":
                         item_data = 1 # limit number of appointments to 1
-
                         appointment_details = request.session.get('appointment_details', {})
+                        appointment = AppointmentsCalendar.objects.filter(pk=appointment_details['id'])
+                        appointment.update(**updatedFields)
+
                         cust_email = appointment_details['cust_email']
                         host_email = settings.DEFAULT_FROM_EMAIL
 
@@ -135,7 +138,7 @@ def checkout(request):
             try:
                 profile = UserProfile.objects.get(user=request.user)
                 order_form = OrderForm(initial={
-                    'full_name': profile.user.get_full_name(),
+                    'full_name': profile.user.username,
                     'email': profile.user.email,
                     'phone_number': profile.default_phone_number,
                     'country': profile.default_country,
