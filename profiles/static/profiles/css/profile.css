@@ -24,6 +24,16 @@
   width: 100%;
 }
 
+.order-history, .appointment-history {
+  max-height: 450px;
+  overflow-y: auto;
+}
+
+@media (min-width: 992px) {
+  .order-history, .appointment-history {
+    max-height: 250px;
+  }
+}
 /* PROFILE-END */
 
 /*# sourceMappingURL=profile.css.map */

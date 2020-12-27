@@ -6,7 +6,7 @@
 // @use "modules/variables" as v;
 @use "modules/functions" as f;
 // @use "modules/mixins" as m;
-// @use "modules/media_query_mixins" as q;
+@use "modules/media_query_mixins" as q;
 
 
 /* PROFILE */
@@ -34,6 +34,17 @@
 	border-radius: f.rem-calc(4);
 	transition: border-color .15s ease-in-out .15s ease-in-out;
     width: 100%;
+}
+
+.order-history, .appointment-history {
+    max-height: 450px;
+    overflow-y: auto;
+}
+
+@include q.respond-above(lg) {
+    .order-history, .appointment-history {
+        max-height: 250px;
+    }
 }
 
 /* PROFILE-END */
