@@ -10,7 +10,7 @@ from profiles.models import UserProfile
 def view_basket(request):
     """A view that renders the shopping basket page"""
 
-    return render(request, 'basket.html')
+    return render(request, 'basket/basket.html')
 
 
 def add_to_basket(request, item_id):
