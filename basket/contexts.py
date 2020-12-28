@@ -4,7 +4,8 @@ from django.shortcuts import get_object_or_404
 from products.models import Product
 from datetime import datetime
 
-currentYear = datetime.now().date().strftime('%y')
+currentYear = datetime.now().date().strftime('%Y')
+
 
 def basket_contents(request):
 

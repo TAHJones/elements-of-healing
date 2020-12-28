@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from datetime import datetime
 
-currentYear = datetime.now().date().strftime('%y')
+currentYear = datetime.now().date().strftime('%Y')
 
 
 def home(request):
