@@ -8,15 +8,16 @@
 
 ## Introduction
 
-[Elements of Healing](https://elements-of-healing.herokuapp.com/) is a website that is avaliable to the general public. It is designed to appeal to users with an interest in holistic medicine, specifically **homeopathy**. The site is designed to provide four core services:
+[Elements of Healing](https://elements-of-healing.herokuapp.com/) is a website that is avaliable to the general public. It is designed to appeal to users seeking homeopathic treatment or who have a general interest in holistic medicine and more specifically **homeopathic treatment**. The site is designed to provide four core services:
 
-1. To educate users who have an interest in holisitic medicine, but little or no knowledge of homeopathy with an understanding of it's basic principles e.g The law of similars.
+1. To educate users who have an interest in holisitic medicine, but little or no knowledge of homeopathy, with an understanding of it's health benefits and key healing principles e.g The law of similars.
 
-2. To provide users who are interested in homeopathic treatment with an understanding of how a homeopathic consultation works, my background as a holistic healer and homeopathic qualifications. Also to provide these users with a means of contacting me should they have further questions about how a homeopathic consultation works.
+2. To provide users who are interested in homeopathic treatment with an understanding of how a homeopathic consultation works, my background as a holistic healer and homeopathic qualifications. Also to provide these users with a means of contacting me should they have further questions about homeopathy, my homeopathic practice or how a homeopathic consultation works.
 
-3. To provide users who want a homeopathic treatment with a means to contact me should they have further questions, check my current avaliability or book a consultation.
+3. To provide new/regular clients who want a homeopathic treatment with a means to provisionally book a homeopathic consultation with myself.
 
-4. To provide users (primarily existing homeopathy clients) with the ability to self-treat acute illnesses by purchasing homeopathic remedies & remedy kits from the online store.
+4. To provide users (primarily existing homeopathy clients) with the ability to self-treat acute illnesses by purchasing homeopathic remedies and remedy kits from the online store.
+
 
 ## Table of Contents
 
@@ -58,6 +59,146 @@
      - [Content](#content)
      - [Media](#media)
      - [Acknowledgements](#acknowledgements)
+
+
+## UX
+
+This site is designed to be used by the general public. It is specifically designed to appeal to users with an interest in holistic medicine, specifically **homeopathy**. The site is also designed to allow new & existing homeopathy clients to book appointments and purchase remedies and remedy kits.
+
+There are three types of user with three different levels of access to the Elements of Healing website:
+
+- **Unregistered Users** - Users of the site that don't have a user account, who have little or no knowledge of Homeopathy but are curious and wish to understanding it's health benefits and basic healing principles. Unregistered users can contact the site owner via the contact form should they require any further information about homeopathy or homeopathic treatment.
+
+- **Registered Users** - Users of the site that are new/regular homeopathy clients who have created a user account, who can book appointments and purchase remedies and remedy kits.
+
+- **Registered Users with Admin Privileges** - Users of the site with a user account with admin privileges, who are able to view, edit or delete appointment information for other registered users. They are also able to view, edit or delete user accounts.
+
+
+### User Requirements
+
+The user requirements for Elements of Healing are as follows:
+
+- The site must be easy and intuitive to use.
+
+- The site must be designed to have a soft natural feel in line with the sites subject matter.
+
+- The site must provide basic information about homeopathy's health benefits and basic healing principles.
+
+- The site must provide the user with basic information about how a homeopathy consultation works and what to expect during the process.
+
+- The site must provide the user with basic information about myself, my background and my homeopathic qualifications.
+
+- The site must provide the user with ability to contact me for more information about homeopathy or homeopathic treatment via the sites contact form.
+
+- The site must have different levels of access depending on whether the user has registered for an account and has admin privileges.
+
+- Unregistered users must be able to view basic information about homeopathy and the service I provide. They also have the ability to contact me via the contact page. They don't have the ability to book appointments or purchase remedies or remedy kits.
+
+- Unregistered users must be able to become registered users by creating a user account by entering a unique username, email address and a password into the sign-in page.
+
+- Registered users must be able to log into their user account using a unique username or email address and a password. Once successfully logged in, the user has the ability to to book appointments or purchase appointments, remedies or remedy kits.
+
+- Resistered user must be able to view their order and appointment history.
+
+- Registered users without admin privileges shouldn't be able to edit appointment information, view other users appointments or edit product informations.
+
+- Registered users with admin privileges i.e. the site owner, must be able to use a unique username or email address and password to log into their user account. Once successfully logged in with admin privileges they are able to view, confirm, edit or delete all appointment information for all registered users. They are also able to add, delete or edit product information.
+
+- Registered users with admin privileges i.e. the site owner, must be able to use a unique username or email address and password to log into the site admin panel. From the admin panel they are able to view, edit add or delete all information in the database including individual user accounts.
+
+
+### User Stories
+
+As an unregistered user:
+
+1. I want to be able to access basic information about homeopathy and it's health benefits the homeopathic services provided by the site as easily possible.
+
+2. I want to be able to access information about the homeopathic services provided by Elements of Healing.
+
+3. I want to be able to access information about Thomas Jones and his homeopathic qualifications.
+
+4. I want to be able to contact Thomas for more information about homeopathy or the homeopathic services provided by Elements of Healing.
+
+5. When I use the contact form I want to be sent an email confirming that the message has been recieved by the site administrator.
+
+6. I may want to be able to register for a user account so I can book a provisional appointment or purchase homepathic products from the site.
+
+7. I may not be familiar with the layout of the site so it must be easy and intuitive to use.
+
+8. I only want to be able to view relevant information about homeopathy and the homeopathic services on offer. I don't want to be able to accidentally book appointments or purchase homepathic products from the site.
+
+
+As a registered user:
+
+1. I want to be able to log into my account using my account details as quickly and easily as possible.
+
+2. I want to be able to provisionally book an appointment for a homeopathic consultation.
+
+3. I want to be prevented from adding more than one appointment to my shopping basket.
+
+4. I want to be able to delete appointments from my shopping basket.
+
+5. I want to be prevented from booking more than one appointment on the same day.
+
+6. I want to be prevented from booking an appointment on the same date and time as another user.
+
+7. I want to be prevented from booking an appointment in the past.
+
+8. I want to be able to view all my appointments on the site calendar.
+
+9. I want to be able to see if my appointment has been confirmed by the site administrator.
+
+10. I want to be able to access my appointment details from the site calendar.
+
+11. I want my confirmed appointments to automatically appear on my google calendar (if the user has a google account).
+
+12. I want to be able to purchase homeopathic remedies and remedy kits from the site.
+
+13. When I make a purchase I want to be sent an email confirming that my order has been recieved by the site administrator.
+
+14. I want to be able to add, delete or update my shopping basket before purchasing items.
+
+15. I want to be able to view my order and appointment history.
+
+16. I don't want to be able to accidentally book appointments or purchase homepathic products for other user.
+
+17. I want my payment information and order history data to be secure.
+
+
+As a registered user with admin privileges:
+
+1. I want to be able to log into my account or the admin panel using my account details as quickly and easily as possible.
+
+2. I want to be able to view all appointments for all users on the site calendar.
+
+3. I want to be able to confirm provisionally booked appointments.
+
+4. I want to be able to easily distinguish between confirmed and unconfirmed appointments on the site calendar.
+
+5. I want confirmed appointments to automatically appear on my and the clients google calendar (if the client has a google account).
+
+6. I want to be able to add, delete and update appointments and for this to sync with my google calendar.
+
+7. I want to be able to add, delete and update products on the site shopping cart.
+
+8. I want to be able to view, add, delete and update user accounts when logged in on the site admin panel.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## Technologies Used
