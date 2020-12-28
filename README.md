@@ -78,6 +78,9 @@
 - [psycopg2-binary](https://pypi.org/project/dj-database-url/)
 - [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
 - [django-storages](https://django-storages.readthedocs.io/en/latest/)
+- [google-auth-oauthlib/](https://pypi.org/project/google-auth-oauthlib/)
+- [google-auth-httplib2](https://pypi.org/project/google-auth-httplib2/)
+- [google-api-python-client](https://pypi.org/project/google-api-python-client/)
 
 
 ## Testing
