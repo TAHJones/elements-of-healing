@@ -57,6 +57,8 @@
 5. [Deployment](#deployment)
      - [How to Deploy Project Using Gitpod](#how-to-deploy-project-using-gitpod)
      - [How to Deploy Project Using Heroku](#how-to-deploy-project-using-heroku)
+     - [How to add Google Calendar API](#how-to-add-google-calendar-api)
+     - [How to add AWS S3 Bucket](#how-to-add-aws-s3-bucket)
 6. [Credits](#credits)
      - [Content](#content)
      - [Media](#media)
@@ -528,13 +530,13 @@ STRIPE_WH_SECRET | `<your_secret_key>`
 15. Click on the "Open App" button at the top of the page. Your [Heroku website]( https://elementsofhealing.herokuapp.com/) is now successfully deployed.
 
 
-## Google Calendar API
+## How to add Google Calendar API
 The google calendar api was integrated into the site using the following tutorials:
  - [www.youtube.com/watch?v=j1mh0or2CX8](https://www.youtube.com/watch?v=j1mh0or2CX8)
  - [developers.google.com/calendar/create-events#python_1](https://developers.google.com/calendar/create-events#python_1)
 
 
-## AWS S3 Bucket
+## How to add AWS S3 Bucket
 The AWS S3 bucket was added to the site using the codeinstitute Boutique Ado django project tutorial. More information on adding a AWS S3 bucket can be found [here](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html).
 
 
