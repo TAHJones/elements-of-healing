@@ -31,23 +31,25 @@
         - [As a Registered User](using-the-site-as-a-registered-user)
         - [As a Registered User with Admin Privileges](using-the-site-as-a-registered-user-with-admin-privileges)
 2. [Main Features](#main-features)
-     - [Main Page](#main-page)
+     - [Home Page](#home-page)
+     - [Homeopathy Page](#homeopathy-page)
+     - [Consultation Page](#homeopathy-page)
+     - [About Page](#about-page)
+     - [Contact Page](#contact-page)
      - [Login Page](#login-page)
      - [Signup Page](#signup-page)
-     - [User Page](#user-page)
-     - [Add Run Page](#add-run-page)
-     - [Manage Runs Page](manage-runs-page)
-     - [Admin or User Page](admin-or-user-page)
-     - [Admin Page](#admin-page)
-     - [Manage User Runs Page](#manage-user-runs-page)
-     - [Delete Run Page](#delete-run-page)
-     - [Update Run Page](#update-run-page)
-     - [Manage Users Page](#manage-users-page)
-     - [Delete User Page](#delete-user-page)
-     - [Update User Page](#update-user-page)
-     - [Logout Page](#logout-page)
-     - [Permission Denied Page](#permission-denied-page)
-     - [404 Error Page](#404-error-page)
+     - [Signout Page](#signout-page)
+     - [Products Page](products-page)
+     - [Product Page](product-page)
+     - [Appointments Page](#appointment-page)
+     - [Shopping Basket Page](#shopping-basket-page)
+     - [Checkout Page](#checkout-page)
+     - [Checkout Success Page](#checkout-success-page)
+     - [Profile Page](#profile-page)
+     - [Calendar Page](#calendar-page)
+     - [Appointment Details Page](#appointment-details-page)
+     - [Search Form](#search-form)
+     - [Product Management Page](#product-management-page)
      - [Features Left to Implement](#features-left-to-implement)
 3. [Technologies Used](#technologies-used)
 4. [Testing](#testing)
@@ -189,16 +191,97 @@ As a registered user with admin privileges:
 
 
 
+## Main Features
 
+### Home Page
 
+The home page allows all users of the site to see some basic information about homeopathy and the homeopathic practice of Thomas Jones. From the home page the user is able to access the homeopathy, consultation, about, contact, signup and login page.
 
+### Homeopathy Page
 
+Provides all users with more information about homeopathy.
 
+### Consultation Page
 
+Prodvides all users with information about the homeopathy consutation process.
 
+### About Page
 
+Provides all users with background information about Thomas Jones and his homeopathic qualifications.
 
+### Contact Page
 
+Provides all users with a contact form to contact the site administrator.
+
+### Login Page
+
+The login page allows a registered user to log into their user account using their unique username or email address and password.
+
+### Signup Page
+
+The signup page allows unregistered users to create a user account by entering a unique username, email address and password into the signup form.
+
+### Signout Page
+
+The signout page allows a registered user to log out of the site and end their current session.
+
+### Products Page
+
+Allows registered users to view homepathic products which includes appointments, remedies and remedy kits. From the products page the registered user is able to access individual product pages. It is possible to filter the products by category, price or rating.
+
+### Product Page
+
+Allows registered users to view details for individual homepathic products. The product page allows the registered user to add the product to the shopping basket or return to the products page.
+
+### Appointments Page
+
+Allows registered users to book/purchase homeopathic appointments. The appointments page allows the registered user to enter their name, email address, message and a appointment date & time into a form which they can submit. Once the user has submitted the form they are redirected to the appointment details page where they can review there appointment request and add it to the shopping basket or return to the appointment page if they wish to make changes.
+
+### Shopping Basket
+
+The shopping basket contains all the products selected for purchase by the registered user. This includes appointments, remedies or remedy kits. Products in the shopping basket can be updated or removed. From the shopping basket the user can proceed to the checkout or return to the products page and make more purchases.
+
+### Checkout Page
+
+THe checkout page contains all the products selected for purchase by the registered user. It also has a form fro the user to enter order details and purchase information. From the checkout page the user can finalise their purchase or return to the shopping basket and ammend their purchases.
+
+### Checkout Success Page
+
+THe checkout success page confirms that the purchase has been successful and provides the registered user with a summary of the order. From the checkout success page the user can return to the home page.
+
+### Profile Page
+
+The profile page allows the registered user to view their order and appointment history. It also allows the user to edit order delivery information.
+
+### Calendar Page
+
+The calendar page allows the registered user to view all of their appointments. It allows registered users with admin privileges to view all user appointments. By clicking on individual appointments the user is able to access the appointment details page for that appointment.
+
+### Appointment Details Page
+
+The appointment details page allows the registered user to view the details for individual appointments. It allows registered users with admin privileges to confirm provisionally booked appointments and to delete or update appointments.
+
+### Search Form
+
+The search form allows registered users to search for individual products using keywords.
+
+### Product Management Page
+
+The product management page is only accessible to users with admin privileges. It allows the user to add, delete or update products on the site.
+
+### Features Left to Implement
+
+- Prevent users from booking appointments for the current week. Appointments should be booked at least a week in advance.
+
+- Link up the purchase of appointments with the confirmation of appointments.
+
+- There are several small javascript errors that need to be fixed.
+
+- Add a blog site to the website that can be viewed by registered users. 
+
+- Add video media to the site so online remote appointments can be offered to registered users.
+
+- The python code in many views need reorganising to make it DRY.
 
 
 ## Technologies Used
@@ -222,6 +305,8 @@ As a registered user with admin privileges:
 - [google-auth-oauthlib/](https://pypi.org/project/google-auth-oauthlib/)
 - [google-auth-httplib2](https://pypi.org/project/google-auth-httplib2/)
 - [google-api-python-client](https://pypi.org/project/google-api-python-client/)
+- [AWS S3 Bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html)
+- [Google Calendar API](https://developers.google.com/calendar/quickstart/python)
 
 
 ## Testing
