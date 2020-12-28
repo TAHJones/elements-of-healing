@@ -186,9 +186,77 @@ As a registered user with admin privileges:
 8. I want to be able to view, add, delete and update user accounts when logged in on the site admin panel.
 
 
+### Wireframes
+
+Wireframes for this project were created using [Balsamiq](https://balsamiq.com/) and can be found [here](https://github.com/TAHJones/qc-metrics-analyser/tree/master/wireframes).
 
 
+### How to Use the Elements of Healing Website
 
+#### Using the Site as an Unregistered User
+
+##### Viewing the Home, Homeopathy, Consultation and About Page
+The home page is automatically displayed when users access the site. It can also be accessed in the main navbar. The homeopathy, consultation and about pages can be accessed by clicking on the `info` dropdown link in the main navbar.
+
+##### Using the Contact Page
+The contact form can be accessed by clicking on the `contact` link. Unregistered users must enter their name, email and message into the form before submitting their message. An email will be send to the email address submitted in the form to confirm that the message has been recieved by the site administrator.
+
+##### Creating a User Account
+Unregistered users can create a user account by entering a unique username, email address and password in the form on the sign-up page. An email with a link to register the new account will be sent to the email address submitted in the form. The sign-up page can be accessed by clicking on the `account` dropdown link in the main navbar then clicking on the `register` link.
+
+
+#### Using the Site as a Registered User
+
+##### Logging into a User Account
+Registered users can log into their user account by entering a unique username, email address and password in the form on the sign-in page. The sign-in page can be accessed by clicking on the `account` dropdown link in the main navbar then clicking on the `login` link.
+
+##### Purchasing Items from the Shopping Cart
+Registered users can purchase appointments, remedies and remedy kits using the shopping cart.
+
+ Step 1 - The shopping cart can be accessed by clicking on the `info` dropdown link in the main navbar then clicking on the `products` link. The products page allows users to view all the available homepathic products. From the products page the user is able to access individual product pages by clicking on the product link. It is also possible to filter the products by category, price or rating or search for an individual product by entering keywords into the search form in the main navbar.
+
+ Step 2 - The product page allows the registered user to view individual product details including a product image, description, price, rating and category. The user can update the quantity and if the product is a remedy to select a potency. Finally the user can either add the product to their shopping basket or return to the products page. Items in the shopping basket will remain for the users session and can be accessed at anytime by clicking on the basket icon in the main navbar.
+
+ Step 3 - The shopping basket contains all the products selected for purchase by the registered user. This includes appointments, remedies or remedy kits. Products in the shopping basket can be updated or removed. From the shopping basket the user can proceed to the checkout or return to the products page and make more purchases.
+
+##### Booking an Appointment
+Registered users can book and purchase appointments using the appointment form and shopping cart.
+
+ Step 1 - Registered users can book an appointment by clicking on the `appointments` link in the main navbar. The user can enter their name, email address, message and an appointment date & time into the appointment form.
+ 
+ Step 2 - Once the user has submitted the form they are redirected to the appointment details page where they can review there appointment request then add it to the shopping basket or return to the appointment page if they wish to make changes.
+
+ Step 3 - The shopping basket contains all the products selected for purchase by the registered user. This includes appointments, remedies or remedy kits. Only one appointment can be in the shopping cart at one time. The current appointment must be purchased from the checkout page or deleted from the shopping basket if the user wishes to book another appointment.
+
+#### Completing the Purchase of Appointments, Remedies and Remedy Kits
+
+ Step 1 - From the shopping basket click on the `Secure Checkout` button to navigate to the checkout page.
+ 
+ Step 2 - In checkout page the registered user can review all the products selected for purchase. It also has a form for the user to enter order details and purchase information. From the checkout page the user can finalise their purchase or return to the shopping basket and update their purchases. To complete the purchase and navigate to the checkout success page click on the `Complete Order` button.
+
+ Step 3 - The checkout success page confirms that the purchase has been successful and provides the registered user with a summary of the order. From the checkout success page the user can return to the home page.
+
+##### Viewing Appointments in the Calendar
+Registered users can view all of their appointments by clicking on the calendar icon in the main navbar. Appointments can be viewed on a month by month basis. Appointments in red are unconfirmed and appointments in yellow have been confirmed by the site administrator. By clicking on the individual appointments in the calendar the user is able to view the appointment details for that appointment. This includes the name, email, message, date, time and confirmation status.
+
+##### Viewing Order and Appointment history
+Registered users can view their order and appointments history in the profile page. This can be accessed by clicking on the `account` dropdown link in the main navbar then clicking `my profile`. The users order delivery information can be view and updated in the profile page.
+
+
+#### Using the Site as a Registered User with Admin Privileges
+As well as being able to use all the features available to regular registered users, the user with admin privileges is able to do the following:
+
+###### Logging into a User Admin Account
+Registered users with admin privileges or superusers can log into their user account by entering a unique username, email address and password in the form on the sign-in page. The sign-in page can be accessed by clicking on the `account` dropdown link in the main navbar then clicking on the `login` link. These credentials can be created by entering the following command in the terminal `python3 manage.py createsuperuser` where you will then be prompted to enter a unique username, email address and password.
+
+##### Viewing User Appointments in the Calendar
+Superusers can view all user appointments by clicking on the calendar icon in the main navbar. Appointments can be viewed on a month by month basis. Appointments in red are unconfirmed and appointments in yellow have already be confirmed. By clicking on the individual appointments in the calendar the superuser is able to view the appointment details and confirm, update or delete that appointment. When an appointment is confirmed it is automatically added to the superusers google calendar. An invitation to the event is also sent to the client (if the client has a google account).
+
+##### Updating and Deleting Homepathic Products
+Registered users with admin privileges or superusers can update or delete products in the products page. Each item in the products page has two links. The first is an `update` link which navigates to the product management page where the product details can be edited and saved. The second is a `delete` link which deletes the product from the database. To add a new product the superuser must click on the `account` dropdown link in the main navbar then click on the `product management` link. The superuser can when enter the new product details in the empty form.
+
+##### Updating the Site Database Using the Admin panel
+A feature of the django website is that users with admin privileges are able to log into the inbuilt site admin panel. This is achieved by adding `/admin` to the root url then entering their unique username or email address and password in the admin panel sign-in page. Once logged in the superuser has access to all data in the site database and can add, delete or update user accounts.
 
 
 ## Main Features
@@ -243,11 +311,11 @@ The shopping basket contains all the products selected for purchase by the regis
 
 ### Checkout Page
 
-THe checkout page contains all the products selected for purchase by the registered user. It also has a form fro the user to enter order details and purchase information. From the checkout page the user can finalise their purchase or return to the shopping basket and ammend their purchases.
+The checkout page contains all the products selected for purchase by the registered user. It also has a form for the user to enter order details and purchase information. From the checkout page the user can finalise their purchase or return to the shopping basket and ammend their purchases.
 
 ### Checkout Success Page
 
-THe checkout success page confirms that the purchase has been successful and provides the registered user with a summary of the order. From the checkout success page the user can return to the home page.
+The checkout success page confirms that the purchase has been successful and provides the registered user with a summary of the order. From the checkout success page the user can return to the home page.
 
 ### Profile Page
 
@@ -273,15 +341,19 @@ The product management page is only accessible to users with admin privileges. I
 
 - Prevent users from booking appointments for the current week. Appointments should be booked at least a week in advance.
 
+- Currently appointments are automatically deleted from the calendar if they are removed from the shopping basket. However appointments deleted from the calendar are not automatically deleted from the shopping basket.
+
 - Link up the purchase of appointments with the confirmation of appointments.
 
 - There are several small javascript errors that need to be fixed.
+
+- The copyright statement fails to appear when the page is first downloaded. This has been temporarily fixed by adding a default HTML copyright statement and inserting the current year as a template variable. However a permanent javascript solution needs to be found.
 
 - Add a blog site to the website that can be viewed by registered users. 
 
 - Add video media to the site so online remote appointments can be offered to registered users.
 
-- The python code in many views need reorganising to make it DRY.
+- The python code in many views has become quite complicated and needs reorganising.
 
 
 ## Technologies Used
@@ -456,6 +528,17 @@ STRIPE_WH_SECRET | `<your_secret_key>`
 15. Click on the "Open App" button at the top of the page. Your [Heroku website]( https://elementsofhealing.herokuapp.com/) is now successfully deployed.
 
 
+## Google Calendar API
+The google calendar api was integrated into the site using the following tutorials:
+ - [www.youtube.com/watch?v=j1mh0or2CX8](https://www.youtube.com/watch?v=j1mh0or2CX8)
+ - [developers.google.com/calendar/create-events#python_1](https://developers.google.com/calendar/create-events#python_1)
+
+
+## AWS S3 Bucket
+The AWS S3 bucket was added to the site using the codeinstitute Boutique Ado django project tutorial. More information on adding a AWS S3 bucket can be found [here](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html).
+
+
+
 ## Credits
 
 ### Content
@@ -479,4 +562,4 @@ The color scheme was designed by myself. It is inspired by nature and uses a lot
 
 - The project is inspired by my passion for homeopathy and holistic medicine. I hope to use this site to restart my Homeopathy practice to help support people during these difficult times.
 
-- The shopping cart is largely based on the codeinstitute Boutique Ado django project and was modified by myself for the purposes of this site.
+- The shopping cart is based on the codeinstitute Boutique Ado django project and was modified by myself for the purposes of this site.
