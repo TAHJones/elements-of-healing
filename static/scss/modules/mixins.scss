@@ -83,17 +83,17 @@
         margin-bottom: f.rem-calc(32);
         text-align: center;
     }
-    > ul > li:nth-of-type(1) {
+    > ul > li:nth-of-type(1), > ul > li:nth-of-type(5), > ul > li:nth-of-type(9) {
         color: $color-one;
         margin-top: f.rem-calc(40)
     }
-    > ul > li:nth-of-type(2) {
+    > ul > li:nth-of-type(2), > ul > li:nth-of-type(6), > ul > li:nth-of-type(10) {
         color: $color-two;
     }
-    > ul > li:nth-of-type(3) {
+    > ul > li:nth-of-type(3), > ul > li:nth-of-type(7), > ul > li:nth-of-type(11) {
         color: $color-three;
     }
-    > ul > li:nth-of-type(4) {
+    > ul > li:nth-of-type(4), > ul > li:nth-of-type(8), > ul > li:nth-of-type(12) {
         color: $color-four;
         margin-bottom: 0;
     }
