@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="container">
+    <div class="row justify-content-center">
+        <div class="col-10 col-md-8 col-lg-8">
+            <h2 class="paragraph-header">The Consultation</h2>
+            <p>Before the consultation can begin I must have the consent of the client. Therefore the first thing I require them to do is fill in a consent form. The form is relatively straight forward and requires the client to provide some basic information about themselves; this includes their full name, address, date of birth, phone no. and email address. I also ask for the name and address of the clients GP (I insist that anyone I see for homeopathic treatment is registered with a local GP), an overview of the client’s medical history and the reason why the client has sought homeopathic treatment. Once the client has completed the form, they sign and date it so that I have their consent to begin the consultation.</p>
+        </div>    
+    </div>
+</section>
+
+<section class="container dark-bg">
+    <div class="row justify-content-center">
+        <div class="col-xs-12 col-sm-10 col-md-9 col-lg-8 image-box">
+            <img src="{{ MEDIA_URL }}consent-form.jpg" alt="consent form">
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="row justify-content-center">
+        <div class="col-10 col-md-8 col-lg-8">
+            <h2 class="paragraph-header">Treating the Whole Person</h2>
+            <p>The consultation begins with me asking the client a series of questions relating to their presenting complaint. This is the central issue of the case and the reason the client has sought homeopathic treatment. Therefore a significant amount of time is taken to understand this aspect of the case. However the most important aspect of taking the case is being able to truly understand the person seeking my help. Homeopathy treats the whole person, not just the symptoms of disease. It is crucial that I have an understanding of how the client’s problem affects them as a whole person before I can prescribe a curative remedy. Therefore I ask the client a broad range of questions which can see in the list below. I don’t cover all of these areas in a single 40 minute consultation. I am guided by the needs of the client and focus on the issues that are relevant at that time.</p>
+        </div>
+    </div>
+</section>
+
+<section class="container dark-bg">
+    <div class="row justify-content-center">
+        <div class="col-10 col-md-8 col-lg-8 colored-list poster">
+            <h2>Areas a consultation can cover:</h2>
+            <ul>
+                <li>Personality</li>
+                <li>Relationships</li>
+                <li>Medical history</li>
+                <li>Family medical history</li>
+                <li>Allergies</li>
+                <li>Dreams and sleeping patterns</li>
+                <li>Likes and dislikes</li>
+                <li>Hobbies and interests</li>
+                <li>Motivators and stressors</li>
+                <li>Fears and phobias</li>
+                <li>Reaction to the environment</li>
+                <li>General health and life style</li>
+            </ul>         
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="row justify-content-center">
+        <div class="col-10 col-md-8 col-lg-8">
+            <h2 class="paragraph-header">Receiving the Remedy</h2>
+            <p>Often the appropriate remedy becomes obvious to me during the consultation. In which case the client receives the remedy directly after the consultation finishes. Occasionally the case requires further analysis (most frequently when I see a client for the first time) and the client receives the remedy a couple of days later.</p>
+        </div>
+    </div>
+</section>
+
+<section class="container dark-bg">
+    <div class="row justify-content-center">
+        <div class="col-xs-12 col-sm-10 col-md-9 col-lg-8 image-box">
+            <img src="{{ MEDIA_URL }}homeopathy-image3.jpg" alt="bottle">
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="row justify-content-center">
+        <div class="col-10 col-md-8 col-lg-8">
+            <h2 class="paragraph-header">The Next Consultation</h2>
+            <p>Another appointment is usually arranged in a month’s time. This gives the remedy plenty of time to work and allows me to assess its effect on the client’s health. Sometimes follow up consultations are made more frequently depending on the individual needs of the client and the nature of their condition.</p>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
