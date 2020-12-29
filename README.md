@@ -524,6 +524,8 @@ USE_AWS | True
 STRIPE_PUBLIC_KEY | `<your_public_key>`
 STRIPE_SECRET_KEY | `<your_secret_key>`
 STRIPE_WH_SECRET | `<your_secret_key>`
+EMAIL_HOST_PASS | `<your_secret_key>`
+EMAIL_HOST_USER | `<your email address>`
 
 14. In the heroku dashboard, click "Deploy".
 
