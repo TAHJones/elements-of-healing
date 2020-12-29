@@ -429,7 +429,7 @@ tails = request.session['appointment_details]` with `appointment_details = reque
 
 ## Deployment
 
-## How to Deploy Project Using Gitpod
+### How to Deploy Project Using Gitpod
 
 1. Navigate to the github repository located at https://github.com/TAHJones/qc-metrics-analyser.
 
@@ -477,7 +477,7 @@ python3 manage.py runserver
 11. Once the local server is running, add `/admin` to the end of the base url to access the admin panel login page.
 
 
-## How to Deploy Project Using Heroku
+### How to Deploy Project Using Heroku
 
 1. Create a `requirements.txt` file from the terminal using the command `pip3 freeze --local > requirements.txt`.
 
@@ -531,14 +531,88 @@ STRIPE_WH_SECRET | `<your_secret_key>`
 
 
 ## How to add Google Calendar API
-The google calendar api was integrated into the site using the following tutorials:
+
+### Create a New Google Calendar API Project
+
+1. Go to the [Google Developer Console]( https://console.developers.google.com)
+
+2. To create a new google developer project click on the dropdown link in the navbar then select `NEW PROJECT`.
+
+3. In the search form enter `google calendar api` and select ` Google Calendar API`. Then click `ENABLE`.
+
+4. In the sidebar click on the link `Credentials` follwed by `+ CREATE CREDENTIALS`. Then select the authorisation method named `OAuth client ID`.
+
+5. In the `Application type` dropdown menu select `Desktop app`, change the default name for your OAuth 2.0 client if you wish, then click `CREATE`.
+
+6. A pop message will appear telling you that you OAuth client has been created. Your new client id and your client secret will also be displayed. Click OK.
+
+7. In the credentials page under the OAuth 2.0 Client IDs section, your new OAuth client should be visible. Click on the download icon on the far right to download a copy of your `client_secret.json` file.
+
+
+### Add Credentials to Connect Your Project to the Google Calendar API
+
+In the terminal run the following command to install the library using pip3:
+
+1. Check that you have the following libraries installed in your project (they should have been installed during deployment):
+
+- google-api-python-client
+- google-auth-httplib2
+- google-auth-oauthlib
+
+2. If they aren't installed run the following command in the terminal:
+```
+pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
+```
+
+3. Place your `client_secret.json` file in the root directory of your project.
+
+4. Create a file called `googleCalendarAPI.py` as follows:
+```
+from apiclient.discovery import build
+
+from google_auth_oauthlib.flow import InstalledAppFlow
+
+import pickle
+
+
+scopes = ['https://www.googleapis.com/auth/calendar']
+
+flow = InstalledAppFlow.from_client_secrets_file("client_secret.json", scopes=scopes)
+
+credentials = flow.run_console()
+
+pickle.dump(credentials, open(‘token.pkl’, ‘wb’))
+```
+
+5. Run the python script in the terminal from the root of your project:
+```
+python3 googleCalendarAPI.py
+```
+
+6. Click on the url address in the terminal then sign in with your google account credentials when prompted.
+
+7. Click `Allow` to grant permissions to see, edit, share and delete your google calendars (you may need to go into advanced settings to do this).
+
+8. Copy the authorization code that is generated and paste it into the terminal where it says: `Enter the authorization code:`
+
+9. This should create a file called `token.pkl` in your root directory which will allow your project to connect to the google calendar api.
+
+10. For security purposes, you should now delete the `client_secret.json` file. You can also delete the `googleCalendarAPI.py` script.
+
+11. If you make any changes to your current scope settings you will need to delete the current token file and use the client_secret.json to generate a new token file.
+
+
+### Google Calendar API Tutorials
+
+For more information about integrating the google calendar api into your project see the following tutorials:
  - [www.youtube.com/watch?v=j1mh0or2CX8](https://www.youtube.com/watch?v=j1mh0or2CX8)
  - [developers.google.com/calendar/create-events#python_1](https://developers.google.com/calendar/create-events#python_1)
+ - [developers.google.com/calendar/quickstart/python](https://developers.google.com/calendar/quickstart/python)
+ - [gist.github.com/nikhilkumarsingh](https://gist.github.com/nikhilkumarsingh/8a88be71243afe8d69390749d16c8322)
 
 
 ## How to add AWS S3 Bucket
 The AWS S3 bucket was added to the site using the codeinstitute Boutique Ado django project tutorial. More information on adding a AWS S3 bucket can be found [here](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html).
-
 
 
 ## Credits
