@@ -200,12 +200,18 @@ Wireframes for this project were created using [Balsamiq](https://balsamiq.com/)
 ##### Viewing the Home, Homeopathy, Consultation and About Page
 The home page is automatically displayed when users access the site. It can also be accessed in the main navbar. The homeopathy, consultation and about pages can be accessed by clicking on the `info` dropdown link in the main navbar.
 
+<div align="center">
+  <a href="https://elements-of-healing.herokuapp.com/" target="_blank">
+    <img src="https://i.ibb.co/mCCPCy1/homepage.png" alt="homepage">
+  </a>
+</div>
+<br>
+
 ##### Using the Contact Page
 The contact form can be accessed by clicking on the `contact` link. Unregistered users must enter their name, email and message into the form before submitting their message. An email will be send to the email address submitted in the form to confirm that the message has been recieved by the site administrator.
 
 ##### Creating a User Account
 Unregistered users can create a user account by entering a unique username, email address and password in the form on the sign-up page. An email with a link to register the new account will be sent to the email address submitted in the form. The sign-up page can be accessed by clicking on the `account` dropdown link in the main navbar then clicking on the `register` link.
-
 
 #### Using the Site as a Registered User
 
@@ -542,7 +548,7 @@ EMAIL_HOST_USER | `<your email address>`
 
 3. In the search form enter `google calendar api` and select ` Google Calendar API`. Then click `ENABLE`.
 
-4. In the sidebar click on the link `Credentials` follwed by `+ CREATE CREDENTIALS`. Then select the authorisation method named `OAuth client ID`.
+4. In the sidebar click on the link `Credentials` followed by `+ CREATE CREDENTIALS`. Then select the authorisation method named `OAuth client ID`.
 
 5. In the `Application type` dropdown menu select `Desktop app`, change the default name for your OAuth 2.0 client if you wish, then click `CREATE`.
 
