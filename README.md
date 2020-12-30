@@ -210,6 +210,13 @@ The home page is automatically displayed when users access the site. It can also
 ##### Using the Contact Page
 The contact form can be accessed by clicking on the `contact` link. Unregistered users must enter their name, email and message into the form before submitting their message. An email will be send to the email address submitted in the form to confirm that the message has been recieved by the site administrator.
 
+<div align="center">
+  <a href="https://elements-of-healing.herokuapp.com/" target="_blank">
+    <img src="https://i.ibb.co/kg2knSj/contactpage.png" alt="contactpage">
+  </a>
+</div>
+<br>
+
 ##### Creating a User Account
 Unregistered users can create a user account by entering a unique username, email address and password in the form on the sign-up page. An email with a link to register the new account will be sent to the email address submitted in the form. The sign-up page can be accessed by clicking on the `account` dropdown link in the main navbar then clicking on the `register` link.
 
