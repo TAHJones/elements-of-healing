@@ -211,7 +211,7 @@ The home page is automatically displayed when users access the site. It can also
 The contact form can be accessed by clicking on the `contact` link. Unregistered users must enter their name, email and message into the form before submitting their message. An email will be send to the email address submitted in the form to confirm that the message has been recieved by the site administrator.
 
 <div align="center">
-    <a href="https://elements-of-healing.herokuapp.com/" target="_blank">
+    <a href="https://elements-of-healing.herokuapp.com/contact/" target="_blank">
         <img src="https://i.ibb.co/89fCFF1/contact-page.png" alt="contact-page">
     </a>
 </div>
@@ -225,14 +225,35 @@ Unregistered users can create a user account by entering a unique username, emai
 ##### Logging into a User Account
 Registered users can log into their user account by entering a unique username, email address and password in the form on the sign-in page. The sign-in page can be accessed by clicking on the `account` dropdown link in the main navbar then clicking on the `login` link.
 
-##### Purchasing Items from the Shopping Cart
+##### Purchasing Items from the Products Page
 Registered users can purchase appointments, remedies and remedy kits using the shopping cart.
 
- Step 1 - The shopping cart can be accessed by clicking on the `info` dropdown link in the main navbar then clicking on the `products` link. The products page allows users to view all the available homepathic products. From the products page the user is able to access individual product pages by clicking on the product link. It is also possible to filter the products by category, price or rating or search for an individual product by entering keywords into the search form in the main navbar.
+ Step 1 - The products page can be accessed by clicking on the `info` dropdown link in the main navbar then clicking on the `products` link. The products page allows users to view all the available homepathic products. From the products page the user is able to access individual product pages by clicking on the product link. It is also possible to filter the products by category, price or rating or search for an individual product by entering keywords into the search form in the main navbar.
+
+<div align="center">
+    <a href="https://elements-of-healing.herokuapp.com/products/" target="_blank">
+        <img src="https://i.ibb.co/bgxFXFz/products-page.png" alt="products-page">
+    </a>
+</div>
+<br>
 
  Step 2 - The product page allows the registered user to view individual product details including a product image, description, price, rating and category. The user can update the quantity and if the product is a remedy to select a potency. Finally the user can either add the product to their shopping basket or return to the products page. Items in the shopping basket will remain for the users session and can be accessed at anytime by clicking on the basket icon in the main navbar.
 
+<div align="center">
+    <a href="https://elements-of-healing.herokuapp.com/products/" target="_blank">
+        <img src="https://i.ibb.co/12CYvnB/product-page.png" alt="product-page">
+    </a>
+</div>
+<br>
+
  Step 3 - The shopping basket contains all the products selected for purchase by the registered user. This includes appointments, remedies or remedy kits. Products in the shopping basket can be updated or removed. From the shopping basket the user can proceed to the checkout or return to the products page and make more purchases.
+
+<div align="center">
+    <a href="https://elements-of-healing.herokuapp.com/products/" target="_blank">
+        <img src="https://i.ibb.co/ftDVfN3/shopping-basket.png" alt="shopping-basket">
+    </a>
+</div>
+<br>
 
 ##### Booking an Appointment
 Registered users can book and purchase appointments using the appointment form and shopping cart.
@@ -240,7 +261,7 @@ Registered users can book and purchase appointments using the appointment form a
  Step 1 - Registered users can book an appointment by clicking on the `appointments` link in the main navbar. The user can enter their name, email address, message and an appointment date & time into the appointment form.
  
 <div align="center">
-    <a href="https://elements-of-healing.herokuapp.com/" target="_blank">
+    <a href="https://elements-of-healing.herokuapp.com/appointments/2/" target="_blank">
         <img src="https://i.ibb.co/H2J7ZkS/appointment-page.png" alt="appointment-page">
     </a>
 </div>
