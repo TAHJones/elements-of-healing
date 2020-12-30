@@ -201,9 +201,9 @@ Wireframes for this project were created using [Balsamiq](https://balsamiq.com/)
 The home page is automatically displayed when users access the site. It can also be accessed in the main navbar. The homeopathy, consultation and about pages can be accessed by clicking on the `info` dropdown link in the main navbar.
 
 <div align="center">
-  <a href="https://elements-of-healing.herokuapp.com/" target="_blank">
-    <img src="https://i.ibb.co/FxnpgGB/homepage.png" alt="homepage">
-  </a>
+    <a href="https://elementsofhealing.herokuapp.com/" target="_blank">
+        <img src="https://i.ibb.co/kQv58hZ/home-page.png" alt="home-page">
+    </a>
 </div>
 <br>
 
@@ -211,9 +211,9 @@ The home page is automatically displayed when users access the site. It can also
 The contact form can be accessed by clicking on the `contact` link. Unregistered users must enter their name, email and message into the form before submitting their message. An email will be send to the email address submitted in the form to confirm that the message has been recieved by the site administrator.
 
 <div align="center">
-  <a href="https://elements-of-healing.herokuapp.com/" target="_blank">
-    <img src="https://i.ibb.co/7XhNRpr/contactpage.png" alt="contactpage">
-  </a>
+    <a href="https://elements-of-healing.herokuapp.com/" target="_blank">
+        <img src="https://i.ibb.co/89fCFF1/contact-page.png" alt="contact-page">
+    </a>
 </div>
 <br>
 
@@ -240,9 +240,9 @@ Registered users can book and purchase appointments using the appointment form a
  Step 1 - Registered users can book an appointment by clicking on the `appointments` link in the main navbar. The user can enter their name, email address, message and an appointment date & time into the appointment form.
  
 <div align="center">
-  <a href="https://elements-of-healing.herokuapp.com/" target="_blank">
-    <img src="https://i.ibb.co/HH5mJ6B/appointmentpage.png" alt="appointmentpage">
-  </a>
+    <a href="https://elements-of-healing.herokuapp.com/" target="_blank">
+        <img src="https://i.ibb.co/H2J7ZkS/appointment-page.png" alt="appointment-page">
+    </a>
 </div>
 <br>
 
