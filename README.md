@@ -269,6 +269,13 @@ Registered users can book and purchase appointments using the appointment form a
 
  Step 2 - Once the user has submitted the form they are redirected to the appointment details page where they can review there appointment request then add it to the shopping basket or return to the appointment page if they wish to make changes.
 
+<div align="center">
+    <a href="https://elementsofhealing.herokuapp.com/appointments/purchase_appointment/2/" target="_blank">
+        <img src="https://i.ibb.co/mvMJ8pT/appointment-details-page.png" alt="appointment-details-page">
+    </a>
+</div>
+<br>
+
  Step 3 - The shopping basket contains all the products selected for purchase by the registered user. This includes appointments, remedies or remedy kits. Only one appointment can be in the shopping cart at one time. The current appointment must be purchased from the checkout page or deleted from the shopping basket if the user wishes to book another appointment.
 
 #### Completing the Purchase of Appointments, Remedies and Remedy Kits
