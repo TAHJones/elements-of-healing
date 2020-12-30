@@ -293,6 +293,12 @@ Registered users can book and purchase appointments using the appointment form a
 
  Step 3 - The checkout success page confirms that the purchase has been successful and provides the registered user with a summary of the order. From the checkout success page the user can return to the home page.
 
+<div align="center">
+    <a href="https://elementsofhealing.herokuapp.com" target="_blank">
+        <img src="https://i.ibb.co/c66S4jG/checkout-success-page.png" alt="checkout-success-page">
+</div>
+<br>
+
 ##### Viewing Appointments in the Calendar
 Registered users can view all of their appointments by clicking on the calendar icon in the main navbar. Appointments can be viewed on a month by month basis. Appointments in red are unconfirmed and appointments in yellow have been confirmed by the site administrator. By clicking on the individual appointments in the calendar the user is able to view the appointment details for that appointment. This includes the name, email, message, date, time and confirmation status.
 
