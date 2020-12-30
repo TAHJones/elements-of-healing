@@ -202,7 +202,7 @@ The home page is automatically displayed when users access the site. It can also
 
 <div align="center">
   <a href="https://elements-of-healing.herokuapp.com/" target="_blank">
-    <img src="https://i.ibb.co/mCCPCy1/homepage.png" alt="homepage">
+    <img src="https://i.ibb.co/FxnpgGB/homepage.png" alt="homepage">
   </a>
 </div>
 <br>
@@ -212,7 +212,7 @@ The contact form can be accessed by clicking on the `contact` link. Unregistered
 
 <div align="center">
   <a href="https://elements-of-healing.herokuapp.com/" target="_blank">
-    <img src="https://i.ibb.co/kg2knSj/contactpage.png" alt="contactpage">
+    <img src="https://i.ibb.co/7XhNRpr/contactpage.png" alt="contactpage">
   </a>
 </div>
 <br>
@@ -239,6 +239,13 @@ Registered users can book and purchase appointments using the appointment form a
 
  Step 1 - Registered users can book an appointment by clicking on the `appointments` link in the main navbar. The user can enter their name, email address, message and an appointment date & time into the appointment form.
  
+<div align="center">
+  <a href="https://elements-of-healing.herokuapp.com/" target="_blank">
+    <img src="https://i.ibb.co/HH5mJ6B/appointmentpage.png" alt="appointmentpage">
+  </a>
+</div>
+<br>
+
  Step 2 - Once the user has submitted the form they are redirected to the appointment details page where they can review there appointment request then add it to the shopping basket or return to the appointment page if they wish to make changes.
 
  Step 3 - The shopping basket contains all the products selected for purchase by the registered user. This includes appointments, remedies or remedy kits. Only one appointment can be in the shopping cart at one time. The current appointment must be purchased from the checkout page or deleted from the shopping basket if the user wishes to book another appointment.
