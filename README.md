@@ -212,7 +212,7 @@ The contact form can be accessed by clicking on the `contact` link. Unregistered
 
 <div align="center">
     <a href="https://elements-of-healing.herokuapp.com/contact/" target="_blank">
-        <img src="https://i.ibb.co/89fCFF1/contact-page.png" alt="contact-page">
+        <img src="https://i.ibb.co/Cvh5zLT/contact-page.png" alt="contact-page">
     </a>
 </div>
 <br>
