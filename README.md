@@ -190,7 +190,7 @@ As a registered user with admin privileges:
 
 ### Wireframes
 
-Wireframes for this project were created using [Balsamiq](https://balsamiq.com/) and can be found [here](https://github.com/TAHJones/qc-metrics-analyser/tree/master/wireframes).
+Wireframes for this project were created using [Balsamiq](https://balsamiq.com/) and can be found [here](https://github.com/TAHJones/elements-of-healing/tree/master/wireframes).
 
 
 ### How to Use the Elements of Healing Website
