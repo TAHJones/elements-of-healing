@@ -302,6 +302,13 @@ Registered users can book and purchase appointments using the appointment form a
 ##### Viewing Appointments in the Calendar
 Registered users can view all of their appointments by clicking on the calendar icon in the main navbar. Appointments can be viewed on a month by month basis. Appointments in red are unconfirmed and appointments in yellow have been confirmed by the site administrator. By clicking on the individual appointments in the calendar the user is able to view the appointment details for that appointment. This includes the name, email, message, date, time and confirmation status.
 
+<div align="center">
+    <a href="https://elementsofhealing.herokuapp.com" target="_blank">
+        <img src="https://i.ibb.co/P94qydr/appointment-details-page-2.png" alt="appointment-details-page-2">
+    </a>
+</div>
+<br>
+
 ##### Viewing Order and Appointment history
 Registered users can view their order and appointments history in the profile page. This can be accessed by clicking on the `account` dropdown link in the main navbar then clicking `my profile`. The users order delivery information can be view and updated in the profile page.
 
