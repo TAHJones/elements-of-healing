@@ -304,6 +304,13 @@ Registered users can view all of their appointments by clicking on the calendar 
 
 <div align="center">
     <a href="https://elementsofhealing.herokuapp.com" target="_blank">
+        <img src="https://i.ibb.co/0nZKLQz/appointment-calendar.jpg" alt="appointment-calendar">
+    </a>
+</div>
+<br>
+
+<div align="center">
+    <a href="https://elementsofhealing.herokuapp.com" target="_blank">
         <img src="https://i.ibb.co/P94qydr/appointment-details-page-2.png" alt="appointment-details-page-2">
     </a>
 </div>
