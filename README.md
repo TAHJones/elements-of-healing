@@ -329,6 +329,20 @@ Registered users with admin privileges or superusers can log into their user acc
 ##### Viewing User Appointments in the Calendar
 Superusers can view all user appointments by clicking on the calendar icon in the main navbar. Appointments can be viewed on a month by month basis. Appointments in red are unconfirmed and appointments in yellow have already be confirmed. By clicking on the individual appointments in the calendar the superuser is able to view the appointment details and confirm, update or delete that appointment. When an appointment is confirmed it is automatically added to the superusers google calendar. An invitation to the event is also sent to the client (if the client has a google account).
 
+<div align="center">
+    <a href="https://elementsofhealing.herokuapp.com" target="_blank">
+        <img src="https://i.ibb.co/3hGtgZ5/appointment-calendar-2.jpg" alt="appointment-calendar-2">
+    </a>
+</div>
+<br>
+
+<div align="center">
+    <a href="https://elementsofhealing.herokuapp.com" target="_blank">
+        <img src="https://i.ibb.co/KxWzSrL/appointment-details-page-3.png" alt="appointment-details-page-3">
+    </a>
+</div>
+<br>
+
 ##### Updating and Deleting Homepathic Products
 Registered users with admin privileges or superusers can update or delete products in the products page. Each item in the products page has two links. The first is an `update` link which navigates to the product management page where the product details can be edited and saved. The second is a `delete` link which deletes the product from the database. To add a new product the superuser must click on the `account` dropdown link in the main navbar then click on the `product management` link. The superuser can when enter the new product details in the empty form.
 
